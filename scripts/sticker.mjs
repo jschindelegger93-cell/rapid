@@ -284,6 +284,28 @@ const T = {
       ${blauRot(0, 556, SW, 30)}`;
     return form(SW, SH, inner, { id: 'fg' + seedOf(a + (b || '')) });
   },
+  // Antiviola-Schwein: violettes Schwein, durchgestrichen
+  schwein: () => {
+    const cx = 450, cy = 300;
+    const st = `stroke="${K}" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"`;
+    const pig = `
+      <path d="M${cx - 140} ${cy - 70} L${cx - 165} ${cy - 205} L${cx - 50} ${cy - 140} Z" fill="${V}" ${st}/>
+      <path d="M${cx + 140} ${cy - 70} L${cx + 165} ${cy - 205} L${cx + 50} ${cy - 140} Z" fill="${V}" ${st}/>
+      <ellipse cx="${cx}" cy="${cy}" rx="170" ry="155" fill="${V}" ${st}/>
+      <ellipse cx="${cx - 60}" cy="${cy - 40}" rx="20" ry="24" fill="${W}" ${st}/><circle cx="${cx - 56}" cy="${cy - 34}" r="9" fill="${K}"/>
+      <ellipse cx="${cx + 60}" cy="${cy - 40}" rx="20" ry="24" fill="${W}" ${st}/><circle cx="${cx + 56}" cy="${cy - 34}" r="9" fill="${K}"/>
+      <ellipse cx="${cx}" cy="${cy + 50}" rx="72" ry="50" fill="#8B5BB5" ${st}/>
+      <ellipse cx="${cx - 24}" cy="${cy + 50}" rx="11" ry="18" fill="${K}"/><ellipse cx="${cx + 24}" cy="${cy + 50}" rx="11" ry="18" fill="${K}"/>`;
+    const inner = `<rect width="${SW}" height="${SH}" fill="${CREME}"/>
+      <rect x="40" y="40" width="${SW - 80}" height="${SH - 80}" fill="none" stroke="${K}" stroke-width="6"/>
+      ${txt('WIEN WEST', SW / 2, 118, 64, 520, K, { font: 'stencil' })}
+      <g transform="translate(${cx} ${cy + 20}) scale(.68) translate(${-cx} ${-cy})">${pig}</g>
+      <path d="M300 450 L600 160" stroke="${CREME}" stroke-width="52" stroke-linecap="round"/>
+      <path d="M300 450 L600 160" stroke="${G}" stroke-width="32" stroke-linecap="round"/>
+      ${txt('ANTIVIOLA', SW / 2, 540, 74, 600, K, { font: 'stencil' })}
+      ${blauRot(40, 552, SW - 80, 8)}`;
+    return form(SW, SH, inner, { rx: 12, rand: 12, id: 'pig' });
+  },
   pack: ({ a, n }) => {
     const mini = (x, y, r, fill, label, font) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="-130" y="-70" width="260" height="140" rx="10" fill="${W}" stroke="#0003" stroke-width="2"/><rect x="-120" y="-60" width="240" height="120" rx="4" fill="${fill}"/>${txt(label, 0, 20, 54, 210, W, { font })}</g>`;
     const inner = `<rect width="${SW}" height="${SH}" fill="${CREME}"/>
@@ -318,7 +340,7 @@ const P = [
   ['rapid-wien-fan-szene', 'Rapid Wien Fan Szene', 'block', { zeilen: ['RAPID WIEN', 'FAN SZENE'], farben: [G, K] }, 'forza', 'Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen.', true],
   ['ynwa', 'You’ll never walk alone', 'streifen', { a: 'YOU’LL NEVER', b: 'WALK ALONE' }, 'forza', 'Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt.', true],
   ['scr-1899', 'SCR 1899', 'block', { zeilen: ['SCR', '1899'], farben: [K, G] }, 'forza', 'Drei Buchstaben, eine Jahreszahl. Jeder im Block weiß Bescheid.', true],
-  ['rapid-wien-riesenrad', 'Rapid Wien – Riesenrad', 'stadt', { a: 'RAPID WIEN', b: 'WIEN IST GRÜN & WEISS!', mark: 'rad' }, 'forza', 'Das Riesenrad als eigene Zeichnung, darunter Rapid Wien.', false],
+  ['antiviola-schwein', 'Antiviola – Schwein', 'schwein', {}, 'derby', 'Violettes Schwein, grün durchgestrichen. Antiviola im alten Siebdruck-Look.', true],
   // WIEN WEST & HÜTTELDORF
   ['wien-west-huetteldorf', 'Wien West Hütteldorf', 'block', { zeilen: ['WIEN', 'WEST', 'HÜTTELDORF'] }, 'wienwest', 'Wien West Hütteldorf – drei Zeilen auf Block-Streifen mit Blau-Rot-Band.', true],
   ['wien-west-huetteldorf-schal', 'Wien West Hütteldorf – Schal', 'schal', { zeilen: ['WIEN WEST', 'HÜTTELDORF'] }, 'wienwest', 'Wien West Hütteldorf in Strick-Optik.', true],

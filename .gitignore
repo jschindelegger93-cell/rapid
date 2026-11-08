@@ -3,3 +3,6 @@ dist/
 .astro/
 .netlify/
 .DS_Store
+druck/png/
+druck/pdf/
+druck/*.zip
