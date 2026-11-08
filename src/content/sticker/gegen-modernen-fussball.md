@@ -3,7 +3,7 @@ name: "Gegen modernen Fußball"
 kurz: "Schablone auf Schwarz. Stehplätze statt VIP-Logen."
 typ: einzel
 kategorie: kurve
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/gegen-modernen-fussball.svg
@@ -15,7 +15,7 @@ reihenfolge: 29
 shopifyVariantId: ""
 seo:
   title: "Gegen modernen Fußball Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Gegen modernen Fußball: Schablone auf Schwarz. Stehplätze statt VIP-Logen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Gegen modernen Fußball: Schablone auf Schwarz. Stehplätze statt VIP-Logen. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Schablone auf Schwarz. Stehplätze statt VIP-Logen.

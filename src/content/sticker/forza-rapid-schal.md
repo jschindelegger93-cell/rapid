@@ -3,7 +3,7 @@ name: "Forza Rapid – Schal"
 kurz: "Der Schlachtruf in Strick-Optik."
 typ: einzel
 kategorie: forza
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/forza-rapid-schal.svg
@@ -15,7 +15,7 @@ reihenfolge: 8
 shopifyVariantId: ""
 seo:
   title: "Forza Rapid – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Forza Rapid – Schal: Der Schlachtruf in Strick-Optik. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Forza Rapid – Schal: Der Schlachtruf in Strick-Optik. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Der Schlachtruf in Strick-Optik.

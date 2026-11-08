@@ -3,7 +3,7 @@ name: "Wien gehört uns! – Schal"
 kurz: "Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen."
 typ: einzel
 kategorie: derby
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/wien-gehoert-uns-schal.svg
@@ -15,7 +15,7 @@ reihenfolge: 4
 shopifyVariantId: ""
 seo:
   title: "Wien gehört uns! – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien gehört uns! – Schal: Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Wien gehört uns! – Schal: Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen.

@@ -3,7 +3,7 @@ name: "Derbysieger – Schal"
 kurz: "Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby."
 typ: einzel
 kategorie: derby
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/derbysieger-schal.svg
@@ -15,7 +15,7 @@ reihenfolge: 5
 shopifyVariantId: ""
 seo:
   title: "Derbysieger – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Derbysieger – Schal: Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Derbysieger – Schal: Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby.

@@ -3,7 +3,7 @@ name: "Wien West – Figur"
 kurz: "Kappe auf, Tuch vorm Gesicht: aus dem Westen, für immer."
 typ: einzel
 kategorie: kurve
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/figur-wien-west.svg
@@ -15,7 +15,7 @@ reihenfolge: 30
 shopifyVariantId: ""
 seo:
   title: "Wien West – Figur Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien West – Figur: Kappe auf, Tuch vorm Gesicht: aus dem Westen, für immer. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Wien West – Figur: Kappe auf, Tuch vorm Gesicht: aus dem Westen, für immer. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Kappe auf, Tuch vorm Gesicht: aus dem Westen, für immer.

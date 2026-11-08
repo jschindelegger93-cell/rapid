@@ -3,7 +3,7 @@ name: "Anti Violett"
 kurz: "Schablonen-Look, Violett durchgestrichen."
 typ: einzel
 kategorie: derby
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/anti-violett.svg
@@ -15,7 +15,7 @@ reihenfolge: 2
 shopifyVariantId: ""
 seo:
   title: "Anti Violett Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Anti Violett: Schablonen-Look, Violett durchgestrichen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Anti Violett: Schablonen-Look, Violett durchgestrichen. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Schablonen-Look, Violett durchgestrichen.

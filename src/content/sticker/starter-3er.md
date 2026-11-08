@@ -3,8 +3,8 @@ name: "3er Starter-Pack"
 kurz: "Die drei Topseller: Anti Viola, Wien West Hütteldorf, A.C.A.B."
 typ: pack
 kategorie: packs
-preis: 6.9
-wertEinzeln: 7.5
+preis: 7.9
+wertEinzeln: 8.7
 stueck: 3
 format: "je ca. 9 × 6 cm"
 bild: /sticker/starter-3er.svg

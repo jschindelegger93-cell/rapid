@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { S, eur } from '../lib/site';
 ---
-<Base title={`Versand & Preise | ${S.name}`} description={`Versand in Österreich ${eur(S.versandAT)}, gratis ab ${eur(S.gratisVersandAb)}. Mindestbestellwert ${eur(S.mindestbestellwert)}. Mengenrabatt bis −20 %.`}>
+<Base title={`Versand & Preise | ${S.name}`} description={`Versand in Österreich ${eur(S.versandAT)}, gratis ab ${eur(S.gratisVersandAb)}. Mindestbestellwert ${eur(S.mindestbestellwert)}. Mengenrabatt −15 % ab 10 Stück.`}>
   <div class="wrap prose" style="padding-bottom:60px">
     <nav class="crumbs"><a href="/">Start</a> / Versand</nav>
     <h1 style="margin-top:20px">Versand & Preise</h1>
@@ -15,9 +15,9 @@ import { S, eur } from '../lib/site';
       </tbody>
     </table>
     <h2>Mindestbestellwert</h2>
-    <p>{eur(S.mindestbestellwert)} pro Bestellung – also z. B. 4 Einzelsticker à {eur(2.5)} oder ein 5er Klassiker-Pack.</p>
+    <p>{eur(S.mindestbestellwert)} pro Bestellung – also z. B. 4 Einzelsticker à {eur(2.9)} oder ein 5er Topseller-Pack.</p>
     <h2>Mengenrabatt</h2>
-    <p>Auf alle Einzelsticker, Motive gemischt: ab 5 Stück −10 %, ab 10 Stück −20 %. Wird im Warenkorb automatisch abgezogen.</p>
+    <p>Auf alle Einzelsticker, Motive gemischt: ab 10 Stück −15 %. Wird im Warenkorb automatisch abgezogen.</p>
     <h2>Versandzeit</h2>
     <p>{S.versandzeit} nach Zahlungseingang, knickfrei im Kuvert mit Karton. Laufzeit Österreich meist 2–4 Werktage.</p>
   </div>

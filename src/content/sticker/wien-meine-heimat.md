@@ -3,7 +3,7 @@ name: "Wien – meine Heimat. Meine Liebe."
 kurz: "Grün-weiß geteilt, Sprühlack-Schrift."
 typ: einzel
 kategorie: wienwest
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/wien-meine-heimat.svg
@@ -15,7 +15,7 @@ reihenfolge: 26
 shopifyVariantId: ""
 seo:
   title: "Wien – meine Heimat. Meine Liebe. Sticker kaufen – Rapid Aufkleber | W"
-  description: "Wien – meine Heimat. Meine Liebe.: Grün-weiß geteilt, Sprühlack-Schrift. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Wien – meine Heimat. Meine Liebe.: Grün-weiß geteilt, Sprühlack-Schrift. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Grün-weiß geteilt, Sprühlack-Schrift.

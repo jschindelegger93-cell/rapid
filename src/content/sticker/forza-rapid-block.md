@@ -3,7 +3,7 @@ name: "Forza Rapid"
 kurz: "Fette Block-Buchstaben auf grünen Streifen – schlicht und laut."
 typ: einzel
 kategorie: forza
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/forza-rapid-block.svg
@@ -15,7 +15,7 @@ reihenfolge: 9
 shopifyVariantId: ""
 seo:
   title: "Forza Rapid Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Forza Rapid: Fette Block-Buchstaben auf grünen Streifen – schlicht und laut. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Forza Rapid: Fette Block-Buchstaben auf grünen Streifen – schlicht und laut. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Fette Block-Buchstaben auf grünen Streifen – schlicht und laut.

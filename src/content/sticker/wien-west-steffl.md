@@ -3,7 +3,7 @@ name: "Wien West – Stephansdom"
 kurz: "Der Steffl als eigene Zeichnung, darunter Wien West Hütteldorf."
 typ: einzel
 kategorie: wienwest
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/wien-west-steffl.svg
@@ -15,7 +15,7 @@ reihenfolge: 24
 shopifyVariantId: ""
 seo:
   title: "Wien West – Stephansdom Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien West – Stephansdom: Der Steffl als eigene Zeichnung, darunter Wien West Hütteldorf. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Wien West – Stephansdom: Der Steffl als eigene Zeichnung, darunter Wien West Hütteldorf. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Der Steffl als eigene Zeichnung, darunter Wien West Hütteldorf.

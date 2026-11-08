@@ -9,24 +9,20 @@
   "klickdummy": true,
   "mindestbestellwert": 10,
   "gratisVersandAb": 20,
-  "versandAT": 2.9,
+  "versandAT": 3.5,
   "versandEU": 4.9,
   "gratisVersandEUAb": 30,
   "versandzeit": "Versand innerhalb von 48 h",
   "staffel": [
     {
-      "ab": 5,
-      "rabatt": 10
-    },
-    {
       "ab": 10,
-      "rabatt": 20
+      "rabatt": 15
     }
   ],
   "shopifyDomain": "",
   "announcement": [
     "Gratis Versand ab 20 € – rechtzeitig vor dem nächsten Spieltag",
-    "Ab 5 Stickern −10 %, ab 10 Stück −20 % – auch gemischt",
+    "Ab 10 Stickern −15 % – auch gemischt",
     "Aus Wien West verschickt, innerhalb von 48 h"
   ]
 }

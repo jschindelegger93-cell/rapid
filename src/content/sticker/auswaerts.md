@@ -3,7 +3,7 @@ name: "Auswärts immer dabei"
 kurz: "Schablone in Grün – für Raststation, Bahnhof und Gästesektor."
 typ: einzel
 kategorie: kurve
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/auswaerts.svg
@@ -15,7 +15,7 @@ reihenfolge: 28
 shopifyVariantId: ""
 seo:
   title: "Auswärts immer dabei Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Auswärts immer dabei: Schablone in Grün – für Raststation, Bahnhof und Gästesektor. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Auswärts immer dabei: Schablone in Grün – für Raststation, Bahnhof und Gästesektor. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Schablone in Grün – für Raststation, Bahnhof und Gästesektor.

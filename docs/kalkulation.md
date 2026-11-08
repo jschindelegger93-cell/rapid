@@ -2,30 +2,39 @@
 
 Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot ersetzen. Preise brutto inkl. 20 % USt.
 
-## Preise & Regeln
+## Preise & Regeln (Update: höherer Deckungsbeitrag)
 
 | Regel | Wert |
 |---|---|
-| Sticker 9 × 6 cm (alle Motive gleich) | 2,50 € |
-| Flaggen-Format 9 × 6 cm / Figur 8 × 8 cm | 2,50 € |
-| Schal/Schild-Format 15 × 5 cm | 3,90 € |
+| Sticker 9 × 6 cm, Vinyl matt laminiert | **2,90 €** |
 | Mindestbestellwert | 10 € (= 4 Sticker) |
-| Versand AT | 2,90 €, **gratis ab 20 €** |
+| Versand AT | **3,50 €**, gratis ab 20 € |
 | Versand DE/EU | 4,90 €, gratis ab 30 € |
-| Mengenrabatt Einzel/Groß | ab 5 Stk −10 %, ab 10 Stk −20 % |
+| Mengenrabatt Einzelsticker | **ab 10 Stück −15 %** (gemischt) |
+| Willkommensrabatt (Klaviyo) | 10 % auf die erste Bestellung |
 
-## Packs (Ankerpreise)
+## Packs
 
 | Pack | Preis | Wert einzeln | Ersparnis | € / Sticker |
 |---|---|---|---|---|
-| 3er Starter | 6,90 | 7,50 | 8 % | 2,30 |
-| 5er Topseller | 9,90 | 12,50 | 21 % | 1,98 |
-| **10er Mix** | **20,00** | 25,00 | 20 % | 2,00 |
-| Mystery 15er | 19,00 | 37,50 | 49 % | 1,27 |
-| 25er Kurve | 29,00 | 62,50 | 54 % | 1,16 |
-| 50er Block | 49,00 | 125,00 | 61 % | 0,98 |
+| 3er Starter | 7,90 | 8,70 | 9 % | 2,63 |
+| 5er Topseller | 12,90 | 14,50 | 11 % | 2,58 |
+| **10er Mix** | **24,90** | 29,00 | 14 % | 2,49 |
+| Mystery 15er | 34,90 | 43,50 | 20 % | 2,33 |
+| 25er Kurve | 49,00 | 72,50 | 32 % | 1,96 |
+| 50er Block | 89,00 | 145,00 | 39 % | 1,78 |
 
-Das 10er Mix-Pack (20 €) liegt exakt auf der Gratis-Versand-Grenze (20 €) → Hauptprodukt in Hero, Packs-Sektion und Abschluss-CTA.
+## Deckungsbeitrag pro Bestellung (AT, inkl. 10 % Willkommensrabatt)
+Annahmen: Sticker 0,45 €/Stk (50 Stk/Motiv), Kuvert 0,35 €, Porto Brief M 1,55 € (50er: Päckchen 3,10 €), Zahlung 3 % + 0,30 €, 20 % USt.
+
+| Warenkorb | Kunde zahlt | DB alt | **DB neu** |
+|---|---|---|---|
+| 4 Einzelsticker | 13,94 € | 5,60 € | **7,20 €** |
+| 10er Mix-Pack | 22,41 € | 10,10 € | **11,30 €** |
+| 10 Einzelsticker (−15 %) | 22,19 € | 10,10 € | **11,10 €** |
+| 50er Block-Pack | 80,10 € | ~15 € | **~37 €** |
+
+Ohne Willkommensrabatt (Stammkunden) liegt der DB pro Bestellung jeweils ca. 1–8 € höher.
 
 ## Stückkosten (Annahmen)
 

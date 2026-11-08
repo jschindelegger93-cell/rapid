@@ -6,11 +6,11 @@ export const KATEGORIE_SEITEN = [
     slug: 'anti-viola-sticker',
     h1: 'Anti Viola Sticker',
     title: 'Anti Viola Sticker & Derby-Aufkleber kaufen | Wien West Sticker',
-    description: 'Anti Viola, Anti Violett, Wien gehört uns & A.C.A.B.: wetterfeste Derby-Sticker 9 × 6 cm ab 2,50 €. Violett immer durchgestrichen. Gratis Versand ab 20 €.',
+    description: 'Anti Viola, Anti Violett, Wien gehört uns & A.C.A.B.: wetterfeste Derby-Sticker 9 × 6 cm ab 2,90 €. Violett immer durchgestrichen. Gratis Versand ab 20 €.',
     keyword: 'anti viola sticker',
     intro: [
       'Vor jedem Wiener Derby wird in Hütteldorf geklebt. Unsere Anti-Viola-Sticker sind dafür gemacht: flacher Siebdruck-Look, Schablonen-Schrift und Violett immer durchgestrichen. Alle Motive kommen im selben Format von 9 × 6 cm, auf wetterfestem Vinyl mit matter Laminierung.',
-      'Ob „Anti Viola“, „Anti Violett“, „Wien gehört uns!“ oder der Strick-Schal „Derbysieger“ – die Sprüche stammen direkt aus der Kurve. Ab 5 Stickern gibt es automatisch −10 %, ab 10 Stück −20 %.',
+      'Ob „Anti Viola“, „Anti Violett“, „Wien gehört uns!“ oder der Strick-Schal „Derbysieger“ – die Sprüche stammen direkt aus der Kurve. Ab 10 Stickern gibt es automatisch −15 %, auch gemischt.',
     ],
     faq: [
       ['Was bedeutet Anti Viola?', 'Anti Viola ist ein Spruch aus der Rapid-Fanszene gegen den Wiener Stadtrivalen in Violett. Auf unseren Stickern ist das violette Wort deshalb immer durchgestrichen.'],
@@ -38,7 +38,7 @@ export const KATEGORIE_SEITEN = [
     slug: 'wien-west-huetteldorf-sticker',
     h1: 'Wien West Hütteldorf Sticker',
     title: 'Wien West Hütteldorf Sticker – 1140, Weststadion, Block West',
-    description: 'Wien West Hütteldorf, 1140, Weststadion & Block West als Sticker: Block-Streifen, Strick-Schal & Sprühlack. 9 × 6 cm, wetterfest, ab 2,50 €.',
+    description: 'Wien West Hütteldorf, 1140, Weststadion & Block West als Sticker: Block-Streifen, Strick-Schal & Sprühlack. 9 × 6 cm, wetterfest, ab 2,90 €.',
     keyword: 'wien west hütteldorf aufkleber',
     intro: [
       'Wien West, Hütteldorf, 1140 – für alle, die im Westen daheim sind. Hier findest du die Motive rund ums Weststadion und den Block West: Block-Streifen mit Postleitzahl, Strick-Schals mit blau-roten Randstreifen und Sprühlack-Sprüche wie „Wien – ein Leben lang“.',
@@ -54,7 +54,7 @@ export const KATEGORIE_SEITEN = [
     slug: 'ultras-sticker',
     h1: 'Ultras Sticker & Kurven-Aufkleber',
     title: 'Ultras Sticker & Kurven-Aufkleber kaufen | Wien West Sticker',
-    description: 'Kurven-Sticker im Ultra-Look: Wien–Nürnberg, Auswärts immer dabei, Gegen modernen Fußball. Strick-Schal, Schablone & Figur. 9 × 6 cm, ab 2,50 €.',
+    description: 'Kurven-Sticker im Ultra-Look: Wien–Nürnberg, Auswärts immer dabei, Gegen modernen Fußball. Strick-Schal, Schablone & Figur. 9 × 6 cm, ab 2,90 €.',
     keyword: 'ultras sticker kaufen',
     intro: [
       'Sticker gehören zur Kurve wie Schal und Doppelhalter. Diese Motive sind für alle, die auswärts mitfahren, 90 Minuten stehen und Stehplätze statt VIP-Logen wollen: Auswärts immer dabei, Gegen modernen Fußball, die Fanfreundschaft Wien–Nürnberg und unsere Figur mit Kappe und Tuch.',
@@ -69,12 +69,12 @@ export const KATEGORIE_SEITEN = [
     key: 'packs',
     slug: 'sticker-packs',
     h1: 'Sticker-Packs & Sets',
-    title: 'Fußball Sticker Pack & Sticker Set kaufen – bis −61 % | Wien West',
-    description: 'Sticker-Packs mit 3, 5, 10, 15, 25 oder 50 Stück: gemischte Grün-Weiß-Motive ab 0,98 € pro Sticker. Das 10er Mix-Pack um 20 € mit Gratis-Versand.',
+    title: 'Fußball Sticker Pack & Sticker Set kaufen – bis −39 % | Wien West',
+    description: 'Sticker-Packs mit 3, 5, 10, 15, 25 oder 50 Stück: gemischte Grün-Weiß-Motive ab 1,78 € pro Sticker. Das 10er Mix-Pack um 24,90 € mit Gratis-Versand.',
     keyword: 'sticker pack fußball',
     intro: [
       'Mehr kleben, weniger zahlen: Unsere Sticker-Packs mischen die beliebtesten Motive in einem Kuvert. Ideal zum Aufteilen im Bus, am Stammtisch oder im Fanclub.',
-      'Das 10er Mix-Pack kostet 20 € und liegt damit genau an der Grenze zum Gratis-Versand. Beim 50er Block-Pack zahlst du weniger als 1 € pro Sticker.',
+      'Das 10er Mix-Pack kostet 24,90 € – Versand gratis. Beim 50er Block-Pack zahlst du nur 1,78 € pro Sticker.',
     ],
     faq: [
       ['Welche Motive sind in den Packs?', 'Eine Mischung aus allen Kategorien – Anti Viola, Forza Rapid, Wien West Hütteldorf und Kurve. Beim Mystery-Pack werden die Motive zufällig gezogen.'],

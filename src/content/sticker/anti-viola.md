@@ -3,7 +3,7 @@ name: "Anti Viola"
 kurz: "Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby."
 typ: einzel
 kategorie: derby
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/anti-viola.svg
@@ -15,7 +15,7 @@ reihenfolge: 1
 shopifyVariantId: ""
 seo:
   title: "Anti Viola Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Anti Viola: Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Anti Viola: Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby.

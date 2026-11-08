@@ -3,7 +3,7 @@ name: "Wien ist grün & weiß!"
 kurz: "Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß!"
 typ: einzel
 kategorie: derby
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/wien-gruen-weiss.svg
@@ -15,7 +15,7 @@ reihenfolge: 6
 shopifyVariantId: ""
 seo:
   title: "Wien ist grün & weiß! Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien ist grün & weiß!: Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß! 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Wien ist grün & weiß!: Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß! 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß!

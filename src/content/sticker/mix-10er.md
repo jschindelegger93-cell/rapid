@@ -1,10 +1,10 @@
 ---
 name: "10er Mix-Pack"
-kurz: "Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 20 € genau an der Gratis-Versand-Grenze."
+kurz: "Zehn verschiedene Motive für die nächste Auswärtsfahrt. Versand gratis."
 typ: pack
 kategorie: packs
-preis: 20
-wertEinzeln: 25
+preis: 24.9
+wertEinzeln: 29
 stueck: 10
 format: "je ca. 9 × 6 cm"
 bild: /sticker/mix-10er.svg
@@ -16,10 +16,10 @@ reihenfolge: 33
 shopifyVariantId: ""
 seo:
   title: "10er Mix-Pack – Rapid Sticker Set kaufen | Wien West"
-  description: "10er Mix-Pack: Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 20 € genau an der Gratis-Versand-Grenze. Gratis Versand ab 20 €."
+  description: "10er Mix-Pack: Zehn verschiedene Motive für die nächste Auswärtsfahrt. Versand gratis. Gratis Versand ab 20 €."
   noindex: false
 ---
-Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 20 € genau an der Gratis-Versand-Grenze.
+Zehn verschiedene Motive für die nächste Auswärtsfahrt. Versand gratis.
 
 Im 10er Mix-Pack stecken 10 Rapid-Fan-Sticker im Kurven-Look, gemischt aus allen Kategorien – ideal zum Aufteilen im Fanclub oder auf der Auswärtsfahrt.
 

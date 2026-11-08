@@ -13,7 +13,7 @@ const faq = [
   ['Sind das offizielle Fanartikel?', 'Nein. Wien West Sticker ist ein unabhängiges Projekt von Fans. Unsere Motive sind eigene Designs – ohne Vereinswappen und bewusst ohne Logos oder Namen von Fanclubs und Fangruppen.'],
   ['Wie lange halten die Sticker draußen?', 'Wir drucken auf Vinyl mit matter Schutzlaminierung. Die Sticker sind wasserfest und UV-beständig und halten auf glatten Flächen draußen mehrere Jahre. [PLATZHALTER: Angabe der Druckerei]'],
   ['Was kostet der Versand?', `Innerhalb Österreichs ${eur(S.versandAT)}, ab ${eur(S.gratisVersandAb)} Bestellwert gratis. Der Mindestbestellwert liegt bei ${eur(S.mindestbestellwert)}.`],
-  ['Gibt es Mengenrabatt?', 'Ja, automatisch im Warenkorb: ab 5 Einzelstickern −10 %, ab 10 Einzelstickern −20 %. Packs sind bereits rabattiert.'],
+  ['Gibt es Mengenrabatt?', 'Ja, automatisch im Warenkorb: ab 10 Einzelstickern −15 %, Motive gemischt. Packs sind bereits rabattiert.'],
   ['Kann ich für meinen Fanclub größere Mengen bestellen?', `Ja. Ab 100 Stück machen wir dir ein Angebot – schreib uns an ${S.email}.`],
 ];
 const jsonld = [{
@@ -22,16 +22,16 @@ const jsonld = [{
 }];
 ---
 <Base title="Rapid Wien Sticker & Aufkleber kaufen – Wien West Sticker"
-  description="Rapid-Fan-Sticker aus Wien West: Anti Viola, Forza Rapid, Wien West Hütteldorf & mehr. 30 wetterfeste Motive ab 2,50 €, gratis Versand ab 20 €." jsonld={jsonld}>
+  description="Rapid-Fan-Sticker aus Wien West: Anti Viola, Forza Rapid, Wien West Hütteldorf & mehr. 30 wetterfeste Motive ab 2,90 €, gratis Versand ab 20 €." jsonld={jsonld}>
 
   <section class="hero">
     <div class="wrap hero-in">
       <div>
         <h1><span class="eyebrow h1kw">Rapid Wien Sticker & Aufkleber</span>Hütteldorf <mark>klebt</mark> überall.</h1>
-        <p class="lead">Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab {eur(2.5)}, im 10er-Pack um {eur(20)} – Versand gratis.</p>
+        <p class="lead">Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab {eur(2.9)}, im 10er-Pack um {eur(24.9)} – Versand gratis.</p>
         <div class="ctas">
           <a class="btn btn--g" href="/sticker/">Alle Sticker ansehen →</a>
-          <button class="btn btn--o" type="button" data-add="mix-10er" data-open>10er Mix-Pack · {eur(20)}</button>
+          <button class="btn btn--o" type="button" data-add="mix-10er" data-open>10er Mix-Pack · {eur(24.9)}</button>
         </div>
         <ul class="trust">
           <li>Gratis Versand ab {eur(S.gratisVersandAb)}</li>
@@ -49,7 +49,7 @@ const jsonld = [{
     <div class="wrap usp-in">
       <div><b>Mindestbestellwert {eur(S.mindestbestellwert)}</b><span>z. B. 4 Sticker</span></div>
       <div><b>Gratis ab {eur(S.gratisVersandAb)}</b><span>sonst {eur(S.versandAT)} Versand</span></div>
-      <div><b>Bis −20 %</b><span>Mengenrabatt automatisch</span></div>
+      <div><b>−15 % ab 10 Stück</b><span>Mengenrabatt automatisch</span></div>
       <div><b>Im Kuvert</b><span>knickfrei mit Karton</span></div>
     </div>
   </section>
@@ -66,7 +66,7 @@ const jsonld = [{
     <div class="wrap">
       <span class="eyebrow" style="color:#7bd99b">Packs</span>
       <h2>Für die Auswärtsfahrt eingepackt</h2>
-      <p class="lead" style="color:#bbb">Ein Kuvert, viele Motive – zum Aufteilen im Bus, im Zug oder am Stammtisch. Bis zu 61 % günstiger als einzeln, das 10er Mix-Pack ist gleich versandkostenfrei.</p>
+      <p class="lead" style="color:#bbb">Ein Kuvert, viele Motive – zum Aufteilen im Bus, im Zug oder am Stammtisch. Bis zu 39 % günstiger als einzeln, das 10er Mix-Pack ist gleich versandkostenfrei.</p>
       <div class="packs">
         {packs.map((s) => (
           <div class={`pack ${s.id === 'mix-10er' ? 'top' : ''}`}>
@@ -132,7 +132,7 @@ const jsonld = [{
     <div class="wrap prose">
       <h2>Rapid Sticker kaufen – direkt aus Wien West</h2>
       <p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href="/kategorie/anti-viola-sticker/">Anti Viola</a> über <a href="/kategorie/forza-rapid-sticker/">Forza Rapid</a> bis <a href="/kategorie/wien-west-huetteldorf-sticker/">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p>
-      <p>Einzelsticker kosten 2,50 €, ab 5 Stück gibt es automatisch −10 %, ab 10 Stück −20 %. Mit den <a href="/kategorie/sticker-packs/">Sticker-Packs</a> zahlst du ab 0,98 € pro Sticker. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>
+      <p>Einzelsticker kosten 2,90 €, ab 10 Stück gibt es automatisch −15 %. Mit den <a href="/kategorie/sticker-packs/">Sticker-Packs</a> zahlst du ab 1,78 € pro Sticker. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>
     </div>
   </section>
 
@@ -148,7 +148,7 @@ const jsonld = [{
   <section class="final">
     <div class="wrap">
       <h2>Der nächste Spieltag kommt bestimmt.</h2>
-      <p class="lead" style="color:#e6f3ea;margin:0 auto 24px">10 Motive, {eur(20)}, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>
+      <p class="lead" style="color:#e6f3ea;margin:0 auto 24px">10 Motive, {eur(24.9)}, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>
       <button class="btn" style="background:#fff;color:#111;border-color:#fff" type="button" data-add="mix-10er" data-open>10er Mix-Pack holen</button>
     </div>
   </section>

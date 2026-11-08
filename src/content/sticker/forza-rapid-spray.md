@@ -3,7 +3,7 @@ name: "Forza Rapid – Sprühlack"
 kurz: "Sprühlack-Schrift mit Farbnasen: Forza, Rapid Wien."
 typ: einzel
 kategorie: forza
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/forza-rapid-spray.svg
@@ -15,7 +15,7 @@ reihenfolge: 10
 shopifyVariantId: ""
 seo:
   title: "Forza Rapid – Sprühlack Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Forza Rapid – Sprühlack: Sprühlack-Schrift mit Farbnasen: Forza, Rapid Wien. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Forza Rapid – Sprühlack: Sprühlack-Schrift mit Farbnasen: Forza, Rapid Wien. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Sprühlack-Schrift mit Farbnasen: Forza, Rapid Wien.

@@ -3,7 +3,7 @@ name: "Wien West – Schal"
 kurz: "Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot."
 typ: einzel
 kategorie: wienwest
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/wien-west-schal.svg
@@ -15,7 +15,7 @@ reihenfolge: 18
 shopifyVariantId: ""
 seo:
   title: "Wien West – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien West – Schal: Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "Wien West – Schal: Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot.

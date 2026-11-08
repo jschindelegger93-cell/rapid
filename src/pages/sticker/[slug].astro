@@ -47,7 +47,7 @@ const proStk = d.typ === 'pack' ? d.preis / d.stueck : 0;
         <p class="lead">{d.kurz}</p>
         <p class="p">{eur(d.preis)}{d.wertEinzeln && <s>{eur(d.wertEinzeln)}</s>}</p>
         <p class="small">inkl. USt. · {d.typ === 'pack' ? `${d.stueck} Stück · ${eur(proStk)} pro Sticker` : d.format}</p>
-        {d.typ !== 'pack' && <p class="hint">Mengenrabatt: ab 5 Einzelstickern −10 %, ab 10 Stück −20 % – automatisch im Warenkorb, auch gemischt.</p>}
+        {d.typ !== 'pack' && <p class="hint">Mengenrabatt: ab 10 Einzelstickern −15 % – automatisch im Warenkorb, auch gemischt.</p>}
         <div class="buy">
           <label class="q"><span class="sr">Menge</span><input id="qty-input" type="number" min="1" max="99" value="1" inputmode="numeric" /></label>
           <button class="btn btn--g" type="button" data-add={s.id} data-use-qty data-open disabled={!d.verfuegbar}>{d.verfuegbar ? 'In den Warenkorb' : 'Ausverkauft'}</button>

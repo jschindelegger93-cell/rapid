@@ -3,7 +3,7 @@ name: "You’ll never walk alone"
 kurz: "Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt."
 typ: einzel
 kategorie: forza
-preis: 2.5
+preis: 2.9
 stueck: 1
 format: "ca. 9 × 6 cm"
 bild: /sticker/ynwa.svg
@@ -15,7 +15,7 @@ reihenfolge: 13
 shopifyVariantId: ""
 seo:
   title: "You’ll never walk alone Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "You’ll never walk alone: Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
+  description: "You’ll never walk alone: Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt. 9 × 6 cm, wetterfest, 2,90 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt.
