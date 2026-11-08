@@ -2,7 +2,7 @@
 name: "Derbysieger"
 kurz: "Für den Montag nach dem Derby – und für alle Tage, an denen man daran erinnern muss."
 typ: einzel
-kategorie: wien
+kategorie: derby
 preis: 2.5
 stueck: 1
 format: "Ø ca. 8 cm, konturgeschnitten"
@@ -10,8 +10,8 @@ bild: /sticker/derbysieger.svg
 bildPng: /sticker/derbysieger.png
 bestseller: true
 verfuegbar: true
-sku: WW-015
-reihenfolge: 15
+sku: WW-005
+reihenfolge: 5
 shopifyVariantId: ""
 seo:
   title: "Derbysieger – Sticker | Wien West"

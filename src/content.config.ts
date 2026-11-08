@@ -18,8 +18,8 @@ const sticker = defineCollection({
   schema: z.object({
     name: z.string(),
     kurz: z.string(),
-    typ: z.enum(['einzel', 'gross', 'auto', 'pack']),
-    kategorie: z.enum(['klassiker', 'huetteldorf', 'wien', 'gross', 'auto', 'packs']),
+    typ: z.enum(['einzel', 'breit', 'pack']),
+    kategorie: z.enum(['derby', 'forza', 'wienwest', 'kurve', 'packs']),
     preis: z.number(),
     wertEinzeln: z.number().optional(),
     stueck: z.number().default(1),

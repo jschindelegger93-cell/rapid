@@ -2,7 +2,7 @@
 import { eur, KATEGORIEN } from '../lib/site';
 const { s, eager = false } = Astro.props;
 const d = s.data;
-const breit = d.typ === 'auto';
+const breit = d.typ === 'breit';
 ---
 <article class="card" data-kat={d.kategorie} data-preis={d.preis} data-reihe={d.reihenfolge}>
   {d.typ === 'pack' && d.wertEinzeln ? <span class="badge">−{Math.round((1 - d.preis / d.wertEinzeln) * 100)} %</span>

@@ -31,8 +31,8 @@ collections:
     fields:
       - { name: name, label: Name, widget: string }
       - { name: kurz, label: "Kurzbeschreibung (1 Satz)", widget: text }
-      - { name: typ, label: Typ, widget: select, options: [{label: "Einzel (8 cm)", value: einzel}, {label: "Groß (12 cm)", value: gross}, {label: Auto, value: auto}, {label: Pack, value: pack}] }
-      - { name: kategorie, label: Kategorie, widget: select, options: [{label: Klassiker, value: klassiker}, {label: "Hütteldorf & Stadion", value: huetteldorf}, {label: "Wien & Derby", value: wien}, {label: Großformat, value: gross}, {label: Auto, value: auto}, {label: Packs, value: packs}] }
+      - { name: typ, label: Typ, widget: select, options: [{label: "Einzel (8 cm)", value: einzel}, {label: "Breit (15 × 5 cm)", value: breit}, {label: Pack, value: pack}] }
+      - { name: kategorie, label: Kategorie, widget: select, options: [{label: "Anti Violett & Derby", value: derby}, {label: "Forza Rapid", value: forza}, {label: "Wien West & Hütteldorf", value: wienwest}, {label: "Kurve & Auswärts", value: kurve}, {label: Packs, value: packs}] }
       - { name: preis, label: "Preis in € (brutto)", widget: number, value_type: float }
       - { name: wertEinzeln, label: "Wert einzeln (nur Packs, wird durchgestrichen)", widget: number, value_type: float, required: false }
       - { name: stueck, label: Stückzahl, widget: number, default: 1 }

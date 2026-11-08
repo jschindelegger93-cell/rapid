@@ -9,7 +9,7 @@ const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', it
   { '@type': 'ListItem', position: 2, name: 'Alle Sticker', item: new URL('/sticker/', Astro.site).href } ] };
 const liste = { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: alle.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/sticker/${s.id}/`, Astro.site).href })) };
 ---
-<Base title="Alle Grün-Weiß Sticker & Packs | Wien West Sticker" description="Alle 30 Sticker auf einen Blick: Klassiker, Hütteldorf, Wien & Derby, Großformat, Autosticker und Packs ab 6,90 €. Gratis Versand ab 15 €." jsonld={[crumbs, liste]}>
+<Base title="Alle Grün-Weiß Sticker & Packs | Wien West Sticker" description="Alle 30 Motive: Anti Violett, Forza Rapid, Wien West Hütteldorf, Block West, Auswärts – plus Packs ab 6,90 €. Gratis Versand ab 15 €." jsonld={[crumbs, liste]}>
   <div class="wrap">
     <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Start</a> / Alle Sticker</nav>
     <header style="padding:20px 0 28px">

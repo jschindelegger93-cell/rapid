@@ -1,8 +1,8 @@
 ---
 name: "Laut. Treu."
-kurz: "Drei Worte für 90 Minuten Dauersupport. Starker Kontrast, auch vom anderen Ende des Bahnsteigs lesbar."
+kurz: "Drei Worte für 90 Minuten Dauersupport."
 typ: einzel
-kategorie: klassiker
+kategorie: kurve
 preis: 2.5
 stueck: 1
 format: "Ø ca. 8 cm, konturgeschnitten"
@@ -10,15 +10,15 @@ bild: /sticker/laut-treu.svg
 bildPng: /sticker/laut-treu.png
 bestseller: false
 verfuegbar: true
-sku: WW-006
-reihenfolge: 6
+sku: WW-029
+reihenfolge: 29
 shopifyVariantId: ""
 seo:
   title: "Laut. Treu. – Sticker | Wien West"
-  description: "Drei Worte für 90 Minuten Dauersupport. Starker Kontrast, auch vom anderen Ende des Bahnsteigs lesbar. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Drei Worte für 90 Minuten Dauersupport. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Drei Worte für 90 Minuten Dauersupport. Starker Kontrast, auch vom anderen Ende des Bahnsteigs lesbar.
+Drei Worte für 90 Minuten Dauersupport.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

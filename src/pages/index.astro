@@ -5,9 +5,9 @@ import { getCollection } from 'astro:content';
 import { S, eur } from '../lib/site';
 
 const alle = (await getCollection('sticker')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
-const best = alle.filter((s) => s.data.bestseller && s.data.typ === 'einzel').slice(0, 8);
-const packs = alle.filter((s) => s.data.typ === 'pack' && ['klassiker-5er', 'mix-10er', 'kurve-25er'].includes(s.id));
-const hero = ['seit-1899', 'huetteldorf-ist-ueberall', 'gruenes-blut', 'westtribuene'].map((id) => alle.find((s) => s.id === id)!);
+const best = alle.filter((s) => s.data.bestseller && s.data.typ !== 'pack').slice(0, 8);
+const packs = alle.filter((s) => s.data.typ === 'pack' && ['topseller-5er', 'mix-10er', 'kurve-25er'].includes(s.id));
+const hero = ['forza-rapid', 'anti-violett', 'wien-west-huetteldorf', 'block-west'].map((id) => alle.find((s) => s.id === id)!);
 
 const faq = [
   ['Sind das offizielle Fanartikel?', 'Nein. Wien West Sticker ist ein unabhängiges Projekt von Fans. Unsere Motive sind eigene Designs – ohne Vereinswappen und bewusst ohne Logos oder Namen von Fanclubs und Fangruppen.'],
@@ -106,12 +106,12 @@ const jsonld = [{
       <span class="eyebrow">Kategorien</span>
       <h2>Wo soll's kleben?</h2>
       <div class="cats">
-        <a href="/sticker/?k=klassiker"><b>Klassiker</b><span>Seit 1899, Grün-Weiß für immer</span></a>
-        <a href="/sticker/?k=huetteldorf"><b>Hütteldorf & Stadion</b><span>Westtribüne, 75. Minute</span></a>
-        <a href="/sticker/?k=wien"><b>Wien & Derby</b><span>Derbysieger, Violett? Nein danke.</span></a>
-        <a href="/sticker/?k=gross"><b>Großformat</b><span>12 cm für Laptop & Koffer</span></a>
-        <a href="/sticker/?k=auto"><b>Auto</b><span>Heckscheibe, waschanlagenfest</span></a>
+        <a href="/sticker/?k=derby"><b>Anti Violett & Derby</b><span>Anti Violett, Derbysieger, Wien ist grün-weiß</span></a>
+        <a href="/sticker/?k=forza"><b>Forza Rapid</b><span>Forza, SCR, Rapid-Viertelstunde</span></a>
+        <a href="/sticker/?k=wienwest"><b>Wien West & Hütteldorf</b><span>1140, Block West, Straßenschild</span></a>
+        <a href="/sticker/?k=kurve"><b>Kurve & Auswärts</b><span>Auswärts, Wien–Nürnberg, gegen modernen Fußball</span></a>
         <a href="/sticker/?k=packs"><b>Packs</b><span>3 bis 50 Stück</span></a>
+        <a href="/sticker/"><b>Alle 30 Motive</b><span>Alles auf einen Blick</span></a>
       </div>
     </div>
   </section>
@@ -121,7 +121,7 @@ const jsonld = [{
       <span class="eyebrow">So läuft's</span>
       <h2>Bestellt, verschickt, geklebt</h2>
       <ol class="steps">
-        <li><b>Auswählen</b>Einzeln, Großformat oder Pack. Rabatt rechnet der Warenkorb automatisch.<em>2 Minuten</em></li>
+        <li><b>Auswählen</b>Einzeln, Schal-Format oder Pack. Rabatt rechnet der Warenkorb automatisch.<em>2 Minuten</em></li>
         <li><b>Bezahlen</b>Sicher mit Karte, Apple Pay, PayPal oder Klarna. [PLATZHALTER je nach Checkout]<em>1 Minute</em></li>
         <li><b>Versand</b>Wir verpacken knickfrei im Kuvert mit Karton.<em>innerhalb 48 h</em></li>
         <li><b>Kleben</b>Fläche sauber machen, draufkleben, glatt streichen. Hält auch den nächsten Winter am Auswärtsbahnhof.<em>ab 2–4 Werktagen</em></li>

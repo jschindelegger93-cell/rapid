@@ -11,8 +11,8 @@ bild: /sticker/mix-10er.svg
 bildPng: /sticker/mix-10er.png
 bestseller: true
 verfuegbar: true
-sku: WW-027
-reihenfolge: 27
+sku: WW-033
+reihenfolge: 33
 shopifyVariantId: ""
 seo:
   title: "10er Mix-Pack – Sticker | Wien West"

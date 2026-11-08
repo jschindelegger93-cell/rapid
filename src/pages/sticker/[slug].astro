@@ -24,7 +24,7 @@ const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', it
   { '@type': 'ListItem', position: 1, name: 'Start', item: new URL('/', Astro.site).href },
   { '@type': 'ListItem', position: 2, name: 'Alle Sticker', item: new URL('/sticker/', Astro.site).href },
   { '@type': 'ListItem', position: 3, name: d.name, item: url } ] };
-const breit = d.typ === 'auto';
+const breit = d.typ === 'breit';
 const proStk = d.typ === 'pack' ? d.preis / d.stueck : 0;
 ---
 <Base title={d.seo.title || `${d.name} | ${S.name}`} description={d.seo.description || d.kurz} image={d.bildPng} noindex={d.seo.noindex} jsonld={[product, crumbs]}>

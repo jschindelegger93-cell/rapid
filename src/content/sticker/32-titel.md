@@ -1,24 +1,24 @@
 ---
 name: "32 Titel"
-kurz: "Stempel-Design für alle, die die Meistertitel auswendig aufzählen können – und auf den nächsten warten."
+kurz: "Stempel-Design für alle, die die Meistertitel auswendig aufzählen können."
 typ: einzel
-kategorie: klassiker
+kategorie: kurve
 preis: 2.5
 stueck: 1
 format: "Ø ca. 8 cm, konturgeschnitten"
 bild: /sticker/32-titel.svg
 bildPng: /sticker/32-titel.png
-bestseller: true
+bestseller: false
 verfuegbar: true
-sku: WW-007
-reihenfolge: 7
+sku: WW-030
+reihenfolge: 30
 shopifyVariantId: ""
 seo:
   title: "32 Titel – Sticker | Wien West"
-  description: "Stempel-Design für alle, die die Meistertitel auswendig aufzählen können – und auf den nächsten warten. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Stempel-Design für alle, die die Meistertitel auswendig aufzählen können. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Stempel-Design für alle, die die Meistertitel auswendig aufzählen können – und auf den nächsten warten.
+Stempel-Design für alle, die die Meistertitel auswendig aufzählen können.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

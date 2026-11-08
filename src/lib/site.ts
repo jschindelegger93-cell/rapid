@@ -1,11 +1,10 @@
 import settings from '../data/settings.json';
 export const S = settings;
 export const KATEGORIEN = {
-  klassiker: 'Klassiker',
-  huetteldorf: 'Hütteldorf & Stadion',
-  wien: 'Wien & Derby',
-  gross: 'Großformat',
-  auto: 'Auto',
+  derby: 'Anti Violett & Derby',
+  forza: 'Forza Rapid',
+  wienwest: 'Wien West & Hütteldorf',
+  kurve: 'Kurve & Auswärts',
   packs: 'Packs',
 } as const;
 export const eur = (n: number) =>

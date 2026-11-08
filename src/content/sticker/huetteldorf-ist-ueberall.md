@@ -2,7 +2,7 @@
 name: "Hütteldorf ist überall"
 kurz: "Laternenmast in Graz, Bahnhof in Salzburg, Raststation irgendwo: Hütteldorf ist dort, wo wir hinfahren."
 typ: einzel
-kategorie: huetteldorf
+kategorie: wienwest
 preis: 2.5
 stueck: 1
 format: "Ø ca. 8 cm, konturgeschnitten"
@@ -10,8 +10,8 @@ bild: /sticker/huetteldorf-ist-ueberall.svg
 bildPng: /sticker/huetteldorf-ist-ueberall.png
 bestseller: true
 verfuegbar: true
-sku: WW-008
-reihenfolge: 8
+sku: WW-018
+reihenfolge: 18
 shopifyVariantId: ""
 seo:
   title: "Hütteldorf ist überall – Sticker | Wien West"

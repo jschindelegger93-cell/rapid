@@ -7,8 +7,7 @@ Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot 
 | Regel | Wert |
 |---|---|
 | Einzelsticker Ø 8 cm | 2,50 € |
-| Großformat 12 cm | 3,90 € |
-| Autosticker 20 × 6,5 cm | 5,90 € |
+| Schal/Schild-Format 15 × 5 cm | 3,90 € |
 | Mindestbestellwert | 10 € (= 4 Sticker) |
 | Versand AT | 2,90 €, **gratis ab 15 €** |
 | Versand DE/EU | 4,90 €, gratis ab 30 € |
@@ -19,7 +18,7 @@ Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot 
 | Pack | Preis | Wert einzeln | Ersparnis | € / Sticker |
 |---|---|---|---|---|
 | 3er Starter | 6,90 | 7,50 | 8 % | 2,30 |
-| 5er Klassiker | 9,90 | 12,50 | 21 % | 1,98 |
+| 5er Topseller | 9,90 | 12,50 | 21 % | 1,98 |
 | **10er Mix** | **15,00** | 25,00 | 40 % | 1,50 |
 | Mystery 15er | 19,00 | 37,50 | 49 % | 1,27 |
 | 25er Kurve | 29,00 | 62,50 | 54 % | 1,16 |
@@ -32,8 +31,7 @@ Das 10er Mix-Pack liegt exakt auf der Gratis-Versand-Grenze → Hauptprodukt in 
 | Posten | Kosten |
 |---|---|
 | Druck Vinyl matt laminiert, konturgeschnitten 8 cm (ab 200 Stk/Motiv) | 0,25 € |
-| Großformat 12 cm (ab 100 Stk) | 0,45 € |
-| Autosticker (ab 100 Stk) | 0,90 € |
+| Schal/Schild-Format 15 × 5 cm (ab 100 Stk) | 0,60 € |
 | Kuvert + Kartonverstärkung | 0,35 € |
 | Porto Brief Inland (Post AT, prüfen) | 1,80 € |
 | Zahlungsgebühr | ca. 2,9 % + 0,30 € |
@@ -54,14 +52,15 @@ Das 10er Mix-Pack liegt exakt auf der Gratis-Versand-Grenze → Hauptprodukt in 
 
 | Posten | Menge | Kosten |
 |---|---|---|
-| 18 Einzel-Motive | 200 Stk je Motiv | 900 € |
-| 4 Großformate | 100 Stk je Motiv | 180 € |
-| 2 Autosticker | 100 Stk je Motiv | 180 € |
+| 26 Einzel-Motive | 200 Stk je Motiv | 1.300 € |
+| 4 Schal/Schild-Motive | 100 Stk je Motiv | 240 € |
 | Kuverts/Karton | 500 Stk | 175 € |
-| **Summe** | | **≈ 1.435 €** |
+| **Summe** | | **≈ 1.715 €** |
+
+Sparvariante: zuerst nur die 15 Bestseller drucken (≈ 800 €), Rest nachproduzieren, wenn Motive laufen.
 
 Packs werden aus demselben Lager gemischt (keine eigene Produktion).
-Break-even bei Ø 8 € DB ≈ **180 Bestellungen**. Mit Ø-Warenkorb 18 € entspricht das ca. 3.200 € Umsatz.
+Break-even bei Ø 8 € DB ≈ **215 Bestellungen** (Sparvariante: ≈ 100).
 
 ## Hebel für „möglichst viele Sticker“
 
@@ -71,3 +70,12 @@ Break-even bei Ø 8 € DB ≈ **180 Bestellungen**. Mit Ø-Warenkorb 18 € ent
 4. **Fanclub-/Stammtisch-Angebot** ab 100 Stück (E-Mail-Anfrage).
 5. Jeder Bestellung 1 Gratis-Sticker + Flyer mit Rabattcode für Wiederkauf (−10 %).
 6. Matchday-Aktionen: nach Derbysieg 24 h −15 % auf „Derbysieger“ (Instagram-Story).
+
+## Motiv-Auswahl (Topseller-Recherche Nov 2026)
+
+willhaben ließ sich nicht automatisch auslesen. Ausgewertet wurden eBay/PicClick-Angebote und der offizielle Fanshop:
+- Am häufigsten gehandelt: Sticker-Sammlungen der Ultra-Szene (Block West, SCR), oft zusammen mit **Nürnberg**/Schalke (Fanfreundschaften)
+- Klassische Sprüche: SCR, Block West, Wien West Hütteldorf, Anti Violett, Forza Rapid
+- Der offizielle Shop führt selbst einen Aufkleber „Wien-West-Hütteldorf“ → Motiv ist nachgefragt, aber Abgrenzung zum Original beachten
+
+**Rechtlicher Hinweis:** Motive mit dem Wort „Rapid“ (Forza Rapid, SCR, Einmal Rapid, Rapid-Viertelstunde, Mehr als Fußball) berühren die Marke des SK Rapid. Vor Druck prüfen lassen oder auf die neutralen Varianten setzen.
