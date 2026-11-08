@@ -239,12 +239,12 @@ const T = {
     return { w, h, svg: form(w, h, inner, { rund: true, rand: 14, id: 'r' + seedOf(a + oben) }) };
   },
   // ANTI VIOLA: Schablone, Violett immer durchgestrichen
-  antiviola: ({ unter = 'WIEN WEST · SEIT 1899' }) => {
+  antiviola: ({ unter = 'WIEN WEST · SEIT 1899', wort = 'VIOLA' }) => {
     const w = 900, h = 600;
     const inner = `<rect width="${w}" height="${h}" fill="${CREME}"/>
       <rect x="40" y="40" width="${w - 80}" height="${h - 80}" fill="none" stroke="${K}" stroke-width="8" stroke-dasharray="30 14"/>
       ${txt('ANTI', w / 2, 205, 150, 600, G, { font: 'stencil' })}
-      ${txt('VIOLA', w / 2, 410, 210, 760, V, { font: 'stencil' })}
+      ${txt(wort, w / 2, 410, 210, 760, V, { font: 'stencil' })}
       <path d="M100 400 L800 250" stroke="${G}" stroke-width="32" stroke-linecap="square"/>
       ${txt(unter, w / 2, 492, 44, 640, K, { font: 'stencil' })}
       ${blauRot(40, 520, w - 80, 24)}`;
@@ -325,17 +325,25 @@ const P = [
   ['anti-viola', 'Anti Viola', 'antiviola', {}, 'einzel', 'derby', 'Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby.', true],
   ['wien-gehoert-uns', 'Wien gehört uns', 'block', { zeilen: ['WIEN', 'GEHÖRT', 'UNS!'] }, 'einzel', 'derby', 'Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt.', true],
   ['derbysieger-schal', 'Derbysieger – Schal', 'schal', { a: 'DERBYSIEGER' }, 'breit', 'derby', 'Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby.', true],
-  ['wien-gruen-weiss', 'Wien ist grün-weiß', 'figur', { a: 'WIEN', b: 'ist grün-weiß!' }, 'einzel', 'derby', 'Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün-weiß.', true],
+  ['wien-gruen-weiss', 'Wien ist grün-weiß', 'figur', { a: 'WIEN', b: 'ist grün & weiß!' }, 'einzel', 'derby', 'Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß!', true],
   // FORZA RAPID
   ['forza-rapid-schal', 'Forza Rapid – Schal', 'schal', { a: 'FORZA RAPID' }, 'breit', 'forza', 'Der Schlachtruf in Strick-Optik, Breitformat.', true],
   ['forza-rapid-block', 'Forza Rapid', 'block', { zeilen: ['FORZA', 'RAPID'] }, 'einzel', 'forza', 'Fette Block-Buchstaben auf grünen Streifen – schlicht und laut.', true],
-  ['ynwa', 'You’ll never walk alone', 'lang', { a: 'NEVER', b: 'WALK ALONE' }, 'einzel', 'forza', 'Langer Streifen im Kurven-Look – für Geländer, Masten und Türrahmen.', true],
+  ['ynwa', 'You’ll never walk alone', 'lang', { a: 'YOU’LL NEVER', b: 'WALK ALONE' }, 'einzel', 'forza', 'Langer Streifen im Kurven-Look – für Geländer, Masten und Türrahmen.', true],
   // WIEN WEST & WESTSTADION
   ['wien-west-schal', 'Wien West – Schal', 'schal', { a: 'WIEN WEST' }, 'breit', 'wienwest', 'Unser Name in Strick-Optik – Grün, Weiß, ohne Schnickschnack.', true],
   ['wien-west-block', 'Wien West', 'block', { zeilen: ['WIEN', 'WEST', '1140'] }, 'einzel', 'wienwest', 'Block-Streifen mit Postleitzahl. Für alle, die im Westen daheim sind.', true],
   ['1140-huetteldorf', '1140 Hütteldorf', 'block', { zeilen: ['1140', 'HÜTTELDORF'], farben: [G, K] }, 'einzel', 'wienwest', 'Grün und Schwarz, zwei Streifen, eine Postleitzahl.', true],
   // KURVE & AUSWÄRTS
   ['wien-nuernberg-schal', 'Wien – Nürnberg', 'schal2', { a: 'WIEN NÜRNBERG' }, 'breit', 'kurve', 'Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken.', true],
+  ['anti-violett', 'Anti Violett', 'antiviola', { wort: 'VIOLETT' }, 'einzel', 'derby', 'Schablonen-Look, Violett durchgestrichen.', true],
+  ['wien-west-huetteldorf', 'Wien West Hütteldorf', 'block', { zeilen: ['WIEN', 'WEST', 'HÜTTELDORF'] }, 'einzel', 'wienwest', 'Wien West Hütteldorf – drei Zeilen auf Block-Streifen mit Blau-Rot-Band.', true],
+  ['wien-west-huetteldorf-schal', 'Wien West Hütteldorf – Schal', 'schal', { a: 'WIEN WEST HÜTTELDORF' }, 'breit', 'wienwest', 'Wien West Hütteldorf in Strick-Optik, Breitformat.', true],
+  ['acab', 'ACAB', 'stencil', { a: 'A.C.A.B.', b: 'WIEN WEST', grund: K }, 'einzel', 'kurve', 'Schablone auf Schwarz. Der Klassiker an jedem Geländer.', true],
+  ['wien-ein-leben-lang', 'Wien – ein Leben lang', 'spray', { a: 'WIEN', b: 'ein Leben lang', oben: G }, 'einzel', 'wienwest', 'Sprühlack-Schrift mit Farbnasen: Wien, ein Leben lang.', true],
+  ['wien-meine-heimat', 'Wien – meine Heimat. Meine Liebe.', 'spray', { a: 'WIEN', b: 'meine Heimat. meine Liebe.', oben: G }, 'einzel', 'wienwest', 'Grün-weiß geteilt, Sprühlack-Schrift: Wien, meine Heimat, meine Liebe.', true],
+  ['rapid-wien-fan-szene', 'Rapid Wien Fan Szene', 'block', { zeilen: ['RAPID WIEN', 'FAN SZENE'], farben: [G, K] }, 'einzel', 'forza', 'Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen.', true],
+  ['rapid-wien-schal', 'Rapid Wien – Schal', 'schal', { a: 'RAPID WIEN' }, 'breit', 'forza', 'Rapid Wien in Strick-Optik, wie der Schal im Kasten.', true],
   // PACKS
   ['starter-3er', '3er Starter-Pack', 'pack', { a: 'STARTER-PACK', n: 3 }, 'pack', 'packs', 'Die drei Topseller: Anti Viola, Forza Rapid, Wien West.', false],
   ['topseller-5er', '5er Topseller-Pack', 'pack', { a: 'TOPSELLER-PACK', n: 5 }, 'pack', 'packs', 'Fünf Lieblinge aus dem Block in einem Kuvert.', true],

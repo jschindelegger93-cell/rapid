@@ -7,7 +7,7 @@ import { S, eur } from '../lib/site';
 const alle = (await getCollection('sticker')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 const best = alle.filter((s) => s.data.bestseller && s.data.typ !== 'pack').slice(0, 8);
 const packs = alle.filter((s) => s.data.typ === 'pack' && ['topseller-5er', 'mix-10er', 'kurve-25er'].includes(s.id));
-const hero = ['wien-gehoert-uns', 'anti-viola', '1140-huetteldorf', 'forza-rapid-block'].map((id) => alle.find((s) => s.id === id)!);
+const hero = ['wien-west-huetteldorf', 'anti-viola', 'acab', 'forza-rapid-block'].map((id) => alle.find((s) => s.id === id)!);
 
 const faq = [
   ['Sind das offizielle Fanartikel?', 'Nein. Wien West Sticker ist ein unabhängiges Projekt von Fans. Unsere Motive sind eigene Designs – ohne Vereinswappen und bewusst ohne Logos oder Namen von Fanclubs und Fangruppen.'],
@@ -22,14 +22,14 @@ const jsonld = [{
 }];
 ---
 <Base title="Wien West Sticker – Grün-Weiß Sticker für Block, Bus & Bahnhof"
-  description="Grün-Weiß Sticker aus Wien West: 11 wetterfeste Motive rund um Hütteldorf, Block West und Derby. Packs ab 6,90 €, gratis Versand ab 15 €." jsonld={jsonld}>
+  description="Grün-Weiß Sticker aus Wien West: 19 wetterfeste Motive rund um Hütteldorf, Block West und Derby. Packs ab 6,90 €, gratis Versand ab 15 €." jsonld={jsonld}>
 
   <section class="hero">
     <div class="wrap hero-in">
       <div>
         <span class="eyebrow">Wien West · seit 1899 grün-weiß</span>
         <h1>Hütteldorf <mark>klebt</mark> überall.</h1>
-        <p class="lead">Von Fans aus dem Westen für Fans überall: 11 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab {eur(2.5)}, im 10er-Pack um {eur(15)} – Versand gratis.</p>
+        <p class="lead">Von Fans aus dem Westen für Fans überall: 19 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab {eur(2.5)}, im 10er-Pack um {eur(15)} – Versand gratis.</p>
         <div class="ctas">
           <a class="btn btn--g" href="/sticker/">Alle Sticker ansehen →</a>
           <button class="btn btn--o" type="button" data-add="mix-10er" data-open>10er Mix-Pack · {eur(15)}</button>

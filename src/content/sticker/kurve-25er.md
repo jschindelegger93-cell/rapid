@@ -11,8 +11,8 @@ bild: /sticker/kurve-25er.svg
 bildPng: /sticker/kurve-25er.png
 bestseller: true
 verfuegbar: true
-sku: WW-015
-reihenfolge: 15
+sku: WW-023
+reihenfolge: 23
 shopifyVariantId: ""
 seo:
   title: "25er Kurven-Pack – Sticker | Wien West"
