@@ -10,8 +10,8 @@ bild: /sticker/wien-gehoert-uns.svg
 bildPng: /sticker/wien-gehoert-uns.png
 bestseller: true
 verfuegbar: true
-sku: WW-003
-reihenfolge: 3
+sku: WW-002
+reihenfolge: 2
 shopifyVariantId: ""
 seo:
   title: "Wien gehört uns – Sticker | Wien West"

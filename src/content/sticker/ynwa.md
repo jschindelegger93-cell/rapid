@@ -10,8 +10,8 @@ bild: /sticker/ynwa.svg
 bildPng: /sticker/ynwa.png
 bestseller: true
 verfuegbar: true
-sku: WW-011
-reihenfolge: 11
+sku: WW-007
+reihenfolge: 7
 shopifyVariantId: ""
 seo:
   title: "You’ll never walk alone – Sticker | Wien West"

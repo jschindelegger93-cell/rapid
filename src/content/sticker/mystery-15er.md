@@ -11,8 +11,8 @@ bild: /sticker/mystery-15er.svg
 bildPng: /sticker/mystery-15er.png
 bestseller: false
 verfuegbar: true
-sku: WW-036
-reihenfolge: 36
+sku: WW-017
+reihenfolge: 17
 shopifyVariantId: ""
 seo:
   title: "Mystery-Pack (15 Stück) – Sticker | Wien West"

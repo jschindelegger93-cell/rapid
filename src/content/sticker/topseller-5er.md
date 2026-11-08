@@ -11,8 +11,8 @@ bild: /sticker/topseller-5er.svg
 bildPng: /sticker/topseller-5er.png
 bestseller: true
 verfuegbar: true
-sku: WW-032
-reihenfolge: 32
+sku: WW-013
+reihenfolge: 13
 shopifyVariantId: ""
 seo:
   title: "5er Topseller-Pack – Sticker | Wien West"

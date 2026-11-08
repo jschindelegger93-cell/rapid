@@ -10,8 +10,8 @@ bild: /sticker/wien-west-block.svg
 bildPng: /sticker/wien-west-block.png
 bestseller: true
 verfuegbar: true
-sku: WW-016
-reihenfolge: 16
+sku: WW-009
+reihenfolge: 9
 shopifyVariantId: ""
 seo:
   title: "Wien West – Sticker | Wien West"

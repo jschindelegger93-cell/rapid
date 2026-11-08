@@ -10,8 +10,8 @@ bild: /sticker/1140-huetteldorf.svg
 bildPng: /sticker/1140-huetteldorf.png
 bestseller: true
 verfuegbar: true
-sku: WW-017
-reihenfolge: 17
+sku: WW-010
+reihenfolge: 10
 shopifyVariantId: ""
 seo:
   title: "1140 Hütteldorf – Sticker | Wien West"

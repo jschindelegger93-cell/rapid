@@ -11,8 +11,8 @@ bild: /sticker/block-50er.svg
 bildPng: /sticker/block-50er.png
 bestseller: false
 verfuegbar: true
-sku: WW-035
-reihenfolge: 35
+sku: WW-016
+reihenfolge: 16
 shopifyVariantId: ""
 seo:
   title: "50er Block-Pack – Sticker | Wien West"

@@ -10,8 +10,8 @@ bild: /sticker/derbysieger-schal.svg
 bildPng: /sticker/derbysieger-schal.png
 bestseller: true
 verfuegbar: true
-sku: WW-005
-reihenfolge: 5
+sku: WW-003
+reihenfolge: 3
 shopifyVariantId: ""
 seo:
   title: "Derbysieger – Schal – Sticker | Wien West"

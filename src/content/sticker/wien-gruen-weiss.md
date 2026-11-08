@@ -10,8 +10,8 @@ bild: /sticker/wien-gruen-weiss.svg
 bildPng: /sticker/wien-gruen-weiss.png
 bestseller: true
 verfuegbar: true
-sku: WW-007
-reihenfolge: 7
+sku: WW-004
+reihenfolge: 4
 shopifyVariantId: ""
 seo:
   title: "Wien ist grün-weiß – Sticker | Wien West"

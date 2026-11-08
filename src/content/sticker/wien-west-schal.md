@@ -10,8 +10,8 @@ bild: /sticker/wien-west-schal.svg
 bildPng: /sticker/wien-west-schal.png
 bestseller: true
 verfuegbar: true
-sku: WW-015
-reihenfolge: 15
+sku: WW-008
+reihenfolge: 8
 shopifyVariantId: ""
 seo:
   title: "Wien West – Schal – Sticker | Wien West"

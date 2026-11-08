@@ -10,8 +10,8 @@ bild: /sticker/forza-rapid-schal.svg
 bildPng: /sticker/forza-rapid-schal.png
 bestseller: true
 verfuegbar: true
-sku: WW-008
-reihenfolge: 8
+sku: WW-005
+reihenfolge: 5
 shopifyVariantId: ""
 seo:
   title: "Forza Rapid – Schal – Sticker | Wien West"

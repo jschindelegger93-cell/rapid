@@ -53,15 +53,13 @@ Das 10er Mix-Pack liegt exakt auf der Gratis-Versand-Grenze → Hauptprodukt in 
 
 | Posten | Menge | Kosten |
 |---|---|---|
-| 26 Einzel-Motive | 200 Stk je Motiv | 1.300 € |
-| 4 Schal/Schild-Motive | 100 Stk je Motiv | 240 € |
+| 7 Einzel-Motive | 200 Stk je Motiv | 350 € |
+| 4 Schal-Motive | 100 Stk je Motiv | 240 € |
 | Kuverts/Karton | 500 Stk | 175 € |
-| **Summe** | | **≈ 1.715 €** |
-
-Sparvariante: zuerst nur die 15 Bestseller drucken (≈ 800 €), Rest nachproduzieren, wenn Motive laufen.
+| **Summe** | | **≈ 765 €** |
 
 Packs werden aus demselben Lager gemischt (keine eigene Produktion).
-Break-even bei Ø 8 € DB ≈ **215 Bestellungen** (Sparvariante: ≈ 100).
+Break-even bei Ø 8 € DB ≈ **96 Bestellungen**.
 
 ## Hebel für „möglichst viele Sticker“
 

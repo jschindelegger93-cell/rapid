@@ -11,8 +11,8 @@ bild: /sticker/starter-3er.svg
 bildPng: /sticker/starter-3er.png
 bestseller: false
 verfuegbar: true
-sku: WW-031
-reihenfolge: 31
+sku: WW-012
+reihenfolge: 12
 shopifyVariantId: ""
 seo:
   title: "3er Starter-Pack – Sticker | Wien West"

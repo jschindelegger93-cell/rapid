@@ -10,8 +10,8 @@ bild: /sticker/wien-nuernberg-schal.svg
 bildPng: /sticker/wien-nuernberg-schal.png
 bestseller: true
 verfuegbar: true
-sku: WW-026
-reihenfolge: 26
+sku: WW-011
+reihenfolge: 11
 shopifyVariantId: ""
 seo:
   title: "Wien – Nürnberg – Sticker | Wien West"
