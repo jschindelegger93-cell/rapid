@@ -1,6 +1,6 @@
 ---
-name: "Wien gehört uns!"
-kurz: "Grün-weiße Flagge, Wien-West-Schild und eine klare Ansage an die andere Seite der Stadt."
+name: "Wien gehört uns"
+kurz: "Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt."
 typ: einzel
 kategorie: derby
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/wien-gehoert-uns.svg
 bildPng: /sticker/wien-gehoert-uns.png
 bestseller: true
 verfuegbar: true
-sku: WW-001
-reihenfolge: 1
+sku: WW-003
+reihenfolge: 3
 shopifyVariantId: ""
 seo:
-  title: "Wien gehört uns! – Sticker | Wien West"
-  description: "Grün-weiße Flagge, Wien-West-Schild und eine klare Ansage an die andere Seite der Stadt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Wien gehört uns – Sticker | Wien West"
+  description: "Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Grün-weiße Flagge, Wien-West-Schild und eine klare Ansage an die andere Seite der Stadt.
+Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ca. 9 × 6 cm.

@@ -1,6 +1,6 @@
 ---
-name: "Grünes Blut, weißes Herz"
-kurz: "Zwei Zeilen, die erklären, warum am Spieltag nichts anderes im Kalender steht."
+name: "Grünes Blut"
+kurz: "Zwei Zeilen Sprühlack, die erklären, warum am Spieltag nichts anderes zählt."
 typ: einzel
 kategorie: kurve
 preis: 2.5
@@ -14,11 +14,11 @@ sku: WW-028
 reihenfolge: 28
 shopifyVariantId: ""
 seo:
-  title: "Grünes Blut, weißes Herz – Sticker | Wien West"
-  description: "Zwei Zeilen, die erklären, warum am Spieltag nichts anderes im Kalender steht. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Grünes Blut – Sticker | Wien West"
+  description: "Zwei Zeilen Sprühlack, die erklären, warum am Spieltag nichts anderes zählt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Zwei Zeilen, die erklären, warum am Spieltag nichts anderes im Kalender steht.
+Zwei Zeilen Sprühlack, die erklären, warum am Spieltag nichts anderes zählt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ca. 9 × 6 cm.

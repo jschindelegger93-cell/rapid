@@ -1,6 +1,6 @@
 ---
 name: "3er Starter-Pack"
-kurz: "Die drei Topseller: Wien gehört uns!, Forza Rapid, Weststadion."
+kurz: "Die drei Topseller: Anti Viola, Forza Rapid, Wien West."
 typ: pack
 kategorie: packs
 preis: 6.9
@@ -16,10 +16,10 @@ reihenfolge: 31
 shopifyVariantId: ""
 seo:
   title: "3er Starter-Pack – Sticker | Wien West"
-  description: "Die drei Topseller: Wien gehört uns!, Forza Rapid, Weststadion. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Die drei Topseller: Anti Viola, Forza Rapid, Wien West. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Die drei Topseller: Wien gehört uns!, Forza Rapid, Weststadion.
+Die drei Topseller: Anti Viola, Forza Rapid, Wien West.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** gemischte Formate (ca. 8 cm).

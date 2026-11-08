@@ -10,8 +10,8 @@ bild: /sticker/zehnter-durchfahrt.svg
 bildPng: /sticker/zehnter-durchfahrt.png
 bestseller: true
 verfuegbar: true
-sku: WW-005
-reihenfolge: 5
+sku: WW-004
+reihenfolge: 4
 shopifyVariantId: ""
 seo:
   title: "10. Bezirk? Nur Durchfahrt – Sticker | Wien West"

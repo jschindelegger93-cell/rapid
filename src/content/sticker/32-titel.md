@@ -5,7 +5,7 @@ typ: einzel
 kategorie: kurve
 preis: 2.5
 stueck: 1
-format: "ca. 8 × 8 cm, konturgeschnitten"
+format: "Ø ca. 8 cm"
 bild: /sticker/32-titel.svg
 bildPng: /sticker/32-titel.png
 bestseller: false
@@ -21,4 +21,4 @@ seo:
 Für alle, die die Meistertitel auswendig aufzählen können.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** ca. 8 × 8 cm, konturgeschnitten.
+**Format:** Ø ca. 8 cm.

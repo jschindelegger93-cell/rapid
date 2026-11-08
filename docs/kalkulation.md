@@ -81,6 +81,6 @@ willhaben ließ sich nicht automatisch auslesen. Ausgewertet wurden eBay/PicClic
 
 **Rechtlicher Hinweis:** Motive mit dem Wort „Rapid“ (Forza Rapid, SCR, Einmal Rapid, Rapid-Viertelstunde, Mehr als Fußball) berühren die Marke des SK Rapid. Vor Druck prüfen lassen oder auf die neutralen Varianten setzen.
 
-## Szene-Stil (Update)
-Designs an aktuelle Szene-Sticker angepasst: grün-weiße Flagge, kursive Umriss-Schrift, eigenes Wien-West-Schild, eigene Fan-Figur (Haube, Schal vorm Gesicht) mit Farbspritzern.
-Bewusst NICHT übernommen: durchgestrichenes Austria-Logo (Marke), Wiener Stadtwappen (gesetzlich geschützt), „verrecke“ (Todeswunsch – Risiko bei Shopify/Zahlungsanbieter).
+## Designstil (Update)
+An Original-Szene-Sticker angepasst: flach, wenige Farben, Strick-Schal-Optik, Block-Buchstaben auf Streifen, Sprühlack- und Schablonen-Schrift, abgenutzter Druck, lange Streifen-Formate.
+Bewusst NICHT nachgebaut: Gruppen-Logos (Häuptling, UR, „Ultras Rapid“), Vereins- und Stadtwappen, Designs anderer Shops, Gewaltszenen, „verrecke“.

@@ -1,4 +1,5 @@
-// Erzeugt 30 Sticker-Designs im Szene-Stil + 6 Packs (Markdown für Astro/Sveltia) und die Grafiken (SVG + PNG).
+// Erzeugt 30 Sticker-Designs im Kurven-Look + 6 Packs (Markdown für Astro/Sveltia) und die Grafiken (SVG + PNG).
+// Stil: flach, wenige Farben, Strick-Schal, Block-Streifen, Sprühlack, Schablone, abgenutzter Druck.
 // Aufruf: npm run sticker            → nur Grafiken neu
 //         npm run sticker -- --md    → zusätzlich Markdown-Dateien (überschreibt!)
 import fs from 'node:fs';
@@ -7,369 +8,323 @@ import opentype from 'opentype.js';
 import sharp from 'sharp';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const font = opentype.parse(
-  fs.readFileSync(path.join(ROOT, 'node_modules/@fontsource/anton/files/anton-latin-400-normal.woff')).buffer
-);
+const load = (pkg, file) =>
+  opentype.parse(fs.readFileSync(path.join(ROOT, `node_modules/@fontsource/${pkg}/files/${file}`)).buffer);
+const F = {
+  anton: load('anton', 'anton-latin-400-normal.woff'),
+  block: load('bungee', 'bungee-latin-400-normal.woff'),
+  marker: load('permanent-marker', 'permanent-marker-latin-400-normal.woff'),
+  stencil: load('black-ops-one', 'black-ops-one-latin-400-normal.woff'),
+  graffiti: load('sedgwick-ave-display', 'sedgwick-ave-display-latin-400-normal.woff'),
+  pixel: load('silkscreen', 'silkscreen-latin-400-normal.woff'),
+};
 const OUT_IMG = path.join(ROOT, 'public/sticker');
 const OUT_MD = path.join(ROOT, 'src/content/sticker');
 fs.mkdirSync(OUT_IMG, { recursive: true });
 fs.mkdirSync(OUT_MD, { recursive: true });
 
-// Farben
-const G = '#2F8F3A'; // Flaggengrün (Szene-Look)
-const GD = '#14532D'; // Dunkelgrün
-const GL = '#8EE09A'; // Hellgrün
+// Farben (bewusst wenige, wie Siebdruck)
+const G = '#1E8C3A';
+const GD = '#0F5226';
 const W = '#FFFFFF';
-const K = '#111111';
-const V = '#5B2A86'; // Violett (nur Anti-Motive)
-const RX = '#D62828'; // Rot für Kreuze
-const R = '#C8102E'; // Rot (Freundschaft)
-const SKIN = '#E9B590';
+const CREME = '#F3F1EA';
+const K = '#151515';
+const V = '#5B2A86';
+const R = '#C8102E';
+const SKIN = '#D9A27C';
 
 // ---------- Helfer ----------
-function rng(seed) {
-  let s = seed;
-  return () => ((s = (s * 16807) % 2147483647) - 1) / 2147483646;
-}
-const seedOf = (str) => [...str].reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 2147483647, 7) || 7;
+let SEED = 1;
+const rnd = () => ((SEED = (SEED * 16807) % 2147483647) - 1) / 2147483646;
+const seedOf = (s) => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 2147483647, 11) || 11;
 
-/** Text als Pfad, zentriert, optional mit Umriss und Kursiv-Schräge */
-function txt(str, cx, baseline, size, maxW, fill, o = {}) {
+/** Text als Pfad, zentriert. o: font, stroke, sw, skew, shadow:[dx,dy,color], ls (letter spacing) */
+function txt(str, cx, y, size, maxW, fill, o = {}) {
+  const font = F[o.font || 'anton'];
+  const ls = o.ls || 0;
+  const widthAt = (s) => font.getAdvanceWidth(str, s) + ls * (str.length - 1) * (s / size);
   let s = size;
-  const w0 = font.getAdvanceWidth(str, s);
-  if (w0 > maxW) s = (s * maxW) / w0;
-  const w = font.getAdvanceWidth(str, s);
-  const d = font.getPath(str, cx - w / 2, baseline, s).toPathData(2);
-  const t = o.skew ? ` transform="translate(${cx} ${baseline}) skewX(${o.skew}) translate(${-cx} ${-baseline})"` : '';
-  const outline = o.stroke
-    ? `<path d="${d}" fill="${o.stroke}" stroke="${o.stroke}" stroke-width="${o.sw || 10}" stroke-linejoin="round"${t}/>`
-    : '';
-  return `${outline}<path d="${d}" fill="${fill}"${t}/>`;
+  if (widthAt(s) > maxW) s = (s * maxW) / widthAt(s);
+  const w = widthAt(s);
+  let d;
+  if (ls) {
+    let x = cx - w / 2;
+    d = [...str].map((c) => { const p = font.getPath(c, x, y, s).toPathData(2); x += font.getAdvanceWidth(c, s) + ls * (s / size); return p; }).join('');
+  } else d = font.getPath(str, cx - w / 2, y, s).toPathData(2);
+  const t = o.skew ? ` transform="translate(${cx} ${y}) skewX(${o.skew}) translate(${-cx} ${-y})"` : '';
+  const sh = o.shadow ? `<path d="${d}" fill="${o.shadow[2]}" transform="translate(${o.shadow[0]} ${o.shadow[1]})"/>` : '';
+  const st = o.stroke ? `<path d="${d}" fill="${o.stroke}" stroke="${o.stroke}" stroke-width="${o.sw || 8}" stroke-linejoin="round"${t}/>` : '';
+  return `${sh}${st}<path d="${d}" fill="${fill}"${t}/>`;
 }
-/** Szene-Schrift: kursiv, dicker Umriss */
-const hart = (str, cx, y, size, maxW, fill, stroke = K, sw = 12) => txt(str, cx, y, size, maxW, fill, { stroke, sw, skew: -9 });
-
 /** Text auf Kreisbogen */
-function arc(str, cx, cy, r, size, fill, unten = false, spacing = 4) {
+function arc(str, cx, cy, r, size, fill, unten = false, fontKey = 'block', spacing = 3) {
+  const font = F[fontKey];
   const chars = [...str];
   const ws = chars.map((c) => font.getAdvanceWidth(c, size) + spacing);
   const total = ws.reduce((a, b) => a + b, 0) - spacing;
   let cum = 0;
-  return chars
-    .map((c, i) => {
-      const w = ws[i] - spacing;
-      const mid = cum + w / 2;
-      cum += ws[i];
-      const a = unten ? (total / 2 - mid) / r : (mid - total / 2) / r;
-      const p = font.getPath(c, -w / 2, 0, size).toPathData(2);
-      const off = unten ? r + size * 0.72 : -r;
-      return `<path d="${p}" fill="${fill}" transform="translate(${cx} ${cy}) rotate(${((a * 180) / Math.PI).toFixed(2)}) translate(0 ${off.toFixed(1)})"/>`;
-    })
-    .join('');
+  return chars.map((c, i) => {
+    const w = ws[i] - spacing; const mid = cum + w / 2; cum += ws[i];
+    const a = unten ? (total / 2 - mid) / r : (mid - total / 2) / r;
+    const off = unten ? r + size * 0.78 : -r;
+    return `<path d="${font.getPath(c, -w / 2, 0, size).toPathData(2)}" fill="${fill}" transform="translate(${cx} ${cy}) rotate(${((a * 180) / Math.PI).toFixed(2)}) translate(0 ${off.toFixed(1)})"/>`;
+  }).join('');
 }
-function stern(x, y, s, f) {
-  const pts = Array.from({ length: 10 }, (_, i) => {
-    const a = (Math.PI / 5) * i - Math.PI / 2;
-    const rr = i % 2 ? s * 0.42 : s;
-    return `${(x + rr * Math.cos(a)).toFixed(1)},${(y + rr * Math.sin(a)).toFixed(1)}`;
-  }).join(' ');
-  return `<polygon points="${pts}" fill="${f}"/>`;
+/** Abgenutzter Druck: helle Flecken + feine Körnung über der Fläche */
+function grunge(w, h, id, staerke = 1) {
+  const s = Math.floor(rnd() * 900) + 1;
+  return `<defs>
+    <filter id="ga${id}" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="${0.03 + rnd() * 0.015}" numOctaves="4" seed="${s}"/><feColorMatrix type="matrix" values="0 0 0 0 0.97  0 0 0 0 0.96  0 0 0 0 0.93  0 0 0 ${28 * staerke} ${-20.6 * staerke - (1 - staerke) * 2}"/></filter>
+    <filter id="gb${id}" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="${s + 7}"/><feColorMatrix type="matrix" values="0 0 0 0 0.97  0 0 0 0 0.96  0 0 0 0 0.93  0 0 0 30 -20.6"/></filter>
+  </defs>
+  <rect width="${w}" height="${h}" filter="url(#ga${id})" opacity=".55"/>
+  <rect width="${w}" height="${h}" filter="url(#gb${id})" opacity=".35"/>`;
+}
+/** Sticker-Grundform mit weißem Schnittrand, Inhalt wird geclippt, Grunge drüber */
+function form(w, h, inner, { rx = 18, rand = 14, rund = false, id = 'x', gr = 1 } = {}) {
+  const clip = rund
+    ? `<circle cx="${w / 2}" cy="${h / 2}" r="${w / 2 - rand}"/>`
+    : `<rect x="${rand}" y="${rand}" width="${w - rand * 2}" height="${h - rand * 2}" rx="${Math.max(2, rx - rand / 2)}"/>`;
+  const aussen = rund ? `<circle cx="${w / 2}" cy="${h / 2}" r="${w / 2 - 2}" fill="${W}"/>` : `<rect x="2" y="2" width="${w - 4}" height="${h - 4}" rx="${rx}" fill="${W}"/>`;
+  return `${aussen}<clipPath id="c${id}">${clip}</clipPath><g clip-path="url(#c${id})">${inner}${gr ? grunge(w, h, id, gr) : ''}</g>`;
 }
 
-// ---------- Embleme (eigene Zeichen, keine Vereins- oder Stadtwappen) ----------
-/** Eigenes Wien-West-Schild: grün/weiß geteilt, "WW" */
-function schildWW(cx, cy, s = 1, label = 'WW') {
-  return `<g transform="translate(${cx} ${cy}) scale(${s})">
-    <path d="M-78 -92h156v70c0 62-36 98-78 120-42-22-78-58-78-120z" fill="${W}" stroke="${K}" stroke-width="10" stroke-linejoin="round"/>
-    <clipPath id="sc${cx}${cy}"><path d="M-73 -87h146v65c0 58-33 92-73 113-40-21-73-55-73-113z"/></clipPath>
-    <g clip-path="url(#sc${cx}${cy})"><rect x="-80" y="-90" width="80" height="200" fill="${G}"/></g>
-    ${txt(label, 0, 30, 92, 130, W, { stroke: K, sw: 9 })}
-  </g>`;
+// ---------- Strick-Schal ----------
+/** Rastert Text in ein Maschen-Gitter (true = Buchstabe) */
+async function maschen(str, cols, rows, fontKey = 'pixel', fill = 0.62) {
+  const font = F[fontKey];
+  const H = rows * 10, Wd = cols * 10;
+  let size = H * fill;
+  let w = font.getAdvanceWidth(str, size);
+  if (w > Wd * 0.92) { size *= (Wd * 0.92) / w; w = font.getAdvanceWidth(str, size); }
+  const p = font.getPath(str, (Wd - w) / 2, H / 2 + size * 0.37, size).toPathData(2);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${Wd}" height="${H}"><rect width="100%" height="100%" fill="#000"/><path d="${p}" fill="#fff"/></svg>`;
+  const { data } = await sharp(Buffer.from(svg)).resize(cols, rows, { kernel: 'lanczos3' }).greyscale().raw().toBuffer({ resolveWithObject: true });
+  return Array.from({ length: rows }, (_, r) => Array.from({ length: cols }, (_, c) => data[r * cols + c] > 128));
 }
-/** Violette Scheibe mit rotem Kreuz (generisch, kein Logo) */
-function keinViolett(cx, cy, r = 80) {
-  return `<g transform="translate(${cx} ${cy})">
-    <circle r="${r}" fill="${W}" stroke="${K}" stroke-width="8"/>
-    <circle r="${r * 0.78}" fill="${V}"/>
-    ${txt('V', 0, r * 0.32, r * 0.95, r, W)}
-    <path d="M${-r * 0.75} ${-r * 0.75}L${r * 0.75} ${r * 0.75}M${r * 0.75} ${-r * 0.75}L${-r * 0.75} ${r * 0.75}" stroke="${RX}" stroke-width="${r * 0.2}" stroke-linecap="round"/>
-  </g>`;
-}
-/** Splatter-Wolke */
-function splatter(cx, cy, rad, seed, farben = [G, K, GD, GL]) {
-  const r = rng(seed);
+/** Zeichnet Gitter als Strickmaschen (V-Form) */
+function strick(grid, x0, y0, cw, ch, farbeAn, farbeAus, farbeAt) {
   let out = '';
-  for (let i = 0; i < 46; i++) {
-    const a = r() * Math.PI * 2;
-    const d = rad * (0.35 + r() * 0.75);
-    const x = cx + Math.cos(a) * d;
-    const y = cy + Math.sin(a) * d * 0.9;
-    const s = 10 + r() * 46 * (1 - d / (rad * 1.2));
-    out += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${Math.max(4, s).toFixed(1)}" fill="${farben[i % farben.length]}"/>`;
-    if (i % 3 === 0) {
-      const d2 = d + 30 + r() * 50;
-      out += `<circle cx="${(cx + Math.cos(a) * d2).toFixed(1)}" cy="${(cy + Math.sin(a) * d2 * 0.9).toFixed(1)}" r="${(3 + r() * 7).toFixed(1)}" fill="${farben[(i + 1) % farben.length]}"/>`;
-    }
-  }
+  grid.forEach((row, r) => row.forEach((on, c) => {
+    const col = typeof farbeAt === 'function' ? farbeAt(r, c, on) : on ? farbeAn : farbeAus;
+    const x = x0 + c * cw, y = y0 + r * ch;
+    out += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${cw + 0.6}" height="${ch + 0.6}" fill="${col}"/>`;
+    out += `<path d="M${(x + cw * 0.08).toFixed(1)} ${(y + ch * 0.15).toFixed(1)}Q${(x + cw * 0.28).toFixed(1)} ${(y + ch * 0.95).toFixed(1)} ${(x + cw * 0.5).toFixed(1)} ${(y + ch * 0.9).toFixed(1)}M${(x + cw * 0.92).toFixed(1)} ${(y + ch * 0.15).toFixed(1)}Q${(x + cw * 0.72).toFixed(1)} ${(y + ch * 0.95).toFixed(1)} ${(x + cw * 0.5).toFixed(1)} ${(y + ch * 0.9).toFixed(1)}" stroke="#000" stroke-opacity=".18" stroke-width="${(cw * 0.12).toFixed(1)}" fill="none"/>`;
+  }));
   return out;
-}
-/** Eigene Fan-Figur: Haube, Schal vorm Gesicht, Jacke. Varianten: ruhig | faust | schal */
-function figur(cx, cy, s = 1, variante = 'ruhig', haube = 'WW') {
-  const st = `stroke="${K}" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"`;
-  const arm = variante === 'faust'
-    ? `<path d="M118 120 C150 60 168 -10 160 -70" fill="none" stroke="${K}" stroke-width="58" stroke-linecap="round"/>
-       <path d="M118 120 C150 60 168 -10 160 -70" fill="none" stroke="${GD}" stroke-width="44" stroke-linecap="round"/>
-       <rect x="128" y="-128" width="66" height="70" rx="22" fill="${SKIN}" ${st}/>
-       <path d="M140 -110h42M140 -94h42M140 -78h42" stroke="${K}" stroke-width="4"/>`
-    : '';
-  const schalHoch = variante === 'schal'
-    ? `<path d="M-120 140 L-150 -40" stroke="${K}" stroke-width="54" stroke-linecap="round"/><path d="M-120 140 L-150 -40" stroke="${GD}" stroke-width="40" stroke-linecap="round"/>
-       <path d="M120 140 L150 -40" stroke="${K}" stroke-width="54" stroke-linecap="round"/><path d="M120 140 L150 -40" stroke="${GD}" stroke-width="40" stroke-linecap="round"/>
-       <rect x="-200" y="-112" width="400" height="58" rx="6" fill="${W}" ${st}/>
-       ${[0, 1, 2, 3, 4, 5, 6].map((i) => `<rect x="${-196 + i * 57}" y="-108" width="28" height="50" fill="${G}"/>`).join('')}
-       ${[-170, 170].map((x) => `<circle cx="${x}" cy="-48" r="26" fill="${SKIN}" ${st}/>`).join('')}`
-    : '';
-  return `<g transform="translate(${cx} ${cy}) scale(${s})">
-    ${schalHoch}
-    <!-- Jacke -->
-    <path d="M-150 230 C-150 140 -110 100 -52 92 L52 92 C110 100 150 140 150 230 Z" fill="${GD}" ${st}/>
-    <path d="M0 96 V230" stroke="${K}" stroke-width="5"/>
-    <path d="M-52 92 C-40 128 40 128 52 92" fill="${G}" ${st}/>
-    <path d="M-20 116 v40 M20 116 v40" stroke="${W}" stroke-width="5" stroke-linecap="round"/>
-    <rect x="-118" y="168" width="40" height="12" rx="3" fill="${G}"/>
-    ${arm}
-    <!-- Kopf -->
-    <ellipse cx="0" cy="0" rx="64" ry="76" fill="${SKIN}" ${st}/>
-    <!-- Haube -->
-    <path d="M-68 -6 C-72 -86 72 -86 68 -6 Z" fill="${G}" ${st}/>
-    <rect x="-72" y="-26" width="144" height="34" rx="8" fill="${GD}" ${st}/>
-    ${haube ? txt(haube, 0, 1, 26, 80, W) : ''}
-    <!-- Augen -->
-    <path d="M-40 22 l26 6 M40 22 l-26 6" stroke="${K}" stroke-width="7" stroke-linecap="round"/>
-    <ellipse cx="-24" cy="36" rx="7" ry="6" fill="${K}"/><ellipse cx="24" cy="36" rx="7" ry="6" fill="${K}"/>
-    <!-- Schal vorm Gesicht -->
-    <path d="M-66 48 C-40 60 40 60 66 48 L62 96 C30 108 -30 108 -62 96 Z" fill="${W}" ${st}/>
-    <clipPath id="fs${cx}${cy}"><path d="M-66 48 C-40 60 40 60 66 48 L62 96 C30 108 -30 108 -62 96 Z"/></clipPath>
-    <g clip-path="url(#fs${cx}${cy})">${[-60, -28, 4, 36].map((x) => `<rect x="${x}" y="40" width="16" height="80" fill="${G}"/>`).join('')}</g>
-    <path d="M-66 48 C-40 60 40 60 66 48 L62 96 C30 108 -30 108 -62 96 Z" fill="none" ${st}/>
-  </g>`;
-}
-/** Textbalken wie bei Szene-Stickern */
-function balkenText(str, cx, cy, w, h, rot = -3, fill = W, color = K) {
-  return `<g transform="rotate(${rot} ${cx} ${cy})">
-    <rect x="${cx - w / 2 - 8}" y="${cy - h / 2 - 8}" width="${w + 16}" height="${h + 16}" fill="${K}"/>
-    <rect x="${cx - w / 2}" y="${cy - h / 2}" width="${w}" height="${h}" fill="${fill}"/>
-    ${txt(str, cx, cy + h * 0.3, h * 0.78, w - 28, color)}
-  </g>`;
-}
-/** Stoppuhr 75' */
-function uhr(cx, cy, r) {
-  return `<g transform="translate(${cx} ${cy})">
-    <rect x="-16" y="${-r - 30}" width="32" height="26" rx="6" fill="${K}"/>
-    <circle r="${r}" fill="${W}" stroke="${K}" stroke-width="10"/>
-    <path d="M0 0 L0 ${-r} A${r} ${r} 0 1 1 ${-r} 0 Z" fill="${G}" opacity=".9"/>
-    <path d="M0 0 L${-r * 0.85} 0" stroke="${K}" stroke-width="10" stroke-linecap="round"/>
-    <circle r="12" fill="${K}"/>
-  </g>`;
 }
 
 // ---------- Vorlagen ----------
-// 3:2 Querformat (900×600) im Flaggen-Look; quadratisch 600×600; breit 900×300
-const rahmen32 = (inner) => `
-  <rect x="6" y="6" width="888" height="588" rx="28" fill="${W}"/>
-  <clipPath id="r32"><rect x="22" y="22" width="856" height="556" rx="16"/></clipPath>
-  <g clip-path="url(#r32)">${inner}</g>
-  <rect x="22" y="22" width="856" height="556" rx="16" fill="none" stroke="${K}" stroke-width="4"/>`;
-
+// Jede Vorlage liefert { w, h, svg } (async erlaubt)
 const T = {
-  // Flagge grün/weiß, zwei Embleme, Text oben + unten
-  flagge: ({ oben, unten, links = 'schild', rechts = 'violett' }) => rahmen32(`
-    <rect x="0" y="0" width="900" height="300" fill="${G}"/>
-    <rect x="0" y="300" width="900" height="300" fill="${W}"/>
-    ${hart(oben, 450, 150, 130, 800, W)}
-    ${links === 'schild' ? schildWW(300, 318, 1.05) : links === 'stern' ? stern(300, 318, 80, K) : ''}
-    ${rechts === 'violett' ? keinViolett(600, 318, 92) : rechts === 'schild' ? schildWW(600, 318, 1.05, '14') : rechts === 'uhr' ? uhr(600, 330, 82) : ''}
-    ${hart(unten, 450, 536, 92, 810, G, K, 9)}`),
-  // Flagge mit einem großen Emblem in der Mitte
-  flagge1: ({ oben, unten, emblem = 'schild', label }) => rahmen32(`
-    <rect x="0" y="0" width="900" height="300" fill="${G}"/>
-    <rect x="0" y="300" width="900" height="300" fill="${W}"/>
-    ${stern(110, 300, 36, K)}${stern(790, 300, 36, K)}
-    ${emblem === 'schild' ? schildWW(450, 312, 1.25, label || 'WW') : emblem === 'violett' ? keinViolett(450, 312, 112) : emblem === 'uhr' ? uhr(450, 320, 100) : ''}
-    ${hart(oben, 450, 150, 124, 800, W)}
-    ${hart(unten, 450, 540, 92, 810, G, K, 9)}`),
-  // Diagonal geteilte Flagge mit großer Schrift
-  diagonal: ({ a, b, c }) => rahmen32(`
-    <rect x="0" y="0" width="900" height="600" fill="${W}"/>
-    <path d="M0 0H900V250L0 340Z" fill="${G}"/>
-    ${hart(a, 450, 200, 150, 800, W, K, 14)}
-    ${hart(b, 450, 470, 118, 800, G, K, 10)}
-    ${c ? txt(c, 450, 548, 40, 700, K) : ''}`),
-  // Figur mit Farbspritzern und Textbalken (quadratisch)
-  figur: ({ a, variante = 'ruhig', haube = 'WW', farben }) => {
-    const seed = seedOf(a + variante);
-    return `
-    <rect x="6" y="6" width="588" height="588" rx="28" fill="${W}"/>
-    ${splatter(300, 270, 230, seed, farben)}
-    ${figur(300, 250, 1, variante, haube)}
-    ${balkenText(a, 300, 500, 500, 74)}`;
+  // Strick-Schal quer: Streifen oben/unten, Strick-Schrift
+  schal: async ({ a, grund = G, schrift = W, rand = W }) => {
+    const cols = 120, rows = 28, cw = 8, ch = 8;
+    const grid = await maschen(a, cols, rows - 6, 'anton', 0.8);
+    const full = [
+      ...Array.from({ length: 3 }, () => Array(cols).fill('r')),
+      ...grid.map((row) => row.map((v) => (v ? 'a' : 'g'))),
+      ...Array.from({ length: 3 }, () => Array(cols).fill('r')),
+    ];
+    const farbe = { r: rand, a: schrift, g: grund };
+    const stripe = (r) => (r === 1 || r === rows - 2 ? grund : null);
+    const inner = strick(full, 0, 0, cw, ch, null, null, (r, c, v) => stripe(r) || farbe[full[r][c]]);
+    return { w: cols * cw, h: rows * ch, svg: form(cols * cw, rows * ch, inner, { rx: 10, rand: 10, id: 's' + seedOf(a), gr: 0.6 }) };
   },
-  // Abzeichen rund
-  abzeichen: ({ a, oben, unten, dunkel }) => `
-    <circle cx="300" cy="300" r="292" fill="${W}"/>
-    <circle cx="300" cy="300" r="272" fill="${dunkel ? K : G}"/>
-    <circle cx="300" cy="300" r="176" fill="${W}"/>
-    <circle cx="300" cy="300" r="164" fill="${dunkel ? G : GD}"/>
-    ${arc(oben, 300, 300, 196, 62, W)}
-    ${arc(unten, 300, 300, 196, 48, W, true)}
-    ${stern(80, 300, 20, W)}${stern(520, 300, 20, W)}
-    ${txt(a, 300, 342, 112, 260, W, { stroke: K, sw: 8 })}`,
-  // Straßenschild, breit
-  schild: ({ nr, a, b }) => `
-    <rect x="6" y="6" width="888" height="288" rx="26" fill="${W}"/>
-    <rect x="24" y="24" width="852" height="252" rx="14" fill="${G}"/>
-    <rect x="38" y="38" width="824" height="224" rx="8" fill="none" stroke="${W}" stroke-width="6"/>
-    ${txt(nr, 130, 190, 110, 150, W)}
-    <rect x="228" y="62" width="5" height="176" fill="${W}"/>
-    ${txt(a, 545, 170, 108, 560, W)}
-    ${txt(b, 545, 228, 40, 560, GL)}`,
-  // Schal, breit
-  schal: ({ a, b }) => `
-    <rect x="6" y="6" width="888" height="288" rx="30" fill="${W}"/>
-    <clipPath id="s"><rect x="22" y="22" width="856" height="256" rx="18"/></clipPath>
-    <g clip-path="url(#s)">
-      <rect x="0" y="0" width="900" height="300" fill="${K}"/>
-      ${[0, 1, 2, 3].map((i) => `<rect x="${22 + i * 34}" y="0" width="17" height="300" fill="${i % 2 ? W : G}"/><rect x="${861 - i * 34}" y="0" width="17" height="300" fill="${i % 2 ? W : G}"/>`).join('')}
-      <rect x="0" y="22" width="900" height="14" fill="${G}"/><rect x="0" y="264" width="900" height="14" fill="${G}"/>
-    </g>
-    ${hart(a, 450, b ? 172 : 196, 120, 600, W, G, 8)}
-    ${b ? txt(b, 450, 238, 46, 560, GL) : ''}`,
-  // Ticket
-  ticket: ({ a, b, c }) => `
-    <path d="M44 140h512v96a54 54 0 0 0 0 112v112H44V348a54 54 0 0 0 0-112z" fill="${W}" stroke="${W}" stroke-width="40" stroke-linejoin="round"/>
-    <path d="M44 140h512v96a54 54 0 0 0 0 112v112H44V348a54 54 0 0 0 0-112z" fill="${G}" stroke="${K}" stroke-width="4"/>
-    <path d="M430 150v300" stroke="${W}" stroke-width="4" stroke-dasharray="12 10"/>
-    ${hart(a, 250, 300, 104, 280, W)}
-    ${txt(b, 250, 360, 46, 280, GL)}
-    ${txt(c, 250, 420, 26, 280, W)}
-    <g transform="rotate(-90 492 300)">${txt('GÜLTIG FÜR IMMER', 492, 314, 34, 260, W)}</g>`,
-  // Freundschaft
-  freund: ({ a, b, c }) => rahmen32(`
-    <rect x="0" y="0" width="900" height="600" fill="${G}"/>
-    <path d="M900 0V600H260z" fill="${K}"/><path d="M900 330V600H600z" fill="${R}"/>
-    ${schildWW(170, 300, 0.8)}
-    ${hart(a, 520, 250, 130, 560, W)}
-    ${hart(b, 520, 400, 130, 560, W)}
-    ${txt(c, 520, 486, 44, 500, W)}`),
-  pack: ({ a, n }) => {
-    const mini = (x, y, r, fill, label) => `
-      <g transform="translate(${x} ${y}) rotate(${r})">
-        <rect x="-110" y="-70" width="220" height="140" rx="18" fill="${W}" stroke="#0002" stroke-width="2"/>
-        <rect x="-98" y="-58" width="196" height="58" rx="10" fill="${G}"/>
-        <rect x="-98" y="0" width="196" height="58" rx="10" fill="${fill}"/>
-        ${txt(label, 0, 18, 46, 170, W, { stroke: K, sw: 6 })}
+  // Strick-Schal zweifarbig (Freundschaft)
+  schal2: async ({ a }) => {
+    const cols = 120, rows = 28, cw = 8, ch = 8;
+    const grid = await maschen(a, cols, rows - 6, 'anton', 0.8);
+    const full = [...Array.from({ length: 3 }, () => Array(cols).fill(false)), ...grid, ...Array.from({ length: 3 }, () => Array(cols).fill(false))];
+    const inner = strick(full, 0, 0, cw, ch, null, null, (r, c, v) => {
+      const links = c < cols / 2;
+      if (r < 3 || r >= rows - 3) return (r === 1 || r === rows - 2) ? (links ? G : R) : W;
+      return v ? W : links ? G : K;
+    });
+    return { w: cols * cw, h: rows * ch, svg: form(cols * cw, rows * ch, inner, { rx: 10, rand: 10, id: 'f', gr: 0.6 }) };
+  },
+  // Block-Streifen: jede Zeile auf eigenem Streifen
+  block: ({ zeilen, farben = [G, GD] }) => {
+    const w = 640, lh = 132, pad = 24, h = zeilen.length * lh + pad * 2;
+    let inner = `<rect width="${w}" height="${h}" fill="${W}"/>`;
+    zeilen.forEach((z, i) => {
+      const y = pad + i * lh;
+      inner += `<rect x="0" y="${y}" width="${w}" height="${lh - 8}" fill="${farben[i % farben.length]}"/>`;
+      inner += txt(z, w / 2, y + lh * 0.72, 96, w - 80, W, { font: 'block', shadow: [6, 6, K] });
+    });
+    return { w, h, svg: form(w, h, inner, { rx: 16, rand: 12, id: 'b' + seedOf(zeilen.join()) }) };
+  },
+  // Sprühlack: Fläche geteilt, Graffiti-Schrift, Farbnasen
+  spray: ({ a, b, oben = G, unten = CREME, font = 'graffiti', schrift = W }) => {
+    const w = 900, h = 600;
+    SEED = seedOf(a);
+    let drips = '';
+    for (let x = 30; x < w; x += 30 + rnd() * 50) { const l = 20 + rnd() * 70; drips += `<rect x="${x.toFixed(0)}" y="320" width="${(8 + rnd() * 10).toFixed(0)}" height="${l.toFixed(0)}" rx="6" fill="${oben}"/>`; }
+    const inner = `<rect width="${w}" height="${h}" fill="${unten}"/><rect width="${w}" height="330" fill="${oben}"/>${drips}
+      ${txt(a, w / 2, 300, 230, 800, schrift, { font, stroke: oben === G ? GD : K, sw: 10 })}
+      ${b ? txt(b, w / 2, 500, 84, 780, oben === G ? G : K, { font: 'marker' }) : ''}`;
+    return { w, h, svg: form(w, h, inner, { id: 'sp' + seedOf(a) }) };
+  },
+  // Lang hochkant: weiß, doppelte Randlinien, Text quer
+  lang: ({ a, b, grund = W, schrift = G }) => {
+    const w = 300, h = 940;
+    const linien = `<rect x="26" y="26" width="10" height="${h - 52}" fill="${G}"/><rect x="44" y="26" width="4" height="${h - 52}" fill="${R}"/><rect x="${w - 36}" y="26" width="10" height="${h - 52}" fill="${G}"/><rect x="${w - 48}" y="26" width="4" height="${h - 52}" fill="${R}"/>`;
+    const inner = `<rect width="${w}" height="${h}" fill="${grund}"/>${linien}
+      <g transform="rotate(90 ${w / 2} ${h / 2})">
+        ${txt(a, w / 2, h / 2 + (b ? 4 : 44), 140, 820, schrift, { font: 'block' })}
+        ${b ? txt(b, w / 2, h / 2 + 96, 80, 820, K, { font: 'block' }) : ''}
       </g>`;
-    return `
-      <circle cx="300" cy="300" r="292" fill="#EFEDE6"/>
-      ${mini(210, 190, -12, '#ddd', 'WIEN WEST')}
-      ${mini(400, 200, 10, V, 'ANTI VIOLETT')}
-      ${mini(190, 380, 8, K, 'FORZA RAPID')}
-      ${mini(400, 395, -8, GD, 'WESTSTADION')}
-      <circle cx="300" cy="300" r="96" fill="${W}"/>
-      <circle cx="300" cy="300" r="84" fill="${K}"/>
-      ${txt(String(n), 300, 318, 92, 130, W)}
-      ${txt(a, 300, 560, 44, 360, K)}`;
+    return { w, h, svg: form(w, h, inner, { rx: 14, rand: 12, id: 'l' + seedOf(a) }) };
   },
-  mystery: ({ n }) => `
-    <circle cx="300" cy="300" r="292" fill="${W}"/>
-    <circle cx="300" cy="300" r="272" fill="${K}"/>
-    ${txt('?', 300, 360, 300, 200, G)}
-    ${txt(`${n} ÜBERRASCHUNGEN`, 300, 470, 48, 360, W)}`,
+  // Schablone: Stencil-Schrift, optional durchgestrichen
+  stencil: ({ a, b, strich = false, grund = G, schrift = W, rahmen = W }) => {
+    const w = 900, h = 560;
+    const inner = `<rect width="${w}" height="${h}" fill="${grund}"/>
+      <rect x="40" y="40" width="${w - 80}" height="${h - 80}" fill="none" stroke="${rahmen}" stroke-width="8" stroke-dasharray="30 14"/>
+      ${txt(a, w / 2, 310, 210, 760, schrift, { font: 'stencil' })}
+      ${strich ? `<path d="M110 300 L790 170" stroke="${G}" stroke-width="30" stroke-linecap="square"/>` : ''}
+      ${b ? txt(b, w / 2, 450, 72, 740, rahmen, { font: 'stencil' }) : ''}`;
+    return { w, h, svg: form(w, h, inner, { rx: 12, rand: 12, id: 'st' + seedOf(a) }) };
+  },
+  // Rundes Abzeichen, schlicht
+  rund: ({ a, oben, unten, dunkel = false }) => {
+    const w = 600, h = 600, c1 = dunkel ? K : G, c2 = dunkel ? G : W;
+    const inner = `<rect width="600" height="600" fill="${c1}"/>
+      <circle cx="300" cy="300" r="190" fill="${c2}"/><circle cx="300" cy="300" r="174" fill="${c1}"/>
+      <circle cx="300" cy="300" r="268" fill="none" stroke="${c2}" stroke-width="6"/>
+      ${arc(oben, 300, 300, 208, 54, W)}${arc(unten, 300, 300, 208, 44, W, true)}
+      <circle cx="78" cy="300" r="9" fill="${W}"/><circle cx="522" cy="300" r="9" fill="${W}"/>
+      ${txt(a, 300, 352, 150, 280, W, { font: 'block' })}`;
+    return { w, h, svg: form(w, h, inner, { rund: true, rand: 14, id: 'r' + seedOf(a + oben) }) };
+  },
+  // Flache Figur: Kappe, Tuch vorm Gesicht, zeigt nach vorne
+  figur: ({ a, b }) => {
+    const w = 640, h = 720;
+    const st = `stroke="${K}" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"`;
+    const person = `
+      <path d="M120 720 C120 560 190 510 320 505 C450 510 520 560 520 720 Z" fill="${GD}" ${st}/>
+      <path d="M262 505 L320 560 L378 505" fill="none" ${st}/>
+      <!-- Arm zeigt nach vorne -->
+      <path d="M420 560 C470 590 470 640 400 660 L330 668" fill="${GD}" ${st}/>
+      <path d="M300 640 h70 a22 22 0 0 1 0 44 h-70 z" fill="${SKIN}" ${st}/>
+      <path d="M232 662 h76 a12 12 0 0 1 0 22 h-76 a11 11 0 0 1 0-22z" fill="${SKIN}" ${st}/>
+      <!-- Kopf -->
+      <rect x="270" y="440" width="100" height="80" fill="${SKIN}" ${st}/>
+      <ellipse cx="320" cy="380" rx="92" ry="104" fill="${SKIN}" ${st}/>
+      <!-- Tuch -->
+      <path d="M228 392 C260 410 380 410 412 392 L404 470 C370 500 270 500 236 470 Z" fill="${G}" ${st}/>
+      <path d="M250 430 C290 445 350 445 390 430" stroke="${GD}" stroke-width="5" fill="none"/>
+      <!-- Augen -->
+      <path d="M262 352 l40 8 M378 352 l-40 8" stroke="${K}" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="286" cy="374" r="8" fill="${K}"/><circle cx="354" cy="374" r="8" fill="${K}"/>
+      <!-- Kappe -->
+      <path d="M226 340 C224 250 416 250 414 340 Z" fill="${G}" ${st}/>
+      <path d="M214 338 H470 C470 360 440 366 410 362 H214 Z" fill="${GD}" ${st}/>`;
+    const inner = `<rect width="${w}" height="${h}" fill="${G}"/>
+      <path d="M0 110 L320 280 L640 110 V200 L320 370 L0 200 Z" fill="${W}"/>
+      <g transform="translate(-30 -110) scale(1.1)">${person}</g>
+      <rect x="0" y="560" width="${w}" height="160" fill="${K}" opacity=".0"/>
+      <rect x="0" y="560" width="640" height="160" fill="${G}"/>${txt(a, w / 2, 650, 130, 560, W, { font: 'graffiti', stroke: K, sw: 12 })}
+      ${b ? txt(b, w / 2, 700, 46, 520, W, { font: 'marker', stroke: K, sw: 6 }) : ''}`;
+    return { w, h, svg: form(w, h, inner, { id: 'fg' + seedOf(a) }) };
+  },
+  // Straßenschild, breit
+  schild: ({ nr, a, b }) => {
+    const w = 900, h = 300;
+    const inner = `<rect width="${w}" height="${h}" fill="${G}"/>
+      <rect x="34" y="34" width="${w - 68}" height="${h - 68}" rx="8" fill="none" stroke="${W}" stroke-width="6"/>
+      ${txt(nr, 130, 190, 110, 150, W)}<rect x="228" y="62" width="5" height="176" fill="${W}"/>
+      ${txt(a, 545, 172, 110, 560, W)}${txt(b, 545, 228, 40, 560, W, { font: 'anton' })}`;
+    return { w, h, svg: form(w, h, inner, { rx: 22, rand: 14, id: 'sch', gr: 0.7 }) };
+  },
+  pack: ({ a, n }) => {
+    const w = 600, h = 600;
+    const mini = (x, y, r, fill, label, font) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="-120" y="-60" width="240" height="120" rx="10" fill="${W}" stroke="#0003" stroke-width="2"/><rect x="-110" y="-50" width="220" height="100" rx="4" fill="${fill}"/>${txt(label, 0, 18, 50, 190, W, { font })}</g>`;
+    const inner = `<rect width="600" height="600" fill="${CREME}"/>
+      ${mini(200, 170, -10, G, 'WIEN WEST', 'block')}${mini(410, 190, 9, V, 'ANTI VIOLA', 'stencil')}
+      ${mini(190, 400, 7, K, 'FORZA', 'graffiti')}${mini(410, 410, -7, GD, '1140', 'block')}
+      <circle cx="300" cy="300" r="90" fill="${K}"/>${txt(String(n), 300, 334, 100, 130, W, { font: 'block' })}
+      ${txt(a, 300, 560, 40, 420, K, { font: 'block' })}`;
+    return { w, h, svg: form(w, h, inner, { rund: true, id: 'p' + n, gr: 0 }) };
+  },
+  mystery: ({ n }) => {
+    const inner = `<rect width="600" height="600" fill="${K}"/>${txt('?', 300, 380, 320, 240, G, { font: 'block' })}${txt(`${n} ÜBERRASCHUNGEN`, 300, 480, 44, 380, W, { font: 'block' })}`;
+    return { w: 600, h: 600, svg: form(600, 600, inner, { rund: true, id: 'm', gr: 0 }) };
+  },
 };
-const FORMAT_OF = { flagge: '32', flagge1: '32', diagonal: '32', freund: '32', schild: 'breit', schal: 'breit' };
 
 // ---------- Produkte ----------
 // [slug, name, vorlage, daten, typ, kategorie, beschreibung, bestseller]
-// typ: einzel (ca. 8 cm bzw. 9 × 6 cm) | breit (ca. 15 × 5 cm) | pack
 const P = [
-  // ANTI VIOLETT & DERBY
-  ['wien-gehoert-uns', 'Wien gehört uns!', 'flagge', { oben: 'WIEN GEHÖRT UNS!', unten: 'VIOLETT HAT HIER NIX VERLOREN' }, 'einzel', 'derby', 'Grün-weiße Flagge, Wien-West-Schild und eine klare Ansage an die andere Seite der Stadt.', true],
-  ['anti-violett', 'Anti Violett', 'flagge1', { oben: 'ANTI VIOLETT', unten: 'WIEN IST GRÜN-WEISS', emblem: 'violett' }, 'einzel', 'derby', 'Der Klassiker vor jedem Derby – Violett durchgestrichen, Grün-Weiß drüber.', true],
-  ['anti-violett-rund', 'Anti Violett – Rund', 'abzeichen', { a: 'ANTI', oben: 'GEGEN VIOLETT', unten: 'GRÜN-WEISS 1899', dunkel: true }, 'einzel', 'derby', 'Das Anti-Motiv als rundes Abzeichen – für Laternenmast, Spind und Laptop.', true],
-  ['derbysieger', 'Derbysieger', 'diagonal', { a: 'DERBYSIEGER', b: 'WIEN WEST', c: 'DIE STADT IST GRÜN-WEISS' }, 'einzel', 'derby', 'Für den Montag nach dem Derby – und alle Tage, an denen man daran erinnern muss.', true],
-  ['zehnter-durchfahrt', '10. Bezirk? Nur Durchfahrt', 'flagge1', { oben: '10. BEZIRK?', unten: 'NUR DURCHFAHRT', emblem: 'violett' }, 'einzel', 'derby', 'Derby-Schmäh für alle, die in Favoriten höchstens umsteigen.', true],
-  ['violett-nein-danke', 'Violett? Nein, danke.', 'diagonal', { a: 'VIOLETT?', b: 'NEIN, DANKE.', c: 'GRÜN-WEISS SEIT 1899' }, 'einzel', 'derby', 'Freundlich, aber bestimmt. Für Bürotür, Kühlschrank und Kollegen mit falscher Farbe.', false],
-  ['derbytag-feiertag', 'Derbytag ist Feiertag', 'figur', { a: 'DERBYTAG IST FEIERTAG', variante: 'schal' }, 'einzel', 'derby', 'Schal hoch, Haube auf: Am Derbytag hat alles andere Pause.', false],
+  // ANTI VIOLA & DERBY
+  ['anti-viola', 'Anti Viola', 'stencil', { a: 'VIOLA', b: 'ANTI · ANTI · ANTI', strich: true, grund: CREME, schrift: V, rahmen: K }, 'einzel', 'derby', 'Schablonen-Look, Violett durchgestrichen. Der Klassiker vor jedem Derby.', true],
+  ['antiviola-rund', 'Antiviola – Rund', 'rund', { a: 'ANTI', oben: 'GEGEN VIOLETT', unten: 'WIEN WEST', dunkel: true }, 'einzel', 'derby', 'Rundes Abzeichen in Schwarz-Grün. Passt auf jeden Laternenmast.', true],
+  ['wien-gehoert-uns', 'Wien gehört uns', 'block', { zeilen: ['WIEN', 'GEHÖRT', 'UNS!'] }, 'einzel', 'derby', 'Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt.', true],
+  ['zehnter-durchfahrt', '10. Bezirk? Nur Durchfahrt', 'stencil', { a: '10. BEZIRK?', b: 'NUR DURCHFAHRT' }, 'einzel', 'derby', 'Derby-Schmäh für alle, die in Favoriten höchstens umsteigen.', true],
+  ['derbysieger-schal', 'Derbysieger – Schal', 'schal', { a: 'DERBYSIEGER' }, 'breit', 'derby', 'Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby.', true],
+  ['violett-nein-danke', 'Violett? Nein danke', 'spray', { a: 'Violett?', b: 'nein danke.', oben: V, unten: CREME }, 'einzel', 'derby', 'Sprühlack-Optik mit Farbnasen. Freundlich, aber bestimmt.', false],
+  ['wien-gruen-weiss', 'Wien ist grün-weiß', 'figur', { a: 'WIEN', b: 'ist grün-weiß!' }, 'einzel', 'derby', 'Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün-weiß.', true],
   // FORZA RAPID
-  ['forza-rapid', 'Forza Rapid', 'figur', { a: 'FORZA RAPID', variante: 'faust' }, 'einzel', 'forza', 'Eigene Figur mit Haube, Schal vorm Gesicht und Faust in der Luft – der Schlachtruf als Sticker.', true],
-  ['ynwa-west', 'You’ll never walk alone', 'figur', { a: 'YOU’LL NEVER WALK ALONE', variante: 'ruhig' }, 'einzel', 'forza', 'Die Hymne der Kurve – mit unserer Figur aus Wien West, Haube auf, Schal vorm Gesicht.', true],
-  ['forza-rapid-schal', 'Forza Rapid – Schal', 'schal', { a: 'FORZA RAPID', b: 'WESTSTADION · SEIT 1899' }, 'breit', 'forza', 'Im Schal-Look. Breitformat für Laptop, Koffer oder Heckscheibe.', true],
-  ['scr-1899', 'SCR 1899', 'flagge1', { oben: 'SCR 1899', unten: 'GRÜN-WEISS BIS ZUM SCHLUSS', emblem: 'schild', label: 'SCR' }, 'einzel', 'forza', 'Drei Buchstaben, die jeder im Block kennt – auf der grün-weißen Flagge.', true],
-  ['scr-schal', 'SCR SCR SCR', 'schal', { a: 'SCR · SCR · SCR' }, 'breit', 'forza', 'Wie der Schal, der in keinem Kasten fehlt – als Sticker im Breitformat.', false],
-  ['einmal-rapid', 'Einmal Rapid, immer Rapid', 'diagonal', { a: 'EINMAL RAPID', b: 'IMMER RAPID', c: 'WIEN WEST · SEIT 1899' }, 'einzel', 'forza', 'Man wird nicht Rapidler, man bleibt es.', true],
-  ['rapid-viertelstunde', 'Rapid-Viertelstunde', 'flagge1', { oben: 'RAPID-VIERTELSTUNDE', unten: 'AB DER 75. WIRD GEKLATSCHT', emblem: 'uhr' }, 'einzel', 'forza', 'Die Stoppuhr steht auf 75 – und das ganze Stadion klatscht. Tradition, die es nur bei uns gibt.', true],
+  ['forza-rapid-schal', 'Forza Rapid – Schal', 'schal', { a: 'FORZA RAPID' }, 'breit', 'forza', 'Der Schlachtruf in Strick-Optik, Breitformat.', true],
+  ['forza-rapid-block', 'Forza Rapid', 'block', { zeilen: ['FORZA', 'RAPID'] }, 'einzel', 'forza', 'Fette Block-Buchstaben auf grünen Streifen – schlicht und laut.', true],
+  ['scr-1899', 'SCR 1899', 'rund', { a: 'SCR', oben: 'SEIT 1899', unten: 'HÜTTELDORF' }, 'einzel', 'forza', 'Drei Buchstaben, die jeder im Block kennt.', true],
+  ['ynwa', 'You’ll never walk alone', 'lang', { a: 'NEVER', b: 'WALK ALONE' }, 'einzel', 'forza', 'Langer Streifen im Kurven-Look – für Geländer, Masten und Türrahmen.', true],
+  ['viertelstunde', 'Rapid-Viertelstunde', 'spray', { a: '75.', b: 'Rapid-Viertelstunde', oben: G }, 'einzel', 'forza', 'Ab der 75. wird geklatscht. Sprühlack-Optik in Grün-Weiß.', true],
+  ['einmal-rapid-schal', 'Einmal Rapid – Schal', 'schal', { a: 'IMMER RAPID', grund: W, schrift: G, rand: G }, 'breit', 'forza', 'Weißer Strick, grüne Schrift. Man wird nicht Rapidler, man bleibt es.', false],
+  ['ein-leben-lang', 'Grün-Weiß ein Leben lang', 'spray', { a: 'Grün-Weiß', b: 'ein Leben lang', oben: G }, 'einzel', 'forza', 'Sprühlack-Schrift mit Farbnasen. Ein Satz ohne Ablaufdatum.', true],
   // WIEN WEST & WESTSTADION
-  ['wien-west', 'Wien West', 'flagge1', { oben: 'WIEN WEST', unten: 'HÜTTELDORF · 1140', emblem: 'schild' }, 'einzel', 'wienwest', 'Unser Namensgeber auf der grün-weißen Flagge – mit eigenem Wien-West-Schild.', true],
-  ['weststadion', 'Weststadion', 'diagonal', { a: 'WESTSTADION', b: 'UNSER WOHNZIMMER', c: 'HÜTTELDORF · 1140 WIEN' }, 'einzel', 'wienwest', 'Für das Wohnzimmer in Hütteldorf. Egal, was auf dem Schild über dem Eingang steht.', true],
-  ['weststadion-schal', 'Weststadion – Schal', 'schal', { a: 'WESTSTADION', b: 'HÜTTELDORF · 1140' }, 'breit', 'wienwest', 'Das Weststadion im Schal-Look, Breitformat.', true],
+  ['wien-west-schal', 'Wien West – Schal', 'schal', { a: 'WIEN WEST' }, 'breit', 'wienwest', 'Unser Name in Strick-Optik – Grün, Weiß, ohne Schnickschnack.', true],
+  ['wien-west-block', 'Wien West', 'block', { zeilen: ['WIEN', 'WEST', '1140'] }, 'einzel', 'wienwest', 'Block-Streifen mit Postleitzahl. Für alle, die im Westen daheim sind.', true],
+  ['1140-huetteldorf', '1140 Hütteldorf', 'block', { zeilen: ['1140', 'HÜTTELDORF'], farben: [G, K] }, 'einzel', 'wienwest', 'Grün und Schwarz, zwei Streifen, eine Postleitzahl.', true],
+  ['weststadion-lang', 'Weststadion', 'lang', { a: 'WEST', b: 'STADION' }, 'einzel', 'wienwest', 'Langer Streifen für das Wohnzimmer in Hütteldorf.', true],
+  ['block-west-lang', 'Block West', 'lang', { a: 'BLOCK', b: 'WEST' }, 'einzel', 'wienwest', 'Der lange Streifen mit doppelter Randlinie – wie man ihn vom Geländer kennt.', true],
   ['huetteldorf-schild', 'Hütteldorf – Straßenschild', 'schild', { nr: '14.', a: 'HÜTTELDORF', b: 'WIEN WEST · SEIT 1899' }, 'breit', 'wienwest', 'Im Look der Wiener Straßenschilder – nur in Grün.', true],
-  ['block-west', 'Block West', 'figur', { a: 'BLOCK WEST', variante: 'schal', haube: 'BW' }, 'einzel', 'wienwest', 'Schal hoch im Block West – eigene Figur mit Farbspritzern in Grün und Schwarz.', true],
-  ['wien-west-14', 'Wien West – 14', 'flagge', { oben: 'WIEN WEST', unten: 'HÜTTELDORF IST ÜBERALL', links: 'schild', rechts: 'schild' }, 'einzel', 'wienwest', 'Zwei Schilder, eine Flagge: für jeden Laternenmast zwischen Hütteldorf und dem Auswärtsblock.', false],
-  ['st-hanappi', 'St. Hanappi', 'abzeichen', { a: 'ST.', oben: 'SANKT HANAPPI', unten: 'FÜR IMMER IN UNS' }, 'einzel', 'wienwest', 'Für alle, die noch im alten Hanappi gestanden sind. Das Stadion ist weg, die Erinnerung bleibt.', false],
-  ['pfarrwiese', 'Pfarrwiese 1912', 'abzeichen', { a: '1912', oben: 'PFARRWIESE', unten: 'HÜTTELDORF', dunkel: true }, 'einzel', 'wienwest', 'Hommage an die legendäre Heimstätte von 1912 bis 1977.', false],
+  ['meine-heimat', 'Wien West – meine Heimat', 'spray', { a: 'Wien West', b: 'meine Heimat', oben: G }, 'einzel', 'wienwest', 'Grün-weiß geteilt, Sprühlack-Schrift. Für die Heimat im Westen.', false],
+  ['st-hanappi', 'St. Hanappi', 'rund', { a: 'ST.', oben: 'SANKT HANAPPI', unten: 'FÜR IMMER', dunkel: true }, 'einzel', 'wienwest', 'Für alle, die noch im alten Hanappi gestanden sind.', false],
+  ['pfarrwiese', 'Pfarrwiese 1912', 'rund', { a: '1912', oben: 'PFARRWIESE', unten: 'HÜTTELDORF' }, 'einzel', 'wienwest', 'Hommage an die legendäre Heimstätte von 1912 bis 1977.', false],
   // KURVE & AUSWÄRTS
-  ['auswaerts', 'Auswärts immer dabei', 'ticket', { a: 'AUSWÄRTS', b: 'IMMER DABEI', c: 'BLOCK · REIHE · PLATZ: EGAL' }, 'einzel', 'kurve', 'Im Ticket-Look für alle, die jede Auswärtsfahrt mitnehmen. Egal wie weit, egal wie kalt.', true],
-  ['gegen-modernen-fussball', 'Gegen modernen Fußball', 'figur', { a: 'GEGEN MODERNEN FUSSBALL', variante: 'faust', farben: [K, G, GD, '#999'] }, 'einzel', 'kurve', 'Stehplätze statt VIP-Logen, Tradition statt Event. Faust hoch.', true],
-  ['wien-nuernberg', 'Wien – Nürnberg', 'freund', { a: 'WIEN', b: 'NÜRNBERG', c: 'FREUNDSCHAFT' }, 'einzel', 'kurve', 'Für die Fanfreundschaft zwischen Hütteldorf und Franken – grün, schwarz, rot.', true],
-  ['jungs-aus-dem-westen', 'Jungs & Mädels aus dem Westen', 'figur', { a: 'AUS DEM WESTEN', variante: 'ruhig', farben: [G, GL, K, GD] }, 'einzel', 'kurve', 'Eigene Figur, eigene Farbspritzer. Für alle, die im Westen daheim sind.', false],
-  ['kurve-statt-couch', 'Kurve statt Couch', 'diagonal', { a: 'KURVE', b: 'STATT COUCH', c: '90 MINUTEN STEHEN, SINGEN, SPRINGEN' }, 'einzel', 'kurve', 'Für alle, die Fußball nicht im Fernsehen schauen.', false],
-  ['gruenes-blut', 'Grünes Blut, weißes Herz', 'flagge1', { oben: 'GRÜNES BLUT', unten: 'WEISSES HERZ', emblem: 'schild' }, 'einzel', 'kurve', 'Zwei Zeilen, die erklären, warum am Spieltag nichts anderes im Kalender steht.', true],
-  ['laut-treu', 'Laut. Treu. Grün-Weiß.', 'diagonal', { a: 'LAUT. TREU.', b: 'GRÜN-WEISS.', c: 'IN JEDER LIGA, IN JEDEM STADION' }, 'einzel', 'kurve', 'Drei Worte für 90 Minuten Dauersupport.', false],
-  ['32-titel', '32 Titel', 'abzeichen', { a: '32', oben: 'REKORDMEISTER', unten: 'WIEN WEST · 1899' }, 'einzel', 'kurve', 'Für alle, die die Meistertitel auswendig aufzählen können.', false],
+  ['auswaerts-lang', 'Auswärts immer dabei', 'lang', { a: 'AUSWÄRTS', b: 'IMMER DABEI' }, 'einzel', 'kurve', 'Langer Streifen für Raststation, Bahnhof und Gästesektor.', true],
+  ['gegen-modernen-fussball', 'Gegen modernen Fußball', 'stencil', { a: 'GEGEN', b: 'MODERNEN FUSSBALL', grund: K }, 'einzel', 'kurve', 'Schablone auf Schwarz. Stehplätze statt VIP-Logen.', true],
+  ['wien-nuernberg-schal', 'Wien – Nürnberg', 'schal2', { a: 'WIEN NÜRNBERG' }, 'breit', 'kurve', 'Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken.', true],
+  ['kurve-statt-couch', 'Kurve statt Couch', 'block', { zeilen: ['KURVE', 'STATT', 'COUCH'], farben: [K, G] }, 'einzel', 'kurve', 'Für alle, die Fußball nicht im Fernsehen schauen.', false],
+  ['gruenes-blut', 'Grünes Blut', 'spray', { a: 'Grünes Blut', b: 'weißes Herz', oben: G }, 'einzel', 'kurve', 'Zwei Zeilen Sprühlack, die erklären, warum am Spieltag nichts anderes zählt.', true],
+  ['aus-dem-westen', 'Aus dem Westen', 'figur', { a: 'WESTEN', b: 'aus dem Westen. Für immer.' }, 'einzel', 'kurve', 'Flache Figur mit Kappe und Tuch – für alle, die im Westen daheim sind.', false],
+  ['32-titel', '32 Titel', 'rund', { a: '32', oben: 'REKORDMEISTER', unten: 'WIEN WEST' }, 'einzel', 'kurve', 'Für alle, die die Meistertitel auswendig aufzählen können.', false],
   // PACKS
-  ['starter-3er', '3er Starter-Pack', 'pack', { a: 'STARTER-PACK', n: 3 }, 'pack', 'packs', 'Die drei Topseller: Wien gehört uns!, Forza Rapid, Weststadion.', false],
+  ['starter-3er', '3er Starter-Pack', 'pack', { a: 'STARTER-PACK', n: 3 }, 'pack', 'packs', 'Die drei Topseller: Anti Viola, Forza Rapid, Wien West.', false],
   ['topseller-5er', '5er Topseller-Pack', 'pack', { a: 'TOPSELLER-PACK', n: 5 }, 'pack', 'packs', 'Fünf Lieblinge aus dem Block in einem Kuvert.', true],
-  ['mix-10er', '10er Mix-Pack', 'pack', { a: 'MIX-PACK · GRATIS VERSAND', n: 10 }, 'pack', 'packs', 'Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze.', true],
+  ['mix-10er', '10er Mix-Pack', 'pack', { a: 'MIX · GRATIS VERSAND', n: 10 }, 'pack', 'packs', 'Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze.', true],
   ['kurve-25er', '25er Kurven-Pack', 'pack', { a: 'KURVEN-PACK', n: 25 }, 'pack', 'packs', 'Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben.', true],
   ['block-50er', '50er Block-Pack', 'pack', { a: 'BLOCK-PACK', n: 50 }, 'pack', 'packs', '50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe.', false],
   ['mystery-15er', 'Mystery-Pack (15 Stück)', 'mystery', { n: 15 }, 'pack', 'packs', '15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.', false],
 ];
 
 const PREIS = { einzel: 2.5, breit: 3.9 };
-const PACK = {
-  'starter-3er': [6.9, 7.5, 3],
-  'topseller-5er': [9.9, 12.5, 5],
-  'mix-10er': [15, 25, 10],
-  'kurve-25er': [29, 62.5, 25],
-  'block-50er': [49, 125, 50],
-  'mystery-15er': [19, 37.5, 15],
-};
-const FORMAT_TXT = {
-  quadrat: 'ca. 8 × 8 cm, konturgeschnitten',
-  '32': 'ca. 9 × 6 cm',
-  breit: 'ca. 15 × 5 cm, konturgeschnitten',
-  pack: 'gemischte Formate (ca. 8 cm)',
-};
+const PACK = { 'starter-3er': [6.9, 7.5, 3], 'topseller-5er': [9.9, 12.5, 5], 'mix-10er': [15, 25, 10], 'kurve-25er': [29, 62.5, 25], 'block-50er': [49, 125, 50], 'mystery-15er': [19, 37.5, 15] };
+const formatText = (tpl, typ) =>
+  typ === 'pack' ? 'gemischte Formate (ca. 8 cm)'
+  : typ === 'breit' ? 'ca. 15 × 5 cm' : tpl === 'lang' ? 'ca. 4 × 13 cm' : tpl === 'rund' ? 'Ø ca. 8 cm' : 'ca. 9 × 6 cm';
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
 const writeMd = process.argv.includes('--md');
 let i = 0;
 for (const [slug, name, tpl, data, typ, kategorie, kurz, bestseller] of P) {
   i++;
-  const f = FORMAT_OF[tpl] || 'quadrat';
-  const vb = f === '32' ? '0 0 900 600' : f === 'breit' ? '0 0 900 300' : '0 0 600 600';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" role="img" aria-label="${esc(name)}">${T[tpl](data)}</svg>`;
+  SEED = seedOf(slug);
+  const { w, h, svg: inner } = await T[tpl](data);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(name)}">${inner}</svg>`;
   fs.writeFileSync(path.join(OUT_IMG, `${slug}.svg`), svg);
+  const long = Math.max(w, h);
   await sharp(Buffer.from(svg), { density: 200 })
-    .resize(f === 'quadrat' ? 1000 : 1200)
+    .resize(w >= h ? Math.round((1200 * w) / long) : null, h > w ? 1200 : null)
     .png({ compressionLevel: 9 })
     .toFile(path.join(OUT_IMG, `${slug}.png`));
 
   if (!writeMd) continue;
   const isPack = typ === 'pack';
   const [preis, wert, stueck] = isPack ? PACK[slug] : [PREIS[typ], undefined, 1];
-  const format = FORMAT_TXT[isPack ? 'pack' : f];
-  const md = `---
+  const format = formatText(tpl, typ);
+  fs.writeFileSync(path.join(OUT_MD, `${slug}.md`), `---
 name: ${JSON.stringify(name)}
 kurz: ${JSON.stringify(kurz)}
 typ: ${typ}
@@ -393,7 +348,6 @@ ${kurz}
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ${format}.
-`;
-  fs.writeFileSync(path.join(OUT_MD, `${slug}.md`), md);
+`);
 }
 console.log(`${P.length} Produkte erzeugt${writeMd ? ' (inkl. Markdown)' : ''}.`);

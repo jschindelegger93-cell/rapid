@@ -5,13 +5,13 @@ typ: einzel
 kategorie: wienwest
 preis: 2.5
 stueck: 1
-format: "ca. 8 × 8 cm, konturgeschnitten"
+format: "Ø ca. 8 cm"
 bild: /sticker/pfarrwiese.svg
 bildPng: /sticker/pfarrwiese.png
 bestseller: false
 verfuegbar: true
-sku: WW-022
-reihenfolge: 22
+sku: WW-023
+reihenfolge: 23
 shopifyVariantId: ""
 seo:
   title: "Pfarrwiese 1912 – Sticker | Wien West"
@@ -21,4 +21,4 @@ seo:
 Hommage an die legendäre Heimstätte von 1912 bis 1977.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** ca. 8 × 8 cm, konturgeschnitten.
+**Format:** Ø ca. 8 cm.
