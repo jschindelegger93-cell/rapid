@@ -12,9 +12,6 @@ Wettbewerb: Google-Ergebnisse zu „Rapid Aufkleber kaufen“ bestehen fast nur 
 | /kategorie/wien-west-huetteldorf-sticker/ | wien west hütteldorf aufkleber | 1140 sticker, weststadion sticker, block west sticker |
 | /kategorie/ultras-sticker/ | ultras sticker kaufen | kurven sticker, fußball ultra aufkleber |
 | /kategorie/sticker-packs/ | sticker pack fußball | sticker set, fußball sticker mix |
-| /ratgeber/sticker-richtig-kleben/ | sticker richtig kleben | aufkleber entfernen, sticker winter kleben |
-| /ratgeber/sticker-kultur-fussball/ | fußball sticker kultur | warum kleben fußballfans sticker |
-| /ratgeber/anti-viola-bedeutung/ | anti viola bedeutung | was heißt viola |
 | /sticker/<motiv>/ | <motiv> sticker | <motiv> aufkleber |
 
 ## Schema-Markup
@@ -22,7 +19,6 @@ Wettbewerb: Google-Ergebnisse zu „Rapid Aufkleber kaufen“ bestehen fast nur 
 - Start: WebSite, FAQPage
 - Produkte: Product + Offer (Preis, Verfügbarkeit, Versand AT/DE mit Lieferzeit, 14 Tage Rückgabe)
 - Kategorien: CollectionPage + ItemList + AggregateOffer + FAQPage
-- Ratgeber: Blog, Article, FAQPage
 - Über uns: AboutPage
 
 ## Go-live-Checkliste SEO
