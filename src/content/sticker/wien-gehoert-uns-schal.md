@@ -14,11 +14,13 @@ sku: WW-004
 reihenfolge: 4
 shopifyVariantId: ""
 seo:
-  title: "Wien gehört uns! – Schal – Sticker | Wien West"
-  description: "Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Wien gehört uns! – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Wien gehört uns! – Schal: Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Wien gehört uns! – Schal“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

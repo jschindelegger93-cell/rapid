@@ -21,14 +21,13 @@ const jsonld = [{
   mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
 }];
 ---
-<Base title="Wien West Sticker – Grün-Weiß Sticker für Block, Bus & Bahnhof"
-  description="Grün-Weiß Sticker aus Wien West: 30 wetterfeste Motive rund um Hütteldorf, Block West und Derby. Packs ab 6,90 €, gratis Versand ab 15 €." jsonld={jsonld}>
+<Base title="Rapid Wien Sticker & Aufkleber kaufen – Wien West Sticker"
+  description="Rapid-Fan-Sticker aus Wien West: Anti Viola, Forza Rapid, Wien West Hütteldorf & mehr. 30 wetterfeste Motive ab 2,50 €, gratis Versand ab 15 €." jsonld={jsonld}>
 
   <section class="hero">
     <div class="wrap hero-in">
       <div>
-        <span class="eyebrow">Wien West · seit 1899 grün-weiß</span>
-        <h1>Hütteldorf <mark>klebt</mark> überall.</h1>
+        <h1><span class="eyebrow h1kw">Rapid Wien Sticker & Aufkleber</span>Hütteldorf <mark>klebt</mark> überall.</h1>
         <p class="lead">Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab {eur(2.5)}, im 10er-Pack um {eur(15)} – Versand gratis.</p>
         <div class="ctas">
           <a class="btn btn--g" href="/sticker/">Alle Sticker ansehen →</a>
@@ -80,7 +79,7 @@ const jsonld = [{
           </div>
         ))}
       </div>
-      <p style="text-align:center;margin-top:28px"><a href="/sticker/?k=packs" style="color:#fff">Alle Packs inkl. 50er Block-Pack & Mystery-Pack →</a></p>
+      <p style="text-align:center;margin-top:28px"><a href="/kategorie/sticker-packs/" style="color:#fff">Alle Packs inkl. 50er Block-Pack & Mystery-Pack →</a></p>
     </div>
   </section>
 
@@ -106,11 +105,11 @@ const jsonld = [{
       <span class="eyebrow">Kategorien</span>
       <h2>Wo soll's kleben?</h2>
       <div class="cats">
-        <a href="/sticker/?k=derby"><b>Anti Viola & Derby</b><span>Anti Viola, Anti Violett, Wien gehört uns!, A.C.A.B.</span></a>
-        <a href="/sticker/?k=forza"><b>Forza Rapid</b><span>Forza Rapid, Rapid Wien, SCR 1899, YNWA</span></a>
-        <a href="/sticker/?k=wienwest"><b>Wien West & Hütteldorf</b><span>Wien West Hütteldorf, 1140, Weststadion</span></a>
-        <a href="/sticker/?k=kurve"><b>Kurve & Auswärts</b><span>Wien–Nürnberg, Auswärts, Gegen modernen Fußball</span></a>
-        <a href="/sticker/?k=packs"><b>Packs</b><span>3 bis 50 Stück</span></a>
+        <a href="/kategorie/anti-viola-sticker/"><b>Anti Viola & Derby</b><span>Anti Viola, Anti Violett, Wien gehört uns!, A.C.A.B.</span></a>
+        <a href="/kategorie/forza-rapid-sticker/"><b>Forza Rapid</b><span>Forza Rapid, Rapid Wien, SCR 1899, YNWA</span></a>
+        <a href="/kategorie/wien-west-huetteldorf-sticker/"><b>Wien West & Hütteldorf</b><span>Wien West Hütteldorf, 1140, Weststadion</span></a>
+        <a href="/kategorie/ultras-sticker/"><b>Kurve & Auswärts</b><span>Wien–Nürnberg, Auswärts, Gegen modernen Fußball</span></a>
+        <a href="/kategorie/sticker-packs/"><b>Packs</b><span>3 bis 50 Stück</span></a>
         <a href="/sticker/"><b>Alle Motive</b><span>Alles auf einen Blick</span></a>
       </div>
     </div>
@@ -126,6 +125,14 @@ const jsonld = [{
         <li><b>Versand</b>Wir verpacken knickfrei im Kuvert mit Karton.<em>innerhalb 48 h</em></li>
         <li><b>Kleben</b>Fläche sauber machen, draufkleben, glatt streichen. Hält auch den nächsten Winter am Auswärtsbahnhof.<em>ab 2–4 Werktagen</em></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="section seo-txt" style="padding-top:0">
+    <div class="wrap prose">
+      <h2>Rapid Sticker kaufen – direkt aus Wien West</h2>
+      <p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href="/kategorie/anti-viola-sticker/">Anti Viola</a> über <a href="/kategorie/forza-rapid-sticker/">Forza Rapid</a> bis <a href="/kategorie/wien-west-huetteldorf-sticker/">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p>
+      <p>Einzelsticker kosten 2,50 €, ab 5 Stück gibt es automatisch −10 %, ab 10 Stück −20 %. Mit den <a href="/kategorie/sticker-packs/">Sticker-Packs</a> zahlst du ab 0,98 € pro Sticker. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 15 € gratis. Wie du die Sticker richtig klebst, steht im <a href="/ratgeber/sticker-richtig-kleben/">Ratgeber</a>.</p>
     </div>
   </section>
 
@@ -204,5 +211,7 @@ const jsonld = [{
   .werte b { font: 400 24px/1 var(--head); text-transform: uppercase; }
   .werte span { font-size: 15px; color: #c3dccb; }
   @media (max-width: 860px) { .kultur-in { grid-template-columns: 1fr; } }
+  .h1kw { display: flex; font-family: var(--body); text-transform: uppercase; }
+  .seo-txt p { color: var(--muted); }
   .final { background: var(--g); color: #fff; text-align: center; padding: clamp(56px, 8vw, 100px) 0; }
 </style>

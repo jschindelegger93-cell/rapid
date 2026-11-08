@@ -14,11 +14,13 @@ sku: WW-012
 reihenfolge: 12
 shopifyVariantId: ""
 seo:
-  title: "Rapid Wien Fan Szene – Sticker | Wien West"
-  description: "Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Rapid Wien Fan Szene Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Rapid Wien Fan Szene: Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Rapid Wien Fan Szene“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

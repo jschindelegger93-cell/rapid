@@ -14,11 +14,13 @@ sku: WW-013
 reihenfolge: 13
 shopifyVariantId: ""
 seo:
-  title: "You’ll never walk alone – Sticker | Wien West"
-  description: "Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "You’ll never walk alone Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "You’ll never walk alone: Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „You’ll never walk alone“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

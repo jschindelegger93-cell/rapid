@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import Karte from '../../components/Karte.astro';
+import { getCollection } from 'astro:content';
+import { KATEGORIE_SEITEN } from '../../data/seo';
+import { crumbs, faqSchema, abs } from '../../lib/schema';
+import { S, eur } from '../../lib/site';
+
+export function getStaticPaths() {
+  return KATEGORIE_SEITEN.map((k) => ({ params: { kat: k.slug }, props: { k } }));
+}
+const { k } = Astro.props;
+const items = (await getCollection('sticker')).filter((s) => s.data.kategorie === k.key).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const url = `/kategorie/${k.slug}/`;
+const preise = items.map((i) => i.data.preis);
+const collection = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: k.h1,
+  description: k.description,
+  url: abs(url, Astro.site),
+  isPartOf: { '@type': 'WebSite', name: S.name, url: abs('/', Astro.site) },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/sticker/${s.id}/`, Astro.site), name: s.data.name })),
+  },
+  offers: { '@type': 'AggregateOffer', priceCurrency: 'EUR', lowPrice: Math.min(...preise).toFixed(2), highPrice: Math.max(...preise).toFixed(2), offerCount: items.length },
+};
+const andere = KATEGORIE_SEITEN.filter((x) => x.key !== k.key);
+---
+<Base title={k.title} description={k.description} image={items[0]?.data.bildPng} jsonld={[collection, crumbs(Astro.site, [['Start', '/'], ['Sticker', '/sticker/'], [k.h1, url]]), faqSchema(k.faq)]}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Start</a> / <a href="/sticker/">Sticker</a> / {k.h1}</nav>
+    <header style="padding:20px 0 24px">
+      <h1 style="font-size:clamp(42px,7vw,84px)">{k.h1}</h1>
+      <p class="lead">{k.intro[0]}</p>
+      <p style="color:var(--muted);font-size:15px">{items.length} Motive · ab {eur(Math.min(...preise))} · gratis Versand ab {eur(S.gratisVersandAb)}</p>
+      <div data-ship style="max-width:420px"></div>
+    </header>
+    <div class="grid">{items.map((s, i) => <Karte s={s} eager={i < 4} />)}</div>
+
+    <section class="section" style="padding-bottom:20px">
+      <div class="prose">
+        <h2>{k.h1} kaufen</h2>
+        {k.intro.slice(1).map((p) => <p>{p}</p>)}
+        <h2>Häufige Fragen</h2>
+        {k.faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
+    </section>
+    <section style="padding-bottom:60px">
+      <h2 style="font-size:30px">Weitere Kategorien</h2>
+      <div class="chips">{andere.map((x) => <a class="chip" style="display:inline-flex;align-items:center;text-decoration:none" href={`/kategorie/${x.slug}/`}>{x.h1}</a>)}</div>
+    </section>
+  </div>
+</Base>

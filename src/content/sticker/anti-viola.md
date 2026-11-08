@@ -14,11 +14,13 @@ sku: WW-001
 reihenfolge: 1
 shopifyVariantId: ""
 seo:
-  title: "Anti Viola – Sticker | Wien West"
-  description: "Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Anti Viola Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Anti Viola: Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Anti Viola“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

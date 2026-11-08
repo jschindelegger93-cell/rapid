@@ -40,4 +40,17 @@ const seiten = defineCollection({
   schema: z.object({ titel: z.string(), seo }),
 });
 
-export const collections = { sticker, seiten };
+const ratgeber = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/ratgeber' }),
+  schema: z.object({
+    titel: z.string(),
+    beschreibung: z.string(),
+    datum: z.coerce.date(),
+    bild: z.string().optional(),
+    produkte: z.array(z.string()).default([]),
+    faq: z.array(z.object({ frage: z.string(), antwort: z.string() })).default([]),
+    seo,
+  }),
+});
+
+export const collections = { sticker, seiten, ratgeber };

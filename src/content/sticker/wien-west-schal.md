@@ -14,11 +14,13 @@ sku: WW-018
 reihenfolge: 18
 shopifyVariantId: ""
 seo:
-  title: "Wien West – Schal – Sticker | Wien West"
-  description: "Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Wien West – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Wien West – Schal: Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Wien West – Schal“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

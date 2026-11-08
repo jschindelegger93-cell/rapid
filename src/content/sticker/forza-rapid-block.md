@@ -14,11 +14,13 @@ sku: WW-009
 reihenfolge: 9
 shopifyVariantId: ""
 seo:
-  title: "Forza Rapid – Sticker | Wien West"
-  description: "Fette Block-Buchstaben auf grünen Streifen – schlicht und laut. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Forza Rapid Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Forza Rapid: Fette Block-Buchstaben auf grünen Streifen – schlicht und laut. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Fette Block-Buchstaben auf grünen Streifen – schlicht und laut.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Forza Rapid“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

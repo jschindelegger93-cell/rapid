@@ -400,13 +400,15 @@ sku: WW-${String(i).padStart(3, '0')}
 reihenfolge: ${i}
 shopifyVariantId: ""
 seo:
-  title: ${JSON.stringify(`${name} – Sticker | Wien West`.slice(0, 70))}
-  description: ${JSON.stringify(`${kurz} Wetterfester Vinyl-Sticker, gratis Versand ab 15 €.`.slice(0, 160))}
+  title: ${JSON.stringify((isPack ? `${name} – Rapid Sticker Set kaufen | Wien West` : `${name} Sticker kaufen – Rapid Aufkleber | Wien West`).slice(0, 70))}
+  description: ${JSON.stringify(`${name}: ${kurz} ${isPack ? '' : '9 × 6 cm, wetterfest, 2,50 €. '}Gratis Versand ab 15 €.`.replace(/\s+/g, ' ').slice(0, 158))}
   noindex: false
 ---
 ${kurz}
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+${isPack ? `Im ${name} stecken ${stueck} Rapid-Fan-Sticker im Kurven-Look, gemischt aus allen Kategorien – ideal zum Aufteilen im Fanclub oder auf der Auswärtsfahrt.` : `Der Sticker „${name}“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.`}
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ${format}.
 `);
 }

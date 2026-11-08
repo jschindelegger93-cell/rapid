@@ -14,11 +14,13 @@ sku: WW-029
 reihenfolge: 29
 shopifyVariantId: ""
 seo:
-  title: "Gegen modernen Fußball – Sticker | Wien West"
-  description: "Schablone auf Schwarz. Stehplätze statt VIP-Logen. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Gegen modernen Fußball Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Gegen modernen Fußball: Schablone auf Schwarz. Stehplätze statt VIP-Logen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Schablone auf Schwarz. Stehplätze statt VIP-Logen.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Gegen modernen Fußball“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

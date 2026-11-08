@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { S } from '../lib/site';
+import { crumbs, abs } from '../lib/schema';
+const about = { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Über Wien West Sticker', url: abs('/ueber-uns/', Astro.site),
+  mainEntity: { '@type': 'Organization', name: S.name, founder: { '@type': 'Person', name: S.inhaber }, areaServed: 'AT', address: { '@type': 'PostalAddress', addressLocality: 'Wien', addressCountry: 'AT' } } };
+---
+<Base title="Über uns – Fans aus Wien West | Wien West Sticker" description="Wien West Sticker ist ein unabhängiger Fan-Shop aus Wien: eigene Designs im Kurven-Look, faire Preise, keine Gruppenlogos." jsonld={[about, crumbs(Astro.site, [['Start', '/'], ['Über uns', '/ueber-uns/']])]}>
+  <div class="wrap prose" style="padding-bottom:60px">
+    <nav class="crumbs"><a href="/">Start</a> / Über uns</nav>
+    <h1 style="margin-top:20px">Über uns</h1>
+    <p class="lead">Wir sind Fans aus Wien West und machen Sticker für alle, die grün-weiß leben.</p>
+    <h2>Warum Wien West Sticker?</h2>
+    <p>Gute Kurven-Sticker gab es bisher fast nur als Restposten auf eBay. Wir wollten wetterfeste Sticker im echten Kurven-Look, zu fairen Preisen und schnell im Postkasten.</p>
+    <h2>Unsere Regeln</h2>
+    <ul>
+      <li>Nur eigene Designs – keine Vereinswappen, keine Logos oder Namen von Fangruppen.</li>
+      <li>Wetterfestes Vinyl, matt laminiert, alle Motive im gleichen Format 9 × 6 cm.</li>
+      <li>Versand aus Wien innerhalb von 48 h, gratis ab 15 €.</li>
+    </ul>
+    <p>Inoffizieller Fanartikel – kein Produkt des SK Rapid Wien.</p>
+    <p><a class="btn btn--g" href="/sticker/">Zu den Stickern</a></p>
+  </div>
+</Base>

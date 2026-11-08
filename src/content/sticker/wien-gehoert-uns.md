@@ -14,11 +14,13 @@ sku: WW-003
 reihenfolge: 3
 shopifyVariantId: ""
 seo:
-  title: "Wien gehört uns! – Sticker | Wien West"
-  description: "Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Wien gehört uns! Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Wien gehört uns!: Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Wien gehört uns!“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

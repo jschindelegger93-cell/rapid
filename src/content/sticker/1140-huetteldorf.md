@@ -14,11 +14,13 @@ sku: WW-020
 reihenfolge: 20
 shopifyVariantId: ""
 seo:
-  title: "1140 Hütteldorf – Sticker | Wien West"
-  description: "Grün und Schwarz, zwei Streifen, eine Postleitzahl. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "1140 Hütteldorf Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "1140 Hütteldorf: Grün und Schwarz, zwei Streifen, eine Postleitzahl. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Grün und Schwarz, zwei Streifen, eine Postleitzahl.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „1140 Hütteldorf“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

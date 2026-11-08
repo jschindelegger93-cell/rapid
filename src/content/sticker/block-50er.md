@@ -15,11 +15,13 @@ sku: WW-035
 reihenfolge: 35
 shopifyVariantId: ""
 seo:
-  title: "50er Block-Pack – Sticker | Wien West"
-  description: "50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "50er Block-Pack – Rapid Sticker Set kaufen | Wien West"
+  description: "50er Block-Pack: 50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe. Gratis Versand ab 15 €."
   noindex: false
 ---
 50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Im 50er Block-Pack stecken 50 Rapid-Fan-Sticker im Kurven-Look, gemischt aus allen Kategorien – ideal zum Aufteilen im Fanclub oder auf der Auswärtsfahrt.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** je ca. 9 × 6 cm.

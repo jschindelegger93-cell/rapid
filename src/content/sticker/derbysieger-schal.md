@@ -14,11 +14,13 @@ sku: WW-005
 reihenfolge: 5
 shopifyVariantId: ""
 seo:
-  title: "Derbysieger – Schal – Sticker | Wien West"
-  description: "Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Derbysieger – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Derbysieger – Schal: Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Derbysieger – Schal“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

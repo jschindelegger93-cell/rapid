@@ -15,11 +15,13 @@ sku: WW-036
 reihenfolge: 36
 shopifyVariantId: ""
 seo:
-  title: "Mystery-Pack (15 Stück) – Sticker | Wien West"
-  description: "15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Mystery-Pack (15 Stück) – Rapid Sticker Set kaufen | Wien West"
+  description: "Mystery-Pack (15 Stück): 15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt. Gratis Versand ab 15 €."
   noindex: false
 ---
 15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Im Mystery-Pack (15 Stück) stecken 15 Rapid-Fan-Sticker im Kurven-Look, gemischt aus allen Kategorien – ideal zum Aufteilen im Fanclub oder auf der Auswärtsfahrt.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** je ca. 9 × 6 cm.

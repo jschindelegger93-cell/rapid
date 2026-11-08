@@ -14,11 +14,13 @@ sku: WW-022
 reihenfolge: 22
 shopifyVariantId: ""
 seo:
-  title: "Weststadion – Sticker | Wien West"
-  description: "Für das Wohnzimmer in Hütteldorf. Streifen-Look mit grün-blau-roten Linien. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Weststadion Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Weststadion: Für das Wohnzimmer in Hütteldorf. Streifen-Look mit grün-blau-roten Linien. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Für das Wohnzimmer in Hütteldorf. Streifen-Look mit grün-blau-roten Linien.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Weststadion“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

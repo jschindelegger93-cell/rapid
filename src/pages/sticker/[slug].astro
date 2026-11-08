@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import Karte from '../../components/Karte.astro';
 import { getCollection, render } from 'astro:content';
 import { S, eur, KATEGORIEN } from '../../lib/site';
+import { katSeite, katUrl } from '../../data/seo';
+import { crumbs, shipping, returnPolicy, priceValidUntil, brand } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const alle = await getCollection('sticker');
@@ -14,22 +16,29 @@ const { Content } = await render(s);
 const alle = await getCollection('sticker');
 const verwandt = alle.filter((x) => x.id !== s.id && (x.data.kategorie === d.kategorie || x.data.bestseller)).sort((a, b) => Number(b.data.kategorie === d.kategorie) - Number(a.data.kategorie === d.kategorie)).slice(0, 4);
 const url = new URL(`/sticker/${s.id}/`, Astro.site).href;
+const kat = katSeite(d.kategorie);
 const product = {
-  '@context': 'https://schema.org', '@type': 'Product', name: d.name, description: d.kurz, sku: d.sku,
-  image: new URL(d.bildPng || d.bild, Astro.site).href, brand: { '@type': 'Brand', name: S.name },
-  offers: { '@type': 'Offer', url, priceCurrency: 'EUR', price: d.preis.toFixed(2), availability: d.verfuegbar ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-    shippingDetails: { '@type': 'OfferShippingDetails', shippingRate: { '@type': 'MonetaryAmount', value: S.versandAT, currency: 'EUR' }, shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'AT' } } },
+  '@context': 'https://schema.org', '@type': 'Product', '@id': url + '#product',
+  name: d.name, description: d.kurz, sku: d.sku, mpn: d.sku, category: kat.h1,
+  image: [new URL(d.bildPng || d.bild, Astro.site).href], brand,
+  material: 'Vinyl, matt laminiert',
+  width: { '@type': 'QuantitativeValue', value: 90, unitCode: 'MMT' },
+  height: { '@type': 'QuantitativeValue', value: 60, unitCode: 'MMT' },
+  offers: {
+    '@type': 'Offer', url, priceCurrency: 'EUR', price: d.preis.toFixed(2), priceValidUntil,
+    itemCondition: 'https://schema.org/NewCondition',
+    availability: d.verfuegbar ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+    seller: { '@type': 'Organization', name: S.name },
+    shippingDetails: [shipping('AT', d.preis >= S.gratisVersandAb ? 0 : S.versandAT), shipping('DE', S.versandEU)],
+    hasMerchantReturnPolicy: returnPolicy,
+  },
 };
-const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-  { '@type': 'ListItem', position: 1, name: 'Start', item: new URL('/', Astro.site).href },
-  { '@type': 'ListItem', position: 2, name: 'Alle Sticker', item: new URL('/sticker/', Astro.site).href },
-  { '@type': 'ListItem', position: 3, name: d.name, item: url } ] };
-const breit = d.typ === 'breit';
+const bc = crumbs(Astro.site, [['Start', '/'], ['Sticker', '/sticker/'], [kat.h1, katUrl(d.kategorie)], [d.name, `/sticker/${s.id}/`]]);
 const proStk = d.typ === 'pack' ? d.preis / d.stueck : 0;
 ---
-<Base title={d.seo.title || `${d.name} | ${S.name}`} description={d.seo.description || d.kurz} image={d.bildPng} noindex={d.seo.noindex} jsonld={[product, crumbs]}>
+<Base title={d.seo.title || `${d.name} | ${S.name}`} description={d.seo.description || d.kurz} image={d.bildPng} noindex={d.seo.noindex} jsonld={[product, bc]}>
   <div class="wrap">
-    <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Start</a> / <a href="/sticker/">Alle Sticker</a> / <a href={`/sticker/?k=${d.kategorie}`}>{KATEGORIEN[d.kategorie]}</a></nav>
+    <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Start</a> / <a href="/sticker/">Alle Sticker</a> / <a href={katUrl(d.kategorie)}>{kat.h1}</a></nav>
     <div class="pdp">
       <div class="stage"><img src={d.bild} alt={`Sticker ${d.name}`} width="900" height="600" fetchpriority="high" /></div>
       <div class="info">
@@ -51,11 +60,18 @@ const proStk = d.typ === 'pack' ? d.preis / d.stueck : 0;
           <li>14 Tage Rückgaberecht</li>
         </ul>
         <div class="txt"><Content /></div>
+        <table class="spec">
+          <tr><th>Format</th><td>{d.format}</td></tr>
+          <tr><th>Material</th><td>Vinyl, matt laminiert, wetterfest</td></tr>
+          <tr><th>Kategorie</th><td><a href={katUrl(d.kategorie)}>{kat.h1}</a></td></tr>
+          <tr><th>Artikelnummer</th><td>{d.sku}</td></tr>
+        </table>
+        <p class="small">Tipp: <a href="/ratgeber/sticker-richtig-kleben/">So klebst du Sticker richtig</a> – damit sie draußen Jahre halten.</p>
         <p class="small" style="margin-top:20px">Inoffizieller Fanartikel – eigenes Design, kein Produkt des SK Rapid Wien.</p>
       </div>
     </div>
     <section class="section" style="padding-top:40px">
-      <h2>Passt dazu</h2>
+      <h2>Mehr {kat.h1}</h2>
       <div class="grid">{verwandt.map((v) => <Karte s={v} />)}</div>
     </section>
   </div>
@@ -78,6 +94,9 @@ const proStk = d.typ === 'pack' ? d.preis / d.stueck : 0;
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .facts { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 8px; font-size: 15px; }
   .facts li::before { content: '✓'; color: var(--g); font-weight: 800; margin-right: 10px; }
+  .spec { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+  .spec th { text-align: left; color: var(--muted); font-weight: 500; padding: 8px 0; width: 40%; border-bottom: 1px solid var(--line); }
+  .spec td { padding: 8px 0; border-bottom: 1px solid var(--line); }
   .txt { border-top: 1px solid var(--line); padding-top: 18px; font-size: 15px; }
   .sticky-buy { display: none; }
   @media (max-width: 860px) {

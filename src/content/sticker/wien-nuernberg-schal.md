@@ -14,11 +14,13 @@ sku: WW-027
 reihenfolge: 27
 shopifyVariantId: ""
 seo:
-  title: "Wien – Nürnberg – Sticker | Wien West"
-  description: "Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Wien – Nürnberg Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Wien – Nürnberg: Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Wien – Nürnberg“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

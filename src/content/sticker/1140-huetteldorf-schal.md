@@ -14,11 +14,13 @@ sku: WW-021
 reihenfolge: 21
 shopifyVariantId: ""
 seo:
-  title: "1140 Hütteldorf – Schal – Sticker | Wien West"
-  description: "1140 Hütteldorf in Strick-Optik. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "1140 Hütteldorf – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "1140 Hütteldorf – Schal: 1140 Hütteldorf in Strick-Optik. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 1140 Hütteldorf in Strick-Optik.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „1140 Hütteldorf – Schal“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

@@ -39,13 +39,19 @@ const org = {
   logo: new URL('/favicon.svg', Astro.site).href,
   sameAs: [S.instagram],
   areaServed: ['AT', 'DE'],
+  description: 'Unabhängiger Fan-Shop für Grün-Weiß Sticker aus Wien West.',
+  address: { '@type': 'PostalAddress', addressLocality: 'Wien', addressCountry: 'AT' },
+  contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', email: S.email, availableLanguage: ['de'] },
+  hasMerchantReturnPolicy: { '@type': 'MerchantReturnPolicy', applicableCountry: ['AT', 'DE'], returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow', merchantReturnDays: 14, returnMethod: 'https://schema.org/ReturnByMail', returnFees: 'https://schema.org/ReturnShippingFees' },
 };
 const nav = [
   ['/sticker/', 'Alle Sticker'],
-  ['/sticker/?k=packs', 'Packs'],
-  ['/versand/', 'Versand'],
-  ['/faq/', 'FAQ'],
+  ['/kategorie/anti-viola-sticker/', 'Anti Viola'],
+  ['/kategorie/wien-west-huetteldorf-sticker/', 'Wien West'],
+  ['/kategorie/sticker-packs/', 'Packs'],
+  ['/ratgeber/', 'Ratgeber'],
 ];
+const website = { '@context': 'https://schema.org', '@type': 'WebSite', name: S.name, alternateName: ['Wien West', 'wienwest-sticker.at'], url: Astro.site?.href, inLanguage: 'de-AT' };
 ---
 <!doctype html>
 <html lang="de-AT">
@@ -67,7 +73,12 @@ const nav = [
   <meta name="theme-color" content="#111111" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="alternate" hreflang="de-AT" href={canonical} />
+  <link rel="alternate" hreflang="x-default" href={canonical} />
+  <meta name="geo.region" content="AT-9" />
+  <meta name="geo.placename" content="Wien" />
   <script type="application/ld+json" set:html={JSON.stringify(org)} />
+  {path === '/' && <script type="application/ld+json" set:html={JSON.stringify(website)} />}
   {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
 </head>
 <body>
@@ -102,15 +113,17 @@ const nav = [
           <p style="font-size:13px;color:#8d8d8d">Inoffizieller Fanartikel. Kein Produkt des SK Rapid Wien, keine Vereins- oder Fangruppen-Logos.</p>
         </div>
         <div><h4>Shop</h4><ul>
-          <li><a href="/sticker/?k=derby">Anti Viola & Derby</a></li>
-          <li><a href="/sticker/?k=forza">Forza Rapid</a></li>
-          <li><a href="/sticker/?k=wienwest">Wien West & Hütteldorf</a></li>
-          <li><a href="/sticker/?k=kurve">Kurve & Auswärts</a></li>
-          <li><a href="/sticker/?k=packs">Packs</a></li>
+          <li><a href="/kategorie/anti-viola-sticker/">Anti Viola Sticker</a></li>
+          <li><a href="/kategorie/forza-rapid-sticker/">Forza Rapid Sticker</a></li>
+          <li><a href="/kategorie/wien-west-huetteldorf-sticker/">Wien West Hütteldorf</a></li>
+          <li><a href="/kategorie/ultras-sticker/">Ultras & Kurve</a></li>
+          <li><a href="/kategorie/sticker-packs/">Sticker-Packs</a></li>
         </ul></div>
         <div><h4>Service</h4><ul>
           <li><a href="/versand/">Versand & Preise</a></li>
           <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/ratgeber/">Ratgeber</a></li>
+          <li><a href="/ueber-uns/">Über uns</a></li>
           <li><a href={`mailto:${S.email}`}>{S.email}</a></li>
           <li><a href={S.instagram} rel="noopener">Instagram</a></li>
         </ul></div>

@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import Karte from '../../components/Karte.astro';
+import { getCollection, render } from 'astro:content';
+import { crumbs, faqSchema, abs } from '../../lib/schema';
+import { S } from '../../lib/site';
+export async function getStaticPaths() {
+  return (await getCollection('ratgeber')).map((p) => ({ params: { slug: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const d = p.data;
+const { Content } = await render(p);
+const alle = await getCollection('sticker');
+const produkte = d.produkte.map((id) => alle.find((s) => s.id === id)).filter(Boolean);
+const url = `/ratgeber/${p.id}/`;
+const article = {
+  '@context': 'https://schema.org', '@type': 'Article', headline: d.titel, description: d.beschreibung,
+  datePublished: d.datum.toISOString().slice(0, 10), dateModified: d.datum.toISOString().slice(0, 10),
+  image: d.bild ? [abs(d.bild, Astro.site)] : undefined, mainEntityOfPage: abs(url, Astro.site),
+  author: { '@type': 'Organization', name: S.name, url: abs('/ueber-uns/', Astro.site) },
+  publisher: { '@type': 'Organization', name: S.name, logo: { '@type': 'ImageObject', url: abs('/favicon.svg', Astro.site) } },
+};
+const ld = [article, crumbs(Astro.site, [['Start', '/'], ['Ratgeber', '/ratgeber/'], [d.titel, url]])];
+if (d.faq.length) ld.push(faqSchema(d.faq.map((f) => [f.frage, f.antwort] as const)));
+---
+<Base title={d.seo.title || d.titel} description={d.seo.description || d.beschreibung} image={d.bild} jsonld={ld}>
+  <div class="wrap" style="padding-bottom:60px">
+    <nav class="crumbs"><a href="/">Start</a> / <a href="/ratgeber/">Ratgeber</a> / {d.titel}</nav>
+    <article class="prose" style="margin-top:20px">
+      <h1 style="font-size:clamp(36px,5vw,60px)">{d.titel}</h1>
+      <p class="lead">{d.beschreibung}</p>
+      <p style="font-size:14px;color:var(--muted)">{S.name} · {d.datum.toLocaleDateString('de-AT')}</p>
+      <Content />
+      {d.faq.length > 0 && <><h2>Häufige Fragen</h2>{d.faq.map((f) => <details><summary>{f.frage}</summary><p>{f.antwort}</p></details>)}</>}
+    </article>
+    {produkte.length > 0 && <section class="section" style="padding-bottom:0"><h2 style="font-size:32px">Passende Sticker</h2><div class="grid">{produkte.map((s) => <Karte s={s} />)}</div></section>}
+  </div>
+</Base>

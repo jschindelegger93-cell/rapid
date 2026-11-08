@@ -14,11 +14,13 @@ sku: WW-006
 reihenfolge: 6
 shopifyVariantId: ""
 seo:
-  title: "Wien ist grün & weiß! – Sticker | Wien West"
-  description: "Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß! Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Wien ist grün & weiß! Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Wien ist grün & weiß!: Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß! 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß!
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Wien ist grün & weiß!“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

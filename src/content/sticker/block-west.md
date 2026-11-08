@@ -14,11 +14,13 @@ sku: WW-023
 reihenfolge: 23
 shopifyVariantId: ""
 seo:
-  title: "Block West – Sticker | Wien West"
-  description: "Block West im Streifen-Look. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Block West Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Block West: Block West im Streifen-Look. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Block West im Streifen-Look.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Block West“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

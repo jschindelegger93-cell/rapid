@@ -15,11 +15,13 @@ sku: WW-034
 reihenfolge: 34
 shopifyVariantId: ""
 seo:
-  title: "25er Kurven-Pack – Sticker | Wien West"
-  description: "Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "25er Kurven-Pack – Rapid Sticker Set kaufen | Wien West"
+  description: "25er Kurven-Pack: Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben. Gratis Versand ab 15 €."
   noindex: false
 ---
 Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Im 25er Kurven-Pack stecken 25 Rapid-Fan-Sticker im Kurven-Look, gemischt aus allen Kategorien – ideal zum Aufteilen im Fanclub oder auf der Auswärtsfahrt.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** je ca. 9 × 6 cm.

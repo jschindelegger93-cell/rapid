@@ -15,11 +15,13 @@ sku: WW-032
 reihenfolge: 32
 shopifyVariantId: ""
 seo:
-  title: "5er Topseller-Pack – Sticker | Wien West"
-  description: "Fünf Lieblinge aus dem Block in einem Kuvert. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "5er Topseller-Pack – Rapid Sticker Set kaufen | Wien West"
+  description: "5er Topseller-Pack: Fünf Lieblinge aus dem Block in einem Kuvert. Gratis Versand ab 15 €."
   noindex: false
 ---
 Fünf Lieblinge aus dem Block in einem Kuvert.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Im 5er Topseller-Pack stecken 5 Rapid-Fan-Sticker im Kurven-Look, gemischt aus allen Kategorien – ideal zum Aufteilen im Fanclub oder auf der Auswärtsfahrt.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** je ca. 9 × 6 cm.

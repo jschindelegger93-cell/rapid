@@ -15,11 +15,13 @@ sku: WW-033
 reihenfolge: 33
 shopifyVariantId: ""
 seo:
-  title: "10er Mix-Pack – Sticker | Wien West"
-  description: "Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "10er Mix-Pack – Rapid Sticker Set kaufen | Wien West"
+  description: "10er Mix-Pack: Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze. Gratis Versand ab 15 €."
   noindex: false
 ---
 Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Im 10er Mix-Pack stecken 10 Rapid-Fan-Sticker im Kurven-Look, gemischt aus allen Kategorien – ideal zum Aufteilen im Fanclub oder auf der Auswärtsfahrt.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** je ca. 9 × 6 cm.

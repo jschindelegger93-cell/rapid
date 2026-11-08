@@ -14,11 +14,13 @@ sku: WW-007
 reihenfolge: 7
 shopifyVariantId: ""
 seo:
-  title: "A.C.A.B. – Sticker | Wien West"
-  description: "Schablone auf Schwarz. Der Klassiker an jedem Geländer. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "A.C.A.B. Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "A.C.A.B.: Schablone auf Schwarz. Der Klassiker an jedem Geländer. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Schablone auf Schwarz. Der Klassiker an jedem Geländer.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „A.C.A.B.“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.

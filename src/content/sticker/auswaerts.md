@@ -14,11 +14,13 @@ sku: WW-028
 reihenfolge: 28
 shopifyVariantId: ""
 seo:
-  title: "Auswärts immer dabei – Sticker | Wien West"
-  description: "Schablone in Grün – für Raststation, Bahnhof und Gästesektor. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Auswärts immer dabei Sticker kaufen – Rapid Aufkleber | Wien West"
+  description: "Auswärts immer dabei: Schablone in Grün – für Raststation, Bahnhof und Gästesektor. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
   noindex: false
 ---
 Schablone in Grün – für Raststation, Bahnhof und Gästesektor.
 
-**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+Der Sticker „Auswärts immer dabei“ ist ein inoffizieller Rapid-Fan-Aufkleber aus Wien West – gedruckt im flachen Kurven-Look, ohne Vereinswappen. Er hält auf Laptop, Trinkflasche, Spind, Auto und Laternenmast.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig.
 **Format:** ca. 9 × 6 cm.
