@@ -7,7 +7,7 @@ import { S, eur } from '../lib/site';
 const alle = (await getCollection('sticker')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 const best = alle.filter((s) => s.data.bestseller && s.data.typ !== 'pack').slice(0, 8);
 const packs = alle.filter((s) => s.data.typ === 'pack' && ['topseller-5er', 'mix-10er', 'kurve-25er'].includes(s.id));
-const hero = ['forza-rapid', 'anti-violett', 'wien-west-huetteldorf', 'block-west'].map((id) => alle.find((s) => s.id === id)!);
+const hero = ['wien-gehoert-uns', 'forza-rapid', 'weststadion', 'ynwa-west'].map((id) => alle.find((s) => s.id === id)!);
 
 const faq = [
   ['Sind das offizielle Fanartikel?', 'Nein. Wien West Sticker ist ein unabhängiges Projekt von Fans. Unsere Motive sind eigene Designs – ohne Vereinswappen und bewusst ohne Logos oder Namen von Fanclubs und Fangruppen.'],
@@ -89,7 +89,7 @@ const jsonld = [{
       <div>
         <span class="eyebrow">Kurvenkultur</span>
         <h2>Sticker gehören zur Kurve</h2>
-        <p class="lead">Wer im Block West steht, kennt das: Jede Tür, jeder Mast und jedes Geländer erzählt, wer schon da war. Sticker sind die Visitenkarte der Fans – zuhause in Hütteldorf und auswärts zwischen Bregenz und Graz.</p>
+        <p class="lead">Wer im Block West steht, kennt das: Jede Tür, jeder Mast und jedes Geländer erzählt, wer schon da war. Sticker sind die Visitenkarte der Fans – zuhause im Weststadion und auswärts zwischen Bregenz und Graz.</p>
         <p>Wir sind Fans aus Wien West und machen Sticker für alle, die grün-weiß leben. Was wir nicht machen: Logos oder Namen der Fangruppen verkaufen. Die gehören denen, die sie über Jahrzehnte aufgebaut haben – und nicht in einen Shop.</p>
       </div>
       <ul class="werte">
@@ -106,10 +106,10 @@ const jsonld = [{
       <span class="eyebrow">Kategorien</span>
       <h2>Wo soll's kleben?</h2>
       <div class="cats">
-        <a href="/sticker/?k=derby"><b>Anti Violett & Derby</b><span>Anti Violett, Derbysieger, Wien ist grün-weiß</span></a>
-        <a href="/sticker/?k=forza"><b>Forza Rapid</b><span>Forza, SCR, Rapid-Viertelstunde</span></a>
-        <a href="/sticker/?k=wienwest"><b>Wien West & Hütteldorf</b><span>1140, Block West, Straßenschild</span></a>
-        <a href="/sticker/?k=kurve"><b>Kurve & Auswärts</b><span>Auswärts, Wien–Nürnberg, gegen modernen Fußball</span></a>
+        <a href="/sticker/?k=derby"><b>Anti Violett & Derby</b><span>Wien gehört uns!, Anti Violett, 10. Bezirk? Nur Durchfahrt</span></a>
+        <a href="/sticker/?k=forza"><b>Forza Rapid</b><span>Forza Rapid, YNWA, SCR, Rapid-Viertelstunde</span></a>
+        <a href="/sticker/?k=wienwest"><b>Wien West & Hütteldorf</b><span>Weststadion, Block West, Straßenschild</span></a>
+        <a href="/sticker/?k=kurve"><b>Kurve & Auswärts</b><span>Auswärts, Wien–Nürnberg, Gegen modernen Fußball</span></a>
         <a href="/sticker/?k=packs"><b>Packs</b><span>3 bis 50 Stück</span></a>
         <a href="/sticker/"><b>Alle 30 Motive</b><span>Alles auf einen Blick</span></a>
       </div>

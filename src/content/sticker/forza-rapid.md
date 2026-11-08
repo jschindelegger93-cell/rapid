@@ -1,11 +1,11 @@
 ---
 name: "Forza Rapid"
-kurz: "Der Schlachtruf als rundes Abzeichen mit Sternen."
+kurz: "Eigene Figur mit Haube, Schal vorm Gesicht und Faust in der Luft – der Schlachtruf als Sticker."
 typ: einzel
 kategorie: forza
 preis: 2.5
 stueck: 1
-format: "Ø ca. 8 cm, konturgeschnitten"
+format: "ca. 8 × 8 cm, konturgeschnitten"
 bild: /sticker/forza-rapid.svg
 bildPng: /sticker/forza-rapid.png
 bestseller: true
@@ -15,10 +15,10 @@ reihenfolge: 8
 shopifyVariantId: ""
 seo:
   title: "Forza Rapid – Sticker | Wien West"
-  description: "Der Schlachtruf als rundes Abzeichen mit Sternen. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Eigene Figur mit Haube, Schal vorm Gesicht und Faust in der Luft – der Schlachtruf als Sticker. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Der Schlachtruf als rundes Abzeichen mit Sternen.
+Eigene Figur mit Haube, Schal vorm Gesicht und Faust in der Luft – der Schlachtruf als Sticker.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** Ø ca. 8 cm, konturgeschnitten.
+**Format:** ca. 8 × 8 cm, konturgeschnitten.

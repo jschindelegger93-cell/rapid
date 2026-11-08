@@ -1,6 +1,6 @@
 ---
 name: "25er Kurven-Pack"
-kurz: "Für Fanclubs, Stammtische und alle, die auf dem Weg zum Stadion mehr als einen Laternenmast bekleben."
+kurz: "Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben."
 typ: pack
 kategorie: packs
 preis: 29
@@ -16,10 +16,10 @@ reihenfolge: 34
 shopifyVariantId: ""
 seo:
   title: "25er Kurven-Pack – Sticker | Wien West"
-  description: "Für Fanclubs, Stammtische und alle, die auf dem Weg zum Stadion mehr als einen Laternenmast bekleben. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Für Fanclubs, Stammtische und alle, die auf dem Weg zum Stadion mehr als einen Laternenmast bekleben.
+Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** gemischte Formate (ca. 8 cm).

@@ -7,6 +7,7 @@ Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot 
 | Regel | Wert |
 |---|---|
 | Einzelsticker Ø 8 cm | 2,50 € |
+| Flaggen-Format 9 × 6 cm / Figur 8 × 8 cm | 2,50 € |
 | Schal/Schild-Format 15 × 5 cm | 3,90 € |
 | Mindestbestellwert | 10 € (= 4 Sticker) |
 | Versand AT | 2,90 €, **gratis ab 15 €** |
@@ -79,3 +80,7 @@ willhaben ließ sich nicht automatisch auslesen. Ausgewertet wurden eBay/PicClic
 - Der offizielle Shop führt selbst einen Aufkleber „Wien-West-Hütteldorf“ → Motiv ist nachgefragt, aber Abgrenzung zum Original beachten
 
 **Rechtlicher Hinweis:** Motive mit dem Wort „Rapid“ (Forza Rapid, SCR, Einmal Rapid, Rapid-Viertelstunde, Mehr als Fußball) berühren die Marke des SK Rapid. Vor Druck prüfen lassen oder auf die neutralen Varianten setzen.
+
+## Szene-Stil (Update)
+Designs an aktuelle Szene-Sticker angepasst: grün-weiße Flagge, kursive Umriss-Schrift, eigenes Wien-West-Schild, eigene Fan-Figur (Haube, Schal vorm Gesicht) mit Farbspritzern.
+Bewusst NICHT übernommen: durchgestrichenes Austria-Logo (Marke), Wiener Stadtwappen (gesetzlich geschützt), „verrecke“ (Todeswunsch – Risiko bei Shopify/Zahlungsanbieter).

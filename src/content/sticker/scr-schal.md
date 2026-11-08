@@ -10,8 +10,8 @@ bild: /sticker/scr-schal.svg
 bildPng: /sticker/scr-schal.png
 bestseller: false
 verfuegbar: true
-sku: WW-011
-reihenfolge: 11
+sku: WW-012
+reihenfolge: 12
 shopifyVariantId: ""
 seo:
   title: "SCR SCR SCR – Sticker | Wien West"

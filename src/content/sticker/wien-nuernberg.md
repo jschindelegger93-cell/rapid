@@ -5,13 +5,13 @@ typ: einzel
 kategorie: kurve
 preis: 2.5
 stueck: 1
-format: "Ø ca. 8 cm, konturgeschnitten"
+format: "ca. 9 × 6 cm"
 bild: /sticker/wien-nuernberg.svg
 bildPng: /sticker/wien-nuernberg.png
 bestseller: true
 verfuegbar: true
-sku: WW-026
-reihenfolge: 26
+sku: WW-025
+reihenfolge: 25
 shopifyVariantId: ""
 seo:
   title: "Wien – Nürnberg – Sticker | Wien West"
@@ -21,4 +21,4 @@ seo:
 Für die Fanfreundschaft zwischen Hütteldorf und Franken – grün, schwarz, rot.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** Ø ca. 8 cm, konturgeschnitten.
+**Format:** ca. 9 × 6 cm.

@@ -5,13 +5,13 @@ typ: einzel
 kategorie: wienwest
 preis: 2.5
 stueck: 1
-format: "Ø ca. 8 cm, konturgeschnitten"
+format: "ca. 8 × 8 cm, konturgeschnitten"
 bild: /sticker/st-hanappi.svg
 bildPng: /sticker/st-hanappi.png
 bestseller: false
 verfuegbar: true
-sku: WW-022
-reihenfolge: 22
+sku: WW-021
+reihenfolge: 21
 shopifyVariantId: ""
 seo:
   title: "St. Hanappi – Sticker | Wien West"
@@ -21,4 +21,4 @@ seo:
 Für alle, die noch im alten Hanappi gestanden sind. Das Stadion ist weg, die Erinnerung bleibt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** Ø ca. 8 cm, konturgeschnitten.
+**Format:** ca. 8 × 8 cm, konturgeschnitten.

@@ -1,24 +1,24 @@
 ---
 name: "Einmal Rapid, immer Rapid"
-kurz: "Man wird nicht Rapidler, man bleibt es. Streifen-Optik im Vereins-Look."
+kurz: "Man wird nicht Rapidler, man bleibt es."
 typ: einzel
 kategorie: forza
 preis: 2.5
 stueck: 1
-format: "Ø ca. 8 cm, konturgeschnitten"
+format: "ca. 9 × 6 cm"
 bild: /sticker/einmal-rapid.svg
 bildPng: /sticker/einmal-rapid.png
 bestseller: true
 verfuegbar: true
-sku: WW-012
-reihenfolge: 12
+sku: WW-013
+reihenfolge: 13
 shopifyVariantId: ""
 seo:
   title: "Einmal Rapid, immer Rapid – Sticker | Wien West"
-  description: "Man wird nicht Rapidler, man bleibt es. Streifen-Optik im Vereins-Look. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Man wird nicht Rapidler, man bleibt es. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Man wird nicht Rapidler, man bleibt es. Streifen-Optik im Vereins-Look.
+Man wird nicht Rapidler, man bleibt es.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** Ø ca. 8 cm, konturgeschnitten.
+**Format:** ca. 9 × 6 cm.

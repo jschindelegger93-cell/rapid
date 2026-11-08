@@ -5,13 +5,13 @@ typ: einzel
 kategorie: derby
 preis: 2.5
 stueck: 1
-format: "Ø ca. 8 cm, konturgeschnitten"
+format: "ca. 8 × 8 cm, konturgeschnitten"
 bild: /sticker/anti-violett-rund.svg
 bildPng: /sticker/anti-violett-rund.png
 bestseller: true
 verfuegbar: true
-sku: WW-002
-reihenfolge: 2
+sku: WW-003
+reihenfolge: 3
 shopifyVariantId: ""
 seo:
   title: "Anti Violett – Rund – Sticker | Wien West"
@@ -21,4 +21,4 @@ seo:
 Das Anti-Motiv als rundes Abzeichen – für Laternenmast, Spind und Laptop.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** Ø ca. 8 cm, konturgeschnitten.
+**Format:** ca. 8 × 8 cm, konturgeschnitten.

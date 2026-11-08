@@ -5,13 +5,13 @@ typ: einzel
 kategorie: kurve
 preis: 2.5
 stueck: 1
-format: "Ø ca. 8 cm, konturgeschnitten"
+format: "ca. 8 × 8 cm, konturgeschnitten"
 bild: /sticker/auswaerts.svg
 bildPng: /sticker/auswaerts.png
 bestseller: true
 verfuegbar: true
-sku: WW-024
-reihenfolge: 24
+sku: WW-023
+reihenfolge: 23
 shopifyVariantId: ""
 seo:
   title: "Auswärts immer dabei – Sticker | Wien West"
@@ -21,4 +21,4 @@ seo:
 Im Ticket-Look für alle, die jede Auswärtsfahrt mitnehmen. Egal wie weit, egal wie kalt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** Ø ca. 8 cm, konturgeschnitten.
+**Format:** ca. 8 × 8 cm, konturgeschnitten.

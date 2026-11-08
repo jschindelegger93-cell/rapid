@@ -1,6 +1,6 @@
 ---
 name: "5er Topseller-Pack"
-kurz: "Fünf Lieblinge aus dem Block in einem Kuvert. Genug für Laptop, Flasche, Handy, Spind und einen zum Weitergeben."
+kurz: "Fünf Lieblinge aus dem Block in einem Kuvert."
 typ: pack
 kategorie: packs
 preis: 9.9
@@ -16,10 +16,10 @@ reihenfolge: 32
 shopifyVariantId: ""
 seo:
   title: "5er Topseller-Pack – Sticker | Wien West"
-  description: "Fünf Lieblinge aus dem Block in einem Kuvert. Genug für Laptop, Flasche, Handy, Spind und einen zum Weitergeben. Wetterfester Vinyl-Sticker, gratis Versand ab 1"
+  description: "Fünf Lieblinge aus dem Block in einem Kuvert. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Fünf Lieblinge aus dem Block in einem Kuvert. Genug für Laptop, Flasche, Handy, Spind und einen zum Weitergeben.
+Fünf Lieblinge aus dem Block in einem Kuvert.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** gemischte Formate (ca. 8 cm).
