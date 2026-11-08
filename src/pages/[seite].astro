@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('seiten')).map((p) => ({ params: { seite: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+const { Content } = await render(p);
+---
+<Base title={p.data.seo.title || `${p.data.titel} | Kleberei 1899`} description={p.data.seo.description || p.data.titel} noindex>
+  <div class="wrap prose" style="padding:20px var(--gut) 60px"><h1>{p.data.titel}</h1><Content /></div>
+</Base>

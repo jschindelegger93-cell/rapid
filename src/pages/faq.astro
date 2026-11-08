@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { S, eur } from '../lib/site';
+const gruppen: [string, [string, string][]][] = [
+  ['Bestellung & Preise', [
+    ['Gibt es einen Mindestbestellwert?', `Ja, ${eur(S.mindestbestellwert)} – das sind zum Beispiel 4 Einzelsticker oder ein 5er-Pack.`],
+    ['Wie funktioniert der Mengenrabatt?', 'Automatisch im Warenkorb: ab 5 Einzel- oder Großformat-Stickern −10 %, ab 10 Stück −20 %. Motive dürfen gemischt werden. Packs sind bereits günstiger und zählen nicht zur Staffel.'],
+    ['Kann ich für meinen Fanclub bestellen?', `Ja. Ab 100 Stück erstellen wir ein individuelles Angebot: ${S.email}.`],
+    ['Sind das offizielle Fanartikel?', 'Nein. Alle Motive sind eigene Designs, ohne Vereinswappen, ohne Logos von Fanclubs oder Fangruppen. Wir sind ein unabhängiger Shop.'],
+  ]],
+  ['Versand', [
+    ['Was kostet der Versand?', `Österreich: ${eur(S.versandAT)}, gratis ab ${eur(S.gratisVersandAb)}. Deutschland und EU: ${eur(S.versandEU)}, gratis ab ${eur(S.gratisVersandEUAb)}.`],
+    ['Wie schnell kommt meine Bestellung?', 'Wir verschicken innerhalb von 48 h nach Zahlungseingang. Die Post braucht in Österreich meist 2–4 Werktage.'],
+    ['Wie wird verpackt?', 'Im Kuvert mit Kartonverstärkung – die Sticker kommen knickfrei an.'],
+  ]],
+  ['Qualität & Kleben', [
+    ['Halten die Sticker draußen?', 'Ja. Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig. [PLATZHALTER: Herstellerangabe zur Haltbarkeit]'],
+    ['Wie klebe ich richtig?', 'Fläche fett- und staubfrei reinigen, Sticker von der Mitte nach außen glatt streichen, 24 h nicht nass machen.'],
+    ['Lassen sich die Sticker wieder entfernen?', 'Auf Glas und lackierten Flächen meist rückstandsfrei mit etwas Wärme (Föhn). Auf rauen Oberflächen können Reste bleiben.'],
+  ]],
+];
+const flat = gruppen.flatMap(([, q]) => q);
+const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: flat.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }];
+---
+<Base title={`FAQ – Versand, Rabatt, Qualität | ${S.name}`} description="Antworten zu Mindestbestellwert, Gratis-Versand ab 15 €, Mengenrabatt und Haltbarkeit unserer Grün-Weiß Sticker." jsonld={jsonld}>
+  <div class="wrap prose" style="padding-bottom:60px">
+    <nav class="crumbs"><a href="/">Start</a> / FAQ</nav>
+    <h1 style="margin-top:20px">FAQ</h1>
+    {gruppen.map(([t, qs]) => <><h2>{t}</h2>{qs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</>)}
+    <p style="margin-top:32px"><a class="btn btn--g" href="/sticker/">Zu den Stickern</a></p>
+  </div>
+</Base>

@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import Karte from '../../components/Karte.astro';
+import { getCollection } from 'astro:content';
+import { KATEGORIEN } from '../../lib/site';
+const alle = (await getCollection('sticker')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Start', item: new URL('/', Astro.site).href },
+  { '@type': 'ListItem', position: 2, name: 'Alle Sticker', item: new URL('/sticker/', Astro.site).href } ] };
+const liste = { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: alle.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/sticker/${s.id}/`, Astro.site).href })) };
+---
+<Base title="Alle Grün-Weiß Sticker & Packs | Kleberei 1899" description="Alle 30 Sticker auf einen Blick: Klassiker, Hütteldorf, Wien & Derby, Großformat, Autosticker und Packs ab 6,90 €. Gratis Versand ab 15 €." jsonld={[crumbs, liste]}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Start</a> / Alle Sticker</nav>
+    <header style="padding:20px 0 28px">
+      <h1 style="font-size:clamp(44px,7vw,84px)">Alle Sticker</h1>
+      <p class="lead">30 Motive, wetterfestes Vinyl. Ab 5 Einzelstickern −10 %, ab 10 Stück −20 %.</p>
+      <div data-ship style="max-width:420px"></div>
+    </header>
+    <div class="bar">
+      <div class="chips" role="group" aria-label="Kategorie filtern">
+        <button class="chip" aria-pressed="true" data-k="">Alle</button>
+        {Object.entries(KATEGORIEN).map(([k, v]) => <button class="chip" aria-pressed="false" data-k={k}>{v}</button>)}
+      </div>
+      <label class="sort">Sortieren
+        <select id="sort">
+          <option value="reihe">Empfohlen</option>
+          <option value="auf">Preis aufsteigend</option>
+          <option value="ab">Preis absteigend</option>
+        </select>
+      </label>
+    </div>
+    <p id="count" aria-live="polite" style="color:var(--muted);font-size:14px"></p>
+    <div class="grid" id="grid">{alle.map((s, i) => <Karte s={s} eager={i < 4} />)}</div>
+    <p id="leer" hidden class="empty">Keine Sticker in dieser Kategorie. <button class="chip" data-k="">Filter zurücksetzen</button></p>
+  </div>
+</Base>
+<style>
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  .sort { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; }
+  select { min-height: 44px; border-radius: 999px; border: 1.5px solid var(--k); padding: 0 14px; font: 600 16px var(--body); background: #fff; }
+  @media (max-width: 600px) { .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; margin-right: calc(-1 * var(--gut)); } .chip { flex: 0 0 auto; } }
+</style>
+<script>
+  const grid = document.getElementById('grid')!;
+  const cards = [...grid.querySelectorAll<HTMLElement>('.card')];
+  const chips = document.querySelectorAll<HTMLButtonElement>('.chip[data-k]');
+  const sort = document.getElementById('sort') as HTMLSelectElement;
+  let k = new URLSearchParams(location.search).get('k') || '';
+  function apply() {
+    let n = 0;
+    cards.forEach((c) => { const on = !k || c.dataset.kat === k; c.hidden = !on; if (on) n++; });
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.k === k)));
+    const v = sort.value;
+    cards.sort((a, b) => v === 'auf' ? +a.dataset.preis! - +b.dataset.preis! : v === 'ab' ? +b.dataset.preis! - +a.dataset.preis! : +a.dataset.reihe! - +b.dataset.reihe!).forEach((c) => grid.appendChild(c));
+    document.getElementById('count')!.textContent = `${n} Produkte`;
+    document.getElementById('leer')!.hidden = n > 0;
+  }
+  chips.forEach((c) => c.addEventListener('click', () => {
+    k = c.dataset.k || '';
+    const u = new URL(location.href); k ? u.searchParams.set('k', k) : u.searchParams.delete('k'); history.replaceState(null, '', u);
+    apply();
+  }));
+  sort.addEventListener('change', apply);
+  apply();
+</script>

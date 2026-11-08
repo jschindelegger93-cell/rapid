@@ -1,0 +1,25 @@
+---
+name: "50er Block-Pack"
+kurz: "50 Sticker, alle 18 Klassik-Motive gemischt. Bester Stückpreis im Shop."
+typ: pack
+kategorie: packs
+preis: 49
+wertEinzeln: 125
+stueck: 50
+format: "gemischte Formate (ca. 8 cm)"
+bild: /sticker/block-50er.svg
+bildPng: /sticker/block-50er.png
+bestseller: false
+verfuegbar: true
+sku: KL-029
+reihenfolge: 29
+shopifyVariantId: ""
+seo:
+  title: "50er Block-Pack – Grün-Weiß Sticker | Kleberei 1899"
+  description: "50 Sticker, alle 18 Klassik-Motive gemischt. Bester Stückpreis im Shop. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  noindex: false
+---
+50 Sticker, alle 18 Klassik-Motive gemischt. Bester Stückpreis im Shop.
+
+**Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
+**Format:** gemischte Formate (ca. 8 cm).

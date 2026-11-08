@@ -1,0 +1,87 @@
+backend:
+  name: github
+  repo: jschindelegger93-cell/rapid
+  branch: main
+media_folder: public/sticker
+public_folder: /sticker
+locale: de
+
+seo_fields: &seo
+  name: seo
+  label: SEO
+  widget: object
+  collapsed: true
+  fields:
+    - { name: title, label: "SEO-Titel (max. 60 Zeichen)", widget: string, required: false }
+    - { name: description, label: "Meta-Description (max. 155 Zeichen)", widget: text, required: false }
+    - { name: keyword, label: Fokus-Keyword, widget: string, required: false }
+    - { name: ogImage, label: OG-Bild, widget: image, required: false }
+    - { name: canonical, label: Canonical-URL, widget: string, required: false }
+    - { name: noindex, label: "Nicht von Google indexieren", widget: boolean, default: false }
+
+collections:
+  - name: sticker
+    label: Sticker & Packs
+    label_singular: Sticker
+    folder: src/content/sticker
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} – {{preis}} €"
+    sortable_fields: [reihenfolge, preis, name]
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: kurz, label: "Kurzbeschreibung (1 Satz)", widget: text }
+      - { name: typ, label: Typ, widget: select, options: [{label: "Einzel (8 cm)", value: einzel}, {label: "Groß (12 cm)", value: gross}, {label: Auto, value: auto}, {label: Pack, value: pack}] }
+      - { name: kategorie, label: Kategorie, widget: select, options: [{label: Klassiker, value: klassiker}, {label: "Hütteldorf & Stadion", value: huetteldorf}, {label: "Wien & Derby", value: wien}, {label: Großformat, value: gross}, {label: Auto, value: auto}, {label: Packs, value: packs}] }
+      - { name: preis, label: "Preis in € (brutto)", widget: number, value_type: float }
+      - { name: wertEinzeln, label: "Wert einzeln (nur Packs, wird durchgestrichen)", widget: number, value_type: float, required: false }
+      - { name: stueck, label: Stückzahl, widget: number, default: 1 }
+      - { name: format, label: Format, widget: string }
+      - { name: bild, label: Bild (SVG/PNG), widget: image }
+      - { name: bildPng, label: "PNG (für Google/Social)", widget: image, required: false }
+      - { name: bestseller, label: Bestseller, widget: boolean, default: false }
+      - { name: verfuegbar, label: Verfügbar, widget: boolean, default: true }
+      - { name: sku, label: Artikelnummer, widget: string }
+      - { name: reihenfolge, label: Reihenfolge, widget: number, default: 10 }
+      - { name: shopifyVariantId, label: "Shopify Variant-ID (für Checkout)", widget: string, required: false }
+      - { name: body, label: Beschreibung, widget: markdown }
+      - *seo
+
+  - name: seiten
+    label: Seiten
+    folder: src/content/seiten
+    create: true
+    fields:
+      - { name: titel, label: Titel, widget: string }
+      - { name: body, label: Inhalt, widget: markdown }
+      - *seo
+
+  - name: einstellungen
+    label: Einstellungen
+    files:
+      - name: settings
+        label: Shop-Einstellungen
+        file: src/data/settings.json
+        fields:
+          - { name: name, label: Shop-Name, widget: string }
+          - { name: claim, label: Claim, widget: string }
+          - { name: domain, label: Domain, widget: string }
+          - { name: email, label: E-Mail, widget: string }
+          - { name: instagram, label: Instagram, widget: string }
+          - { name: inhaber, label: Inhaber, widget: string }
+          - { name: adresse, label: Adresse, widget: string }
+          - { name: klickdummy, label: "Klickdummy-Modus (noindex) – bei Go-live AUS", widget: boolean }
+          - { name: mindestbestellwert, label: "Mindestbestellwert €", widget: number, value_type: float }
+          - { name: gratisVersandAb, label: "Gratis Versand ab € (AT)", widget: number, value_type: float }
+          - { name: versandAT, label: "Versand AT €", widget: number, value_type: float }
+          - { name: versandEU, label: "Versand DE/EU €", widget: number, value_type: float }
+          - { name: gratisVersandEUAb, label: "Gratis Versand DE/EU ab €", widget: number, value_type: float }
+          - { name: versandzeit, label: Versandzeit, widget: string }
+          - name: staffel
+            label: Mengenrabatt
+            widget: list
+            fields:
+              - { name: ab, label: "Ab Stück", widget: number }
+              - { name: rabatt, label: "Rabatt %", widget: number }
+          - { name: shopifyDomain, label: "Shopify-Domain (z. B. kleberei.myshopify.com) – leer = Bestellformular", widget: string, required: false }
+          - { name: announcement, label: Announcement Bar, widget: list, field: { name: text, label: Text, widget: string } }

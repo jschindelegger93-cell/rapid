@@ -1,0 +1,19 @@
+---
+import { eur, KATEGORIEN } from '../lib/site';
+const { s, eager = false } = Astro.props;
+const d = s.data;
+const breit = d.typ === 'auto';
+---
+<article class="card" data-kat={d.kategorie} data-preis={d.preis} data-reihe={d.reihenfolge}>
+  {d.typ === 'pack' && d.wertEinzeln ? <span class="badge">−{Math.round((1 - d.preis / d.wertEinzeln) * 100)} %</span>
+    : d.bestseller ? <span class="badge badge--k">Bestseller</span> : null}
+  <div class="img">
+    <img src={d.bild} alt={`Sticker ${d.name}`} width={breit ? 300 : 260} height={breit ? 100 : 260} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+  <h3><a href={`/sticker/${s.id}/`}>{d.name}</a></h3>
+  <div class="meta">{KATEGORIEN[d.kategorie as keyof typeof KATEGORIEN]} · {d.typ === 'pack' ? `${d.stueck} Stück` : d.format.split(',')[0]}</div>
+  <div class="row">
+    <span class="price">{eur(d.preis)}{d.wertEinzeln && <s>{eur(d.wertEinzeln)}</s>}</span>
+    <button class="add" type="button" data-add={s.id} aria-label={`${d.name} in den Warenkorb`}>+</button>
+  </div>
+</article>

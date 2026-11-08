@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import Karte from '../../components/Karte.astro';
+import { getCollection, render } from 'astro:content';
+import { S, eur, KATEGORIEN } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const alle = await getCollection('sticker');
+  return alle.map((s) => ({ params: { slug: s.id }, props: { s } }));
+}
+const { s } = Astro.props;
+const d = s.data;
+const { Content } = await render(s);
+const alle = await getCollection('sticker');
+const verwandt = alle.filter((x) => x.id !== s.id && (x.data.kategorie === d.kategorie || x.data.bestseller)).sort((a, b) => Number(b.data.kategorie === d.kategorie) - Number(a.data.kategorie === d.kategorie)).slice(0, 4);
+const url = new URL(`/sticker/${s.id}/`, Astro.site).href;
+const product = {
+  '@context': 'https://schema.org', '@type': 'Product', name: d.name, description: d.kurz, sku: d.sku,
+  image: new URL(d.bildPng || d.bild, Astro.site).href, brand: { '@type': 'Brand', name: S.name },
+  offers: { '@type': 'Offer', url, priceCurrency: 'EUR', price: d.preis.toFixed(2), availability: d.verfuegbar ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+    shippingDetails: { '@type': 'OfferShippingDetails', shippingRate: { '@type': 'MonetaryAmount', value: S.versandAT, currency: 'EUR' }, shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'AT' } } },
+};
+const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Start', item: new URL('/', Astro.site).href },
+  { '@type': 'ListItem', position: 2, name: 'Alle Sticker', item: new URL('/sticker/', Astro.site).href },
+  { '@type': 'ListItem', position: 3, name: d.name, item: url } ] };
+const breit = d.typ === 'auto';
+const proStk = d.typ === 'pack' ? d.preis / d.stueck : 0;
+---
+<Base title={d.seo.title || `${d.name} | ${S.name}`} description={d.seo.description || d.kurz} image={d.bildPng} noindex={d.seo.noindex} jsonld={[product, crumbs]}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Start</a> / <a href="/sticker/">Alle Sticker</a> / <a href={`/sticker/?k=${d.kategorie}`}>{KATEGORIEN[d.kategorie]}</a></nav>
+    <div class="pdp">
+      <div class="stage"><img src={d.bild} alt={`Sticker ${d.name}`} width={breit ? 900 : 600} height={breit ? 300 : 600} fetchpriority="high" /></div>
+      <div class="info">
+        <span class="eyebrow">{KATEGORIEN[d.kategorie]}{d.bestseller && ' · Bestseller'}</span>
+        <h1>{d.name}</h1>
+        <p class="lead">{d.kurz}</p>
+        <p class="p">{eur(d.preis)}{d.wertEinzeln && <s>{eur(d.wertEinzeln)}</s>}</p>
+        <p class="small">inkl. USt. · {d.typ === 'pack' ? `${d.stueck} Stück · ${eur(proStk)} pro Sticker` : d.format}</p>
+        {d.typ !== 'pack' && <p class="hint">Mengenrabatt: ab 5 Einzelstickern −10 %, ab 10 Stück −20 % – automatisch im Warenkorb, auch gemischt.</p>}
+        <div class="buy">
+          <label class="q"><span class="sr">Menge</span><input id="qty-input" type="number" min="1" max="99" value="1" inputmode="numeric" /></label>
+          <button class="btn btn--g" type="button" data-add={s.id} data-use-qty data-open disabled={!d.verfuegbar}>{d.verfuegbar ? 'In den Warenkorb' : 'Ausverkauft'}</button>
+        </div>
+        <div data-ship style="margin:18px 0"></div>
+        <ul class="facts">
+          <li>Gratis Versand ab {eur(S.gratisVersandAb)}, sonst {eur(S.versandAT)} (AT)</li>
+          <li>{S.versandzeit}, knickfrei im Kuvert</li>
+          <li>Wetterfestes Vinyl, matt laminiert</li>
+          <li>14 Tage Rückgaberecht</li>
+        </ul>
+        <div class="txt"><Content /></div>
+        <p class="small" style="margin-top:20px">Inoffizieller Fanartikel – eigenes Design, kein Produkt des SK Rapid Wien.</p>
+      </div>
+    </div>
+    <section class="section" style="padding-top:40px">
+      <h2>Passt dazu</h2>
+      <div class="grid">{verwandt.map((v) => <Karte s={v} />)}</div>
+    </section>
+  </div>
+  <div class="sticky-buy">
+    <span class="price">{eur(d.preis)}</span>
+    <button class="btn btn--g btn--sm" type="button" data-add={s.id} data-open>In den Warenkorb</button>
+  </div>
+</Base>
+<style>
+  .pdp { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); padding: 24px 0; }
+  .stage { background: repeating-linear-gradient(45deg, #faf9f5 0 14px, #f1efe7 14px 28px); border: 1px solid var(--line); border-radius: 24px; display: grid; place-items: center; padding: 12%; aspect-ratio: 1; position: sticky; top: 96px; align-self: start; }
+  .stage img { filter: drop-shadow(0 18px 22px rgb(0 0 0 / .22)); transform: rotate(-3deg); }
+  .info h1 { font-size: clamp(40px, 5vw, 68px); }
+  .p { font: 400 44px/1 var(--head); margin: 18px 0 4px; }
+  .p s { font: 500 18px var(--body); color: var(--muted); margin-left: 8px; }
+  .small { font-size: 14px; color: var(--muted); }
+  .buy { display: flex; gap: 12px; margin-top: 18px; }
+  .buy .btn { flex: 1; }
+  .q input { width: 84px; min-height: 52px; border-radius: 999px; border: 1.5px solid var(--k); text-align: center; font: 700 17px var(--body); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .facts { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 8px; font-size: 15px; }
+  .facts li::before { content: '✓'; color: var(--g); font-weight: 800; margin-right: 10px; }
+  .txt { border-top: 1px solid var(--line); padding-top: 18px; font-size: 15px; }
+  .sticky-buy { display: none; }
+  @media (max-width: 860px) {
+    .pdp { grid-template-columns: 1fr; }
+    .stage { position: static; max-width: 460px; width: 100%; justify-self: center; }
+    .sticky-buy { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; justify-content: space-between; align-items: center; gap: 12px; padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--line); }
+    :global(.ft) { padding-bottom: 110px; }
+  }
+</style>

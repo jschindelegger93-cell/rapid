@@ -1,0 +1,181 @@
+---
+import Base from '../layouts/Base.astro';
+import Karte from '../components/Karte.astro';
+import { getCollection } from 'astro:content';
+import { S, eur } from '../lib/site';
+
+const alle = (await getCollection('sticker')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const best = alle.filter((s) => s.data.bestseller && s.data.typ === 'einzel').slice(0, 8);
+const packs = alle.filter((s) => s.data.typ === 'pack' && ['klassiker-5er', 'mix-10er', 'kurve-25er'].includes(s.id));
+const hero = ['seit-1899', 'huetteldorf-ist-ueberall', 'gruenes-blut', 'westtribuene'].map((id) => alle.find((s) => s.id === id)!);
+
+const faq = [
+  ['Sind das offizielle Fanartikel?', 'Nein. Kleberei 1899 ist ein unabhängiger Shop von Fans für Fans. Unsere Motive sind eigene Designs ohne Vereinswappen und ohne Logos von Fanclubs oder Fangruppen.'],
+  ['Wie lange halten die Sticker draußen?', 'Wir drucken auf Vinyl mit matter Schutzlaminierung. Die Sticker sind wasserfest und UV-beständig und halten auf glatten Flächen draußen mehrere Jahre. [PLATZHALTER: Angabe der Druckerei]'],
+  ['Was kostet der Versand?', `Innerhalb Österreichs ${eur(S.versandAT)}, ab ${eur(S.gratisVersandAb)} Bestellwert gratis. Der Mindestbestellwert liegt bei ${eur(S.mindestbestellwert)}.`],
+  ['Gibt es Mengenrabatt?', 'Ja, automatisch im Warenkorb: ab 5 Einzelstickern −10 %, ab 10 Einzelstickern −20 %. Packs sind bereits rabattiert.'],
+  ['Kann ich für meinen Fanclub größere Mengen bestellen?', `Ja. Ab 100 Stück machen wir dir ein Angebot – schreib uns an ${S.email}.`],
+];
+const jsonld = [{
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+}];
+---
+<Base title="Grün-Weiß Sticker kaufen – wetterfest, gratis Versand ab 15 € | Kleberei 1899"
+  description="30 Grün-Weiß Sticker für Fans aus Hütteldorf und ganz Wien: wetterfestes Vinyl, Packs ab 6,90 €, Mengenrabatt bis −20 %, gratis Versand ab 15 €." jsonld={jsonld}>
+
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <span class="eyebrow">Sticker · Grün-Weiß · Wien</span>
+        <h1>Kleb dein <mark>Grün-Weiß</mark> überall hin.</h1>
+        <p class="lead">30 wetterfeste Sticker für Laptop, Trinkflasche, Auto und Laternenmast. Einzeln ab {eur(2.5)}, im 10er-Pack um {eur(15)} – mit Gratis-Versand.</p>
+        <div class="ctas">
+          <a class="btn btn--g" href="/sticker/">Alle Sticker ansehen →</a>
+          <button class="btn btn--o" type="button" data-add="mix-10er" data-open>10er Mix-Pack · {eur(15)}</button>
+        </div>
+        <ul class="trust">
+          <li>Gratis Versand ab {eur(S.gratisVersandAb)}</li>
+          <li>Wetterfestes Vinyl, UV-beständig</li>
+          <li>{S.versandzeit}</li>
+        </ul>
+      </div>
+      <div class="pile" aria-hidden="true">
+        {hero.map((s, i) => <img src={s.data.bild} alt="" width="300" height="300" class={`p${i}`} loading="eager" fetchpriority={i === 0 ? 'high' : 'auto'} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="usp">
+    <div class="wrap usp-in">
+      <div><b>Mindestbestellwert {eur(S.mindestbestellwert)}</b><span>z. B. 4 Sticker</span></div>
+      <div><b>Gratis ab {eur(S.gratisVersandAb)}</b><span>sonst {eur(S.versandAT)} Versand</span></div>
+      <div><b>Bis −20 %</b><span>Mengenrabatt automatisch</span></div>
+      <div><b>Im Kuvert</b><span>knickfrei mit Karton</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Bestseller</span>
+      <div class="head-row"><h2>Die Lieblinge der Kurve</h2><a href="/sticker/" class="more">Alle 30 Sticker →</a></div>
+      <div class="grid">{best.map((s, i) => <Karte s={s} eager={i < 4} />)}</div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <span class="eyebrow" style="color:#7bd99b">Packs</span>
+      <h2>Mehr kleben, weniger zahlen</h2>
+      <p class="lead" style="color:#bbb">Gemischte Packs sind bis zu 61 % günstiger als einzeln. Das 10er Mix-Pack bringt dich genau auf den Gratis-Versand.</p>
+      <div class="packs">
+        {packs.map((s) => (
+          <div class={`pack ${s.id === 'mix-10er' ? 'top' : ''}`}>
+            {s.id === 'mix-10er' && <span class="tag">Beliebteste Wahl</span>}
+            <img src={s.data.bild} alt={s.data.name} width="180" height="180" loading="lazy" />
+            <h3>{s.data.name}</h3>
+            <p class="pp">{eur(s.data.preis)} <s>{eur(s.data.wertEinzeln!)}</s></p>
+            <p class="per">{eur(s.data.preis / s.data.stueck)} pro Sticker</p>
+            <button class={`btn ${s.id === 'mix-10er' ? 'btn--g' : 'btn--o'}`} style={s.id !== 'mix-10er' ? 'color:#fff;border-color:#fff' : ''} type="button" data-add={s.id} data-open>In den Warenkorb</button>
+          </div>
+        ))}
+      </div>
+      <p style="text-align:center;margin-top:28px"><a href="/sticker/?k=packs" style="color:#fff">Alle Packs inkl. 50er Block-Pack & Mystery-Pack →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Kategorien</span>
+      <h2>Was willst du bekleben?</h2>
+      <div class="cats">
+        <a href="/sticker/?k=klassiker"><b>Klassiker</b><span>Seit 1899, Grün-Weiß für immer</span></a>
+        <a href="/sticker/?k=huetteldorf"><b>Hütteldorf & Stadion</b><span>Westtribüne, 75. Minute</span></a>
+        <a href="/sticker/?k=wien"><b>Wien & Derby</b><span>Derbysieger, Violett? Nein danke.</span></a>
+        <a href="/sticker/?k=gross"><b>Großformat</b><span>12 cm für Laptop & Koffer</span></a>
+        <a href="/sticker/?k=auto"><b>Auto</b><span>Heckscheibe, waschanlagenfest</span></a>
+        <a href="/sticker/?k=packs"><b>Packs</b><span>3 bis 50 Stück</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section steps-s">
+    <div class="wrap">
+      <span class="eyebrow">So läuft's</span>
+      <h2>Bestellt, gedruckt, geklebt</h2>
+      <ol class="steps">
+        <li><b>Auswählen</b>Einzeln, Großformat oder Pack. Rabatt rechnet der Warenkorb automatisch.<em>2 Minuten</em></li>
+        <li><b>Bezahlen</b>Sicher mit Karte, Apple Pay, PayPal oder Klarna. [PLATZHALTER je nach Checkout]<em>1 Minute</em></li>
+        <li><b>Versand</b>Wir verpacken knickfrei im Kuvert mit Karton.<em>innerhalb 48 h</em></li>
+        <li><b>Kleben</b>Fläche reinigen, aufkleben, glatt streichen – hält Jahre.<em>ab 2–4 Werktagen</em></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap" style="max-width:860px">
+      <span class="eyebrow">FAQ</span>
+      <h2>Kurz gefragt</h2>
+      {faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      <p style="margin-top:24px"><a href="/faq/">Alle Fragen →</a></p>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Noch keinen Sticker auf dem Laptop?</h2>
+      <p class="lead" style="color:#e6f3ea;margin:0 auto 24px">Das 10er Mix-Pack kostet {eur(15)} – Versand gratis.</p>
+      <button class="btn" style="background:#fff;color:#111;border-color:#fff" type="button" data-add="mix-10er" data-open>10er Mix-Pack holen</button>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: clamp(40px, 7vw, 90px) 0 clamp(40px, 6vw, 70px); background: radial-gradient(circle at 85% 20%, #dff0e5 0, transparent 50%); }
+  .hero-in { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
+  mark { background: linear-gradient(transparent 55%, #7bd99b 55%); color: inherit; padding: 0 .05em; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 22px; }
+  .trust { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-weight: 600; font-size: 15px; }
+  .trust li::before { content: '✓'; display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--g); color: #fff; font-size: 12px; margin-right: 10px; }
+  .pile { position: relative; aspect-ratio: 1; max-width: 520px; width: 100%; justify-self: center; }
+  .pile img { position: absolute; width: 52%; filter: drop-shadow(0 14px 18px rgb(0 0 0 / .25)); animation: pop .6s backwards; }
+  .p0 { left: 4%; top: 6%; transform: rotate(-10deg); }
+  .p1 { right: 2%; top: 0; transform: rotate(8deg); animation-delay: .1s !important; }
+  .p2 { left: 10%; bottom: 2%; transform: rotate(6deg); animation-delay: .2s !important; }
+  .p3 { right: 4%; bottom: 8%; transform: rotate(-6deg); animation-delay: .3s !important; }
+  @keyframes pop { from { opacity: 0; scale: .7; } }
+  @media (max-width: 860px) { .hero-in { grid-template-columns: 1fr; } .pile { max-width: 380px; } }
+  .usp { background: var(--g); color: #fff; }
+  .usp-in { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-top: 22px; padding-bottom: 22px; }
+  .usp-in div { display: grid; }
+  .usp b { font: 400 22px/1.1 var(--head); text-transform: uppercase; }
+  .usp span { font-size: 14px; opacity: .85; }
+  @media (max-width: 760px) { .usp-in { grid-template-columns: 1fr 1fr; } }
+  .head-row { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+  .more { font-weight: 700; }
+  .dark { background: var(--k); color: #fff; }
+  .packs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+  .pack { position: relative; border: 1px solid #333; border-radius: var(--r); padding: 28px 22px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .pack.top { border: 2px solid #7bd99b; }
+  .tag { position: absolute; top: -13px; background: #7bd99b; color: #111; font: 700 12px/1 var(--body); padding: 7px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: .08em; }
+  .pack img { width: 160px; margin-bottom: 12px; }
+  .pp { font: 400 36px/1 var(--head); margin: 6px 0; }
+  .pp s { font: 500 16px var(--body); color: #888; }
+  .per { color: #7bd99b; font-weight: 600; font-size: 14px; }
+  .pack .btn { margin-top: auto; width: 100%; }
+  @media (max-width: 860px) { .packs { grid-template-columns: 1fr; } .pack.top { order: -1; } }
+  .cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+  .cats a { display: grid; gap: 4px; padding: 26px 22px; border-radius: var(--r); background: #fff; border: 1px solid var(--line); text-decoration: none; }
+  .cats b { font: 400 26px/1 var(--head); text-transform: uppercase; }
+  .cats span { color: var(--muted); font-size: 14px; }
+  @media (hover: hover) { .cats a:hover { border-color: var(--g); box-shadow: inset 0 -4px var(--g); } }
+  @media (max-width: 760px) { .cats { grid-template-columns: 1fr 1fr; } }
+  .steps-s { background: #fff; border-block: 1px solid var(--line); }
+  .steps { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; gap: 6px; font-size: 15px; color: var(--muted); }
+  .steps li::before { content: counter(s); font: 400 44px/1 var(--head); color: var(--g); }
+  .steps b { color: var(--k); font-size: 18px; }
+  .steps em { font-style: normal; font-weight: 700; color: var(--g); font-size: 14px; }
+  @media (max-width: 760px) { .steps { grid-template-columns: 1fr 1fr; } }
+  .final { background: var(--g); color: #fff; text-align: center; padding: clamp(56px, 8vw, 100px) 0; }
+</style>

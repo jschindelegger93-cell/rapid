@@ -1,0 +1,5 @@
+# BEI GO-LIVE ENTFERNEN: "Disallow: /" durch "Allow: /" ersetzen
+User-agent: *
+Disallow: /
+
+Sitemap: https://kleberei1899.at/sitemap-index.xml

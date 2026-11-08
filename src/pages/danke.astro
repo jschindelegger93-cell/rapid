@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { S } from '../lib/site';
+---
+<Base title={`Danke! | ${S.name}`} description="Bestellung eingegangen." noindex>
+  <section class="section"><div class="wrap" style="max-width:760px;text-align:center">
+    <span class="eyebrow">Bestellung eingegangen</span>
+    <h1>Danke – wir kleben schon!</h1>
+    <p class="lead" style="margin-inline:auto">Du bekommst in Kürze eine E-Mail mit Zahlungslink bzw. Bankdaten. Nach Zahlungseingang verschicken wir innerhalb von 48 h.</p>
+    <a class="btn btn--g" href="/sticker/">Weiter stöbern</a>
+  </div></section>
+</Base>
+<script>(window as any).kleberei?.leeren();</script>

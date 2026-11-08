@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import { S, eur } from '../lib/site';
+---
+<Base title={`Kasse | ${S.name}`} description="Bestellung abschließen." noindex>
+  <div class="wrap">
+    <nav class="crumbs"><a href="/">Start</a> / Kasse</nav>
+    <h1 style="font-size:clamp(40px,6vw,72px);margin-top:16px">Kasse</h1>
+    <div class="co">
+      <form name="bestellung" method="POST" action="/danke/" data-netlify="true" netlify-honeypot="bot-field" id="form">
+        <input type="hidden" name="form-name" value="bestellung" />
+        <p hidden><label>Nicht ausfüllen <input name="bot-field" /></label></p>
+        <input type="hidden" name="bestellung" id="f-best" />
+        <input type="hidden" name="summe" id="f-summe" />
+        <fieldset>
+          <legend>Lieferadresse</legend>
+          <div class="two">
+            <label>Vorname<input name="vorname" required autocomplete="given-name" /></label>
+            <label>Nachname<input name="nachname" required autocomplete="family-name" /></label>
+          </div>
+          <label>E-Mail<input type="email" name="email" required autocomplete="email" inputmode="email" /></label>
+          <label>Straße & Hausnummer<input name="strasse" required autocomplete="street-address" /></label>
+          <div class="two">
+            <label>PLZ<input name="plz" required autocomplete="postal-code" inputmode="numeric" /></label>
+            <label>Ort<input name="ort" required autocomplete="address-level2" /></label>
+          </div>
+          <label>Land
+            <select name="land" id="land" autocomplete="country">
+              <option value="AT">Österreich</option>
+              <option value="DE">Deutschland</option>
+              <option value="EU">anderes EU-Land</option>
+            </select>
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Zahlung</legend>
+          <label class="radio"><input type="radio" name="zahlung" value="PayPal" checked /> PayPal (Zahlungslink per E-Mail)</label>
+          <label class="radio"><input type="radio" name="zahlung" value="Überweisung" /> Überweisung (Vorkasse)</label>
+          <p class="small">[PLATZHALTER] Sobald Shopify verbunden ist, läuft die Zahlung direkt über den Shopify-Checkout (Karte, Apple Pay, Klarna).</p>
+        </fieldset>
+        <label class="radio"><input type="checkbox" name="agb" required /> Ich akzeptiere die <a href="/agb/">AGB</a> und habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen.</label>
+        <button class="btn btn--g" type="submit" id="submit" style="width:100%;margin-top:16px">Zahlungspflichtig bestellen</button>
+        <p id="err" class="hint warn" hidden role="alert"></p>
+      </form>
+      <aside class="box">
+        <h2 style="font-size:30px">Deine Bestellung</h2>
+        <div id="lines"></div>
+        <div class="sum"><span>Zwischensumme</span><span id="s-zw"></span></div>
+        <div class="sum green" id="s-rab-row" hidden><span id="s-rab-l"></span><span id="s-rab"></span></div>
+        <div class="sum"><span>Versand</span><span id="s-vs"></span></div>
+        <div class="sum total"><span>Gesamt</span><span id="s-tot"></span></div>
+        <div id="s-hint" style="margin-top:12px"></div>
+      </aside>
+    </div>
+  </div>
+</Base>
+<style>
+  .co { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 4vw, 56px); padding: 12px 0 40px; align-items: start; }
+  @media (max-width: 860px) { .co { grid-template-columns: 1fr; } .box { order: -1; } }
+  fieldset { border: 0; padding: 0; margin: 0 0 28px; display: grid; gap: 14px; }
+  legend { font: 400 26px/1 var(--head); text-transform: uppercase; margin-bottom: 14px; }
+  label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+  input:not([type=radio]):not([type=checkbox]), select { min-height: 50px; border: 1.5px solid var(--line); border-radius: 12px; padding: 0 14px; font: 16px var(--body); background: #fff; }
+  input:focus, select:focus { border-color: var(--g); outline: none; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .radio { display: flex; gap: 10px; align-items: center; font-weight: 500; }
+  .radio input { width: 20px; height: 20px; accent-color: var(--g); }
+  .small { font-size: 13px; color: var(--muted); }
+  .box { background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: 22px; position: sticky; top: 96px; display: grid; gap: 8px; }
+  .box .line { grid-template-columns: 48px 1fr auto; }
+  .box .line img { width: 48px; height: 48px; }
+</style>
+<script>
+  const eur = (n: number) => new Intl.NumberFormat('de-AT', { style: 'currency', currency: 'EUR' }).format(n);
+  const cfg = JSON.parse(document.getElementById('katalog')!.textContent!).cfg;
+  const VERSAND = { AT: [cfg.versandAT, cfg.gratisVersandAb], DE: [4.9, 30], EU: [4.9, 30] } as Record<string, number[]>;
+  const land = document.getElementById('land') as HTMLSelectElement;
+  const $ = (id: string) => document.getElementById(id)!;
+  function show() {
+    const r = (window as any).kleberei.berechne();
+    if (!r.zeilen.length) { location.href = '/sticker/'; return; }
+    const [vs, ab] = VERSAND[land.value];
+    const versand = r.zwischen >= ab ? 0 : vs;
+    const total = r.zwischen + versand;
+    $('lines').innerHTML = r.zeilen.map((z: any) => `<div class="line"><img src="${z.bild}" alt=""><div><b style="font-size:14px">${z.qty}× ${z.name}</b></div><span>${eur(z.summe)}</span></div>`).join('');
+    $('s-zw').textContent = eur(r.brutto);
+    $('s-rab-row').hidden = !r.rabatt;
+    if (r.rabatt) { $('s-rab-l').textContent = `Mengenrabatt −${r.stufe.rabatt} %`; $('s-rab').textContent = `−${eur(r.rabatt)}`; }
+    $('s-vs').textContent = versand ? eur(versand) : 'gratis';
+    $('s-tot').textContent = eur(total);
+    $('s-hint').innerHTML = versand ? `<p class="hint">Noch ${eur(ab - r.zwischen)} bis zum Gratis-Versand.</p>` : '';
+    const mbw = r.fehltMBW > 0;
+    ($('submit') as HTMLButtonElement).disabled = mbw;
+    if (mbw) $('s-hint').innerHTML = `<p class="hint warn">Mindestbestellwert ${eur(cfg.mindestbestellwert)} noch nicht erreicht.</p>`;
+    ($('f-best') as HTMLInputElement).value = r.zeilen.map((z: any) => `${z.qty}× ${z.name} (${z.slug}) = ${eur(z.summe)}`).join('\n') + (r.rabatt ? `\nRabatt: −${eur(r.rabatt)}` : '') + `\nVersand ${land.value}: ${eur(versand)}`;
+    ($('f-summe') as HTMLInputElement).value = eur(total);
+    return total;
+  }
+  land.addEventListener('change', show);
+  document.addEventListener('cart:change', show);
+  show();
+  const form = $('form') as HTMLFormElement;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const total = show();
+    const btn = $('submit') as HTMLButtonElement; btn.disabled = true; btn.textContent = 'Wird gesendet …';
+    try {
+      const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form) as any).toString() });
+      if (!res.ok) throw new Error(String(res.status));
+      (window as any).dataLayer?.push({ event: 'purchase', value: total, currency: 'EUR' });
+      location.href = '/danke/';
+    } catch {
+      $('err').hidden = false; $('err').textContent = 'Senden hat nicht geklappt. Bitte nochmal versuchen oder an die E-Mail im Footer schreiben.';
+      btn.disabled = false; btn.textContent = 'Zahlungspflichtig bestellen';
+    }
+  });
+</script>

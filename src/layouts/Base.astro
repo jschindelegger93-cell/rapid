@@ -1,0 +1,158 @@
+---
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+import { S } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+  jsonld?: object[];
+}
+const { title, description, image = '/og.png', noindex = false, jsonld = [] } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const og = new URL(image, Astro.site).href;
+const path = Astro.url.pathname;
+
+const alle = (await getCollection('sticker')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const katalog = {
+  cfg: {
+    mindestbestellwert: S.mindestbestellwert,
+    gratisVersandAb: S.gratisVersandAb,
+    versandAT: S.versandAT,
+    staffel: S.staffel,
+    shopifyDomain: S.shopifyDomain,
+  },
+  bestseller: alle.filter((s) => s.data.bestseller).map((s) => s.id),
+  items: alle.map((s) => ({
+    slug: s.id, name: s.data.name, preis: s.data.preis, typ: s.data.typ, stueck: s.data.stueck,
+    bild: s.data.bild, url: `/sticker/${s.id}/`, variant: s.data.shopifyVariantId || undefined,
+  })),
+};
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'OnlineStore',
+  name: S.name,
+  url: Astro.site?.href,
+  email: S.email,
+  logo: new URL('/favicon.svg', Astro.site).href,
+  sameAs: [S.instagram],
+  areaServed: ['AT', 'DE'],
+};
+const nav = [
+  ['/sticker/', 'Alle Sticker'],
+  ['/sticker/?k=packs', 'Packs'],
+  ['/versand/', 'Versand'],
+  ['/faq/', 'FAQ'],
+];
+---
+<!doctype html>
+<html lang="de-AT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {/* BEI GO-LIVE ENTFERNEN: in settings.json "klickdummy": false setzen */}
+  {(S.klickdummy || noindex) && <meta name="robots" content="noindex, nofollow" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_AT" />
+  <meta property="og:site_name" content={S.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={og} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <script type="application/ld+json" set:html={JSON.stringify(org)} />
+  {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt</a>
+  <div class="ann" role="region" aria-label="Hinweise">
+    {S.announcement.map((a, i) => <span class={i === 0 ? 'on' : ''}>{a}</span>)}
+  </div>
+  <header class="hd">
+    <div class="wrap">
+      <a class="logo" href="/" aria-label={`${S.name} – Startseite`}><i>1899</i>Kleberei</a>
+      <nav class="nav" id="nav" aria-label="Hauptmenü">
+        {nav.map(([href, label]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}
+      </nav>
+      <button class="burger" aria-label="Menü" aria-expanded="false" aria-controls="nav" id="burger">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="cart-btn" data-open-cart aria-label="Warenkorb öffnen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="n" data-cart-count></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main"><slot /></main>
+
+  <footer class="ft">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <a class="logo" href="/" style="color:#fff"><i>1899</i>Kleberei</a>
+          <p style="margin-top:16px">Wetterfeste Grün-Weiß Sticker aus Wien. Versand im Kuvert, gratis ab {S.gratisVersandAb} €.</p>
+          <p style="font-size:13px;color:#8d8d8d">Inoffizieller Fanartikel. Kein Produkt des SK Rapid Wien, keine Vereins- oder Fangruppen-Logos.</p>
+        </div>
+        <div><h4>Shop</h4><ul>
+          <li><a href="/sticker/?k=klassiker">Klassiker</a></li>
+          <li><a href="/sticker/?k=huetteldorf">Hütteldorf & Stadion</a></li>
+          <li><a href="/sticker/?k=wien">Wien & Derby</a></li>
+          <li><a href="/sticker/?k=packs">Packs</a></li>
+        </ul></div>
+        <div><h4>Service</h4><ul>
+          <li><a href="/versand/">Versand & Preise</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href={`mailto:${S.email}`}>{S.email}</a></li>
+          <li><a href={S.instagram} rel="noopener">Instagram</a></li>
+        </ul></div>
+        <div><h4>Rechtliches</h4><ul>
+          <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/datenschutz/">Datenschutz</a></li>
+          <li><a href="/agb/">AGB & Widerruf</a></li>
+        </ul></div>
+      </div>
+      <div class="legal"><span>© {new Date().getFullYear()} {S.name}</span><span>Alle Preise inkl. USt.</span></div>
+    </div>
+  </footer>
+
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Warenkorb">
+    <div class="bg" data-close-cart></div>
+    <div class="panel">
+      <header><h2>Warenkorb</h2><button class="x" data-close-cart aria-label="Schließen">×</button></header>
+      <div class="body" id="cart-body"></div>
+      <footer id="cart-foot" hidden></footer>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="application/json" id="katalog" set:html={JSON.stringify(katalog)} />
+  <script>
+    import '../scripts/cart.ts';
+    // Announcement-Rotation
+    const spans = document.querySelectorAll('.ann span');
+    let i = 0;
+    if (spans.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setInterval(() => { spans[i].classList.remove('on'); i = (i + 1) % spans.length; spans[i].classList.add('on'); }, 5000);
+    }
+    // Burger
+    const b = document.getElementById('burger');
+    const n = document.getElementById('nav');
+    b?.addEventListener('click', () => {
+      const o = n!.classList.toggle('open');
+      b.setAttribute('aria-expanded', String(o));
+      document.body.style.overflow = o ? 'hidden' : '';
+    });
+    // Einblenden
+    const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.fade').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
