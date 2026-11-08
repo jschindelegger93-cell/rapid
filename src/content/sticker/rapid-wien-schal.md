@@ -15,7 +15,7 @@ reihenfolge: 11
 shopifyVariantId: ""
 seo:
   title: "Rapid Wien – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Rapid Wien – Schal: Rapid Wien in Strick-Optik, wie der Schal im Kasten. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Rapid Wien – Schal: Rapid Wien in Strick-Optik, wie der Schal im Kasten. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Rapid Wien in Strick-Optik, wie der Schal im Kasten.

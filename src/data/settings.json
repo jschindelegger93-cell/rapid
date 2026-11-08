@@ -8,7 +8,7 @@
   "adresse": "[PLATZHALTER Adresse], Wien",
   "klickdummy": true,
   "mindestbestellwert": 10,
-  "gratisVersandAb": 15,
+  "gratisVersandAb": 20,
   "versandAT": 2.9,
   "versandEU": 4.9,
   "gratisVersandEUAb": 30,
@@ -25,7 +25,7 @@
   ],
   "shopifyDomain": "",
   "announcement": [
-    "Gratis Versand ab 15 € – rechtzeitig vor dem nächsten Spieltag",
+    "Gratis Versand ab 20 € – rechtzeitig vor dem nächsten Spieltag",
     "Ab 5 Stickern −10 %, ab 10 Stück −20 % – auch gemischt",
     "Aus Wien West verschickt, innerhalb von 48 h"
   ]

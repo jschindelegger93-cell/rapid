@@ -15,7 +15,7 @@ reihenfolge: 26
 shopifyVariantId: ""
 seo:
   title: "Wien – meine Heimat. Meine Liebe. Sticker kaufen – Rapid Aufkleber | W"
-  description: "Wien – meine Heimat. Meine Liebe.: Grün-weiß geteilt, Sprühlack-Schrift. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Wien – meine Heimat. Meine Liebe.: Grün-weiß geteilt, Sprühlack-Schrift. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Grün-weiß geteilt, Sprühlack-Schrift.

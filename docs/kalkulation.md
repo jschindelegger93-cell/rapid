@@ -10,7 +10,7 @@ Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot 
 | Flaggen-Format 9 × 6 cm / Figur 8 × 8 cm | 2,50 € |
 | Schal/Schild-Format 15 × 5 cm | 3,90 € |
 | Mindestbestellwert | 10 € (= 4 Sticker) |
-| Versand AT | 2,90 €, **gratis ab 15 €** |
+| Versand AT | 2,90 €, **gratis ab 20 €** |
 | Versand DE/EU | 4,90 €, gratis ab 30 € |
 | Mengenrabatt Einzel/Groß | ab 5 Stk −10 %, ab 10 Stk −20 % |
 
@@ -20,12 +20,12 @@ Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot 
 |---|---|---|---|---|
 | 3er Starter | 6,90 | 7,50 | 8 % | 2,30 |
 | 5er Topseller | 9,90 | 12,50 | 21 % | 1,98 |
-| **10er Mix** | **15,00** | 25,00 | 40 % | 1,50 |
+| **10er Mix** | **20,00** | 25,00 | 20 % | 2,00 |
 | Mystery 15er | 19,00 | 37,50 | 49 % | 1,27 |
 | 25er Kurve | 29,00 | 62,50 | 54 % | 1,16 |
 | 50er Block | 49,00 | 125,00 | 61 % | 0,98 |
 
-Das 10er Mix-Pack liegt exakt auf der Gratis-Versand-Grenze → Hauptprodukt in Hero, Packs-Sektion und Abschluss-CTA.
+Das 10er Mix-Pack (20 €) liegt exakt auf der Gratis-Versand-Grenze (20 €) → Hauptprodukt in Hero, Packs-Sektion und Abschluss-CTA.
 
 ## Stückkosten (Annahmen)
 
@@ -42,7 +42,7 @@ Das 10er Mix-Pack liegt exakt auf der Gratis-Versand-Grenze → Hauptprodukt in 
 | Warenkorb | Kunde zahlt | Netto (÷1,2) | Druck | Verpackung + Porto | Zahlung | **DB** |
 |---|---|---|---|---|---|---|
 | 4 Einzel (MBW) | 10,00 + 2,90 = 12,90 | 10,75 | 1,00 | 2,15 | 0,67 | **6,93 €** |
-| 10er Mix-Pack | 15,00 (gratis Versand) | 12,50 | 2,50 | 2,15 | 0,74 | **7,11 €** |
+| 10er Mix-Pack | 20,00 (gratis Versand) | 16,67 | 2,50 | 2,15 | 0,88 | **11,14 €** |
 | 10 Einzel (−20 %) | 20,00 | 16,67 | 2,50 | 2,15 | 0,88 | **11,14 €** |
 | 25er Kurven-Pack | 29,00 | 24,17 | 6,25 | 2,15 | 1,14 | **14,63 €** |
 | 50er Block-Pack | 49,00 | 40,83 | 12,50 | 2,15 | 1,72 | **24,46 €** |

@@ -16,7 +16,7 @@ reihenfolge: 36
 shopifyVariantId: ""
 seo:
   title: "Mystery-Pack (15 Stück) – Rapid Sticker Set kaufen | Wien West"
-  description: "Mystery-Pack (15 Stück): 15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt. Gratis Versand ab 15 €."
+  description: "Mystery-Pack (15 Stück): 15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt. Gratis Versand ab 20 €."
   noindex: false
 ---
 15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.

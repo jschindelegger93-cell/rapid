@@ -16,7 +16,7 @@ reihenfolge: 34
 shopifyVariantId: ""
 seo:
   title: "25er Kurven-Pack – Rapid Sticker Set kaufen | Wien West"
-  description: "25er Kurven-Pack: Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben. Gratis Versand ab 15 €."
+  description: "25er Kurven-Pack: Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben. Gratis Versand ab 20 €."
   noindex: false
 ---
 Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben.

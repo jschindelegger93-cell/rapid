@@ -15,7 +15,7 @@ reihenfolge: 19
 shopifyVariantId: ""
 seo:
   title: "Wien West 1140 Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien West 1140: Block-Streifen mit Postleitzahl. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Wien West 1140: Block-Streifen mit Postleitzahl. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Block-Streifen mit Postleitzahl.

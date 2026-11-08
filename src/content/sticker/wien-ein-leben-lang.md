@@ -15,7 +15,7 @@ reihenfolge: 25
 shopifyVariantId: ""
 seo:
   title: "Wien – ein Leben lang Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien – ein Leben lang: Sprühlack-Schrift mit Farbnasen: Wien, ein Leben lang. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Wien – ein Leben lang: Sprühlack-Schrift mit Farbnasen: Wien, ein Leben lang. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Sprühlack-Schrift mit Farbnasen: Wien, ein Leben lang.

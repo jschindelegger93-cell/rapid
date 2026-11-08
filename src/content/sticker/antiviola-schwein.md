@@ -15,7 +15,7 @@ reihenfolge: 15
 shopifyVariantId: ""
 seo:
   title: "Antiviola – Schwein Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Antiviola – Schwein: Violettes Schwein, grün durchgestrichen. Antiviola im alten Siebdruck-Look. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Antiviola – Schwein: Violettes Schwein, grün durchgestrichen. Antiviola im alten Siebdruck-Look. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Violettes Schwein, grün durchgestrichen. Antiviola im alten Siebdruck-Look.

@@ -15,7 +15,7 @@ reihenfolge: 12
 shopifyVariantId: ""
 seo:
   title: "Rapid Wien Fan Szene Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Rapid Wien Fan Szene: Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Rapid Wien Fan Szene: Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen.

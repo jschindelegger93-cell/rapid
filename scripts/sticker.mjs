@@ -361,13 +361,13 @@ const P = [
   // PACKS
   ['starter-3er', '3er Starter-Pack', 'pack', { a: 'STARTER-PACK', n: 3 }, 'packs', 'Die drei Topseller: Anti Viola, Wien West Hütteldorf, A.C.A.B.', false],
   ['topseller-5er', '5er Topseller-Pack', 'pack', { a: 'TOPSELLER-PACK', n: 5 }, 'packs', 'Fünf Lieblinge aus dem Block in einem Kuvert.', true],
-  ['mix-10er', '10er Mix-Pack', 'pack', { a: 'MIX · GRATIS VERSAND', n: 10 }, 'packs', 'Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze.', true],
+  ['mix-10er', '10er Mix-Pack', 'pack', { a: 'MIX · GRATIS VERSAND', n: 10 }, 'packs', 'Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 20 € genau an der Gratis-Versand-Grenze.', true],
   ['kurve-25er', '25er Kurven-Pack', 'pack', { a: 'KURVEN-PACK', n: 25 }, 'packs', 'Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben.', true],
   ['block-50er', '50er Block-Pack', 'pack', { a: 'BLOCK-PACK', n: 50 }, 'packs', '50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe.', false],
   ['mystery-15er', 'Mystery-Pack (15 Stück)', 'mystery', { n: 15 }, 'packs', '15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.', false],
 ];
 
-const PACK = { 'starter-3er': [6.9, 7.5, 3], 'topseller-5er': [9.9, 12.5, 5], 'mix-10er': [15, 25, 10], 'kurve-25er': [29, 62.5, 25], 'block-50er': [49, 125, 50], 'mystery-15er': [19, 37.5, 15] };
+const PACK = { 'starter-3er': [6.9, 7.5, 3], 'topseller-5er': [9.9, 12.5, 5], 'mix-10er': [20, 25, 10], 'kurve-25er': [29, 62.5, 25], 'block-50er': [49, 125, 50], 'mystery-15er': [19, 37.5, 15] };
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
 const writeMd = process.argv.includes('--md');
@@ -401,7 +401,7 @@ reihenfolge: ${i}
 shopifyVariantId: ""
 seo:
   title: ${JSON.stringify((isPack ? `${name} – Rapid Sticker Set kaufen | Wien West` : `${name} Sticker kaufen – Rapid Aufkleber | Wien West`).slice(0, 70))}
-  description: ${JSON.stringify(`${name}: ${kurz} ${isPack ? '' : '9 × 6 cm, wetterfest, 2,50 €. '}Gratis Versand ab 15 €.`.replace(/\s+/g, ' ').slice(0, 158))}
+  description: ${JSON.stringify(`${name}: ${kurz} ${isPack ? '' : '9 × 6 cm, wetterfest, 2,50 €. '}Gratis Versand ab 20 €.`.replace(/\s+/g, ' ').slice(0, 158))}
   noindex: false
 ---
 ${kurz}

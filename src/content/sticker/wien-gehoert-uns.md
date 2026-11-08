@@ -15,7 +15,7 @@ reihenfolge: 3
 shopifyVariantId: ""
 seo:
   title: "Wien gehört uns! Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien gehört uns!: Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Wien gehört uns!: Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt.

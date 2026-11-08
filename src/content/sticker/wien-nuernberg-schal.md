@@ -15,7 +15,7 @@ reihenfolge: 27
 shopifyVariantId: ""
 seo:
   title: "Wien – Nürnberg Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien – Nürnberg: Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Wien – Nürnberg: Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken.

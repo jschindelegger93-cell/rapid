@@ -15,7 +15,7 @@ reihenfolge: 16
 shopifyVariantId: ""
 seo:
   title: "Wien West Hütteldorf Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Wien West Hütteldorf: Wien West Hütteldorf – drei Zeilen auf Block-Streifen mit Blau-Rot-Band. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Wien West Hütteldorf: Wien West Hütteldorf – drei Zeilen auf Block-Streifen mit Blau-Rot-Band. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Wien West Hütteldorf – drei Zeilen auf Block-Streifen mit Blau-Rot-Band.

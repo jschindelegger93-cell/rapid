@@ -15,7 +15,7 @@ reihenfolge: 2
 shopifyVariantId: ""
 seo:
   title: "Anti Violett Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Anti Violett: Schablonen-Look, Violett durchgestrichen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Anti Violett: Schablonen-Look, Violett durchgestrichen. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Schablonen-Look, Violett durchgestrichen.

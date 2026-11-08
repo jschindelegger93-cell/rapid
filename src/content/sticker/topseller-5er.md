@@ -16,7 +16,7 @@ reihenfolge: 32
 shopifyVariantId: ""
 seo:
   title: "5er Topseller-Pack – Rapid Sticker Set kaufen | Wien West"
-  description: "5er Topseller-Pack: Fünf Lieblinge aus dem Block in einem Kuvert. Gratis Versand ab 15 €."
+  description: "5er Topseller-Pack: Fünf Lieblinge aus dem Block in einem Kuvert. Gratis Versand ab 20 €."
   noindex: false
 ---
 Fünf Lieblinge aus dem Block in einem Kuvert.

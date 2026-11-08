@@ -15,7 +15,7 @@ reihenfolge: 13
 shopifyVariantId: ""
 seo:
   title: "You’ll never walk alone Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "You’ll never walk alone: Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "You’ll never walk alone: Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt.

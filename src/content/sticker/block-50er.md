@@ -16,7 +16,7 @@ reihenfolge: 35
 shopifyVariantId: ""
 seo:
   title: "50er Block-Pack – Rapid Sticker Set kaufen | Wien West"
-  description: "50er Block-Pack: 50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe. Gratis Versand ab 15 €."
+  description: "50er Block-Pack: 50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe. Gratis Versand ab 20 €."
   noindex: false
 ---
 50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe.

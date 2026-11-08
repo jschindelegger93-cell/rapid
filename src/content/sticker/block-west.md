@@ -15,7 +15,7 @@ reihenfolge: 23
 shopifyVariantId: ""
 seo:
   title: "Block West Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "Block West: Block West im Streifen-Look. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Block West: Block West im Streifen-Look. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Block West im Streifen-Look.

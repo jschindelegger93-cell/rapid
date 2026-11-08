@@ -15,7 +15,7 @@ reihenfolge: 17
 shopifyVariantId: ""
 seo:
   title: "Wien West Hütteldorf – Schal Sticker kaufen – Rapid Aufkleber | Wien W"
-  description: "Wien West Hütteldorf – Schal: Wien West Hütteldorf in Strick-Optik. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "Wien West Hütteldorf – Schal: Wien West Hütteldorf in Strick-Optik. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 Wien West Hütteldorf in Strick-Optik.

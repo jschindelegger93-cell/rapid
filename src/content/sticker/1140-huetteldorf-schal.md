@@ -15,7 +15,7 @@ reihenfolge: 21
 shopifyVariantId: ""
 seo:
   title: "1140 Hütteldorf – Schal Sticker kaufen – Rapid Aufkleber | Wien West"
-  description: "1140 Hütteldorf – Schal: 1140 Hütteldorf in Strick-Optik. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 15 €."
+  description: "1140 Hütteldorf – Schal: 1140 Hütteldorf in Strick-Optik. 9 × 6 cm, wetterfest, 2,50 €. Gratis Versand ab 20 €."
   noindex: false
 ---
 1140 Hütteldorf in Strick-Optik.

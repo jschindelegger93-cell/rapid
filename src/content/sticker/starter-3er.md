@@ -16,7 +16,7 @@ reihenfolge: 31
 shopifyVariantId: ""
 seo:
   title: "3er Starter-Pack – Rapid Sticker Set kaufen | Wien West"
-  description: "3er Starter-Pack: Die drei Topseller: Anti Viola, Wien West Hütteldorf, A.C.A.B. Gratis Versand ab 15 €."
+  description: "3er Starter-Pack: Die drei Topseller: Anti Viola, Wien West Hütteldorf, A.C.A.B. Gratis Versand ab 20 €."
   noindex: false
 ---
 Die drei Topseller: Anti Viola, Wien West Hütteldorf, A.C.A.B.

@@ -22,7 +22,7 @@ const gruppen: [string, [string, string][]][] = [
 const flat = gruppen.flatMap(([, q]) => q);
 const jsonld = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: flat.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }];
 ---
-<Base title={`FAQ – Versand, Rabatt, Qualität | ${S.name}`} description="Antworten zu Mindestbestellwert, Gratis-Versand ab 15 €, Mengenrabatt und Haltbarkeit unserer Grün-Weiß Sticker." jsonld={jsonld}>
+<Base title={`FAQ – Versand, Rabatt, Qualität | ${S.name}`} description="Antworten zu Mindestbestellwert, Gratis-Versand ab 20 €, Mengenrabatt und Haltbarkeit unserer Grün-Weiß Sticker." jsonld={jsonld}>
   <div class="wrap prose" style="padding-bottom:60px">
     <nav class="crumbs"><a href="/">Start</a> / FAQ</nav>
     <h1 style="margin-top:20px">FAQ</h1>
