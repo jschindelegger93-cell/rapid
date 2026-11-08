@@ -1,6 +1,6 @@
 ---
 name: "Violett? Nein, danke."
-kurz: "Freundlich, aber bestimmt. Derby-Humor mit Augenzwinkern."
+kurz: "Freundlich, aber bestimmt. Derby-Schmäh für den Spind, den Laptop oder die Bürotür."
 typ: einzel
 kategorie: wien
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/violett-nein-danke.svg
 bildPng: /sticker/violett-nein-danke.png
 bestseller: true
 verfuegbar: true
-sku: KL-016
+sku: WW-016
 reihenfolge: 16
 shopifyVariantId: ""
 seo:
-  title: "Violett? Nein, danke. – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Freundlich, aber bestimmt. Derby-Humor mit Augenzwinkern. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Violett? Nein, danke. – Sticker | Wien West"
+  description: "Freundlich, aber bestimmt. Derby-Schmäh für den Spind, den Laptop oder die Bürotür. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Freundlich, aber bestimmt. Derby-Humor mit Augenzwinkern.
+Freundlich, aber bestimmt. Derby-Schmäh für den Spind, den Laptop oder die Bürotür.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

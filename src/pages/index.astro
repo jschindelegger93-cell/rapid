@@ -10,7 +10,7 @@ const packs = alle.filter((s) => s.data.typ === 'pack' && ['klassiker-5er', 'mix
 const hero = ['seit-1899', 'huetteldorf-ist-ueberall', 'gruenes-blut', 'westtribuene'].map((id) => alle.find((s) => s.id === id)!);
 
 const faq = [
-  ['Sind das offizielle Fanartikel?', 'Nein. Kleberei 1899 ist ein unabhängiger Shop von Fans für Fans. Unsere Motive sind eigene Designs ohne Vereinswappen und ohne Logos von Fanclubs oder Fangruppen.'],
+  ['Sind das offizielle Fanartikel?', 'Nein. Wien West Sticker ist ein unabhängiges Projekt von Fans. Unsere Motive sind eigene Designs – ohne Vereinswappen und bewusst ohne Logos oder Namen von Fanclubs und Fangruppen.'],
   ['Wie lange halten die Sticker draußen?', 'Wir drucken auf Vinyl mit matter Schutzlaminierung. Die Sticker sind wasserfest und UV-beständig und halten auf glatten Flächen draußen mehrere Jahre. [PLATZHALTER: Angabe der Druckerei]'],
   ['Was kostet der Versand?', `Innerhalb Österreichs ${eur(S.versandAT)}, ab ${eur(S.gratisVersandAb)} Bestellwert gratis. Der Mindestbestellwert liegt bei ${eur(S.mindestbestellwert)}.`],
   ['Gibt es Mengenrabatt?', 'Ja, automatisch im Warenkorb: ab 5 Einzelstickern −10 %, ab 10 Einzelstickern −20 %. Packs sind bereits rabattiert.'],
@@ -21,15 +21,15 @@ const jsonld = [{
   mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
 }];
 ---
-<Base title="Grün-Weiß Sticker kaufen – wetterfest, gratis Versand ab 15 € | Kleberei 1899"
-  description="30 Grün-Weiß Sticker für Fans aus Hütteldorf und ganz Wien: wetterfestes Vinyl, Packs ab 6,90 €, Mengenrabatt bis −20 %, gratis Versand ab 15 €." jsonld={jsonld}>
+<Base title="Wien West Sticker – Grün-Weiß Sticker für Block, Bus & Bahnhof"
+  description="Grün-Weiß Sticker aus Wien West: 30 wetterfeste Motive rund um Hütteldorf, Block West und Derby. Packs ab 6,90 €, gratis Versand ab 15 €." jsonld={jsonld}>
 
   <section class="hero">
     <div class="wrap hero-in">
       <div>
-        <span class="eyebrow">Sticker · Grün-Weiß · Wien</span>
-        <h1>Kleb dein <mark>Grün-Weiß</mark> überall hin.</h1>
-        <p class="lead">30 wetterfeste Sticker für Laptop, Trinkflasche, Auto und Laternenmast. Einzeln ab {eur(2.5)}, im 10er-Pack um {eur(15)} – mit Gratis-Versand.</p>
+        <span class="eyebrow">Wien West · seit 1899 grün-weiß</span>
+        <h1>Hütteldorf <mark>klebt</mark> überall.</h1>
+        <p class="lead">Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab {eur(2.5)}, im 10er-Pack um {eur(15)} – Versand gratis.</p>
         <div class="ctas">
           <a class="btn btn--g" href="/sticker/">Alle Sticker ansehen →</a>
           <button class="btn btn--o" type="button" data-add="mix-10er" data-open>10er Mix-Pack · {eur(15)}</button>
@@ -58,7 +58,7 @@ const jsonld = [{
   <section class="section">
     <div class="wrap">
       <span class="eyebrow">Bestseller</span>
-      <div class="head-row"><h2>Die Lieblinge der Kurve</h2><a href="/sticker/" class="more">Alle 30 Sticker →</a></div>
+      <div class="head-row"><h2>Was im Block am meisten klebt</h2><a href="/sticker/" class="more">Alle 30 Sticker →</a></div>
       <div class="grid">{best.map((s, i) => <Karte s={s} eager={i < 4} />)}</div>
     </div>
   </section>
@@ -66,8 +66,8 @@ const jsonld = [{
   <section class="section dark">
     <div class="wrap">
       <span class="eyebrow" style="color:#7bd99b">Packs</span>
-      <h2>Mehr kleben, weniger zahlen</h2>
-      <p class="lead" style="color:#bbb">Gemischte Packs sind bis zu 61 % günstiger als einzeln. Das 10er Mix-Pack bringt dich genau auf den Gratis-Versand.</p>
+      <h2>Für die Auswärtsfahrt eingepackt</h2>
+      <p class="lead" style="color:#bbb">Ein Kuvert, viele Motive – zum Aufteilen im Bus, im Zug oder am Stammtisch. Bis zu 61 % günstiger als einzeln, das 10er Mix-Pack ist gleich versandkostenfrei.</p>
       <div class="packs">
         {packs.map((s) => (
           <div class={`pack ${s.id === 'mix-10er' ? 'top' : ''}`}>
@@ -84,10 +84,27 @@ const jsonld = [{
     </div>
   </section>
 
+  <section class="section kultur">
+    <div class="wrap kultur-in">
+      <div>
+        <span class="eyebrow">Kurvenkultur</span>
+        <h2>Sticker gehören zur Kurve</h2>
+        <p class="lead">Wer im Block West steht, kennt das: Jede Tür, jeder Mast und jedes Geländer erzählt, wer schon da war. Sticker sind die Visitenkarte der Fans – zuhause in Hütteldorf und auswärts zwischen Bregenz und Graz.</p>
+        <p>Wir sind Fans aus Wien West und machen Sticker für alle, die grün-weiß leben. Was wir nicht machen: Logos oder Namen der Fangruppen verkaufen. Die gehören denen, die sie über Jahrzehnte aufgebaut haben – und nicht in einen Shop.</p>
+      </div>
+      <ul class="werte">
+        <li><b>Arbeiterverein</b><span>Seit 1899 ein Verein der Leute. Deshalb faire Preise statt Fanshop-Aufschlag.</span></li>
+        <li><b>Zusammenhalt</b><span>Packs zum Aufteilen – für den Bus, den Stammtisch, die ganze Gruppe.</span></li>
+        <li><b>Auswärts dabei</b><span>Wetterfest, damit der Sticker am Auswärtsbahnhof auch nach dem Winter noch hängt.</span></li>
+        <li><b>Kein Kommerz-Kitsch</b><span>Keine Wappen, keine Gruppenlogos, keine Plastik-Slogans. Nur Codes, die Grün-Weiße verstehen.</span></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
       <span class="eyebrow">Kategorien</span>
-      <h2>Was willst du bekleben?</h2>
+      <h2>Wo soll's kleben?</h2>
       <div class="cats">
         <a href="/sticker/?k=klassiker"><b>Klassiker</b><span>Seit 1899, Grün-Weiß für immer</span></a>
         <a href="/sticker/?k=huetteldorf"><b>Hütteldorf & Stadion</b><span>Westtribüne, 75. Minute</span></a>
@@ -102,12 +119,12 @@ const jsonld = [{
   <section class="section steps-s">
     <div class="wrap">
       <span class="eyebrow">So läuft's</span>
-      <h2>Bestellt, gedruckt, geklebt</h2>
+      <h2>Bestellt, verschickt, geklebt</h2>
       <ol class="steps">
         <li><b>Auswählen</b>Einzeln, Großformat oder Pack. Rabatt rechnet der Warenkorb automatisch.<em>2 Minuten</em></li>
         <li><b>Bezahlen</b>Sicher mit Karte, Apple Pay, PayPal oder Klarna. [PLATZHALTER je nach Checkout]<em>1 Minute</em></li>
         <li><b>Versand</b>Wir verpacken knickfrei im Kuvert mit Karton.<em>innerhalb 48 h</em></li>
-        <li><b>Kleben</b>Fläche reinigen, aufkleben, glatt streichen – hält Jahre.<em>ab 2–4 Werktagen</em></li>
+        <li><b>Kleben</b>Fläche sauber machen, draufkleben, glatt streichen. Hält auch den nächsten Winter am Auswärtsbahnhof.<em>ab 2–4 Werktagen</em></li>
       </ol>
     </div>
   </section>
@@ -123,8 +140,8 @@ const jsonld = [{
 
   <section class="final">
     <div class="wrap">
-      <h2>Noch keinen Sticker auf dem Laptop?</h2>
-      <p class="lead" style="color:#e6f3ea;margin:0 auto 24px">Das 10er Mix-Pack kostet {eur(15)} – Versand gratis.</p>
+      <h2>Der nächste Spieltag kommt bestimmt.</h2>
+      <p class="lead" style="color:#e6f3ea;margin:0 auto 24px">10 Motive, {eur(15)}, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>
       <button class="btn" style="background:#fff;color:#111;border-color:#fff" type="button" data-add="mix-10er" data-open>10er Mix-Pack holen</button>
     </div>
   </section>
@@ -177,5 +194,15 @@ const jsonld = [{
   .steps b { color: var(--k); font-size: 18px; }
   .steps em { font-style: normal; font-weight: 700; color: var(--g); font-size: 14px; }
   @media (max-width: 760px) { .steps { grid-template-columns: 1fr 1fr; } }
+  .kultur { background: var(--g-d); color: #fff; }
+  .kultur .eyebrow { color: #7bd99b; }
+  .kultur .lead { color: #d5eadc; }
+  .kultur p { color: #c3dccb; }
+  .kultur-in { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+  .werte { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .werte li { border: 1px solid #ffffff33; border-radius: var(--r); padding: 18px 20px; display: grid; gap: 4px; }
+  .werte b { font: 400 24px/1 var(--head); text-transform: uppercase; }
+  .werte span { font-size: 15px; color: #c3dccb; }
+  @media (max-width: 860px) { .kultur-in { grid-template-columns: 1fr; } }
   .final { background: var(--g); color: #fff; text-align: center; padding: clamp(56px, 8vw, 100px) 0; }
 </style>

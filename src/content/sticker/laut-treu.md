@@ -1,6 +1,6 @@
 ---
 name: "Laut. Treu."
-kurz: "Drei Worte, mehr braucht es nicht. Starker Kontrast, auch aus der Ferne lesbar."
+kurz: "Drei Worte für 90 Minuten Dauersupport. Starker Kontrast, auch vom anderen Ende des Bahnsteigs lesbar."
 typ: einzel
 kategorie: klassiker
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/laut-treu.svg
 bildPng: /sticker/laut-treu.png
 bestseller: false
 verfuegbar: true
-sku: KL-006
+sku: WW-006
 reihenfolge: 6
 shopifyVariantId: ""
 seo:
-  title: "Laut. Treu. – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Drei Worte, mehr braucht es nicht. Starker Kontrast, auch aus der Ferne lesbar. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Laut. Treu. – Sticker | Wien West"
+  description: "Drei Worte für 90 Minuten Dauersupport. Starker Kontrast, auch vom anderen Ende des Bahnsteigs lesbar. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Drei Worte, mehr braucht es nicht. Starker Kontrast, auch aus der Ferne lesbar.
+Drei Worte für 90 Minuten Dauersupport. Starker Kontrast, auch vom anderen Ende des Bahnsteigs lesbar.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

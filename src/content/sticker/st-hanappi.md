@@ -1,6 +1,6 @@
 ---
 name: "St. Hanappi"
-kurz: "Erinnerung an die alte Heimstätte – für alle, die noch dort gestanden sind."
+kurz: "Für alle, die noch im alten Hanappi gestanden sind. Das Stadion ist weg, die Erinnerung bleibt."
 typ: einzel
 kategorie: huetteldorf
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/st-hanappi.svg
 bildPng: /sticker/st-hanappi.png
 bestseller: false
 verfuegbar: true
-sku: KL-011
+sku: WW-011
 reihenfolge: 11
 shopifyVariantId: ""
 seo:
-  title: "St. Hanappi – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Erinnerung an die alte Heimstätte – für alle, die noch dort gestanden sind. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "St. Hanappi – Sticker | Wien West"
+  description: "Für alle, die noch im alten Hanappi gestanden sind. Das Stadion ist weg, die Erinnerung bleibt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Erinnerung an die alte Heimstätte – für alle, die noch dort gestanden sind.
+Für alle, die noch im alten Hanappi gestanden sind. Das Stadion ist weg, die Erinnerung bleibt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

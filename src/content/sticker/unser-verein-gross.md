@@ -1,6 +1,6 @@
 ---
 name: "Unser Verein, unsere Stadt (groß)"
-kurz: "Großformat für Kühlschrank, Koffer oder Gitarrenkoffer."
+kurz: "Großformat für Kühlschrank, Koffer oder Proberaum. Weil der Verein den Fans gehört."
 typ: gross
 kategorie: gross
 preis: 3.9
@@ -10,15 +10,15 @@ bild: /sticker/unser-verein-gross.svg
 bildPng: /sticker/unser-verein-gross.png
 bestseller: false
 verfuegbar: true
-sku: KL-019
+sku: WW-019
 reihenfolge: 19
 shopifyVariantId: ""
 seo:
-  title: "Unser Verein, unsere Stadt (groß) – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Großformat für Kühlschrank, Koffer oder Gitarrenkoffer. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Unser Verein, unsere Stadt (groß) – Sticker | Wien West"
+  description: "Großformat für Kühlschrank, Koffer oder Proberaum. Weil der Verein den Fans gehört. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Großformat für Kühlschrank, Koffer oder Gitarrenkoffer.
+Großformat für Kühlschrank, Koffer oder Proberaum. Weil der Verein den Fans gehört.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ca. 12 cm, konturgeschnitten.

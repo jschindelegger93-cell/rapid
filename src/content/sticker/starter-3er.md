@@ -1,6 +1,6 @@
 ---
 name: "3er Starter-Pack"
-kurz: "Drei Klassiker zum Reinschnuppern: Seit 1899, Grün-Weiß für immer, Hütteldorf ist überall."
+kurz: "Drei Klassiker zum Einstieg: Seit 1899, Grün-Weiß für immer, Hütteldorf ist überall."
 typ: pack
 kategorie: packs
 preis: 6.9
@@ -11,15 +11,15 @@ bild: /sticker/starter-3er.svg
 bildPng: /sticker/starter-3er.png
 bestseller: false
 verfuegbar: true
-sku: KL-025
+sku: WW-025
 reihenfolge: 25
 shopifyVariantId: ""
 seo:
-  title: "3er Starter-Pack – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Drei Klassiker zum Reinschnuppern: Seit 1899, Grün-Weiß für immer, Hütteldorf ist überall. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "3er Starter-Pack – Sticker | Wien West"
+  description: "Drei Klassiker zum Einstieg: Seit 1899, Grün-Weiß für immer, Hütteldorf ist überall. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Drei Klassiker zum Reinschnuppern: Seit 1899, Grün-Weiß für immer, Hütteldorf ist überall.
+Drei Klassiker zum Einstieg: Seit 1899, Grün-Weiß für immer, Hütteldorf ist überall.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** gemischte Formate (ca. 8 cm).

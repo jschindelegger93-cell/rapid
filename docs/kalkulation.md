@@ -1,4 +1,4 @@
-# Kalkulation Kleberei 1899
+# Kalkulation Wien West Sticker
 
 Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot ersetzen. Preise brutto inkl. 20 % USt.
 

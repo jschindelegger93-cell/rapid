@@ -5,7 +5,7 @@ type Cfg = { mindestbestellwert: number; gratisVersandAb: number; versandAT: num
 const data = JSON.parse(document.getElementById('katalog')!.textContent!);
 const K: Record<string, Item> = Object.fromEntries((data.items as Item[]).map((i) => [i.slug, i]));
 const C: Cfg = data.cfg;
-const KEY = 'kleberei-cart-v1';
+const KEY = 'wienwest-cart-v1';
 const eur = (n: number) => new Intl.NumberFormat('de-AT', { style: 'currency', currency: 'EUR' }).format(n);
 
 let cart: Record<string, number> = {};
@@ -167,5 +167,5 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer?.
 
 export function leeren() { cart = {}; save(); render(); }
 export const katalog = K;
-(window as any).kleberei = { berechne, leeren, add, render };
+(window as any).wienwest = { berechne, leeren, add, render };
 render();

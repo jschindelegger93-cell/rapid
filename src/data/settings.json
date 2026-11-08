@@ -1,9 +1,9 @@
 {
-  "name": "Kleberei 1899",
-  "claim": "Grün-Weiß Sticker aus Wien",
-  "domain": "kleberei1899.at",
-  "email": "servus@kleberei1899.at",
-  "instagram": "https://instagram.com/kleberei1899",
+  "name": "Wien West Sticker",
+  "claim": "Grün-Weiß Sticker aus Wien West",
+  "domain": "wienwest-sticker.at",
+  "email": "servus@wienwest-sticker.at",
+  "instagram": "https://instagram.com/wienweststicker",
   "inhaber": "Julian Schindelegger",
   "adresse": "[PLATZHALTER Adresse], Wien",
   "klickdummy": true,
@@ -14,13 +14,19 @@
   "gratisVersandEUAb": 30,
   "versandzeit": "Versand innerhalb von 48 h",
   "staffel": [
-    { "ab": 5, "rabatt": 10 },
-    { "ab": 10, "rabatt": 20 }
+    {
+      "ab": 5,
+      "rabatt": 10
+    },
+    {
+      "ab": 10,
+      "rabatt": 20
+    }
   ],
   "shopifyDomain": "",
   "announcement": [
-    "Gratis Versand ab 15 € in ganz Österreich",
-    "Ab 5 Einzelstickern −10 %, ab 10 Stück −20 %",
-    "Versand innerhalb von 48 h – im Kuvert, knickfrei"
+    "Gratis Versand ab 15 € – rechtzeitig vor dem nächsten Spieltag",
+    "Ab 5 Stickern −10 %, ab 10 Stück −20 % – auch gemischt",
+    "Aus Wien West verschickt, innerhalb von 48 h"
   ]
 }

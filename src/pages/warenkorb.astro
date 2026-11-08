@@ -77,7 +77,7 @@ import { S, eur } from '../lib/site';
   const land = document.getElementById('land') as HTMLSelectElement;
   const $ = (id: string) => document.getElementById(id)!;
   function show() {
-    const r = (window as any).kleberei.berechne();
+    const r = (window as any).wienwest.berechne();
     if (!r.zeilen.length) { location.href = '/sticker/'; return; }
     const [vs, ab] = VERSAND[land.value];
     const versand = r.zwischen >= ab ? 0 : vs;

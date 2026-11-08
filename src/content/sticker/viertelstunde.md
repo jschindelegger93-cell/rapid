@@ -1,6 +1,6 @@
 ---
 name: "75. Minute"
-kurz: "Hommage an die berühmteste Viertelstunde des österreichischen Fußballs."
+kurz: "Wenn in der 75. Minute das ganze Stadion klatscht. Die Tradition, die es so nur in Hütteldorf gibt."
 typ: einzel
 kategorie: huetteldorf
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/viertelstunde.svg
 bildPng: /sticker/viertelstunde.png
 bestseller: true
 verfuegbar: true
-sku: KL-013
+sku: WW-013
 reihenfolge: 13
 shopifyVariantId: ""
 seo:
-  title: "75. Minute – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Hommage an die berühmteste Viertelstunde des österreichischen Fußballs. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "75. Minute – Sticker | Wien West"
+  description: "Wenn in der 75. Minute das ganze Stadion klatscht. Die Tradition, die es so nur in Hütteldorf gibt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Hommage an die berühmteste Viertelstunde des österreichischen Fußballs.
+Wenn in der 75. Minute das ganze Stadion klatscht. Die Tradition, die es so nur in Hütteldorf gibt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

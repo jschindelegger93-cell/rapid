@@ -1,6 +1,6 @@
 ---
 name: "Auswärts immer dabei"
-kurz: "Für die Bus- und Zugfahrer, die jedes Auswärtsspiel mitnehmen."
+kurz: "Für alle, die im Bus, im Zug oder im Auto jedes Auswärtsspiel mitnehmen. Egal wie weit, egal wie kalt."
 typ: einzel
 kategorie: wien
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/auswaerts.svg
 bildPng: /sticker/auswaerts.png
 bestseller: false
 verfuegbar: true
-sku: KL-018
+sku: WW-018
 reihenfolge: 18
 shopifyVariantId: ""
 seo:
-  title: "Auswärts immer dabei – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Für die Bus- und Zugfahrer, die jedes Auswärtsspiel mitnehmen. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Auswärts immer dabei – Sticker | Wien West"
+  description: "Für alle, die im Bus, im Zug oder im Auto jedes Auswärtsspiel mitnehmen. Egal wie weit, egal wie kalt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Für die Bus- und Zugfahrer, die jedes Auswärtsspiel mitnehmen.
+Für alle, die im Bus, im Zug oder im Auto jedes Auswärtsspiel mitnehmen. Egal wie weit, egal wie kalt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

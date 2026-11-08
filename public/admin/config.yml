@@ -83,5 +83,5 @@ collections:
             fields:
               - { name: ab, label: "Ab Stück", widget: number }
               - { name: rabatt, label: "Rabatt %", widget: number }
-          - { name: shopifyDomain, label: "Shopify-Domain (z. B. kleberei.myshopify.com) – leer = Bestellformular", widget: string, required: false }
+          - { name: shopifyDomain, label: "Shopify-Domain (z. B. wienwest.myshopify.com) – leer = Bestellformular", widget: string, required: false }
           - { name: announcement, label: Announcement Bar, widget: list, field: { name: text, label: Text, widget: string } }

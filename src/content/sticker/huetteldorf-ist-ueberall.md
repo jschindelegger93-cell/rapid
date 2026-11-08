@@ -1,6 +1,6 @@
 ---
 name: "Hütteldorf ist überall"
-kurz: "Ob Laternenmast in Graz oder Laptop in Berlin: Hütteldorf ist dort, wo du bist."
+kurz: "Laternenmast in Graz, Bahnhof in Salzburg, Raststation irgendwo: Hütteldorf ist dort, wo wir hinfahren."
 typ: einzel
 kategorie: huetteldorf
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/huetteldorf-ist-ueberall.svg
 bildPng: /sticker/huetteldorf-ist-ueberall.png
 bestseller: true
 verfuegbar: true
-sku: KL-008
+sku: WW-008
 reihenfolge: 8
 shopifyVariantId: ""
 seo:
-  title: "Hütteldorf ist überall – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Ob Laternenmast in Graz oder Laptop in Berlin: Hütteldorf ist dort, wo du bist. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Hütteldorf ist überall – Sticker | Wien West"
+  description: "Laternenmast in Graz, Bahnhof in Salzburg, Raststation irgendwo: Hütteldorf ist dort, wo wir hinfahren. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Ob Laternenmast in Graz oder Laptop in Berlin: Hütteldorf ist dort, wo du bist.
+Laternenmast in Graz, Bahnhof in Salzburg, Raststation irgendwo: Hütteldorf ist dort, wo wir hinfahren.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

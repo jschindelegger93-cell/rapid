@@ -1,6 +1,6 @@
 ---
 name: "Block West (groß)"
-kurz: "Der Name sagt alles. Großformat, damit man es auch sieht."
+kurz: "Der Name sagt alles. Großformat, damit es jeder sieht."
 typ: gross
 kategorie: gross
 preis: 3.9
@@ -10,15 +10,15 @@ bild: /sticker/block-west-gross.svg
 bildPng: /sticker/block-west-gross.png
 bestseller: true
 verfuegbar: true
-sku: KL-020
+sku: WW-020
 reihenfolge: 20
 shopifyVariantId: ""
 seo:
-  title: "Block West (groß) – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Der Name sagt alles. Großformat, damit man es auch sieht. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Block West (groß) – Sticker | Wien West"
+  description: "Der Name sagt alles. Großformat, damit es jeder sieht. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Der Name sagt alles. Großformat, damit man es auch sieht.
+Der Name sagt alles. Großformat, damit es jeder sieht.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ca. 12 cm, konturgeschnitten.

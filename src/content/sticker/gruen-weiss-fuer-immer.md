@@ -1,6 +1,6 @@
 ---
 name: "Grün-Weiß für immer"
-kurz: "Schwarz, grün, weiß – und eine klare Ansage, die nie aus der Mode kommt."
+kurz: "Schwarz, Grün, Weiß – und eine Ansage, die sich nie ändert. Egal welche Liga, egal welcher Tabellenplatz."
 typ: einzel
 kategorie: klassiker
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/gruen-weiss-fuer-immer.svg
 bildPng: /sticker/gruen-weiss-fuer-immer.png
 bestseller: true
 verfuegbar: true
-sku: KL-002
+sku: WW-002
 reihenfolge: 2
 shopifyVariantId: ""
 seo:
-  title: "Grün-Weiß für immer – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Schwarz, grün, weiß – und eine klare Ansage, die nie aus der Mode kommt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Grün-Weiß für immer – Sticker | Wien West"
+  description: "Schwarz, Grün, Weiß – und eine Ansage, die sich nie ändert. Egal welche Liga, egal welcher Tabellenplatz. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Schwarz, grün, weiß – und eine klare Ansage, die nie aus der Mode kommt.
+Schwarz, Grün, Weiß – und eine Ansage, die sich nie ändert. Egal welche Liga, egal welcher Tabellenplatz.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

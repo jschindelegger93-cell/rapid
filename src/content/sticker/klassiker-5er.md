@@ -1,6 +1,6 @@
 ---
 name: "5er Klassiker-Pack"
-kurz: "Fünf Bestseller in einem Kuvert – genug für Laptop, Flasche, Handy, Kühlschrank und einen zum Verschenken."
+kurz: "Fünf Lieblinge aus dem Block in einem Kuvert. Genug für Laptop, Flasche, Handy, Spind und einen zum Weitergeben."
 typ: pack
 kategorie: packs
 preis: 9.9
@@ -11,15 +11,15 @@ bild: /sticker/klassiker-5er.svg
 bildPng: /sticker/klassiker-5er.png
 bestseller: true
 verfuegbar: true
-sku: KL-026
+sku: WW-026
 reihenfolge: 26
 shopifyVariantId: ""
 seo:
-  title: "5er Klassiker-Pack – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Fünf Bestseller in einem Kuvert – genug für Laptop, Flasche, Handy, Kühlschrank und einen zum Verschenken. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "5er Klassiker-Pack – Sticker | Wien West"
+  description: "Fünf Lieblinge aus dem Block in einem Kuvert. Genug für Laptop, Flasche, Handy, Spind und einen zum Weitergeben. Wetterfester Vinyl-Sticker, gratis Versand ab 1"
   noindex: false
 ---
-Fünf Bestseller in einem Kuvert – genug für Laptop, Flasche, Handy, Kühlschrank und einen zum Verschenken.
+Fünf Lieblinge aus dem Block in einem Kuvert. Genug für Laptop, Flasche, Handy, Spind und einen zum Weitergeben.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** gemischte Formate (ca. 8 cm).

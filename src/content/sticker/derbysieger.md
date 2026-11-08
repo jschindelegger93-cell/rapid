@@ -1,6 +1,6 @@
 ---
 name: "Derbysieger"
-kurz: "Für den Montag nach dem Derby – und alle anderen Tage auch."
+kurz: "Für den Montag nach dem Derby – und für alle Tage, an denen man daran erinnern muss."
 typ: einzel
 kategorie: wien
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/derbysieger.svg
 bildPng: /sticker/derbysieger.png
 bestseller: true
 verfuegbar: true
-sku: KL-015
+sku: WW-015
 reihenfolge: 15
 shopifyVariantId: ""
 seo:
-  title: "Derbysieger – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Für den Montag nach dem Derby – und alle anderen Tage auch. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Derbysieger – Sticker | Wien West"
+  description: "Für den Montag nach dem Derby – und für alle Tage, an denen man daran erinnern muss. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Für den Montag nach dem Derby – und alle anderen Tage auch.
+Für den Montag nach dem Derby – und für alle Tage, an denen man daran erinnern muss.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

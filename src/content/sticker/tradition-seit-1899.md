@@ -1,6 +1,6 @@
 ---
 name: "Tradition"
-kurz: "Für alle, die wissen, dass Vereinsliebe älter ist als jede Social-Media-Story."
+kurz: "Arbeiterverein statt Event-Klub. Für alle, die wissen, woher der Verein kommt."
 typ: einzel
 kategorie: klassiker
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/tradition-seit-1899.svg
 bildPng: /sticker/tradition-seit-1899.png
 bestseller: false
 verfuegbar: true
-sku: KL-003
+sku: WW-003
 reihenfolge: 3
 shopifyVariantId: ""
 seo:
-  title: "Tradition – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Für alle, die wissen, dass Vereinsliebe älter ist als jede Social-Media-Story. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Tradition – Sticker | Wien West"
+  description: "Arbeiterverein statt Event-Klub. Für alle, die wissen, woher der Verein kommt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Für alle, die wissen, dass Vereinsliebe älter ist als jede Social-Media-Story.
+Arbeiterverein statt Event-Klub. Für alle, die wissen, woher der Verein kommt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

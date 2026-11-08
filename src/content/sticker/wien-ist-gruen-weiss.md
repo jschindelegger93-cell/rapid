@@ -10,11 +10,11 @@ bild: /sticker/wien-ist-gruen-weiss.svg
 bildPng: /sticker/wien-ist-gruen-weiss.png
 bestseller: true
 verfuegbar: true
-sku: KL-014
+sku: WW-014
 reihenfolge: 14
 shopifyVariantId: ""
 seo:
-  title: "Wien ist grün-weiß – Grün-Weiß Sticker | Kleberei 1899"
+  title: "Wien ist grün-weiß – Sticker | Wien West"
   description: "Eine Stadt, zwei Farben. Mehr gibt es dazu nicht zu sagen. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---

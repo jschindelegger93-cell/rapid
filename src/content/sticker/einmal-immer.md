@@ -1,6 +1,6 @@
 ---
 name: "Einmal grün-weiß"
-kurz: "Die Streifen-Optik im Vereins-Look – und ein Satz, der für immer gilt."
+kurz: "Streifen im Vereins-Look und ein Satz ohne Ablaufdatum. Man wird nicht Grün-Weißer, man bleibt es."
 typ: einzel
 kategorie: klassiker
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/einmal-immer.svg
 bildPng: /sticker/einmal-immer.png
 bestseller: false
 verfuegbar: true
-sku: KL-005
+sku: WW-005
 reihenfolge: 5
 shopifyVariantId: ""
 seo:
-  title: "Einmal grün-weiß – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Die Streifen-Optik im Vereins-Look – und ein Satz, der für immer gilt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Einmal grün-weiß – Sticker | Wien West"
+  description: "Streifen im Vereins-Look und ein Satz ohne Ablaufdatum. Man wird nicht Grün-Weißer, man bleibt es. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Die Streifen-Optik im Vereins-Look – und ein Satz, der für immer gilt.
+Streifen im Vereins-Look und ein Satz ohne Ablaufdatum. Man wird nicht Grün-Weißer, man bleibt es.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

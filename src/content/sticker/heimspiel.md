@@ -1,6 +1,6 @@
 ---
 name: "Heimspiel ist heilig"
-kurz: "Termine verschieben? Ja. Heimspiele verpassen? Nein."
+kurz: "Hochzeit verschieben? Vielleicht. Heimspiel auslassen? Sicher nicht."
 typ: einzel
 kategorie: huetteldorf
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/heimspiel.svg
 bildPng: /sticker/heimspiel.png
 bestseller: false
 verfuegbar: true
-sku: KL-012
+sku: WW-012
 reihenfolge: 12
 shopifyVariantId: ""
 seo:
-  title: "Heimspiel ist heilig – Grün-Weiß Sticker | Kleberei 1899"
-  description: "Termine verschieben? Ja. Heimspiele verpassen? Nein. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Heimspiel ist heilig – Sticker | Wien West"
+  description: "Hochzeit verschieben? Vielleicht. Heimspiel auslassen? Sicher nicht. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Termine verschieben? Ja. Heimspiele verpassen? Nein.
+Hochzeit verschieben? Vielleicht. Heimspiel auslassen? Sicher nicht.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** Ø ca. 8 cm, konturgeschnitten.

@@ -1,4 +1,4 @@
-# Kleberei 1899 – Grün-Weiß Sticker-Shop
+# Wien West Sticker – Grün-Weiß Sticker-Shop
 
 Astro (statisch) + Sveltia CMS + Netlify. Gebaut nach dem MASTER WEB PROMPT (CMS-Version).
 

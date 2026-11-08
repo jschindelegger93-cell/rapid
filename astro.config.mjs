@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // [PLATZHALTER] Live-Domain eintragen
 export default defineConfig({
-  site: 'https://kleberei1899.at',
+  site: 'https://wienwest-sticker.at',
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },
