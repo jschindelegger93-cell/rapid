@@ -1,6 +1,6 @@
 ---
 name: "Anti Viola"
-kurz: "Schablonen-Look, Violett durchgestrichen. Der Klassiker vor jedem Derby."
+kurz: "Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby."
 typ: einzel
 kategorie: derby
 preis: 2.5
@@ -15,10 +15,10 @@ reihenfolge: 1
 shopifyVariantId: ""
 seo:
   title: "Anti Viola – Sticker | Wien West"
-  description: "Schablonen-Look, Violett durchgestrichen. Der Klassiker vor jedem Derby. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Schablonen-Look, Violett durchgestrichen. Der Klassiker vor jedem Derby.
+Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ca. 9 × 6 cm.

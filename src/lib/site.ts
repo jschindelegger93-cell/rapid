@@ -1,7 +1,7 @@
 import settings from '../data/settings.json';
 export const S = settings;
 export const KATEGORIEN = {
-  derby: 'Anti Violett & Derby',
+  derby: 'Anti Viola & Derby',
   forza: 'Forza Rapid',
   wienwest: 'Wien West & Hütteldorf',
   kurve: 'Kurve & Auswärts',

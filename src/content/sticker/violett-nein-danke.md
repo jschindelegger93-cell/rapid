@@ -1,6 +1,6 @@
 ---
 name: "Violett? Nein danke"
-kurz: "Sprühlack-Optik mit Farbnasen. Freundlich, aber bestimmt."
+kurz: "Sprühlack-Optik mit Farbnasen, Violett durchgestrichen. Freundlich, aber bestimmt."
 typ: einzel
 kategorie: derby
 preis: 2.5
@@ -15,10 +15,10 @@ reihenfolge: 6
 shopifyVariantId: ""
 seo:
   title: "Violett? Nein danke – Sticker | Wien West"
-  description: "Sprühlack-Optik mit Farbnasen. Freundlich, aber bestimmt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  description: "Sprühlack-Optik mit Farbnasen, Violett durchgestrichen. Freundlich, aber bestimmt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Sprühlack-Optik mit Farbnasen. Freundlich, aber bestimmt.
+Sprühlack-Optik mit Farbnasen, Violett durchgestrichen. Freundlich, aber bestimmt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ca. 9 × 6 cm.

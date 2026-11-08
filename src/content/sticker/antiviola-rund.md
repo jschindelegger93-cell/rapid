@@ -1,5 +1,5 @@
 ---
-name: "Antiviola – Rund"
+name: "Anti Viola – Rund"
 kurz: "Rundes Abzeichen in Schwarz-Grün. Passt auf jeden Laternenmast."
 typ: einzel
 kategorie: derby
@@ -14,7 +14,7 @@ sku: WW-002
 reihenfolge: 2
 shopifyVariantId: ""
 seo:
-  title: "Antiviola – Rund – Sticker | Wien West"
+  title: "Anti Viola – Rund – Sticker | Wien West"
   description: "Rundes Abzeichen in Schwarz-Grün. Passt auf jeden Laternenmast. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
