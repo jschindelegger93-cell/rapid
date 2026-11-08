@@ -31,7 +31,7 @@ collections:
     fields:
       - { name: name, label: Name, widget: string }
       - { name: kurz, label: "Kurzbeschreibung (1 Satz)", widget: text }
-      - { name: typ, label: Typ, widget: select, options: [{label: "Einzel (8 cm)", value: einzel}, {label: "Breit (15 × 5 cm)", value: breit}, {label: Pack, value: pack}] }
+      - { name: typ, label: Typ, widget: select, options: [{label: "Einzel (9 × 6 cm)", value: einzel}, {label: Pack, value: pack}] }
       - { name: kategorie, label: Kategorie, widget: select, options: [{label: "Anti Viola & Derby", value: derby}, {label: "Forza Rapid", value: forza}, {label: "Wien West & Hütteldorf", value: wienwest}, {label: "Kurve & Auswärts", value: kurve}, {label: Packs, value: packs}] }
       - { name: preis, label: "Preis in € (brutto)", widget: number, value_type: float }
       - { name: wertEinzeln, label: "Wert einzeln (nur Packs, wird durchgestrichen)", widget: number, value_type: float, required: false }

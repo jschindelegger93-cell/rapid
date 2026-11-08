@@ -6,13 +6,13 @@ kategorie: packs
 preis: 19
 wertEinzeln: 37.5
 stueck: 15
-format: "gemischte Formate (ca. 8 cm)"
+format: "je ca. 9 × 6 cm"
 bild: /sticker/mystery-15er.svg
 bildPng: /sticker/mystery-15er.png
 bestseller: false
 verfuegbar: true
-sku: WW-025
-reihenfolge: 25
+sku: WW-036
+reihenfolge: 36
 shopifyVariantId: ""
 seo:
   title: "Mystery-Pack (15 Stück) – Sticker | Wien West"
@@ -22,4 +22,4 @@ seo:
 15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** gemischte Formate (ca. 8 cm).
+**Format:** je ca. 9 × 6 cm.

@@ -10,8 +10,8 @@ bild: /sticker/wien-ein-leben-lang.svg
 bildPng: /sticker/wien-ein-leben-lang.png
 bestseller: true
 verfuegbar: true
-sku: WW-016
-reihenfolge: 16
+sku: WW-025
+reihenfolge: 25
 shopifyVariantId: ""
 seo:
   title: "Wien – ein Leben lang – Sticker | Wien West"

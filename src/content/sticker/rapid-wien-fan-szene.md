@@ -10,8 +10,8 @@ bild: /sticker/rapid-wien-fan-szene.svg
 bildPng: /sticker/rapid-wien-fan-szene.png
 bestseller: true
 verfuegbar: true
-sku: WW-018
-reihenfolge: 18
+sku: WW-012
+reihenfolge: 12
 shopifyVariantId: ""
 seo:
   title: "Rapid Wien Fan Szene – Sticker | Wien West"

@@ -6,13 +6,13 @@ kategorie: packs
 preis: 9.9
 wertEinzeln: 12.5
 stueck: 5
-format: "gemischte Formate (ca. 8 cm)"
+format: "je ca. 9 × 6 cm"
 bild: /sticker/topseller-5er.svg
 bildPng: /sticker/topseller-5er.png
 bestseller: true
 verfuegbar: true
-sku: WW-021
-reihenfolge: 21
+sku: WW-032
+reihenfolge: 32
 shopifyVariantId: ""
 seo:
   title: "5er Topseller-Pack – Sticker | Wien West"
@@ -22,4 +22,4 @@ seo:
 Fünf Lieblinge aus dem Block in einem Kuvert.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** gemischte Formate (ca. 8 cm).
+**Format:** je ca. 9 × 6 cm.

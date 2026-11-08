@@ -1,4 +1,4 @@
-// Erzeugt 11 Sticker-Designs im Kurven-Look + 6 Packs (Markdown für Astro/Sveltia) und die Grafiken (SVG + PNG).
+// Erzeugt 30 Sticker-Designs im Kurven-Look (einheitlich 900×600 = ca. 9 × 6 cm) + 6 Packs (Markdown für Astro/Sveltia) und die Grafiken (SVG + PNG).
 // Stil: flach, wenige Farben, Strick-Schal, Block-Streifen, Sprühlack, Schablone, abgenutzter Druck.
 // Aufruf: npm run sticker            → nur Grafiken neu
 //         npm run sticker -- --md    → zusätzlich Markdown-Dateien (überschreibt!)
@@ -95,7 +95,7 @@ function form(w, h, inner, { rx = 18, rand = 14, rund = false, id = 'x', gr = 1 
 
 // ---------- Strick-Schal ----------
 /** Rastert Text in ein Maschen-Gitter (true = Buchstabe) */
-async function maschen(str, cols, rows, fontKey = 'pixel', fill = 0.62) {
+async function maschen(str, cols, rows, fontKey = 'anton', fill = 0.8) {
   const font = F[fontKey];
   const H = rows * 10, Wd = cols * 10;
   let size = H * fill;
@@ -106,16 +106,20 @@ async function maschen(str, cols, rows, fontKey = 'pixel', fill = 0.62) {
   const { data } = await sharp(Buffer.from(svg)).resize(cols, rows, { kernel: 'lanczos3' }).greyscale().raw().toBuffer({ resolveWithObject: true });
   return Array.from({ length: rows }, (_, r) => Array.from({ length: cols }, (_, c) => data[r * cols + c] > 128));
 }
-/** Zeichnet Gitter als Strickmaschen (V-Form) */
-function strick(grid, x0, y0, cw, ch, farbeAn, farbeAus, farbeAt) {
+/** Farbraster als Rechteck-Läufe + Maschen-Muster drüber (schlanke SVG) */
+function strick(farben, cw, id) {
   let out = '';
-  grid.forEach((row, r) => row.forEach((on, c) => {
-    const col = typeof farbeAt === 'function' ? farbeAt(r, c, on) : on ? farbeAn : farbeAus;
-    const x = x0 + c * cw, y = y0 + r * ch;
-    out += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${cw + 0.6}" height="${ch + 0.6}" fill="${col}"/>`;
-    out += `<path d="M${(x + cw * 0.08).toFixed(1)} ${(y + ch * 0.15).toFixed(1)}Q${(x + cw * 0.28).toFixed(1)} ${(y + ch * 0.95).toFixed(1)} ${(x + cw * 0.5).toFixed(1)} ${(y + ch * 0.9).toFixed(1)}M${(x + cw * 0.92).toFixed(1)} ${(y + ch * 0.15).toFixed(1)}Q${(x + cw * 0.72).toFixed(1)} ${(y + ch * 0.95).toFixed(1)} ${(x + cw * 0.5).toFixed(1)} ${(y + ch * 0.9).toFixed(1)}" stroke="#000" stroke-opacity=".18" stroke-width="${(cw * 0.12).toFixed(1)}" fill="none"/>`;
-  }));
-  return out;
+  farben.forEach((row, r) => {
+    let c0 = 0;
+    for (let c = 1; c <= row.length; c++) {
+      if (c === row.length || row[c] !== row[c0]) {
+        out += `<rect x="${c0 * cw}" y="${r * cw}" width="${(c - c0) * cw + 0.5}" height="${cw + 0.5}" fill="${row[c0]}"/>`;
+        c0 = c;
+      }
+    }
+  });
+  const W2 = farben[0].length * cw, H2 = farben.length * cw;
+  return `<defs><pattern id="m${id}" width="${cw}" height="${cw}" patternUnits="userSpaceOnUse"><path d="M${cw * 0.08} ${cw * 0.15}Q${cw * 0.28} ${cw * 0.95} ${cw * 0.5} ${cw * 0.9}M${cw * 0.92} ${cw * 0.15}Q${cw * 0.72} ${cw * 0.95} ${cw * 0.5} ${cw * 0.9}" stroke="#000" stroke-opacity=".2" stroke-width="${cw * 0.12}" fill="none"/></pattern></defs>${out}<rect width="${W2}" height="${H2}" fill="url(#m${id})"/>`;
 }
 
 /** Stephansdom, vereinfacht (eigene Zeichnung) */
@@ -150,121 +154,108 @@ function riesenrad(cx, cy, r) {
   </g>`;
 }
 
-// ---------- Vorlagen ----------
-// Jede Vorlage liefert { w, h, svg } (async erlaubt)
+// ---------- Vorlagen (alle 900 × 600) ----------
+const SW = 900, SH = 600;
 const T = {
-  // Strick-Schal quer: Streifen oben/unten, Strick-Schrift
-  schal: async ({ a, grund = G, schrift = W, rand = W }) => {
-    const cols = 120, rows = 28, cw = 8, ch = 8;
-    const grid = await maschen(a, cols, rows - 6, 'anton', 0.8);
-    const full = [
-      ...Array.from({ length: 3 }, () => Array(cols).fill('r')),
-      ...grid.map((row) => row.map((v) => (v ? 'a' : 'g'))),
-      ...Array.from({ length: 3 }, () => Array(cols).fill('r')),
+  // Strick-Schal: Randstreifen Weiß/Blau/Rot, 1–2 Zeilen Strick-Schrift
+  schal: async ({ zeilen, grund = G, schrift = W }) => {
+    const cw = 6, cols = SW / cw, rows = SH / cw;
+    const randOben = [W, W, W, W, W, B, B, B, B, RR, RR, RR, RR, W, W, W];
+    const rand = randOben.length;
+    const innen = rows - rand * 2;
+    const proZeile = Math.floor(innen / zeilen.length);
+    let grid = [];
+    for (const z of zeilen) grid.push(...(await maschen(z, cols, proZeile, 'anton', zeilen.length > 1 ? 0.8 : 0.62)));
+    while (grid.length < innen) grid.push(Array(cols).fill(false));
+    const farben = [
+      ...randOben.map((f) => Array(cols).fill(f)),
+      ...grid.map((row) => row.map((v) => (v ? schrift : grund))),
+      ...[...randOben].reverse().map((f) => Array(cols).fill(f)),
     ];
-    const farbe = { r: rand, a: schrift, g: grund };
-    const stripe = (r) => (r === 1 || r === rows - 2 ? B : r === 2 || r === rows - 3 ? RR : null);
-    const inner = strick(full, 0, 0, cw, ch, null, null, (r, c, v) => stripe(r) || farbe[full[r][c]]);
-    return { w: cols * cw, h: rows * ch, svg: form(cols * cw, rows * ch, inner, { rx: 10, rand: 10, id: 's' + seedOf(a), gr: 0.6 }) };
+    const id = 's' + seedOf(zeilen.join());
+    return form(SW, SH, strick(farben, cw, id), { id, gr: 0.6 });
   },
   // Strick-Schal zweifarbig (Freundschaft)
-  schal2: async ({ a }) => {
-    const cols = 180, rows = 40, cw = 5.4, ch = 5.4;
-    const grid = await maschen(a, cols, rows - 10, 'anton', 0.8);
-    const full = [...Array.from({ length: 5 }, () => Array(cols).fill(false)), ...grid, ...Array.from({ length: 5 }, () => Array(cols).fill(false))];
-    const inner = strick(full, 0, 0, cw, ch, null, null, (r, c, v) => {
+  schal2: async ({ zeilen }) => {
+    const cw = 6, cols = SW / cw, rows = SH / cw, rand = 16;
+    const innen = rows - rand * 2, pro = Math.floor(innen / zeilen.length);
+    let grid = [];
+    for (const z of zeilen) grid.push(...(await maschen(z, cols, pro, 'anton', 0.8)));
+    while (grid.length < innen) grid.push(Array(cols).fill(false));
+    const farben = Array.from({ length: rows }, (_, r) => Array.from({ length: cols }, (_, c) => {
       const links = c < cols / 2;
-      if (r < 5 || r >= rows - 5) return (r >= 1 && r <= 3) || (r >= rows - 4 && r <= rows - 2) ? (links ? G : R) : W;
-      return v ? W : links ? G : K;
-    });
-    return { w: cols * cw, h: rows * ch, svg: form(cols * cw, rows * ch, inner, { rx: 10, rand: 10, id: 'f', gr: 0.6 }) };
+      if (r < rand || r >= rows - rand) { const rr = r < rand ? r : rows - 1 - r; return rr >= 5 && rr <= 12 ? (links ? G : R) : W; }
+      return grid[r - rand][c] ? W : links ? G : K;
+    }));
+    return form(SW, SH, strick(farben, cw, 'f2'), { id: 'f2', gr: 0.6 });
   },
-  // Block-Streifen: jede Zeile auf eigenem Streifen
+  // Block-Streifen: jede Zeile auf eigenem Streifen, Blau-Rot-Band unten
   block: ({ zeilen, farben = [G, GD] }) => {
-    const w = 640, lh = 132, pad = 24, h = zeilen.length * lh + pad * 2 + 22;
-    let inner = `<rect width="${w}" height="${h}" fill="${W}"/>`;
+    const pad = 22, band = 26, lh = (SH - pad * 2 - band) / zeilen.length;
+    let inner = `<rect width="${SW}" height="${SH}" fill="${W}"/>`;
     zeilen.forEach((z, i) => {
       const y = pad + i * lh;
-      inner += `<rect x="0" y="${y}" width="${w}" height="${lh - 8}" fill="${farben[i % farben.length]}"/>`;
-      inner += txt(z, w / 2, y + lh * 0.72, 96, w - 80, W, { font: 'block', shadow: [6, 6, K] });
+      inner += `<rect x="0" y="${y}" width="${SW}" height="${lh - 8}" fill="${farben[i % farben.length]}"/>`;
+      inner += txt(z, SW / 2, y + (lh - 8) * 0.78, (lh - 8) * 0.78, SW - 100, W, { font: 'block', shadow: [7, 7, K] });
     });
-    inner += blauRot(0, pad + zeilen.length * lh, w, 20);
-    return { w, h, svg: form(w, h, inner, { rx: 16, rand: 12, id: 'b' + seedOf(zeilen.join()) }) };
+    inner += blauRot(0, SH - pad - band, SW, band);
+    return form(SW, SH, inner, { id: 'b' + seedOf(zeilen.join()) });
   },
   // Sprühlack: Fläche geteilt, Graffiti-Schrift, Farbnasen
   spray: ({ a, b, oben = G, unten = CREME, font = 'graffiti', schrift = W, strich = false }) => {
-    const w = 900, h = 600;
-    SEED = seedOf(a);
+    SEED = seedOf(a + (b || ''));
     let drips = '';
-    for (let x = 30; x < w; x += 30 + rnd() * 50) { const l = 20 + rnd() * 70; drips += `<rect x="${x.toFixed(0)}" y="320" width="${(8 + rnd() * 10).toFixed(0)}" height="${l.toFixed(0)}" rx="6" fill="${oben}"/>`; }
-    const inner = `<rect width="${w}" height="${h}" fill="${unten}"/><rect width="${w}" height="330" fill="${oben}"/>${drips}
-      ${txt(a, w / 2, 300, 230, 800, schrift, { font, stroke: oben === G ? GD : K, sw: 10 })}
+    for (let x = 30; x < SW; x += 30 + rnd() * 50) { const l = 20 + rnd() * 70; drips += `<rect x="${x.toFixed(0)}" y="320" width="${(8 + rnd() * 10).toFixed(0)}" height="${l.toFixed(0)}" rx="6" fill="${oben}"/>`; }
+    const inner = `<rect width="${SW}" height="${SH}" fill="${unten}"/><rect width="${SW}" height="330" fill="${oben}"/>${drips}
+      ${txt(a, SW / 2, 300, 230, 800, schrift, { font, stroke: oben === G ? GD : K, sw: 10 })}
       ${strich ? `<path d="M110 250 L790 160" stroke="${G}" stroke-width="30" stroke-linecap="round"/>` : ''}
-      ${b ? txt(b, w / 2, 500, 84, 780, oben === G ? G : K, { font: 'marker' }) : ''}
-      ${blauRot(0, 556, w, 30)}`;
-    return { w, h, svg: form(w, h, inner, { id: 'sp' + seedOf(a) }) };
+      ${b ? txt(b, SW / 2, 500, 84, 780, oben === G ? G : K, { font: 'marker' }) : ''}
+      ${blauRot(0, 556, SW, 30)}`;
+    return form(SW, SH, inner, { id: 'sp' + seedOf(a + (b || '')) });
   },
-  // Lang hochkant: weiß, doppelte Randlinien, Text quer
-  lang: ({ a, b, grund = W, schrift = G }) => {
-    const w = 300, h = 940;
-    const linien = `<rect x="22" y="22" width="12" height="${h - 44}" fill="${G}"/><rect x="40" y="22" width="6" height="${h - 44}" fill="${B}"/><rect x="50" y="22" width="6" height="${h - 44}" fill="${RR}"/><rect x="${w - 34}" y="22" width="12" height="${h - 44}" fill="${G}"/><rect x="${w - 46}" y="22" width="6" height="${h - 44}" fill="${B}"/><rect x="${w - 56}" y="22" width="6" height="${h - 44}" fill="${RR}"/>`;
-    const inner = `<rect width="${w}" height="${h}" fill="${grund}"/>${linien}
-      <g transform="rotate(90 ${w / 2} ${h / 2})">
-        ${txt(a, w / 2, h / 2 + (b ? 4 : 44), 140, 820, schrift, { font: 'block' })}
-        ${b ? txt(b, w / 2, h / 2 + 96, 80, 820, K, { font: 'block' }) : ''}
-      </g>`;
-    return { w, h, svg: form(w, h, inner, { rx: 14, rand: 12, id: 'l' + seedOf(a) }) };
+  // Streifen-Look (wie der lange Geländer-Sticker, quer): Linien oben/unten
+  streifen: ({ a, b }) => {
+    const linien = (y, dir) => [[G, 14], [B, 7], [RR, 7]].map(([f, h], i, arr) => {
+      const off = arr.slice(0, i).reduce((s, x) => s + x[1] + 5, 0);
+      return `<rect x="0" y="${dir > 0 ? y + off : y - off - h}" width="${SW}" height="${h}" fill="${f}"/>`;
+    }).join('');
+    const inner = `<rect width="${SW}" height="${SH}" fill="${W}"/>${linien(30, 1)}${linien(SH - 30, -1)}
+      ${txt(a, SW / 2, b ? 290 : 350, 170, 780, G, { font: 'block' })}
+      ${b ? txt(b, SW / 2, 440, 110, 780, K, { font: 'block' }) : ''}`;
+    return form(SW, SH, inner, { id: 'l' + seedOf(a + (b || '')) });
   },
-  // Schablone: Stencil-Schrift, optional durchgestrichen
-  stencil: ({ a, b, strich = false, grund = G, schrift = W, rahmen = W }) => {
-    const w = 900, h = 560;
-    const inner = `<rect width="${w}" height="${h}" fill="${grund}"/>
-      <rect x="40" y="40" width="${w - 80}" height="${h - 80}" fill="none" stroke="${rahmen}" stroke-width="8" stroke-dasharray="30 14"/>
-      ${txt(a, w / 2, 310, 210, 760, schrift, { font: 'stencil' })}
-      ${strich ? `<path d="M110 300 L790 170" stroke="${G}" stroke-width="30" stroke-linecap="square"/>` : ''}
-      ${b ? txt(b, w / 2, 450, 72, 740, rahmen, { font: 'stencil' }) : ''}`;
-    return { w, h, svg: form(w, h, inner, { rx: 12, rand: 12, id: 'st' + seedOf(a) }) };
+  // Schablone
+  stencil: ({ a, b, grund = G, schrift = W, rahmen = W }) => {
+    const inner = `<rect width="${SW}" height="${SH}" fill="${grund}"/>
+      <rect x="40" y="40" width="${SW - 80}" height="${SH - 80}" fill="none" stroke="${rahmen}" stroke-width="8" stroke-dasharray="30 14"/>
+      ${txt(a, SW / 2, b ? 320 : 370, 210, 760, schrift, { font: 'stencil' })}
+      ${b ? txt(b, SW / 2, 460, 76, 740, rahmen, { font: 'stencil' }) : ''}
+      ${blauRot(40, 512, SW - 80, 22)}`;
+    return form(SW, SH, inner, { rx: 12, rand: 12, id: 'st' + seedOf(a + (b || '')) });
   },
-  // Rundes Abzeichen, schlicht
-  rund: ({ a, oben, unten, dunkel = false, mitte = W, strich = false }) => {
-    const w = 600, h = 600, c1 = dunkel ? K : G, c2 = dunkel ? G : W;
-    const inner = `<rect width="600" height="600" fill="${c1}"/>
-      <circle cx="300" cy="300" r="190" fill="${c2}"/><circle cx="300" cy="300" r="174" fill="${c1}"/>
-      <circle cx="300" cy="300" r="268" fill="none" stroke="${c2}" stroke-width="6"/>
-      ${arc(oben, 300, 300, 208, 54, W)}${arc(unten, 300, 300, 208, 44, W, true)}
-      <circle cx="78" cy="300" r="11" fill="${B}"/><circle cx="522" cy="300" r="11" fill="${RR}"/>
-      ${strich ? `<circle cx="300" cy="300" r="168" fill="${CREME}"/>` : ''}
-      ${txt(a, 300, 352, 150, 280, mitte, { font: 'block' })}
-      ${strich ? `<path d="M150 340 L450 250" stroke="${G}" stroke-width="22" stroke-linecap="round"/>` : blauRot(230, 380, 140, 16)}`;
-    return { w, h, svg: form(w, h, inner, { rund: true, rand: 14, id: 'r' + seedOf(a + oben) }) };
-  },
-  // ANTI VIOLA: Schablone, Violett immer durchgestrichen
+  // ANTI VIOLA / ANTI VIOLETT: Wort immer durchgestrichen
   antiviola: ({ unter = 'WIEN WEST · SEIT 1899', wort = 'VIOLA' }) => {
-    const w = 900, h = 600;
-    const inner = `<rect width="${w}" height="${h}" fill="${CREME}"/>
-      <rect x="40" y="40" width="${w - 80}" height="${h - 80}" fill="none" stroke="${K}" stroke-width="8" stroke-dasharray="30 14"/>
-      ${txt('ANTI', w / 2, 205, 150, 600, G, { font: 'stencil' })}
-      ${txt(wort, w / 2, 410, 210, 760, V, { font: 'stencil' })}
+    const inner = `<rect width="${SW}" height="${SH}" fill="${CREME}"/>
+      <rect x="40" y="40" width="${SW - 80}" height="${SH - 80}" fill="none" stroke="${K}" stroke-width="8" stroke-dasharray="30 14"/>
+      ${txt('ANTI', SW / 2, 205, 150, 600, G, { font: 'stencil' })}
+      ${txt(wort, SW / 2, 410, 210, 760, V, { font: 'stencil' })}
       <path d="M100 400 L800 250" stroke="${G}" stroke-width="32" stroke-linecap="square"/>
-      ${txt(unter, w / 2, 492, 44, 640, K, { font: 'stencil' })}
-      ${blauRot(40, 520, w - 80, 24)}`;
-    return { w, h, svg: form(w, h, inner, { rx: 12, rand: 12, id: 'av' + seedOf(unter) }) };
+      ${txt(unter, SW / 2, 492, 44, 640, K, { font: 'stencil' })}
+      ${blauRot(40, 520, SW - 80, 24)}`;
+    return form(SW, SH, inner, { rx: 12, rand: 12, id: 'av' + seedOf(wort) });
   },
   // Wien-Wahrzeichen (eigene Zeichnung) mit Text
   stadt: ({ a, b, mark = 'dom' }) => {
-    const w = 900, h = 600;
     const zeichen = mark === 'dom' ? dom(450, 40, 1.0) : mark === 'rad' ? riesenrad(450, 175, 120) : `${dom(250, 70, 0.8)}${riesenrad(640, 190, 100)}`;
-    const inner = `<rect width="${w}" height="${h}" fill="${G}"/>
-      ${zeichen}
-      <rect x="0" y="352" width="${w}" height="200" fill="${K}"/>
-      ${txt(a, w / 2, 470, 110, 800, W, { font: 'block' })}
-      ${b ? txt(b, w / 2, 532, 42, 760, W, { font: 'stencil' }) : ''}
-      ${blauRot(0, 552, w, 26)}`;
-    return { w, h, svg: form(w, h, inner, { id: 'sd' + seedOf(a + mark) }) };
+    const inner = `<rect width="${SW}" height="${SH}" fill="${G}"/>${zeichen}
+      <rect x="0" y="352" width="${SW}" height="200" fill="${K}"/>
+      ${txt(a, SW / 2, 470, 110, 800, W, { font: 'block' })}
+      ${b ? txt(b, SW / 2, 532, 42, 760, W, { font: 'stencil' }) : ''}
+      ${blauRot(0, 552, SW, 26)}`;
+    return form(SW, SH, inner, { id: 'sd' + seedOf(a + mark) });
   },
-  // Flache Figur: Kappe, Tuch vorm Gesicht, zeigt nach vorne
+  // Flache Figur links, Schrift rechts
   figur: ({ a, b }) => {
-    const w = 640, h = 720;
     const st = `stroke="${K}" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"`;
     const person = `
       <path d="M120 720 C120 560 190 510 320 505 C450 510 520 560 520 720 Z" fill="${GD}" ${st}/>
@@ -285,103 +276,96 @@ const T = {
       <!-- Kappe -->
       <path d="M226 340 C224 250 416 250 414 340 Z" fill="${G}" ${st}/>
       <path d="M214 338 H470 C470 360 440 366 410 362 H214 Z" fill="${GD}" ${st}/>`;
-    const inner = `<rect width="${w}" height="${h}" fill="${G}"/>
-      <path d="M0 110 L320 280 L640 110 V200 L320 370 L0 200 Z" fill="${W}"/>
-      <g transform="translate(-30 -110) scale(1.1)">${person}</g>
-      <rect x="0" y="560" width="${w}" height="160" fill="${K}" opacity=".0"/>
-      <rect x="0" y="560" width="640" height="160" fill="${G}"/>${txt(a, w / 2, 650, 130, 560, W, { font: 'graffiti', stroke: K, sw: 12 })}
-      ${b ? txt(b, w / 2, 700, 46, 520, W, { font: 'marker', stroke: K, sw: 6 }) : ''}`;
-    return { w, h, svg: form(w, h, inner, { id: 'fg' + seedOf(a) }) };
-  },
-  // Straßenschild, breit
-  schild: ({ nr, a, b }) => {
-    const w = 900, h = 300;
-    const inner = `<rect width="${w}" height="${h}" fill="${G}"/>
-      <rect x="34" y="34" width="${w - 68}" height="${h - 68}" rx="8" fill="none" stroke="${W}" stroke-width="6"/>
-      ${txt(nr, 130, 190, 110, 150, W)}<rect x="228" y="62" width="5" height="176" fill="${W}"/>
-      ${txt(a, 545, 172, 110, 560, W)}${txt(b, 545, 228, 40, 560, W, { font: 'anton' })}`;
-    return { w, h, svg: form(w, h, inner, { rx: 22, rand: 14, id: 'sch', gr: 0.7 }) };
+    const inner = `<rect width="${SW}" height="${SH}" fill="${G}"/>
+      <path d="M0 60 L250 200 L500 60 V140 L250 280 L0 140 Z" fill="${W}"/>
+      <g transform="translate(-70 -120) scale(1)">${person}</g>
+      ${txt(a, 660, 330, 190, 420, W, { font: 'graffiti', stroke: K, sw: 12 })}
+      ${b ? txt(b, 660, 420, 52, 400, W, { font: 'marker', stroke: K, sw: 6 }) : ''}
+      ${blauRot(0, 556, SW, 30)}`;
+    return form(SW, SH, inner, { id: 'fg' + seedOf(a + (b || '')) });
   },
   pack: ({ a, n }) => {
-    const w = 600, h = 600;
-    const mini = (x, y, r, fill, label, font) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="-120" y="-60" width="240" height="120" rx="10" fill="${W}" stroke="#0003" stroke-width="2"/><rect x="-110" y="-50" width="220" height="100" rx="4" fill="${fill}"/>${txt(label, 0, 18, 50, 190, W, { font })}</g>`;
-    const inner = `<rect width="600" height="600" fill="${CREME}"/>
-      ${mini(200, 170, -10, G, 'WIEN WEST', 'block')}${mini(410, 190, 9, V, 'ANTI VIOLA', 'stencil')}<path d="M310 210 L510 170" stroke="${G}" stroke-width="10"/>
-      ${mini(190, 400, 7, K, 'FORZA', 'graffiti')}${mini(410, 410, -7, GD, '1140', 'block')}
-      <circle cx="300" cy="300" r="90" fill="${K}"/>${txt(String(n), 300, 334, 100, 130, W, { font: 'block' })}
-      ${txt(a, 300, 560, 40, 420, K, { font: 'block' })}`;
-    return { w, h, svg: form(w, h, inner, { rund: true, id: 'p' + n, gr: 0 }) };
+    const mini = (x, y, r, fill, label, font) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="-130" y="-70" width="260" height="140" rx="10" fill="${W}" stroke="#0003" stroke-width="2"/><rect x="-120" y="-60" width="240" height="120" rx="4" fill="${fill}"/>${txt(label, 0, 20, 54, 210, W, { font })}</g>`;
+    const inner = `<rect width="${SW}" height="${SH}" fill="${CREME}"/>
+      ${mini(230, 160, -8, G, 'WIEN WEST', 'block')}${mini(670, 170, 8, V, 'ANTI VIOLA', 'stencil')}<path d="M560 200 L780 150" stroke="${G}" stroke-width="12"/>
+      ${mini(220, 400, 6, K, 'A.C.A.B.', 'stencil')}${mini(680, 410, -6, GD, '1140', 'block')}
+      <circle cx="450" cy="285" r="100" fill="${K}"/>${txt(String(n), 450, 322, 110, 150, W, { font: 'block' })}
+      ${txt(a, 450, 560, 44, 600, K, { font: 'block' })}`;
+    return form(SW, SH, inner, { id: 'p' + n, gr: 0 });
   },
   mystery: ({ n }) => {
-    const inner = `<rect width="600" height="600" fill="${K}"/>${txt('?', 300, 380, 320, 240, G, { font: 'block' })}${txt(`${n} ÜBERRASCHUNGEN`, 300, 480, 44, 380, W, { font: 'block' })}`;
-    return { w: 600, h: 600, svg: form(600, 600, inner, { rund: true, id: 'm', gr: 0 }) };
+    const inner = `<rect width="${SW}" height="${SH}" fill="${K}"/>${txt('?', SW / 2, 380, 320, 240, G, { font: 'block' })}${txt(`${n} ÜBERRASCHUNGEN`, SW / 2, 500, 50, 600, W, { font: 'block' })}`;
+    return form(SW, SH, inner, { id: 'm', gr: 0 });
   },
 };
 
-// ---------- Produkte ----------
-// [slug, name, vorlage, daten, typ, kategorie, beschreibung, bestseller]
+// ---------- Produkte (30 Motive + 6 Packs) ----------
+// [slug, name, vorlage, daten, kategorie, beschreibung, bestseller]
 const P = [
   // ANTI VIOLA & DERBY
-  ['anti-viola', 'Anti Viola', 'antiviola', {}, 'einzel', 'derby', 'Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby.', true],
-  ['wien-gehoert-uns', 'Wien gehört uns', 'block', { zeilen: ['WIEN', 'GEHÖRT', 'UNS!'] }, 'einzel', 'derby', 'Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt.', true],
-  ['derbysieger-schal', 'Derbysieger – Schal', 'schal', { a: 'DERBYSIEGER' }, 'breit', 'derby', 'Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby.', true],
-  ['wien-gruen-weiss', 'Wien ist grün-weiß', 'figur', { a: 'WIEN', b: 'ist grün & weiß!' }, 'einzel', 'derby', 'Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß!', true],
-  // FORZA RAPID
-  ['forza-rapid-schal', 'Forza Rapid – Schal', 'schal', { a: 'FORZA RAPID' }, 'breit', 'forza', 'Der Schlachtruf in Strick-Optik, Breitformat.', true],
-  ['forza-rapid-block', 'Forza Rapid', 'block', { zeilen: ['FORZA', 'RAPID'] }, 'einzel', 'forza', 'Fette Block-Buchstaben auf grünen Streifen – schlicht und laut.', true],
-  ['ynwa', 'You’ll never walk alone', 'lang', { a: 'YOU’LL NEVER', b: 'WALK ALONE' }, 'einzel', 'forza', 'Langer Streifen im Kurven-Look – für Geländer, Masten und Türrahmen.', true],
-  // WIEN WEST & WESTSTADION
-  ['wien-west-schal', 'Wien West – Schal', 'schal', { a: 'WIEN WEST' }, 'breit', 'wienwest', 'Unser Name in Strick-Optik – Grün, Weiß, ohne Schnickschnack.', true],
-  ['wien-west-block', 'Wien West', 'block', { zeilen: ['WIEN', 'WEST', '1140'] }, 'einzel', 'wienwest', 'Block-Streifen mit Postleitzahl. Für alle, die im Westen daheim sind.', true],
-  ['1140-huetteldorf', '1140 Hütteldorf', 'block', { zeilen: ['1140', 'HÜTTELDORF'], farben: [G, K] }, 'einzel', 'wienwest', 'Grün und Schwarz, zwei Streifen, eine Postleitzahl.', true],
+  ['anti-viola', 'Anti Viola', 'antiviola', {}, 'derby', 'Schablonen-Look, Viola durchgestrichen. Der Klassiker vor jedem Derby.', true],
+  ['anti-violett', 'Anti Violett', 'antiviola', { wort: 'VIOLETT' }, 'derby', 'Schablonen-Look, Violett durchgestrichen.', true],
+  ['wien-gehoert-uns', 'Wien gehört uns!', 'block', { zeilen: ['WIEN', 'GEHÖRT', 'UNS!'] }, 'derby', 'Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt.', true],
+  ['wien-gehoert-uns-schal', 'Wien gehört uns! – Schal', 'schal', { zeilen: ['WIEN', 'GEHÖRT UNS!'] }, 'derby', 'Wien gehört uns! in Strick-Optik mit blau-roten Randstreifen.', false],
+  ['derbysieger-schal', 'Derbysieger – Schal', 'schal', { zeilen: ['DERBYSIEGER'] }, 'derby', 'Strick-Optik wie der Schal im Kasten – für den Montag nach dem Derby.', true],
+  ['wien-gruen-weiss', 'Wien ist grün & weiß!', 'figur', { a: 'WIEN', b: 'ist grün & weiß!' }, 'derby', 'Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß!', true],
+  ['acab', 'A.C.A.B.', 'stencil', { a: 'A.C.A.B.', b: 'WIEN WEST', grund: K }, 'derby', 'Schablone auf Schwarz. Der Klassiker an jedem Geländer.', true],
+  // FORZA RAPID / RAPID WIEN
+  ['forza-rapid-schal', 'Forza Rapid – Schal', 'schal', { zeilen: ['FORZA RAPID'] }, 'forza', 'Der Schlachtruf in Strick-Optik.', true],
+  ['forza-rapid-block', 'Forza Rapid', 'block', { zeilen: ['FORZA', 'RAPID'] }, 'forza', 'Fette Block-Buchstaben auf grünen Streifen – schlicht und laut.', true],
+  ['forza-rapid-spray', 'Forza Rapid – Sprühlack', 'spray', { a: 'Forza', b: 'Rapid Wien', oben: G }, 'forza', 'Sprühlack-Schrift mit Farbnasen: Forza, Rapid Wien.', false],
+  ['rapid-wien-schal', 'Rapid Wien – Schal', 'schal', { zeilen: ['RAPID WIEN'] }, 'forza', 'Rapid Wien in Strick-Optik, wie der Schal im Kasten.', true],
+  ['rapid-wien-fan-szene', 'Rapid Wien Fan Szene', 'block', { zeilen: ['RAPID WIEN', 'FAN SZENE'], farben: [G, K] }, 'forza', 'Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen.', true],
+  ['ynwa', 'You’ll never walk alone', 'streifen', { a: 'YOU’LL NEVER', b: 'WALK ALONE' }, 'forza', 'Streifen-Look mit grün-blau-roten Linien, wie man ihn vom Geländer kennt.', true],
+  ['scr-1899', 'SCR 1899', 'block', { zeilen: ['SCR', '1899'], farben: [K, G] }, 'forza', 'Drei Buchstaben, eine Jahreszahl. Jeder im Block weiß Bescheid.', true],
+  ['rapid-wien-riesenrad', 'Rapid Wien – Riesenrad', 'stadt', { a: 'RAPID WIEN', b: 'WIEN IST GRÜN & WEISS!', mark: 'rad' }, 'forza', 'Das Riesenrad als eigene Zeichnung, darunter Rapid Wien.', false],
+  // WIEN WEST & HÜTTELDORF
+  ['wien-west-huetteldorf', 'Wien West Hütteldorf', 'block', { zeilen: ['WIEN', 'WEST', 'HÜTTELDORF'] }, 'wienwest', 'Wien West Hütteldorf – drei Zeilen auf Block-Streifen mit Blau-Rot-Band.', true],
+  ['wien-west-huetteldorf-schal', 'Wien West Hütteldorf – Schal', 'schal', { zeilen: ['WIEN WEST', 'HÜTTELDORF'] }, 'wienwest', 'Wien West Hütteldorf in Strick-Optik.', true],
+  ['wien-west-schal', 'Wien West – Schal', 'schal', { zeilen: ['WIEN WEST'] }, 'wienwest', 'Unser Name in Strick-Optik – Grün, Weiß, Blau-Rot.', true],
+  ['wien-west-block', 'Wien West 1140', 'block', { zeilen: ['WIEN', 'WEST', '1140'] }, 'wienwest', 'Block-Streifen mit Postleitzahl.', true],
+  ['1140-huetteldorf', '1140 Hütteldorf', 'block', { zeilen: ['1140', 'HÜTTELDORF'], farben: [G, K] }, 'wienwest', 'Grün und Schwarz, zwei Streifen, eine Postleitzahl.', true],
+  ['1140-huetteldorf-schal', '1140 Hütteldorf – Schal', 'schal', { zeilen: ['1140', 'HÜTTELDORF'] }, 'wienwest', '1140 Hütteldorf in Strick-Optik.', false],
+  ['weststadion', 'Weststadion', 'streifen', { a: 'WEST', b: 'STADION' }, 'wienwest', 'Für das Wohnzimmer in Hütteldorf. Streifen-Look mit grün-blau-roten Linien.', true],
+  ['block-west', 'Block West', 'streifen', { a: 'BLOCK', b: 'WEST' }, 'wienwest', 'Block West im Streifen-Look.', true],
+  ['wien-west-steffl', 'Wien West – Stephansdom', 'stadt', { a: 'WIEN WEST', b: 'HÜTTELDORF', mark: 'dom' }, 'wienwest', 'Der Steffl als eigene Zeichnung, darunter Wien West Hütteldorf.', false],
+  ['wien-ein-leben-lang', 'Wien – ein Leben lang', 'spray', { a: 'WIEN', b: 'ein Leben lang', oben: G }, 'wienwest', 'Sprühlack-Schrift mit Farbnasen: Wien, ein Leben lang.', true],
+  ['wien-meine-heimat', 'Wien – meine Heimat. Meine Liebe.', 'spray', { a: 'WIEN', b: 'meine Heimat. meine Liebe.', oben: G }, 'wienwest', 'Grün-weiß geteilt, Sprühlack-Schrift.', true],
   // KURVE & AUSWÄRTS
-  ['wien-nuernberg-schal', 'Wien – Nürnberg', 'schal2', { a: 'WIEN NÜRNBERG' }, 'breit', 'kurve', 'Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken.', true],
-  ['anti-violett', 'Anti Violett', 'antiviola', { wort: 'VIOLETT' }, 'einzel', 'derby', 'Schablonen-Look, Violett durchgestrichen.', true],
-  ['wien-west-huetteldorf', 'Wien West Hütteldorf', 'block', { zeilen: ['WIEN', 'WEST', 'HÜTTELDORF'] }, 'einzel', 'wienwest', 'Wien West Hütteldorf – drei Zeilen auf Block-Streifen mit Blau-Rot-Band.', true],
-  ['wien-west-huetteldorf-schal', 'Wien West Hütteldorf – Schal', 'schal', { a: 'WIEN WEST HÜTTELDORF' }, 'breit', 'wienwest', 'Wien West Hütteldorf in Strick-Optik, Breitformat.', true],
-  ['acab', 'ACAB', 'stencil', { a: 'A.C.A.B.', b: 'WIEN WEST', grund: K }, 'einzel', 'kurve', 'Schablone auf Schwarz. Der Klassiker an jedem Geländer.', true],
-  ['wien-ein-leben-lang', 'Wien – ein Leben lang', 'spray', { a: 'WIEN', b: 'ein Leben lang', oben: G }, 'einzel', 'wienwest', 'Sprühlack-Schrift mit Farbnasen: Wien, ein Leben lang.', true],
-  ['wien-meine-heimat', 'Wien – meine Heimat. Meine Liebe.', 'spray', { a: 'WIEN', b: 'meine Heimat. meine Liebe.', oben: G }, 'einzel', 'wienwest', 'Grün-weiß geteilt, Sprühlack-Schrift: Wien, meine Heimat, meine Liebe.', true],
-  ['rapid-wien-fan-szene', 'Rapid Wien Fan Szene', 'block', { zeilen: ['RAPID WIEN', 'FAN SZENE'], farben: [G, K] }, 'einzel', 'forza', 'Rapid Wien Fan Szene auf grün-schwarzen Block-Streifen.', true],
-  ['rapid-wien-schal', 'Rapid Wien – Schal', 'schal', { a: 'RAPID WIEN' }, 'breit', 'forza', 'Rapid Wien in Strick-Optik, wie der Schal im Kasten.', true],
+  ['wien-nuernberg-schal', 'Wien – Nürnberg', 'schal2', { zeilen: ['WIEN', 'NÜRNBERG'] }, 'kurve', 'Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken.', true],
+  ['auswaerts', 'Auswärts immer dabei', 'stencil', { a: 'AUSWÄRTS', b: 'IMMER DABEI' }, 'kurve', 'Schablone in Grün – für Raststation, Bahnhof und Gästesektor.', true],
+  ['gegen-modernen-fussball', 'Gegen modernen Fußball', 'stencil', { a: 'GEGEN', b: 'MODERNEN FUSSBALL', grund: K }, 'kurve', 'Schablone auf Schwarz. Stehplätze statt VIP-Logen.', true],
+  ['figur-wien-west', 'Wien West – Figur', 'figur', { a: 'WEST', b: 'Wien West Hütteldorf' }, 'kurve', 'Kappe auf, Tuch vorm Gesicht: aus dem Westen, für immer.', false],
   // PACKS
-  ['starter-3er', '3er Starter-Pack', 'pack', { a: 'STARTER-PACK', n: 3 }, 'pack', 'packs', 'Die drei Topseller: Anti Viola, Forza Rapid, Wien West.', false],
-  ['topseller-5er', '5er Topseller-Pack', 'pack', { a: 'TOPSELLER-PACK', n: 5 }, 'pack', 'packs', 'Fünf Lieblinge aus dem Block in einem Kuvert.', true],
-  ['mix-10er', '10er Mix-Pack', 'pack', { a: 'MIX · GRATIS VERSAND', n: 10 }, 'pack', 'packs', 'Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze.', true],
-  ['kurve-25er', '25er Kurven-Pack', 'pack', { a: 'KURVEN-PACK', n: 25 }, 'pack', 'packs', 'Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben.', true],
-  ['block-50er', '50er Block-Pack', 'pack', { a: 'BLOCK-PACK', n: 50 }, 'pack', 'packs', '50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe.', false],
-  ['mystery-15er', 'Mystery-Pack (15 Stück)', 'mystery', { n: 15 }, 'pack', 'packs', '15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.', false],
+  ['starter-3er', '3er Starter-Pack', 'pack', { a: 'STARTER-PACK', n: 3 }, 'packs', 'Die drei Topseller: Anti Viola, Wien West Hütteldorf, A.C.A.B.', false],
+  ['topseller-5er', '5er Topseller-Pack', 'pack', { a: 'TOPSELLER-PACK', n: 5 }, 'packs', 'Fünf Lieblinge aus dem Block in einem Kuvert.', true],
+  ['mix-10er', '10er Mix-Pack', 'pack', { a: 'MIX · GRATIS VERSAND', n: 10 }, 'packs', 'Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze.', true],
+  ['kurve-25er', '25er Kurven-Pack', 'pack', { a: 'KURVEN-PACK', n: 25 }, 'packs', 'Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben.', true],
+  ['block-50er', '50er Block-Pack', 'pack', { a: 'BLOCK-PACK', n: 50 }, 'packs', '50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe.', false],
+  ['mystery-15er', 'Mystery-Pack (15 Stück)', 'mystery', { n: 15 }, 'packs', '15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.', false],
 ];
 
-const PREIS = { einzel: 2.5, breit: 3.9 };
 const PACK = { 'starter-3er': [6.9, 7.5, 3], 'topseller-5er': [9.9, 12.5, 5], 'mix-10er': [15, 25, 10], 'kurve-25er': [29, 62.5, 25], 'block-50er': [49, 125, 50], 'mystery-15er': [19, 37.5, 15] };
-const formatText = (tpl, typ) =>
-  typ === 'pack' ? 'gemischte Formate (ca. 8 cm)'
-  : typ === 'breit' ? 'ca. 15 × 5 cm' : tpl === 'lang' ? 'ca. 4 × 13 cm' : tpl === 'rund' ? 'Ø ca. 8 cm' : 'ca. 9 × 6 cm';
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
 const writeMd = process.argv.includes('--md');
 let i = 0;
-for (const [slug, name, tpl, data, typ, kategorie, kurz, bestseller] of P) {
+for (const [slug, name, tpl, data, kategorie, kurz, bestseller] of P) {
   i++;
   SEED = seedOf(slug);
-  const { w, h, svg: inner } = await T[tpl](data);
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(name)}">${inner}</svg>`;
+  const inner = await T[tpl](data);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SW} ${SH}" role="img" aria-label="${esc(name)}">${inner}</svg>`;
   fs.writeFileSync(path.join(OUT_IMG, `${slug}.svg`), svg);
-  const long = Math.max(w, h);
-  await sharp(Buffer.from(svg), { density: 200 })
-    .resize(w >= h ? Math.round((1200 * w) / long) : null, h > w ? 1200 : null)
-    .png({ compressionLevel: 9 })
-    .toFile(path.join(OUT_IMG, `${slug}.png`));
+  await sharp(Buffer.from(svg), { density: 200 }).resize(1200).png({ compressionLevel: 9 }).toFile(path.join(OUT_IMG, `${slug}.png`));
 
   if (!writeMd) continue;
-  const isPack = typ === 'pack';
-  const [preis, wert, stueck] = isPack ? PACK[slug] : [PREIS[typ], undefined, 1];
-  const format = formatText(tpl, typ);
+  const isPack = kategorie === 'packs';
+  const [preis, wert, stueck] = isPack ? PACK[slug] : [2.5, undefined, 1];
+  const format = isPack ? 'je ca. 9 × 6 cm' : 'ca. 9 × 6 cm';
   fs.writeFileSync(path.join(OUT_MD, `${slug}.md`), `---
 name: ${JSON.stringify(name)}
 kurz: ${JSON.stringify(kurz)}
-typ: ${typ}
+typ: ${isPack ? 'pack' : 'einzel'}
 kategorie: ${kategorie}
 preis: ${preis}
 ${wert ? `wertEinzeln: ${wert}\n` : ''}stueck: ${stueck}

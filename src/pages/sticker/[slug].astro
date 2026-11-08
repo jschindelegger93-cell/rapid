@@ -31,7 +31,7 @@ const proStk = d.typ === 'pack' ? d.preis / d.stueck : 0;
   <div class="wrap">
     <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Start</a> / <a href="/sticker/">Alle Sticker</a> / <a href={`/sticker/?k=${d.kategorie}`}>{KATEGORIEN[d.kategorie]}</a></nav>
     <div class="pdp">
-      <div class="stage"><img src={d.bild} alt={`Sticker ${d.name}`} width={breit ? 900 : 600} height={breit ? 300 : 600} fetchpriority="high" /></div>
+      <div class="stage"><img src={d.bild} alt={`Sticker ${d.name}`} width="900" height="600" fetchpriority="high" /></div>
       <div class="info">
         <span class="eyebrow">{KATEGORIEN[d.kategorie]}{d.bestseller && ' · Bestseller'}</span>
         <h1>{d.name}</h1>

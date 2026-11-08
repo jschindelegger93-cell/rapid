@@ -1,5 +1,5 @@
 ---
-name: "Wien gehört uns"
+name: "Wien gehört uns!"
 kurz: "Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt."
 typ: einzel
 kategorie: derby
@@ -10,11 +10,11 @@ bild: /sticker/wien-gehoert-uns.svg
 bildPng: /sticker/wien-gehoert-uns.png
 bestseller: true
 verfuegbar: true
-sku: WW-002
-reihenfolge: 2
+sku: WW-003
+reihenfolge: 3
 shopifyVariantId: ""
 seo:
-  title: "Wien gehört uns – Sticker | Wien West"
+  title: "Wien gehört uns! – Sticker | Wien West"
   description: "Drei Zeilen, drei Streifen, eine Ansage an die andere Seite der Stadt. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---

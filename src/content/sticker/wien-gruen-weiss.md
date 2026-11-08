@@ -1,5 +1,5 @@
 ---
-name: "Wien ist grün-weiß"
+name: "Wien ist grün & weiß!"
 kurz: "Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß!"
 typ: einzel
 kategorie: derby
@@ -10,11 +10,11 @@ bild: /sticker/wien-gruen-weiss.svg
 bildPng: /sticker/wien-gruen-weiss.png
 bestseller: true
 verfuegbar: true
-sku: WW-004
-reihenfolge: 4
+sku: WW-006
+reihenfolge: 6
 shopifyVariantId: ""
 seo:
-  title: "Wien ist grün-weiß – Sticker | Wien West"
+  title: "Wien ist grün & weiß! – Sticker | Wien West"
   description: "Kappe auf, Tuch vorm Gesicht, Finger nach vorn: Wien ist grün & weiß! Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---

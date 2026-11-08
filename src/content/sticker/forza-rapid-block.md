@@ -10,8 +10,8 @@ bild: /sticker/forza-rapid-block.svg
 bildPng: /sticker/forza-rapid-block.png
 bestseller: true
 verfuegbar: true
-sku: WW-006
-reihenfolge: 6
+sku: WW-009
+reihenfolge: 9
 shopifyVariantId: ""
 seo:
   title: "Forza Rapid – Sticker | Wien West"

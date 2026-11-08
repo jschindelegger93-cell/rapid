@@ -10,8 +10,8 @@ bild: /sticker/wien-west-huetteldorf.svg
 bildPng: /sticker/wien-west-huetteldorf.png
 bestseller: true
 verfuegbar: true
-sku: WW-013
-reihenfolge: 13
+sku: WW-016
+reihenfolge: 16
 shopifyVariantId: ""
 seo:
   title: "Wien West Hütteldorf – Sticker | Wien West"

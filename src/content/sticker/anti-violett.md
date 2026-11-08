@@ -10,8 +10,8 @@ bild: /sticker/anti-violett.svg
 bildPng: /sticker/anti-violett.png
 bestseller: true
 verfuegbar: true
-sku: WW-012
-reihenfolge: 12
+sku: WW-002
+reihenfolge: 2
 shopifyVariantId: ""
 seo:
   title: "Anti Violett – Sticker | Wien West"

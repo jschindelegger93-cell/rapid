@@ -1,6 +1,6 @@
 ---
-name: "Wien West"
-kurz: "Block-Streifen mit Postleitzahl. Für alle, die im Westen daheim sind."
+name: "Wien West 1140"
+kurz: "Block-Streifen mit Postleitzahl."
 typ: einzel
 kategorie: wienwest
 preis: 2.5
@@ -10,15 +10,15 @@ bild: /sticker/wien-west-block.svg
 bildPng: /sticker/wien-west-block.png
 bestseller: true
 verfuegbar: true
-sku: WW-009
-reihenfolge: 9
+sku: WW-019
+reihenfolge: 19
 shopifyVariantId: ""
 seo:
-  title: "Wien West – Sticker | Wien West"
-  description: "Block-Streifen mit Postleitzahl. Für alle, die im Westen daheim sind. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
+  title: "Wien West 1140 – Sticker | Wien West"
+  description: "Block-Streifen mit Postleitzahl. Wetterfester Vinyl-Sticker, gratis Versand ab 15 €."
   noindex: false
 ---
-Block-Streifen mit Postleitzahl. Für alle, die im Westen daheim sind.
+Block-Streifen mit Postleitzahl.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
 **Format:** ca. 9 × 6 cm.

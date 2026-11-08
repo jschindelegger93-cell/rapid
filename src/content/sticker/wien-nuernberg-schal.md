@@ -1,17 +1,17 @@
 ---
 name: "Wien – Nürnberg"
 kurz: "Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken."
-typ: breit
+typ: einzel
 kategorie: kurve
-preis: 3.9
+preis: 2.5
 stueck: 1
-format: "ca. 15 × 5 cm"
+format: "ca. 9 × 6 cm"
 bild: /sticker/wien-nuernberg-schal.svg
 bildPng: /sticker/wien-nuernberg-schal.png
 bestseller: true
 verfuegbar: true
-sku: WW-011
-reihenfolge: 11
+sku: WW-027
+reihenfolge: 27
 shopifyVariantId: ""
 seo:
   title: "Wien – Nürnberg – Sticker | Wien West"
@@ -21,4 +21,4 @@ seo:
 Halb grün-weiß, halb schwarz-rot – für die Fanfreundschaft mit Franken.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** ca. 15 × 5 cm.
+**Format:** ca. 9 × 6 cm.

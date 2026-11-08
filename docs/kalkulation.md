@@ -6,7 +6,7 @@ Alle Kosten sind **Schätzungen** – vor Start mit Druckerei- und Post-Angebot 
 
 | Regel | Wert |
 |---|---|
-| Einzelsticker Ø 8 cm | 2,50 € |
+| Sticker 9 × 6 cm (alle Motive gleich) | 2,50 € |
 | Flaggen-Format 9 × 6 cm / Figur 8 × 8 cm | 2,50 € |
 | Schal/Schild-Format 15 × 5 cm | 3,90 € |
 | Mindestbestellwert | 10 € (= 4 Sticker) |
@@ -53,13 +53,12 @@ Das 10er Mix-Pack liegt exakt auf der Gratis-Versand-Grenze → Hauptprodukt in 
 
 | Posten | Menge | Kosten |
 |---|---|---|
-| 13 Einzel-Motive | 200 Stk je Motiv | 650 € |
-| 6 Schal-Motive | 100 Stk je Motiv | 360 € |
+| 30 Motive, alle 9 × 6 cm | 150 Stk je Motiv | 1.125 € |
 | Kuverts/Karton | 500 Stk | 175 € |
-| **Summe** | | **≈ 1.185 €** |
+| **Summe** | | **≈ 1.300 €** |
 
 Packs werden aus demselben Lager gemischt (keine eigene Produktion).
-Break-even bei Ø 8 € DB ≈ **150 Bestellungen**.
+Break-even bei Ø 8 € DB ≈ **165 Bestellungen**.
 
 ## Hebel für „möglichst viele Sticker“
 

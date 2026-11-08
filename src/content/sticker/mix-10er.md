@@ -6,13 +6,13 @@ kategorie: packs
 preis: 15
 wertEinzeln: 25
 stueck: 10
-format: "gemischte Formate (ca. 8 cm)"
+format: "je ca. 9 × 6 cm"
 bild: /sticker/mix-10er.svg
 bildPng: /sticker/mix-10er.png
 bestseller: true
 verfuegbar: true
-sku: WW-022
-reihenfolge: 22
+sku: WW-033
+reihenfolge: 33
 shopifyVariantId: ""
 seo:
   title: "10er Mix-Pack – Sticker | Wien West"
@@ -22,4 +22,4 @@ seo:
 Zehn verschiedene Motive für die nächste Auswärtsfahrt. Mit 15 € genau an der Gratis-Versand-Grenze.
 
 **Material:** wetterfestes Vinyl mit matter Schutzlaminierung, wasserfest und UV-beständig [PLATZHALTER: mit Druckerei abgleichen].
-**Format:** gemischte Formate (ca. 8 cm).
+**Format:** je ca. 9 × 6 cm.
