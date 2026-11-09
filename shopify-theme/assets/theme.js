@@ -97,6 +97,10 @@
     b.setAttribute('aria-expanded', String(o));
     document.body.style.overflow = o ? 'hidden' : '';
   });
+  const closeNav = () => { n?.classList.remove('open'); b?.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+  n?.addEventListener('click', (e) => { if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && n?.classList.contains('open')) closeNav(); });
+  matchMedia('(min-width: 861px)').addEventListener('change', (e) => { if (e.matches) closeNav(); });
 
   // Ankündigung rotieren
   const spans = document.querySelectorAll('.ann span');

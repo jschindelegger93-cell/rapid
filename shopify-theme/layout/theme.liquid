@@ -16,6 +16,12 @@
     :root { --g: {{ settings.color_green }}; --g-d: {{ settings.color_green_dark }}; --k: {{ settings.color_black }}; --paper: {{ settings.color_paper }}; }
   </style>
   {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+  <style>
+    /* Mobile-Menü: .hd hat backdrop-filter -> fixed-Kind wird relativ zum Header positioniert. Daher absolute unter dem Header. */
+    @media (max-width: 860px) {
+      .hd .nav { position: absolute; inset: auto; top: 100%; left: 0; right: 0; height: calc(100vh - 72px); height: calc(100dvh - 72px); overflow-y: auto; z-index: 45; margin: 0; border-top: 1px solid var(--line); padding: 24px var(--gut) calc(24px + env(safe-area-inset-bottom)); background: var(--paper); }
+    }
+  </style>
   {%- render 'schema-org' -%}
   {{ content_for_header }}
 </head>
