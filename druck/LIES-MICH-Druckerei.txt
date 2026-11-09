@@ -1,11 +1,17 @@
-Wien West Sticker – Druckdaten
-==============================
-Motive:        30 (je eine PDF, zusätzlich alle 30 in 00-ALLE-30-MOTIVE.pdf)
+Wien West Sticker – Druckauftrag (Erstauflage)
+==============================================
+Auftraggeber:  Wien West Sticker, Stuckgasse 1/10, 1070 Wien
+UID:           ATU80163868
+Kontakt:       servus@wien-west.at
+
+Motive:        30 (je eine PDF 01–30, zusätzlich alle in 00-ALLE-30-MOTIVE.pdf)
+Menge:         je 50 Stück pro Motiv = 1.500 Stück (Liste: Bestellliste.csv)
 Endformat:     90 × 60 mm, Ecken gerundet (Radius ca. 2 mm)
 Datenformat:   94 × 64 mm inkl. 2 mm Beschnitt rundum
 Auflösung:     600 dpi
-Farbraum:      RGB – bitte auf CMYK konvertieren
-Schnittkontur: Sonderfarbe "CutContour" (100 % Magenta, 0,25 pt, Überdrucken) – bitte nicht drucken, nur schneiden
-Material:      weiße Vinylfolie, matt laminiert, wetterfest/UV-beständig
-Schnitt:       Einzeln konturgeschnitten (alternativ Kiss-Cut auf Bogen)
-Menge:         je 50 Stück pro Motiv = 1.500 Stück (Erstauflage)
+Farbraum:      RGB – bitte auf CMYK konvertieren (kräftiges Grün/Violett/Blau/Rot)
+Schnittkontur: Sonderfarbe "CutContour" (100 % Magenta, 0,25 pt, überdruckend) – nicht drucken, nur schneiden
+Material:      weiße Vinylfolie, matt laminiert, wetterfest/UV-beständig, für außen
+Schnitt:       einzeln konturgeschnitten (alternativ Kiss-Cut auf Bogen)
+Verpackung:    bitte nach Motiv sortiert bzw. gebündelt (Nr. 01–30)
+Lieferung:     Stuckgasse 1/10, 1070 Wien
