@@ -1,7 +1,9 @@
 <section class="hero">
   <div class="wrap hero-in">
     <div>
-      <h1><span class="eyebrow h1kw">{{ section.settings.eyebrow }}</span>{{ section.settings.heading }}</h1>
+      {%- assign hl = section.settings.highlight | strip -%}
+      {%- capture mark_html -%}<mark>{{ hl }}</mark>{%- endcapture -%}
+      <h1><span class="eyebrow h1kw">{{ section.settings.eyebrow }}</span>{% if hl != blank %}{{ section.settings.heading | replace: hl, mark_html }}{% else %}{{ section.settings.heading }}{% endif %}</h1>
       <div class="lead">{{ section.settings.text }}</div>
       <div class="ctas">
         {%- if section.settings.btn1_label != blank -%}<a class="btn btn--g" href="{{ section.settings.btn1_url }}">{{ section.settings.btn1_label }}</a>{%- endif -%}
@@ -39,6 +41,7 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Keyword-Zeile (Teil der H1)", "default": "Rapid Wien Sticker & Aufkleber" },
     { "type": "text", "id": "heading", "label": "Überschrift", "default": "Hütteldorf klebt überall." },
+    { "type": "text", "id": "highlight", "label": "Markiertes Wort (Textmarker)", "default": "überall" },
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop.</p>" },
     { "type": "text", "id": "btn1_label", "label": "Button 1", "default": "Alle Sticker ansehen →" },
     { "type": "url", "id": "btn1_url", "label": "Button 1 Link" },
