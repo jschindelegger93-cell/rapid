@@ -4,7 +4,7 @@
     <div class="lead" style="color:#bbb;margin:0 auto">{{ section.settings.text }}</div>
     {%- form 'customer', id: 'nl-form' -%}
       <input type="hidden" name="contact[tags]" value="newsletter,popup-10">
-      {%- if form.posted_successfully? -%}<p class="form-msg" style="color:#111;width:100%">Danke! Check dein Postfach – dein Code kommt per E-Mail.</p>{%- endif -%}
+      {%- if form.posted_successfully? -%}<p class="form-msg" style="color:#111;width:100%">Danke fürs Anmelden! Dein Code für 10 % auf die erste Bestellung: <b>WILLKOMMEN10</b> – einfach an der Kasse eingeben.</p>{%- endif -%}
       {%- if form.errors -%}<p class="form-msg err" style="color:#111;width:100%">{{ form.errors | default_errors }}</p>{%- endif -%}
       <label class="visually-hidden" for="nl-email">E-Mail</label>
       <input id="nl-email" type="email" name="contact[email]" required autocomplete="email" placeholder="deine@email.at">
