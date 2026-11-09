@@ -1,0 +1,69 @@
+{%- comment -%} Gemeinsame Warenkorb-Logik für Drawer und Warenkorbseite. Gibt Fortschritt, Zeilen, Upsell und Summen aus. {%- endcomment -%}
+{%- liquid
+  assign free_cents = settings.free_shipping | times: 100
+  assign singles = 0
+  for item in cart.items
+    if item.product.type == 'Sticker'
+      assign singles = singles | plus: item.quantity
+    endif
+  endfor
+  assign missing_free = free_cents | minus: cart.total_price
+  assign pct = cart.total_price | times: 100 | divided_by: free_cents
+  if pct > 100
+    assign pct = 100
+  endif
+  assign next_qty = 0
+  if singles < settings.tier1_qty
+    assign next_qty = settings.tier1_qty | minus: singles
+    assign next_pct = settings.tier1_pct
+  elsif singles < settings.tier2_qty
+    assign next_qty = settings.tier2_qty | minus: singles
+    assign next_pct = settings.tier2_pct
+  endif
+-%}
+<div class="ship">
+  {%- if cart.item_count == 0 -%}Gratis Versand ab {{ free_cents | money_without_trailing_zeros }} (AT/DE)
+  {%- elsif missing_free > 0 -%}Noch <b>{{ missing_free | money }}</b> bis zum Gratis-Versand (AT/DE)
+  {%- else -%}✓ Du hast <b>Gratis-Versand</b> (AT/DE){%- endif -%}
+  <div class="ship-bar"><i style="width:{{ pct }}%"></i></div>
+</div>
+
+{%- if cart.item_count == 0 -%}
+  <div class="empty"><p>Dein Warenkorb ist leer.</p><a class="btn btn--g" href="{{ upsell.url | default: '/collections/all' }}">Sticker ansehen</a></div>
+{%- else -%}
+  {%- for item in cart.items -%}
+  <div class="line">
+    {%- if item.image -%}{{ item.image | image_url: width: 128 | image_tag: width: 64, height: 64, loading: 'lazy', alt: item.product.title }}{%- endif -%}
+    <div>
+      <a class="t" href="{{ item.url }}">{{ item.product.title }}</a>
+      <div class="s">{{ item.original_price | money }}{% if item.product.type == 'Sticker-Pack' %} · Pack{% endif %}</div>
+      {%- for d in item.line_level_discount_allocations -%}<div class="line-disc">{{ d.discount_application.title }} (−{{ d.amount | money }})</div>{%- endfor -%}
+      <div class="qty">
+        <button type="button" data-line="{{ forloop.index }}" data-qty="{{ item.quantity | minus: 1 }}" aria-label="Weniger">−</button>
+        <span>{{ item.quantity }}</span>
+        <button type="button" data-line="{{ forloop.index }}" data-qty="{{ item.quantity | plus: 1 }}" aria-label="Mehr">+</button>
+      </div>
+    </div>
+    <b>{% if item.final_line_price < item.original_line_price %}<s>{{ item.original_line_price | money }}</s>{% endif %}{{ item.final_line_price | money }}</b>
+  </div>
+  {%- endfor -%}
+
+  {%- if upsell != blank and next_qty > 0 or missing_free > 0 -%}
+    {%- capture ups -%}
+      {%- assign shown = 0 -%}
+      {%- for p in upsell.products -%}
+        {%- if shown >= 6 -%}{%- break -%}{%- endif -%}
+        {%- if p.type != 'Sticker' or p.available == false -%}{%- continue -%}{%- endif -%}
+        {%- assign in_cart = false -%}
+        {%- for item in cart.items -%}{%- if item.product_id == p.id -%}{%- assign in_cart = true -%}{%- endif -%}{%- endfor -%}
+        {%- if in_cart -%}{%- continue -%}{%- endif -%}
+        <button type="button" data-variant="{{ p.selected_or_first_available_variant.id }}">{{ p.featured_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}{{ p.title | remove: ' Sticker' }}<br><b>+ {{ p.price | money }}</b></button>
+        {%- assign shown = shown | plus: 1 -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- if shown > 0 -%}
+      <p class="ship" style="margin:14px 0 4px">{% if next_qty > 0 %}Noch <b>{{ next_qty }} Sticker</b> bis −{{ next_pct }} % auf alle Einzelsticker{% else %}Dazu passt:{% endif %}</p>
+      <div class="upsell">{{ ups }}</div>
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

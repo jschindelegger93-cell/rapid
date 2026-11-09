@@ -1,0 +1,27 @@
+[
+  { "name": "theme_info", "theme_name": "Wien West", "theme_version": "1.0.0", "theme_author": "Wien West Sticker", "theme_documentation_url": "https://wien-west.at", "theme_support_url": "https://wien-west.at/pages/contact" },
+  { "name": "Farben", "settings": [
+    { "type": "color", "id": "color_green", "label": "Grün", "default": "#00753d" },
+    { "type": "color", "id": "color_green_dark", "label": "Dunkelgrün", "default": "#004b27" },
+    { "type": "color", "id": "color_black", "label": "Schwarz", "default": "#111111" },
+    { "type": "color", "id": "color_paper", "label": "Hintergrund", "default": "#f4f2ec" }
+  ] },
+  { "name": "Marke & SEO", "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo (für Schema.org)" },
+    { "type": "image_picker", "id": "favicon", "label": "Favicon" },
+    { "type": "image_picker", "id": "og_image", "label": "Standard-Teilen-Bild (1200 × 630)" },
+    { "type": "textarea", "id": "default_description", "label": "Standard-Meta-Beschreibung", "default": "Rapid-Fan-Sticker aus Wien West: Anti Viola, Forza Rapid, Wien West Hütteldorf & mehr. 30 wetterfeste Motive ab 2,90 €, gratis Versand ab 20 €." },
+    { "type": "text", "id": "contact_email", "label": "Kontakt-E-Mail", "default": "servus@wien-west.at" },
+    { "type": "url", "id": "instagram", "label": "Instagram" }
+  ] },
+  { "name": "Warenkorb & Rabatte", "settings": [
+    { "type": "checkbox", "id": "cart_type_drawer", "label": "Warenkorb als Drawer öffnen", "default": true },
+    { "type": "number", "id": "mbw", "label": "Mindestbestellwert (€)", "default": 10 },
+    { "type": "number", "id": "free_shipping", "label": "Gratis Versand ab (€)", "default": 20 },
+    { "type": "paragraph", "content": "Die Rabattstufen hier sind nur die Anzeige. Die echten Rabatte stehen unter Rabatte (automatisch)." },
+    { "type": "number", "id": "tier1_qty", "label": "Stufe 1 ab Stück", "default": 5 },
+    { "type": "number", "id": "tier1_pct", "label": "Stufe 1 Rabatt %", "default": 5 },
+    { "type": "number", "id": "tier2_qty", "label": "Stufe 2 ab Stück", "default": 10 },
+    { "type": "number", "id": "tier2_pct", "label": "Stufe 2 Rabatt %", "default": 15 }
+  ] }
+]

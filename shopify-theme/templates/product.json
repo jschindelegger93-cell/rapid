@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "b0": {
+          "type": "fact",
+          "settings": {
+            "text": "Gratis Versand ab 20 € (AT/DE), sonst 3,50 € (AT)"
+          }
+        },
+        "b1": {
+          "type": "fact",
+          "settings": {
+            "text": "Versand innerhalb von 48 h, knickfrei im Kuvert"
+          }
+        },
+        "b2": {
+          "type": "fact",
+          "settings": {
+            "text": "Wetterfestes Vinyl, matt laminiert"
+          }
+        },
+        "b3": {
+          "type": "fact",
+          "settings": {
+            "text": "14 Tage Rücktrittsrecht"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "related": {
+      "type": "related-products"
+    }
+  },
+  "order": [
+    "main",
+    "related"
+  ]
+}

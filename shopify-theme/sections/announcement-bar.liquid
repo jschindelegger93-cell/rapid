@@ -1,0 +1,13 @@
+<div class="ann" role="region" aria-label="Hinweise">
+  {%- for block in section.blocks -%}
+    <span class="{% if forloop.first %}on{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+  {%- endfor -%}
+</div>
+{% schema %}
+{
+  "name": "Ankündigungsleiste",
+  "max_blocks": 5,
+  "blocks": [{ "type": "msg", "name": "Text", "settings": [{ "type": "inline_richtext", "id": "text", "label": "Text", "default": "Gratis Versand ab 20 €" }] }],
+  "presets": [{ "name": "Ankündigungsleiste" }]
+}
+{% endschema %}

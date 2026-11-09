@@ -1,0 +1,36 @@
+{%- comment -%} Organization (alle Seiten) + WebSite mit SearchAction (Startseite) {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "@id": "{{ shop.url }}/#organization",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  {%- if settings.logo != blank %}"logo": {{ settings.logo | image_url: width: 512 | prepend: 'https:' | json }},{% endif %}
+  "email": {{ settings.contact_email | json }},
+  "description": "Unabhängiger Fan-Shop für Grün-Weiß Sticker aus Wien West.",
+  "areaServed": ["AT","DE","CH","EU"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Wien", "addressCountry": "AT" },
+  "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "email": {{ settings.contact_email | json }}, "availableLanguage": ["de"] },
+  {%- if settings.instagram != blank %}"sameAs": [{{ settings.instagram | json }}],{% endif %}
+  "hasMerchantReturnPolicy": { "@type": "MerchantReturnPolicy", "applicableCountry": ["AT","DE"], "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 14, "returnMethod": "https://schema.org/ReturnByMail", "returnFees": "https://schema.org/ReturnShippingFees" }
+}
+</script>
+{%- if request.page_type == 'index' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "{{ shop.url }}/#website",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  "inLanguage": "de-AT",
+  "publisher": { "@id": "{{ shop.url }}/#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}" },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{%- endif -%}

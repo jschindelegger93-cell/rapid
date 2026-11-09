@@ -1,0 +1,6 @@
+<div class="wrap" style="padding-bottom:64px">
+  <header class="page-head"><h1>{{ article.title }}</h1><p class="vat">{{ article.published_at | date: '%d.%m.%Y' }}</p></header>
+  <div class="prose rte">{{ article.content }}</div>
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ article.title | json }},"datePublished":"{{ article.published_at | date: '%Y-%m-%d' }}","author":{"@type":"Organization","name":{{ shop.name | json }}}}</script>
+{% schema %}{ "name": "Artikel" }{% endschema %}

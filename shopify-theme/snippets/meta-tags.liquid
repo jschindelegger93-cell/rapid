@@ -1,0 +1,41 @@
+{%- liquid
+  assign og_title = page_title | default: shop.name
+  assign og_type = 'website'
+  assign og_desc = page_description | default: settings.default_description | default: shop.description
+  if request.page_type == 'product'
+    assign og_type = 'product'
+  endif
+  if page_image
+    assign og_img = page_image | image_url: width: 1200
+  elsif settings.og_image != blank
+    assign og_img = settings.og_image | image_url: width: 1200
+  endif
+  assign title_suffix = ''
+  unless page_title contains shop.name
+    assign title_suffix = ' | ' | append: shop.name
+  endunless
+-%}
+<title>{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – Seite {{ current_page }}{% endif %}{{ title_suffix }}</title>
+{%- if og_desc != blank -%}<meta name="description" content="{{ og_desc | strip_html | escape | truncate: 160 }}">{%- endif -%}
+{%- if template.name == 'search' or template.name == 'cart' or template.name == 'password' or template.name == '404' or current_tags -%}
+<meta name="robots" content="noindex, follow">
+{%- endif -%}
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:description" content="{{ og_desc | strip_html | escape | truncate: 200 }}">
+<meta property="og:locale" content="de_AT">
+{%- if og_img -%}
+<meta property="og:image" content="https:{{ og_img }}">
+<meta property="og:image:secure_url" content="https:{{ og_img }}">
+{%- endif -%}
+{%- if request.page_type == 'product' -%}
+<meta property="product:price:amount" content="{{ product.price | money_without_currency | replace: ',', '.' | strip }}">
+<meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
+{%- endif -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+<meta name="twitter:description" content="{{ og_desc | strip_html | escape | truncate: 200 }}">
+<meta name="geo.region" content="AT-9">
+<meta name="geo.placename" content="Wien">

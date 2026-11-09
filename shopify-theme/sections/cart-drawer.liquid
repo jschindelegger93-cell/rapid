@@ -1,0 +1,16 @@
+{%- assign upsell = section.settings.upsell -%}
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Warenkorb">
+  <div class="bg" data-close-cart></div>
+  <div class="panel">
+    <header><h2>Warenkorb</h2><button class="x" type="button" data-close-cart aria-label="Schließen">×</button></header>
+    <div class="body" id="cart-body">{% render 'cart-summary', upsell: upsell %}</div>
+    {%- if cart.item_count > 0 -%}<footer id="cart-foot">{% render 'cart-totals' %}</footer>{%- endif -%}
+  </div>
+</div>
+<span hidden data-count-src>{{ cart.item_count }}</span>
+{% schema %}
+{
+  "name": "Warenkorb-Drawer",
+  "settings": [{ "type": "collection", "id": "upsell", "label": "Upsell-Kollektion" }]
+}
+{% endschema %}

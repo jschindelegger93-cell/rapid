@@ -1,0 +1,25 @@
+<section class="section nl">
+  <div class="wrap">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="lead" style="color:#bbb;margin:0 auto">{{ section.settings.text }}</div>
+    {%- form 'customer', id: 'nl-form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter,popup-10">
+      {%- if form.posted_successfully? -%}<p class="form-msg" style="color:#111;width:100%">Danke! Check dein Postfach – dein Code kommt per E-Mail.</p>{%- endif -%}
+      {%- if form.errors -%}<p class="form-msg err" style="color:#111;width:100%">{{ form.errors | default_errors }}</p>{%- endif -%}
+      <label class="visually-hidden" for="nl-email">E-Mail</label>
+      <input id="nl-email" type="email" name="contact[email]" required autocomplete="email" placeholder="deine@email.at">
+      <button class="btn btn--g" type="submit">10 % sichern</button>
+    {%- endform -%}
+    <small>Mit der Anmeldung stimmst du dem Erhalt unseres Newsletters zu. Abmeldung jederzeit möglich. <a href="/pages/datenschutz" style="color:#ccc">Datenschutz</a></small>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "10 % auf deine erste Bestellung" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Neue Motive, Drops vor dem Derby und dein Willkommens-Code.</p>" }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

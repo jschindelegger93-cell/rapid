@@ -1,0 +1,14 @@
+<div class="wrap" style="padding-bottom:64px">
+  <header class="page-head"><h1>Suche</h1></header>
+  <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+    <label class="visually-hidden" for="q">Suchbegriff</label>
+    <input id="q" type="search" name="q" value="{{ search.terms | escape }}" placeholder="z. B. Anti Viola, Hütteldorf, Pack">
+    <input type="hidden" name="type" value="product">
+    <button class="btn btn--g" type="submit">Suchen</button>
+  </form>
+  {%- if search.performed -%}
+    <p>{{ search.results_count }} Ergebnis{% if search.results_count != 1 %}se{% endif %} für „{{ search.terms | escape }}“</p>
+    <div class="grid">{%- for item in search.results -%}{%- if item.object_type == 'product' -%}{%- render 'product-card', product: item -%}{%- endif -%}{%- endfor -%}</div>
+  {%- endif -%}
+</div>
+{% schema %}{ "name": "Suche" }{% endschema %}

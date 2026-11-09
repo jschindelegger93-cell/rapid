@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection"
+    },
+    "nl": {
+      "type": "newsletter"
+    }
+  },
+  "order": [
+    "main",
+    "nl"
+  ]
+}

@@ -1,0 +1,7 @@
+{%- capture crumbs -%}Start|/§§{{ page.title }}|{{ page.url }}{%- endcapture -%}
+<div class="wrap">
+  {% render 'breadcrumbs', crumbs: crumbs %}
+  <header class="page-head"><h1>{{ page.title }}</h1></header>
+  <div class="prose rte" style="padding-bottom:64px">{{ page.content }}</div>
+</div>
+{% schema %}{ "name": "Seite" }{% endschema %}

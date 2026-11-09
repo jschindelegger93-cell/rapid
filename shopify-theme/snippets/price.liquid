@@ -1,0 +1,3 @@
+{%- comment -%} product, class {%- endcomment -%}
+{%- assign v = product.selected_or_first_available_variant -%}
+<span class="{{ class | default: 'price' }}">{{ v.price | money }}{% if v.compare_at_price > v.price %} <s>{{ v.compare_at_price | money }}</s>{% endif %}</span>

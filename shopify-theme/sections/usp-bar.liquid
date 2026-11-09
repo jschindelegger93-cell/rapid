@@ -1,0 +1,16 @@
+<section class="usp">
+  <div class="wrap usp-in">
+    {%- for block in section.blocks -%}<div {{ block.shopify_attributes }}><b>{{ block.settings.title }}</b><span>{{ block.settings.text }}</span></div>{%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "USP-Leiste",
+  "max_blocks": 4,
+  "blocks": [{ "type": "usp", "name": "USP", "settings": [
+    { "type": "text", "id": "title", "label": "Titel", "default": "Gratis ab 20 €" },
+    { "type": "text", "id": "text", "label": "Text", "default": "sonst 3,50 € Versand" }
+  ] }],
+  "presets": [{ "name": "USP-Leiste" }]
+}
+{% endschema %}

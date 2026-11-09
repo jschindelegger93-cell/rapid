@@ -1,0 +1,17 @@
+{%- capture crumbs -%}Start|/§§{{ page.title }}|{{ page.url }}{%- endcapture -%}
+<div class="wrap" style="max-width:860px">
+  {% render 'breadcrumbs', crumbs: crumbs %}
+  <header class="page-head"><h1>{{ page.title }}</h1></header>
+  <div class="prose rte faq-page" style="padding-bottom:64px">{{ page.content }}</div>
+</div>
+{%- comment -%} FAQPage aus <details><summary>Frage</summary><p>Antwort</p></details> im Seiteninhalt {%- endcomment -%}
+{%- assign qs = page.content | split: '<summary>' -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{%- for chunk in qs offset: 1 -%}
+  {%- assign q = chunk | split: '</summary>' | first | strip_html | strip -%}
+  {%- assign a = chunk | split: '</summary>' | last | split: '</details>' | first | strip_html | strip -%}
+  {"@type":"Question","name":{{ q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ a | json }}}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}]}
+</script>
+{% schema %}{ "name": "FAQ-Seite" }{% endschema %}

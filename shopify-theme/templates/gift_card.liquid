@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gutschein – {{ shop.name }}</title>{{ 'theme.css' | asset_url | stylesheet_tag }}</head>
+<body><main class="wrap" style="padding:60px var(--gut);text-align:center">
+<h1>Dein Gutschein</h1>
+<p class="price">{{ gift_card.balance | money }}</p>
+<p>Code: <b>{{ gift_card.code | format_code }}</b></p>
+{%- if gift_card.expired -%}<p>Abgelaufen am {{ gift_card.expires_on | date: '%d.%m.%Y' }}</p>{%- endif -%}
+<a class="btn btn--g" href="{{ shop.url }}">Jetzt einlösen</a>
+</main></body></html>

@@ -1,5 +1,5 @@
 import { S } from './site';
-const site = 'https://wienwest-sticker.at';
+const site = 'https://wien-west.at';
 export const abs = (p: string, base: URL | undefined) => new URL(p, base ?? site).href;
 
 export const returnPolicy = {

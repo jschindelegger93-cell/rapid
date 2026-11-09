@@ -1,0 +1,7 @@
+<div class="wrap" style="padding-bottom:64px">
+  <header class="page-head"><h1>{{ blog.title }}</h1></header>
+  {%- paginate blog.articles by 12 -%}
+  <div class="grid">{%- for a in blog.articles -%}<article class="card"><h3><a href="{{ a.url }}">{{ a.title }}</a></h3><p class="meta">{{ a.published_at | date: '%d.%m.%Y' }}</p><p>{{ a.excerpt_or_content | strip_html | truncate: 140 }}</p></article>{%- endfor -%}</div>
+  {%- endpaginate -%}
+</div>
+{% schema %}{ "name": "Blog" }{% endschema %}

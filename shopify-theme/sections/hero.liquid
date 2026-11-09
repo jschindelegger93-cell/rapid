@@ -1,0 +1,55 @@
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <h1><span class="eyebrow h1kw">{{ section.settings.eyebrow }}</span>{{ section.settings.heading }}</h1>
+      <div class="lead">{{ section.settings.text }}</div>
+      <div class="ctas">
+        {%- if section.settings.btn1_label != blank -%}<a class="btn btn--g" href="{{ section.settings.btn1_url }}">{{ section.settings.btn1_label }}</a>{%- endif -%}
+        {%- assign pk = section.settings.pack -%}
+        {%- if pk != blank -%}
+        <form method="post" action="{{ routes.cart_add_url }}" data-add-form>
+          <input type="hidden" name="id" value="{{ pk.selected_or_first_available_variant.id }}"><input type="hidden" name="quantity" value="1">
+          <button class="btn btn--o" type="submit">{{ pk.title }} · {{ pk.price | money }}</button>
+        </form>
+        {%- endif -%}
+      </div>
+      <ul class="trust">
+        {%- for block in section.blocks -%}<li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>{%- endfor -%}
+      </ul>
+    </div>
+    <div class="pile" aria-hidden="true">
+      {%- for i in (1..4) -%}
+        {%- assign key = 'product_' | append: i -%}
+        {%- assign p = section.settings[key] -%}
+        {%- if p != blank and p.featured_image -%}
+          {%- assign cls = 'p' | append: forloop.index0 -%}
+          {%- if forloop.first -%}
+            {{ p.featured_image | image_url: width: 600 | image_tag: class: cls, widths: '300,450,600', sizes: '(max-width: 860px) 50vw, 280px', loading: 'eager', fetchpriority: 'high', alt: '' }}
+          {%- else -%}
+            {{ p.featured_image | image_url: width: 600 | image_tag: class: cls, widths: '300,450,600', sizes: '(max-width: 860px) 50vw, 280px', loading: 'eager', alt: '' }}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Keyword-Zeile (Teil der H1)", "default": "Rapid Wien Sticker & Aufkleber" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Hütteldorf klebt überall." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop.</p>" },
+    { "type": "text", "id": "btn1_label", "label": "Button 1", "default": "Alle Sticker ansehen →" },
+    { "type": "url", "id": "btn1_url", "label": "Button 1 Link" },
+    { "type": "product", "id": "pack", "label": "Schnellkauf-Pack (Button 2)" },
+    { "type": "product", "id": "product_1", "label": "Sticker 1" },
+    { "type": "product", "id": "product_2", "label": "Sticker 2" },
+    { "type": "product", "id": "product_3", "label": "Sticker 3" },
+    { "type": "product", "id": "product_4", "label": "Sticker 4" }
+  ],
+  "blocks": [{ "type": "trust", "name": "Vorteil", "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "Gratis Versand ab 20 €" }] }],
+  "max_blocks": 4,
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,10 @@
+<div class="wrap">
+  <header class="page-head"><h1>Warenkorb</h1></header>
+  <div class="cart-page">
+    <div>{% render 'cart-summary', upsell: section.settings.upsell %}</div>
+    {%- if cart.item_count > 0 -%}<div class="box">{% render 'cart-totals' %}</div>{%- endif -%}
+  </div>
+</div>
+{% schema %}
+{ "name": "Warenkorb", "settings": [{ "type": "collection", "id": "upsell", "label": "Upsell-Kollektion" }] }
+{% endschema %}

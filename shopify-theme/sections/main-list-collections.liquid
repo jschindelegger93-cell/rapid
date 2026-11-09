@@ -1,0 +1,7 @@
+<div class="wrap">
+  <header class="page-head"><h1>Alle Kategorien</h1></header>
+  <div class="cats" style="margin-bottom:64px">
+    {%- for c in collections -%}{%- if c.handle == 'frontpage' -%}{%- continue -%}{%- endif -%}<a href="{{ c.url }}"><b>{{ c.title }}</b><span>{{ c.products_count }} Produkte</span></a>{%- endfor -%}
+  </div>
+</div>
+{% schema %}{ "name": "Kollektionsliste" }{% endschema %}

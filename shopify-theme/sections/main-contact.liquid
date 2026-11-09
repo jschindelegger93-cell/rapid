@@ -1,0 +1,17 @@
+{%- capture crumbs -%}Start|/§§{{ page.title }}|{{ page.url }}{%- endcapture -%}
+<div class="wrap" style="max-width:760px;padding-bottom:64px">
+  {% render 'breadcrumbs', crumbs: crumbs %}
+  <header class="page-head"><h1>{{ page.title }}</h1></header>
+  <div class="rte">{{ page.content }}</div>
+  {%- form 'contact', id: 'contact-form' -%}
+    {%- if form.posted_successfully? -%}<p class="form-msg">Danke! Wir melden uns meist innerhalb von 24 Stunden.</p>{%- endif -%}
+    {%- if form.errors -%}<p class="form-msg err">{{ form.errors | default_errors }}</p>{%- endif -%}
+    <div class="form-field"><label for="c-name">Name</label><input id="c-name" name="contact[name]" autocomplete="name" value="{{ form.name }}"></div>
+    <div class="form-field"><label for="c-email">E-Mail *</label><input id="c-email" type="email" name="contact[email]" required autocomplete="email" value="{{ form.email }}"></div>
+    <div class="form-field"><label for="c-order">Bestellnummer (optional)</label><input id="c-order" name="contact[Bestellnummer]"></div>
+    <div class="form-field"><label for="c-msg">Nachricht *</label><textarea id="c-msg" name="contact[body]" rows="6" required>{{ form.body }}</textarea></div>
+    <p class="vat">Wir verwenden deine Angaben nur zur Beantwortung deiner Anfrage. <a href="/pages/datenschutz">Datenschutz</a></p>
+    <button class="btn btn--g" type="submit">Nachricht senden</button>
+  {%- endform -%}
+</div>
+{% schema %}{ "name": "Kontakt" }{% endschema %}

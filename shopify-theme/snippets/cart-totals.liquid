@@ -1,0 +1,13 @@
+{%- liquid
+  assign mbw_cents = settings.mbw | times: 100
+  assign missing_mbw = mbw_cents | minus: cart.items_subtotal_price
+-%}
+<div class="sum"><span>Zwischensumme</span><span>{{ cart.original_total_price | money }}</span></div>
+{%- if cart.total_discount > 0 -%}<div class="sum green"><span>Rabatt</span><span>−{{ cart.total_discount | money }}</span></div>{%- endif -%}
+{%- for d in cart.cart_level_discount_applications -%}<div class="sum green"><span>{{ d.title }}</span><span>−{{ d.total_allocated_amount | money }}</span></div>{%- endfor -%}
+<div class="sum total"><span>Gesamt</span><span>{{ cart.total_price | money }}</span></div>
+<small class="vat">inkl. MwSt., zzgl. <a href="/pages/versand-zahlung">Versand</a> – wird an der Kasse berechnet. Rabattcode (z. B. WILLKOMMEN10) an der Kasse eingeben.</small>
+{%- if missing_mbw > 0 -%}<div class="hint warn">Mindestbestellwert {{ mbw_cents | money_without_trailing_zeros }} – noch <b>{{ missing_mbw | money }}</b>.</div>{%- endif -%}
+<form action="{{ routes.cart_url }}" method="post">
+  <button class="btn btn--g" style="width:100%" type="submit" name="checkout" {% if missing_mbw > 0 %}disabled{% endif %}>Zur Kasse · {{ cart.total_price | money }}</button>
+</form>

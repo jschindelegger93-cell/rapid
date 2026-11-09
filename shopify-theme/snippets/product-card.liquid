@@ -1,0 +1,31 @@
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign is_pack = false
+  if product.type == 'Sticker-Pack'
+    assign is_pack = true
+  endif
+  assign stueck = 1
+  if is_pack and v.compare_at_price > 0
+    assign stueck = v.compare_at_price | divided_by: 290
+  endif
+-%}
+<article class="card">
+  {%- if product.tags contains 'neu' -%}<span class="badge">Neu</span>{%- elsif is_pack and v.compare_at_price > v.price -%}<span class="badge badge--k">−{{ v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price }} %</span>{%- elsif product.tags contains 'bestseller' -%}<span class="badge">Bestseller</span>{%- endif -%}
+  <div class="img">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 600 | image_tag: loading: lazy, widths: '240,360,480,600', sizes: '(max-width: 600px) 45vw, 280px', alt: product.featured_image.alt | default: product.title }}
+    {%- endif -%}
+  </div>
+  <h3><a href="{{ product.url }}">{{ product.title | remove: ' Sticker' }}</a></h3>
+  <p class="meta">{% if is_pack %}{{ stueck }} Stück · {{ v.price | divided_by: stueck | money }} / Stk.{% else %}9 × 6 cm · wetterfest{% endif %}</p>
+  <div class="row">
+    {%- render 'price', product: product -%}
+    {%- if v.available -%}
+    <form method="post" action="{{ routes.cart_add_url }}" data-add-form>
+      <input type="hidden" name="id" value="{{ v.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <button class="add" type="submit" aria-label="{{ product.title | escape }} in den Warenkorb">+</button>
+    </form>
+    {%- else -%}<span class="meta">Ausverkauft</span>{%- endif -%}
+  </div>
+</article>

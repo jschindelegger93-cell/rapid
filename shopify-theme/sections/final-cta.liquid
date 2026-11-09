@@ -1,0 +1,25 @@
+<section class="final">
+  <div class="wrap">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="lead" style="color:#e6f3ea;margin:0 auto 24px">{{ section.settings.text }}</div>
+    {%- assign p = section.settings.product -%}
+    {%- if p != blank -%}
+    <form method="post" action="{{ routes.cart_add_url }}" data-add-form>
+      <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}"><input type="hidden" name="quantity" value="1">
+      <button class="btn" style="background:#fff;color:#111;border-color:#fff" type="submit">{{ section.settings.button }}</button>
+    </form>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Abschluss-CTA",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Der nächste Spieltag kommt bestimmt." },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "product", "id": "product", "label": "Produkt" },
+    { "type": "text", "id": "button", "label": "Button", "default": "10er Mix-Pack holen" }
+  ],
+  "presets": [{ "name": "Abschluss-CTA" }]
+}
+{% endschema %}

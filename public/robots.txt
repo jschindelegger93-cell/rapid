@@ -2,4 +2,4 @@
 User-agent: *
 Disallow: /
 
-Sitemap: https://wienwest-sticker.at/sitemap-index.xml
+Sitemap: https://wien-west.at/sitemap-index.xml

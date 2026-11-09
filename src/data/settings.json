@@ -1,8 +1,8 @@
 {
   "name": "Wien West Sticker",
   "claim": "Grün-Weiß Sticker aus Wien West",
-  "domain": "wienwest-sticker.at",
-  "email": "servus@wienwest-sticker.at",
+  "domain": "wien-west.at",
+  "email": "servus@wien-west.at",
   "instagram": "https://instagram.com/wienweststicker",
   "inhaber": "Julian Schindelegger",
   "adresse": "[PLATZHALTER Adresse], Wien",
@@ -15,6 +15,10 @@
   "versandzeit": "Versand innerhalb von 48 h",
   "staffel": [
     {
+      "ab": 5,
+      "rabatt": 5
+    },
+    {
       "ab": 10,
       "rabatt": 15
     }
@@ -22,7 +26,7 @@
   "shopifyDomain": "",
   "announcement": [
     "Gratis Versand ab 20 € – rechtzeitig vor dem nächsten Spieltag",
-    "Ab 10 Stickern −15 % – auch gemischt",
+    "Ab 5 Stickern −5 %, ab 10 Stickern −15 % – auch gemischt",
     "Aus Wien West verschickt, innerhalb von 48 h"
   ]
 }

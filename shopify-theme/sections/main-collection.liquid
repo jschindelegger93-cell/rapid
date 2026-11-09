@@ -1,0 +1,35 @@
+{%- capture crumbs -%}Start|/§§{{ collection.title }}|{{ collection.url }}{%- endcapture -%}
+<div class="wrap">
+  {% render 'breadcrumbs', crumbs: crumbs %}
+  <header class="page-head">
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}<div class="coll-intro rte">{{ collection.description }}</div>{%- endif -%}
+  </header>
+  {%- paginate collection.products by section.settings.per_page -%}
+  <div class="coll-bar">
+    <span>{{ collection.products_count }} Produkte · Mengenrabatt ab {{ settings.tier1_qty }} Stück</span>
+    <label><span class="visually-hidden">Sortieren</span>
+      <select onchange="const u=new URL(location.href);u.searchParams.set('sort_by',this.value);location.href=u">
+        {%- for o in collection.sort_options -%}<option value="{{ o.value }}"{% if o.value == collection.sort_by or collection.sort_by == blank and o.value == collection.default_sort_by %} selected{% endif %}>{{ o.name }}</option>{%- endfor -%}
+      </select>
+    </label>
+  </div>
+  <div class="grid">
+    {%- for product in collection.products -%}{%- render 'product-card', product: product -%}{%- else -%}<p>Hier gibt's gerade nichts.</p>{%- endfor -%}
+  </div>
+  {%- if paginate.pages > 1 -%}
+  <nav class="pagination" aria-label="Seiten">
+    {%- for part in paginate.parts -%}
+      {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{%- elsif part.title == paginate.current_page -%}<span class="current" aria-current="page">{{ part.title }}</span>{%- else -%}<span>{{ part.title }}</span>{%- endif -%}
+    {%- endfor -%}
+  </nav>
+  {%- endif -%}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":{{ collection.title | json }},"url":"{{ shop.url }}{{ collection.url }}","description":{{ collection.description | strip_html | truncate: 300 | json }},"isPartOf":{"@id":"{{ shop.url }}/#website"},
+   "mainEntity":{"@type":"ItemList","numberOfItems":{{ collection.products.size }},"itemListElement":[{%- for p in collection.products -%}{"@type":"ListItem","position":{{ forloop.index | plus: paginate.current_offset }},"url":"{{ shop.url }}{{ p.url }}","name":{{ p.title | json }}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]}}
+  </script>
+  {%- endpaginate -%}
+</div>
+{% schema %}
+{ "name": "Kollektion", "settings": [{ "type": "range", "id": "per_page", "label": "Produkte pro Seite", "min": 12, "max": 48, "step": 4, "default": 36 }] }
+{% endschema %}

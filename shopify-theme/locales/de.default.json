@@ -1,0 +1,5 @@
+{
+  "general": { "password": "Passwort", "search": "Suche" },
+  "cart": { "title": "Warenkorb", "empty": "Dein Warenkorb ist leer.", "checkout": "Zur Kasse" },
+  "products": { "add": "In den Warenkorb", "sold_out": "Ausverkauft" }
+}

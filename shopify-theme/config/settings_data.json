@@ -1,0 +1,10 @@
+{
+  "current": {
+    "contact_email": "servus@wien-west.at",
+    "instagram": "https://instagram.com/wienweststicker",
+    "sections": {
+      "cart-drawer": { "type": "cart-drawer", "settings": { "upsell": "bestseller" } }
+    }
+  },
+  "presets": { "Default": {} }
+}

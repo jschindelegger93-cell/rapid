@@ -1,0 +1,364 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "b0": {
+          "type": "trust",
+          "settings": {
+            "text": "Gratis Versand ab 20 € (AT/DE)"
+          }
+        },
+        "b1": {
+          "type": "trust",
+          "settings": {
+            "text": "Wetterfestes Vinyl, UV-beständig"
+          }
+        },
+        "b2": {
+          "type": "trust",
+          "settings": {
+            "text": "Versand aus Wien innerhalb von 48 h"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ],
+      "settings": {
+        "eyebrow": "Rapid Wien Sticker & Aufkleber",
+        "heading": "Hütteldorf klebt überall.",
+        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab 2,90 €, im 10er-Pack um 24,90 € – Versand gratis.</p>",
+        "btn1_label": "Alle Sticker ansehen →",
+        "btn1_url": "shopify://collections/alle-sticker",
+        "pack": "10er-mix-pack",
+        "product_1": "wien-west-huetteldorf-sticker",
+        "product_2": "anti-viola-sticker",
+        "product_3": "acab-sticker",
+        "product_4": "forza-rapid-block-sticker"
+      }
+    },
+    "usp": {
+      "type": "usp-bar",
+      "blocks": {
+        "b0": {
+          "type": "usp",
+          "settings": {
+            "title": "Mindestbestellwert 10 €",
+            "text": "z. B. 4 Sticker"
+          }
+        },
+        "b1": {
+          "type": "usp",
+          "settings": {
+            "title": "Gratis ab 20 €",
+            "text": "sonst 3,50 € Versand (AT)"
+          }
+        },
+        "b2": {
+          "type": "usp",
+          "settings": {
+            "title": "−15 % ab 10 Stück",
+            "text": "−5 % ab 5 · automatisch"
+          }
+        },
+        "b3": {
+          "type": "usp",
+          "settings": {
+            "title": "Im Kuvert",
+            "text": "knickfrei mit Karton"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "best": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Bestseller",
+        "heading": "Was im Block am meisten klebt",
+        "collection": "bestseller",
+        "limit": 8,
+        "only_singles": true,
+        "link_label": "Alle Sticker →"
+      }
+    },
+    "packs": {
+      "type": "packs",
+      "blocks": {
+        "b0": {
+          "type": "pack",
+          "settings": {
+            "product": "5er-topseller-pack",
+            "highlight": false
+          }
+        },
+        "b1": {
+          "type": "pack",
+          "settings": {
+            "product": "10er-mix-pack",
+            "highlight": true
+          }
+        },
+        "b2": {
+          "type": "pack",
+          "settings": {
+            "product": "25er-kurven-pack",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2"
+      ],
+      "settings": {
+        "eyebrow": "Packs",
+        "heading": "Für die Auswärtsfahrt eingepackt",
+        "text": "<p>Ein Kuvert, viele Motive – zum Aufteilen im Bus, im Zug oder am Stammtisch. Bis zu 39 % günstiger als einzeln, das 10er Mix-Pack ist gleich versandkostenfrei.</p>",
+        "link": "shopify://collections/sticker-packs",
+        "link_label": "Alle Packs inkl. 50er Block-Pack & Mystery-Pack →"
+      }
+    },
+    "kultur": {
+      "type": "kultur",
+      "blocks": {
+        "b0": {
+          "type": "wert",
+          "settings": {
+            "title": "Arbeiterverein",
+            "text": "Seit 1899 ein Verein der Leute. Deshalb faire Preise statt Fanshop-Aufschlag."
+          }
+        },
+        "b1": {
+          "type": "wert",
+          "settings": {
+            "title": "Zusammenhalt",
+            "text": "Packs zum Aufteilen – für den Bus, den Stammtisch, die ganze Gruppe."
+          }
+        },
+        "b2": {
+          "type": "wert",
+          "settings": {
+            "title": "Auswärts dabei",
+            "text": "Wetterfest, damit der Sticker am Auswärtsbahnhof auch nach dem Winter noch hängt."
+          }
+        },
+        "b3": {
+          "type": "wert",
+          "settings": {
+            "title": "Kein Kommerz-Kitsch",
+            "text": "Keine Wappen, keine Gruppenlogos, keine Plastik-Slogans. Nur Codes, die Grün-Weiße verstehen."
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "eyebrow": "Kurvenkultur",
+        "heading": "Sticker gehören zur Kurve",
+        "lead": "<p>Wer im Block West steht, kennt das: Jede Tür, jeder Mast und jedes Geländer erzählt, wer schon da war. Sticker sind die Visitenkarte der Fans – zuhause im Weststadion und auswärts zwischen Bregenz und Graz.</p>",
+        "text": "<p>Wir sind Fans aus Wien West und machen Sticker für alle, die grün-weiß leben. Was wir nicht machen: Logos oder Namen der Fangruppen verkaufen. Die gehören denen, die sie über Jahrzehnte aufgebaut haben – und nicht in einen Shop.</p>"
+      }
+    },
+    "cats": {
+      "type": "category-tiles",
+      "blocks": {
+        "b0": {
+          "type": "tile",
+          "settings": {
+            "collection": "anti-viola-sticker",
+            "title": "Anti Viola & Derby",
+            "text": "Anti Viola, Anti Violett, Wien gehört uns!, A.C.A.B."
+          }
+        },
+        "b1": {
+          "type": "tile",
+          "settings": {
+            "collection": "forza-rapid-sticker",
+            "title": "Forza Rapid",
+            "text": "Forza Rapid, Rapid Wien, SCR 1899, YNWA"
+          }
+        },
+        "b2": {
+          "type": "tile",
+          "settings": {
+            "collection": "wien-west-huetteldorf-sticker",
+            "title": "Wien West & Hütteldorf",
+            "text": "Wien West Hütteldorf, 1140, Weststadion"
+          }
+        },
+        "b3": {
+          "type": "tile",
+          "settings": {
+            "collection": "ultras-sticker",
+            "title": "Kurve & Auswärts",
+            "text": "Wien–Nürnberg, Auswärts, Gegen modernen Fußball"
+          }
+        },
+        "b4": {
+          "type": "tile",
+          "settings": {
+            "collection": "sticker-packs",
+            "title": "Packs",
+            "text": "3 bis 50 Stück"
+          }
+        },
+        "b5": {
+          "type": "tile",
+          "settings": {
+            "collection": "schal-sticker",
+            "title": "Schal-Sticker",
+            "text": "Strick-Optik wie der Schal im Kasten"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "steps": {
+      "type": "steps",
+      "blocks": {
+        "b0": {
+          "type": "step",
+          "settings": {
+            "title": "Auswählen",
+            "text": "Einzeln oder im Pack, alle im selben Format. Rabatt rechnet der Warenkorb automatisch.",
+            "time": "2 Minuten"
+          }
+        },
+        "b1": {
+          "type": "step",
+          "settings": {
+            "title": "Bezahlen",
+            "text": "Sicher mit Karte, Apple Pay, PayPal, EPS oder Klarna.",
+            "time": "1 Minute"
+          }
+        },
+        "b2": {
+          "type": "step",
+          "settings": {
+            "title": "Versand",
+            "text": "Wir verpacken knickfrei im Kuvert mit Karton.",
+            "time": "innerhalb 48 h"
+          }
+        },
+        "b3": {
+          "type": "step",
+          "settings": {
+            "title": "Kleben",
+            "text": "Fläche sauber machen, draufkleben, glatt streichen.",
+            "time": "ab 2–4 Werktagen"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "seo": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Rapid Sticker kaufen – direkt aus Wien West",
+        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 2,90 €, ab 5 Stück −5 %, ab 10 Stück −15 %. Mit den <a href=\"/collections/sticker-packs\">Sticker-Packs</a> zahlst du ab 1,78 € pro Sticker. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
+        "no_top": true
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "b0": {
+          "type": "qa",
+          "settings": {
+            "q": "Sind das offizielle Fanartikel?",
+            "a": "<p>Nein. Wien West Sticker ist ein unabhängiges Projekt von Fans. Unsere Motive sind eigene Designs – ohne Vereinswappen und bewusst ohne Logos oder Namen von Fanclubs und Fangruppen.</p>"
+          }
+        },
+        "b1": {
+          "type": "qa",
+          "settings": {
+            "q": "Wie lange halten die Sticker draußen?",
+            "a": "<p>Wir drucken auf Vinyl mit matter Schutzlaminierung. Die Sticker sind wasserfest und UV-beständig. [PLATZHALTER: Angabe der Druckerei]</p>"
+          }
+        },
+        "b2": {
+          "type": "qa",
+          "settings": {
+            "q": "Was kostet der Versand?",
+            "a": "<p>Österreich 3,50 €, Deutschland 4,90 € – ab 20 € gratis. Der Mindestbestellwert liegt bei 10 €.</p>"
+          }
+        },
+        "b3": {
+          "type": "qa",
+          "settings": {
+            "q": "Gibt es Mengenrabatt?",
+            "a": "<p>Ja, automatisch im Warenkorb: ab 5 Einzelstickern −5 %, ab 10 −15 %, Motive gemischt. Packs sind bereits rabattiert.</p>"
+          }
+        },
+        "b4": {
+          "type": "qa",
+          "settings": {
+            "q": "Kann ich für meinen Fanclub größere Mengen bestellen?",
+            "a": "<p>Ja. Ab 100 Stück machen wir dir ein Angebot – schreib uns an servus@wien-west.at.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "link": "shopify://pages/faq"
+      }
+    },
+    "nl": {
+      "type": "newsletter"
+    },
+    "final": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Der nächste Spieltag kommt bestimmt.",
+        "text": "<p>10 Motive, 24,90 €, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>",
+        "product": "10er-mix-pack",
+        "button": "10er Mix-Pack holen"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "usp",
+    "best",
+    "packs",
+    "kultur",
+    "cats",
+    "steps",
+    "seo",
+    "faq",
+    "nl",
+    "final"
+  ]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'de' }}-AT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">{%- endif -%}
+  {%- render 'meta-tags' -%}
+  <link rel="preload" href="{{ 'anton.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ 'inter.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: 'Anton'; src: url('{{ 'anton.woff2' | asset_url }}') format('woff2'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'Inter Variable'; src: url('{{ 'inter.woff2' | asset_url }}') format('woff2'); font-weight: 100 900; font-display: swap; }
+    :root { --g: {{ settings.color_green }}; --g-d: {{ settings.color_green_dark }}; --k: {{ settings.color_black }}; --paper: {{ settings.color_paper }}; }
+  </style>
+  {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+  {%- render 'schema-org' -%}
+  {{ content_for_header }}
+</head>
+<body class="t-{{ template.name }}">
+  <a class="skip" href="#main">Zum Inhalt</a>
+  {% sections 'header-group' %}
+  <main id="main" role="main">
+    {{ content_for_layout }}
+  </main>
+  {% sections 'footer-group' %}
+  {% section 'cart-drawer' %}
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    window.WW = {
+      routes: { cart: '{{ routes.cart_url }}', add: '{{ routes.cart_add_url }}', change: '{{ routes.cart_change_url }}', root: '{{ routes.root_url }}' },
+      mbw: {{ settings.mbw | times: 100 }},
+      drawer: {{ settings.cart_type_drawer | json }},
+      t: { added: 'im Warenkorb', error: 'Das hat nicht geklappt. Bitte nochmal versuchen.' }
+    };
+  </script>
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>
