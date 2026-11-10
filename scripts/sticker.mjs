@@ -367,7 +367,7 @@ const P = [
   ['mystery-15er', 'Mystery-Pack (15 Stück)', 'mystery', { n: 15 }, 'packs', '15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt.', false],
 ];
 
-const PACK = { 'starter-3er': [7.9, 8.7, 3], 'topseller-5er': [12.9, 14.5, 5], 'mix-10er': [24.9, 29, 10], 'kurve-25er': [49, 72.5, 25], 'block-50er': [89, 145, 50], 'mystery-15er': [34.9, 43.5, 15] };
+const PACK = { 'starter-3er': [8.5, 8.7, 3], 'topseller-5er': [13.5, 14.5, 5], 'mix-10er': [25.9, 29, 10], 'kurve-25er': [59.9, 72.5, 25], 'block-50er': [116.9, 145, 50], 'mystery-15er': [37.9, 43.5, 15] };
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
 const writeMd = process.argv.includes('--md');

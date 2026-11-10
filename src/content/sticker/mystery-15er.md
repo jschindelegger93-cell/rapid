@@ -3,7 +3,7 @@ name: "Mystery-Pack (15 Stück)"
 kurz: "15 Sticker, zufällig gezogen. Mit Sondermotiven, die es einzeln nicht gibt."
 typ: pack
 kategorie: packs
-preis: 34.9
+preis: 37.9
 wertEinzeln: 43.5
 stueck: 15
 format: "je ca. 9 × 6 cm"

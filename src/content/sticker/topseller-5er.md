@@ -3,7 +3,7 @@ name: "5er Topseller-Pack"
 kurz: "Fünf Lieblinge aus dem Block in einem Kuvert."
 typ: pack
 kategorie: packs
-preis: 12.9
+preis: 13.5
 wertEinzeln: 14.5
 stueck: 5
 format: "je ca. 9 × 6 cm"

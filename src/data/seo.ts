@@ -69,12 +69,12 @@ export const KATEGORIE_SEITEN = [
     key: 'packs',
     slug: 'sticker-packs',
     h1: 'Sticker-Packs & Sets',
-    title: 'Fußball Sticker Pack & Sticker Set kaufen – bis −39 % | Wien West',
-    description: 'Sticker-Packs mit 3, 5, 10, 15, 25 oder 50 Stück: gemischte Grün-Weiß-Motive ab 1,78 € pro Sticker. Das 10er Mix-Pack um 24,90 € mit Gratis-Versand.',
+    title: 'Fußball Sticker Pack & Sticker Set kaufen – bis −19 % | Wien West',
+    description: 'Sticker-Packs mit 3, 5, 10, 15, 25 oder 50 Stück: gemischte Grün-Weiß-Motive ab 2,34 € pro Sticker. Das 10er Mix-Pack um 25,90 € mit Gratis-Versand.',
     keyword: 'sticker pack fußball',
     intro: [
       'Mehr kleben, weniger zahlen: Unsere Sticker-Packs mischen die beliebtesten Motive in einem Kuvert. Ideal zum Aufteilen im Bus, am Stammtisch oder im Fanclub.',
-      'Das 10er Mix-Pack kostet 24,90 € – Versand gratis. Beim 50er Block-Pack zahlst du nur 1,78 € pro Sticker.',
+      'Das 10er Mix-Pack kostet 25,90 € – Versand gratis. Beim 50er Block-Pack zahlst du nur 2,34 € pro Sticker.',
     ],
     faq: [
       ['Welche Motive sind in den Packs?', 'Eine Mischung aus allen Kategorien – Anti Viola, Forza Rapid, Wien West Hütteldorf und Kurve. Beim Mystery-Pack werden die Motive zufällig gezogen.'],

@@ -3,7 +3,7 @@ name: "10er Mix-Pack"
 kurz: "Zehn verschiedene Motive für die nächste Auswärtsfahrt. Versand gratis."
 typ: pack
 kategorie: packs
-preis: 24.9
+preis: 25.9
 wertEinzeln: 29
 stueck: 10
 format: "je ca. 9 × 6 cm"

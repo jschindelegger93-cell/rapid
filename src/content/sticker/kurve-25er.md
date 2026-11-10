@@ -3,7 +3,7 @@ name: "25er Kurven-Pack"
 kurz: "Für Fanclubs, Stammtische und alle, die auf dem Weg ins Weststadion mehr als einen Laternenmast bekleben."
 typ: pack
 kategorie: packs
-preis: 49
+preis: 59.9
 wertEinzeln: 72.5
 stueck: 25
 format: "je ca. 9 × 6 cm"

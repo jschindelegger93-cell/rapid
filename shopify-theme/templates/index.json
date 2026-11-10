@@ -30,7 +30,7 @@
       "settings": {
         "eyebrow": "Rapid Wien Sticker & Aufkleber",
         "heading": "Hütteldorf klebt überall.",
-        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab 2,90 €, im 10er-Pack um 24,90 € – Versand gratis.</p>",
+        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab 2,90 €, im 10er-Pack um 25,90 € – Versand gratis.</p>",
         "btn1_label": "Alle Sticker ansehen →",
         "btn1_url": "shopify://collections/alle-sticker",
         "pack": "10er-mix-pack",
@@ -123,7 +123,7 @@
       "settings": {
         "eyebrow": "Packs",
         "heading": "Für die Auswärtsfahrt eingepackt",
-        "text": "<p>Ein Kuvert, viele Motive – zum Aufteilen im Bus, im Zug oder am Stammtisch. Bis zu 39 % günstiger als einzeln, das 10er Mix-Pack ist gleich versandkostenfrei.</p>",
+        "text": "<p>Ein Kuvert, viele Motive – zum Aufteilen im Bus, im Zug oder am Stammtisch. Bis zu 19 % günstiger als einzeln, das 10er Mix-Pack ist gleich versandkostenfrei.</p>",
         "link": "shopify://collections/sticker-packs",
         "link_label": "Alle Packs inkl. 50er Block-Pack & Mystery-Pack →"
       }
@@ -281,7 +281,7 @@
       "type": "rich-text",
       "settings": {
         "heading": "Rapid Sticker kaufen – direkt aus Wien West",
-        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 2,90 €, ab 5 Stück −5 %, ab 10 Stück −15 %. Mit den <a href=\"/collections/sticker-packs\">Sticker-Packs</a> zahlst du ab 1,78 € pro Sticker. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
+        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 2,90 €, ab 5 Stück −5 %, ab 10 Stück −15 %. Mit den <a href=\"/collections/sticker-packs\">Sticker-Packs</a> zahlst du ab 2,34 € pro Sticker. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
         "no_top": true
       }
     },
@@ -342,7 +342,7 @@
       "type": "final-cta",
       "settings": {
         "heading": "Der nächste Spieltag kommt bestimmt.",
-        "text": "<p>10 Motive, 24,90 €, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>",
+        "text": "<p>10 Motive, 25,90 €, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>",
         "product": "10er-mix-pack",
         "button": "10er Mix-Pack holen"
       }

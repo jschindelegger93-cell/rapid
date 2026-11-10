@@ -3,7 +3,7 @@ name: "50er Block-Pack"
 kurz: "50 Sticker, alle Motive gemischt. Bester Stückpreis – zum Aufteilen in der Gruppe."
 typ: pack
 kategorie: packs
-preis: 89
+preis: 116.9
 wertEinzeln: 145
 stueck: 50
 format: "je ca. 9 × 6 cm"
