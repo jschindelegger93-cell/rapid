@@ -30,14 +30,15 @@
       "settings": {
         "eyebrow": "Rapid Wien Sticker & Aufkleber",
         "heading": "Hütteldorf klebt überall.",
-        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln ab 2,90 €, im 10er-Pack um 25,90 € – Versand gratis.</p>",
+        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln 2,90 €, im selbst gemischten Mix bis −20 %.</p>",
         "btn1_label": "Alle Sticker ansehen →",
         "btn1_url": "shopify://collections/alle-sticker",
-        "pack": "10er-mix-pack",
         "product_1": "wien-west-huetteldorf-sticker",
         "product_2": "anti-viola-sticker",
         "product_3": "acab-sticker",
-        "product_4": "forza-rapid-block-sticker"
+        "product_4": "forza-rapid-block-sticker",
+        "btn2_label": "Mix zusammenstellen",
+        "btn2_url": "/pages/mix"
       }
     },
     "usp": {
@@ -60,8 +61,8 @@
         "b2": {
           "type": "usp",
           "settings": {
-            "title": "−15 % ab 10 Stück",
-            "text": "−5 % ab 5 · automatisch"
+            "title": "Bis −20 % im Mix",
+            "text": "ab 5 Stück, Motive frei wählbar"
           }
         },
         "b3": {
@@ -90,44 +91,6 @@
         "link_label": "Alle Sticker →"
       }
     },
-    "packs": {
-      "type": "packs",
-      "blocks": {
-        "b0": {
-          "type": "pack",
-          "settings": {
-            "product": "5er-topseller-pack",
-            "highlight": false
-          }
-        },
-        "b1": {
-          "type": "pack",
-          "settings": {
-            "product": "10er-mix-pack",
-            "highlight": true
-          }
-        },
-        "b2": {
-          "type": "pack",
-          "settings": {
-            "product": "25er-kurven-pack",
-            "highlight": false
-          }
-        }
-      },
-      "block_order": [
-        "b0",
-        "b1",
-        "b2"
-      ],
-      "settings": {
-        "eyebrow": "Packs",
-        "heading": "Für die Auswärtsfahrt eingepackt",
-        "text": "<p>Ein Kuvert, viele Motive – zum Aufteilen im Bus, im Zug oder am Stammtisch. Bis zu 19 % günstiger als einzeln, das 10er Mix-Pack ist gleich versandkostenfrei.</p>",
-        "link": "shopify://collections/sticker-packs",
-        "link_label": "Alle Packs inkl. 50er Block-Pack & Mystery-Pack →"
-      }
-    },
     "kultur": {
       "type": "kultur",
       "blocks": {
@@ -142,7 +105,7 @@
           "type": "wert",
           "settings": {
             "title": "Zusammenhalt",
-            "text": "Packs zum Aufteilen – für den Bus, den Stammtisch, die ganze Gruppe."
+            "text": "Mix zum Aufteilen – für den Bus, den Stammtisch, die ganze Gruppe."
           }
         },
         "b2": {
@@ -212,8 +175,8 @@
           "type": "tile",
           "settings": {
             "collection": "sticker-packs",
-            "title": "Packs",
-            "text": "3 bis 50 Stück"
+            "title": "Mix & Mystery",
+            "text": "5 bis 50 Stück, bis −20 %"
           }
         },
         "b5": {
@@ -241,7 +204,7 @@
           "type": "step",
           "settings": {
             "title": "Auswählen",
-            "text": "Einzeln oder im Pack, alle im selben Format. Rabatt rechnet der Warenkorb automatisch.",
+            "text": "Einzeln oder als eigener Mix, alle im selben Format. Den Mix-Rabatt rechnet der Warenkorb automatisch.",
             "time": "2 Minuten"
           }
         },
@@ -281,7 +244,7 @@
       "type": "rich-text",
       "settings": {
         "heading": "Rapid Sticker kaufen – direkt aus Wien West",
-        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 2,90 €, ab 5 Stück −5 %, ab 10 Stück −15 %. Mit den <a href=\"/collections/sticker-packs\">Sticker-Packs</a> zahlst du ab 2,34 € pro Sticker. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
+        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 2,90 €. Stell dir deinen eigenen <a href=\"/pages/mix\">Mix</a> zusammen: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
         "no_top": true
       }
     },
@@ -312,8 +275,8 @@
         "b3": {
           "type": "qa",
           "settings": {
-            "q": "Gibt es Mengenrabatt?",
-            "a": "<p>Ja, automatisch im Warenkorb: ab 5 Einzelstickern −5 %, ab 10 −15 %, Motive gemischt. Packs sind bereits rabattiert.</p>"
+            "q": "Wie funktioniert der Mix-Rabatt?",
+            "a": "<p>Du suchst dir die Motive selbst aus, der Rabatt kommt automatisch im Warenkorb: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %.</p>"
           }
         },
         "b4": {
@@ -342,9 +305,20 @@
       "type": "final-cta",
       "settings": {
         "heading": "Der nächste Spieltag kommt bestimmt.",
-        "text": "<p>10 Motive, 25,90 €, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>",
-        "product": "10er-mix-pack",
-        "button": "10er Mix-Pack holen"
+        "text": "<p>10 Motive deiner Wahl, −10 %, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>",
+        "button": "10er Mix zusammenstellen",
+        "url": "/pages/mix?n=10"
+      }
+    },
+    "mix": {
+      "type": "mix-teaser",
+      "settings": {
+        "eyebrow": "Dein Mix",
+        "heading": "Stell dir deinen Mix zusammen",
+        "text": "<p>Du suchst die Motive aus, der Rabatt kommt automatisch: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Ab 20 € Versand gratis.</p>",
+        "base_cents": 290,
+        "highlight": 10,
+        "mystery": "mystery-pack-15er"
       }
     }
   },
@@ -352,7 +326,7 @@
     "hero",
     "usp",
     "best",
-    "packs",
+    "mix",
     "kultur",
     "cats",
     "steps",

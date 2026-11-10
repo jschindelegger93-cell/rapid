@@ -1,0 +1,152 @@
+{%- assign c = section.settings.collection -%}
+{%- assign tiers = settings.mix_tiers | default: '5:5,10:10,15:12,25:15,50:20' | split: ',' -%}
+<div class="wrap mix">
+  <header class="page-head">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1>{{ section.settings.heading }}</h1>
+    <div class="lead">{{ section.settings.text }}</div>
+  </header>
+
+  <div class="mix-tiers" role="group" aria-label="Mix-Größe wählen">
+    {%- for t in tiers -%}{%- assign p = t | split: ':' -%}
+      <button type="button" class="mix-tier" data-target="{{ p[0] }}"><b>{{ p[0] }}er Mix</b><span>−{{ p[1] }} %</span></button>
+    {%- endfor -%}
+  </div>
+
+  <div class="mix-grid">
+    {%- if c != blank -%}
+      {%- for product in c.products -%}
+        {%- assign v = product.selected_or_first_available_variant -%}
+        {%- if product.type != 'Sticker' -%}{%- continue -%}{%- endif -%}
+        <div class="mix-item{% unless v.available %} off{% endunless %}" data-id="{{ v.id }}" data-price="{{ v.price }}" data-title="{{ product.title | escape }}" data-stock="{% if v.inventory_management == 'shopify' and v.inventory_policy == 'deny' %}{{ v.inventory_quantity }}{% else %}999{% endif %}">
+          <a class="mix-img" href="{{ product.url }}" tabindex="-1">{{ product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,300,400', sizes: '(max-width: 600px) 45vw, 200px', alt: product.title }}</a>
+          <span class="mix-name">{{ product.title | remove: ' Sticker' }}</span>
+          <div class="qty">
+            <button type="button" data-mix="-1" aria-label="{{ product.title | escape }} weniger" {% unless v.available %}disabled{% endunless %}>−</button>
+            <span data-q>0</span>
+            <button type="button" data-mix="1" aria-label="{{ product.title | escape }} mehr" {% unless v.available %}disabled{% endunless %}>+</button>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+
+  {%- assign m = section.settings.mystery -%}
+  {%- if m != blank -%}
+  <div class="mix-mystery">
+    {{ m.featured_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: m.title, width: 150 }}
+    <div><b>Keine Lust zu wählen?</b> Das {{ m.title }} mit 15 zufälligen Motiven inkl. Sondermotiven – {{ m.price | money }}{% if m.compare_at_price > m.price %} statt {{ m.compare_at_price | money }}{% endif %}.</div>
+    <form method="post" action="{{ routes.cart_add_url }}" data-add-form>
+      <input type="hidden" name="id" value="{{ m.selected_or_first_available_variant.id }}"><input type="hidden" name="quantity" value="1">
+      <button class="btn btn--o" type="submit">Mystery-Pack holen</button>
+    </form>
+  </div>
+  {%- endif -%}
+</div>
+
+<div class="mix-bar" id="mix-bar" aria-live="polite">
+  <div class="mix-bar-in">
+    <div class="mix-info">
+      <div><b data-count>0</b> Sticker <span data-pct></span></div>
+      <div class="mix-sum"><s data-old></s> <b data-total>0,00 €</b></div>
+      <div class="ship-bar"><i data-bar style="width:0%"></i></div>
+      <small data-next>Wähle mindestens 5 Sticker für −5 %.</small>
+    </div>
+    <div class="mix-actions">
+      <button type="button" class="btn btn--o btn--sm" data-fill hidden>Auffüllen</button>
+      <button type="button" class="btn btn--g" data-mix-add disabled>In den Warenkorb</button>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="mix-tiers-data">{{ tiers | json }}</script>
+<script>
+(() => {
+  const root = document.querySelector('.mix'); if (!root) return;
+  const bar = document.getElementById('mix-bar');
+  const tiers = JSON.parse(document.getElementById('mix-tiers-data').textContent).map((t) => t.split(':').map(Number));
+  const eur = (c) => new Intl.NumberFormat('de-AT', { style: 'currency', currency: 'EUR' }).format(c / 100);
+  const items = [...root.querySelectorAll('.mix-item')];
+  const q = new Map(items.map((el) => [el, 0]));
+  let target = Number(new URLSearchParams(location.search).get('n')) || 0;
+
+  function render() {
+    let n = 0, sum = 0;
+    q.forEach((v, el) => { n += v; sum += v * Number(el.dataset.price); el.querySelector('[data-q]').textContent = v; el.classList.toggle('on', v > 0); });
+    const cur = [...tiers].reverse().find(([a]) => n >= a);
+    const next = tiers.find(([a]) => n < a);
+    const pct = cur ? cur[1] : 0;
+    const total = Math.round(sum * (100 - pct) / 100);
+    bar.querySelector('[data-count]').textContent = n;
+    bar.querySelector('[data-pct]').textContent = pct ? `· −${pct} %` : '';
+    bar.querySelector('[data-old]').textContent = pct ? eur(sum) : '';
+    bar.querySelector('[data-total]').textContent = eur(total);
+    const goal = target && target > n ? target : (next ? next[0] : n || 1);
+    bar.querySelector('[data-bar]').style.width = Math.min(100, (n / goal) * 100) + '%';
+    bar.querySelector('[data-next]').innerHTML = target && n < target
+      ? `Noch <b>${target - n}</b> bis zu deinem ${target}er Mix (−${(tiers.find(([a]) => a === target) || [0, pct])[1]} %).`
+      : next ? `Noch <b>${next[0] - n}</b> Sticker bis −${next[1]} %.` : 'Maximaler Mix-Rabatt erreicht.';
+    bar.querySelector('[data-mix-add]').disabled = n === 0;
+    const fill = bar.querySelector('[data-fill]');
+    fill.hidden = !(target && n < target);
+    fill.textContent = `Zufällig auf ${target} auffüllen`;
+    root.querySelectorAll('.mix-tier').forEach((b) => b.classList.toggle('on', Number(b.dataset.target) === target));
+    bar.classList.toggle('show', n > 0 || target > 0);
+  }
+
+  root.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-mix]');
+    if (b) {
+      const el = b.closest('.mix-item');
+      const v = Math.max(0, Math.min(Number(el.dataset.stock), q.get(el) + Number(b.dataset.mix)));
+      q.set(el, v); render(); return;
+    }
+    const t = e.target.closest('.mix-tier');
+    if (t) { target = Number(t.dataset.target); render(); }
+  });
+
+  bar.querySelector('[data-fill]').addEventListener('click', () => {
+    let n = 0; q.forEach((v) => (n += v));
+    const pool = items.filter((el) => !el.classList.contains('off'));
+    let i = 0, guard = 0;
+    const order = pool.map((el) => [Math.random(), el]).sort((a, b) => a[0] - b[0]).map((x) => x[1]);
+    while (n < target && guard++ < 1000) {
+      const el = order[i++ % order.length];
+      if (q.get(el) < Number(el.dataset.stock)) { q.set(el, q.get(el) + 1); n++; }
+    }
+    render();
+  });
+
+  bar.querySelector('[data-mix-add]').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const list = [...q].filter(([, v]) => v > 0).map(([el, v]) => ({ id: Number(el.dataset.id), quantity: v }));
+    if (!list.length) return;
+    btn.disabled = true;
+    const W = window.WW || {};
+    try {
+      const r = await fetch(`${W.routes.add}.js`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ items: list, sections: 'cart-drawer' }) });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.description || 'Fehler');
+      W.track?.('add_to_cart', { mix: true, items: list.length });
+      await W.refreshCart?.(data.sections?.['cart-drawer']);
+      q.forEach((_, el) => q.set(el, 0)); target = 0; render();
+      W.openDrawer?.();
+    } catch (err) { W.toast?.(err.message || 'Das hat nicht geklappt.'); }
+    btn.disabled = false;
+  });
+
+  render();
+})();
+</script>
+{% schema %}
+{
+  "name": "Mix zusammenstellen",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Kleine Zeile", "default": "Dein Mix" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Mix zusammenstellen" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Such dir deine Motive selbst aus. Je mehr Sticker, desto höher der Rabatt – automatisch im Warenkorb.</p>" },
+    { "type": "collection", "id": "collection", "label": "Kollektion (Einzelsticker)" },
+    { "type": "product", "id": "mystery", "label": "Mystery-Pack" }
+  ]
+}
+{% endschema %}

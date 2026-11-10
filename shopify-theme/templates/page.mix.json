@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": { "type": "mix-builder", "settings": { "collection": "einzelsticker", "mystery": "mystery-pack-15er" } }
+  },
+  "order": ["main"]
+}

@@ -14,6 +14,7 @@
           <button class="btn btn--o" type="submit">{{ pk.title }} · {{ pk.price | money }}</button>
         </form>
         {%- endif -%}
+        {%- if section.settings.btn2_label != blank -%}<a class="btn btn--o" href="{{ section.settings.btn2_url }}">{{ section.settings.btn2_label }}</a>{%- endif -%}
       </div>
       <ul class="trust">
         {%- for block in section.blocks -%}<li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>{%- endfor -%}
@@ -47,7 +48,9 @@
     { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop.</p>" },
     { "type": "text", "id": "btn1_label", "label": "Button 1", "default": "Alle Sticker ansehen →" },
     { "type": "url", "id": "btn1_url", "label": "Button 1 Link" },
-    { "type": "product", "id": "pack", "label": "Schnellkauf-Pack (Button 2)" },
+    { "type": "product", "id": "pack", "label": "Schnellkauf-Pack (optional)" },
+    { "type": "text", "id": "btn2_label", "label": "Button 2" },
+    { "type": "url", "id": "btn2_url", "label": "Button 2 Link" },
     { "type": "product", "id": "product_1", "label": "Sticker 1" },
     { "type": "product", "id": "product_2", "label": "Sticker 2" },
     { "type": "product", "id": "product_3", "label": "Sticker 3" },

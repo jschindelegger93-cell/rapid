@@ -7,7 +7,7 @@
   </header>
   {%- paginate collection.products by section.settings.per_page -%}
   <div class="coll-bar">
-    <span>{{ collection.products_count }} Produkte · Mengenrabatt ab {{ settings.tier1_qty }} Stück</span>
+    <span>{{ collection.products_count }} Produkte · Mix-Rabatt bis −20 % · <a href="{{ settings.mix_url | default: '/pages/mix' }}">Mix zusammenstellen</a></span>
     <label><span class="visually-hidden">Sortieren</span>
       <select onchange="const u=new URL(location.href);u.searchParams.set('sort_by',this.value);location.href=u">
         {%- for o in collection.sort_options -%}<option value="{{ o.value }}"{% if o.value == collection.sort_by or collection.sort_by == blank and o.value == collection.default_sort_by %} selected{% endif %}>{{ o.name }}</option>{%- endfor -%}

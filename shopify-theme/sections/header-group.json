@@ -5,13 +5,41 @@
     "announcement": {
       "type": "announcement-bar",
       "blocks": {
-        "a1": { "type": "msg", "settings": { "text": "Gratis Versand ab 20 € (AT/DE) – rechtzeitig vor dem nächsten Spieltag" } },
-        "a2": { "type": "msg", "settings": { "text": "Ab 5 Stickern −5 %, ab 10 Stickern <b>−15 %</b> – auch gemischt" } },
-        "a3": { "type": "msg", "settings": { "text": "Aus Wien West verschickt, innerhalb von 48 h" } }
+        "a1": {
+          "type": "msg",
+          "settings": {
+            "text": "Gratis Versand ab 20 € (AT/DE) – rechtzeitig vor dem nächsten Spieltag"
+          }
+        },
+        "a2": {
+          "type": "msg",
+          "settings": {
+            "text": "Eigener Mix: ab 5 Stickern −5 %, ab 50 Stickern <b>−20 %</b>"
+          }
+        },
+        "a3": {
+          "type": "msg",
+          "settings": {
+            "text": "Aus Wien West verschickt, innerhalb von 48 h"
+          }
+        }
       },
-      "block_order": ["a1", "a2", "a3"]
+      "block_order": [
+        "a1",
+        "a2",
+        "a3"
+      ]
     },
-    "header": { "type": "header", "settings": { "menu": "main-menu", "wordmark": "Wien West" } }
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "wordmark": "Wien West"
+      }
+    }
   },
-  "order": ["announcement", "header"]
+  "order": [
+    "announcement",
+    "header"
+  ]
 }

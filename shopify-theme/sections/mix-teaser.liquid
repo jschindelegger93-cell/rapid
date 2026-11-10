@@ -1,0 +1,57 @@
+{%- assign tiers = settings.mix_tiers | default: '5:5,10:10,15:12,25:15,50:20' | split: ',' -%}
+{%- assign base = section.settings.base_cents | default: 290 -%}
+<section class="section dark">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#7bd99b">{{ section.settings.eyebrow }}</span>
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="lead" style="color:#bbb">{{ section.settings.text }}</div>
+    <div class="mixt">
+      {%- for t in tiers -%}{%- assign p = t | split: ':' -%}
+        {%- assign n = p[0] | plus: 0 -%}{%- assign pc = p[1] | plus: 0 -%}
+        {%- assign full = base | times: n -%}{%- assign keep = 100 | minus: pc -%}
+        {%- assign total = full | times: keep | divided_by: 100.0 | round -%}
+        <a class="mixt-c{% if n == section.settings.highlight %} top{% endif %}" href="{{ settings.mix_url | default: '/pages/mix' }}?n={{ n }}">
+          {%- if n == section.settings.highlight -%}<span class="tag">Beliebt</span>{%- endif -%}
+          <b>{{ n }}er Mix</b>
+          <span class="pct">−{{ pc }} %</span>
+          <span class="pp">{{ total | money }} <s>{{ full | money }}</s></span>
+          <span class="per">{{ total | divided_by: n | money }} pro Sticker</span>
+          <span class="go">Selbst zusammenstellen →</span>
+        </a>
+      {%- endfor -%}
+    </div>
+    {%- assign m = section.settings.mystery -%}
+    {%- if m != blank -%}
+      <p style="text-align:center;margin-top:24px;color:#bbb">Keine Lust zu wählen? <a href="{{ m.url }}" style="color:#fff">{{ m.title }} – 15 zufällige Motive um {{ m.price | money }}</a></p>
+    {%- endif -%}
+  </div>
+</section>
+<style>
+.mixt { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 28px; }
+.mixt-c { position: relative; display: grid; gap: 6px; justify-items: center; text-align: center; padding: 22px 12px; border: 1px solid #333; border-radius: var(--r); color: #fff; text-decoration: none; transition: border-color .15s, transform .15s; }
+.mixt-c:hover { border-color: #7bd99b; transform: translateY(-2px); }
+.mixt-c.top { border: 2px solid #7bd99b; }
+.mixt-c b { font: 400 26px/1 var(--head); text-transform: uppercase; }
+.mixt-c .pct { color: #7bd99b; font-weight: 800; font-size: 20px; }
+.mixt-c .pp { font-weight: 700; }
+.mixt-c .pp s { color: #888; font-weight: 400; font-size: 13px; }
+.mixt-c .per { color: #aaa; font-size: 13px; }
+.mixt-c .go { margin-top: 6px; font-size: 13px; font-weight: 700; color: #7bd99b; }
+.mixt-c .tag { position: absolute; top: -11px; background: #7bd99b; color: #111; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; }
+@media (max-width: 900px) { .mixt { grid-template-columns: repeat(2, 1fr); } .mixt-c:last-child { grid-column: 1 / -1; } }
+@media (prefers-reduced-motion: reduce) { .mixt-c { transition: none; } }
+</style>
+{% schema %}
+{
+  "name": "Mix-Stufen",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Kleine Zeile", "default": "Dein Mix" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Stell dir deinen Mix zusammen" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "number", "id": "base_cents", "label": "Einzelpreis in Cent", "default": 290 },
+    { "type": "number", "id": "highlight", "label": "Hervorgehobene Stufe (Stück)", "default": 10 },
+    { "type": "product", "id": "mystery", "label": "Mystery-Pack" }
+  ],
+  "presets": [{ "name": "Mix-Stufen" }]
+}
+{% endschema %}

@@ -10,7 +10,7 @@
   endif
 -%}
 <article class="card">
-  {%- if product.tags contains 'neu' -%}<span class="badge">Neu</span>{%- elsif is_pack and v.compare_at_price > v.price -%}<span class="badge badge--k">−{{ v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price }} %</span>{%- elsif product.tags contains 'bestseller' -%}<span class="badge">Bestseller</span>{%- endif -%}
+  {%- if product.tags contains 'neu' -%}<span class="badge">Neu</span>{%- elsif is_pack and v.compare_at_price > v.price -%}<span class="badge badge--k">−{{ v.compare_at_price | minus: v.price | times: 100.0 | divided_by: v.compare_at_price | round }} %</span>{%- elsif product.tags contains 'bestseller' -%}<span class="badge">Bestseller</span>{%- endif -%}
   <div class="img">
     {%- if product.featured_image -%}
       {{ product.featured_image | image_url: width: 600 | image_tag: loading: lazy, widths: '240,360,480,600', sizes: '(max-width: 600px) 45vw, 280px', alt: product.featured_image.alt | default: product.title }}

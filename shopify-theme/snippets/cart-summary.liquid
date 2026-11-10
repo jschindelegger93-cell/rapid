@@ -13,13 +13,19 @@
     assign pct = 100
   endif
   assign next_qty = 0
-  if singles < settings.tier1_qty
-    assign next_qty = settings.tier1_qty | minus: singles
-    assign next_pct = settings.tier1_pct
-  elsif singles < settings.tier2_qty
-    assign next_qty = settings.tier2_qty | minus: singles
-    assign next_pct = settings.tier2_pct
-  endif
+  assign cur_pct = 0
+  assign tiers = settings.mix_tiers | default: '5:5,10:10,15:12,25:15,50:20' | split: ','
+  for t in tiers
+    assign tp = t | split: ':'
+    assign tq = tp[0] | plus: 0
+    assign tpc = tp[1] | plus: 0
+    if singles >= tq
+      assign cur_pct = tpc
+    elsif next_qty == 0
+      assign next_qty = tq | minus: singles
+      assign next_pct = tpc
+    endif
+  endfor
 -%}
 <div class="ship">
   {%- if cart.item_count == 0 -%}Gratis Versand ab {{ free_cents | money_without_trailing_zeros }} (AT/DE)
@@ -62,7 +68,7 @@
       {%- endfor -%}
     {%- endcapture -%}
     {%- if shown > 0 -%}
-      <p class="ship" style="margin:14px 0 4px">{% if next_qty > 0 %}Noch <b>{{ next_qty }} Sticker</b> bis −{{ next_pct }} % auf alle Einzelsticker{% else %}Dazu passt:{% endif %}</p>
+      <p class="ship" style="margin:14px 0 4px">{% if next_qty > 0 %}{% if cur_pct > 0 %}Mix-Rabatt −{{ cur_pct }} % aktiv. {% endif %}Noch <b>{{ next_qty }} Sticker</b> bis −{{ next_pct }} % auf deinen Mix{% else %}Dazu passt:{% endif %}</p>
       <div class="upsell">{{ ups }}</div>
     {%- endif -%}
   {%- endif -%}

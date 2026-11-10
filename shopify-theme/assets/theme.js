@@ -120,4 +120,5 @@
     const inp = btn.parentElement.querySelector('input');
     inp.value = Math.max(1, (parseInt(inp.value) || 1) + Number(btn.dataset.qtyStep));
   }));
+  W.refreshCart = refresh; W.openDrawer = openDrawer; W.toast = toast; W.track = track;
 })();

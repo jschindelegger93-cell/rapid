@@ -42,7 +42,7 @@
       <h1>{{ product.title }}</h1>
       <p class="p">{{ v.price | money }}{% if v.compare_at_price > v.price %}<s>{{ v.compare_at_price | money }}</s>{% endif %}</p>
       <p class="vat">inkl. MwSt., zzgl. <a href="/pages/versand-zahlung">Versand</a> · {% if is_pack %}{{ stueck }} Stück · {{ v.price | divided_by: stueck | money }} pro Sticker{% else %}ca. 9 × 6 cm{% endif %}</p>
-      {%- unless is_pack -%}<p class="hint">Mengenrabatt: ab {{ settings.tier1_qty }} Einzelstickern −{{ settings.tier1_pct }} %, ab {{ settings.tier2_qty }} −{{ settings.tier2_pct }} % – automatisch im Warenkorb, auch gemischt.</p>{%- endunless -%}
+      {%- unless is_pack -%}<p class="hint"><b>Mix-Rabatt</b> – Motive frei kombinieren: {% render 'mix-tiers' %}. <a href="{{ settings.mix_url | default: '/pages/mix' }}">Mix zusammenstellen →</a></p>{%- endunless -%}
       {%- form 'product', product, data-add-form: 'true', class: 'buy-form' -%}
         <input type="hidden" name="id" value="{{ v.id }}">
         <div class="buy">
