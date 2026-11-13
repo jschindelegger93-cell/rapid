@@ -8,7 +8,7 @@
         {%- assign p = block.settings.product -%}
         {%- if p == blank -%}{%- continue -%}{%- endif -%}
         {%- assign v = p.selected_or_first_available_variant -%}
-        {%- assign stueck = v.compare_at_price | divided_by: 290 | at_least: 1 -%}
+        {%- assign stueck = v.compare_at_price | divided_by: 350 | at_least: 1 -%}
         <div class="pack{% if block.settings.highlight %} top{% endif %}" {{ block.shopify_attributes }}>
           {%- if block.settings.highlight -%}<span class="tag">Beliebteste Wahl</span>{%- endif -%}
           {{ p.featured_image | image_url: width: 360 | image_tag: width: 180, height: 180, loading: 'lazy', alt: p.title }}

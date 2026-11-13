@@ -1,5 +1,5 @@
 {%- assign tiers = settings.mix_tiers | default: '5:5,10:10,15:12,25:15,50:20' | split: ',' -%}
-{%- assign base = section.settings.base_cents | default: 290 -%}
+{%- assign base = section.settings.base_cents | default: 350 -%}
 <section class="section dark">
   <div class="wrap">
     <span class="eyebrow" style="color:#7bd99b">{{ section.settings.eyebrow }}</span>
@@ -48,7 +48,7 @@
     { "type": "text", "id": "eyebrow", "label": "Kleine Zeile", "default": "Dein Mix" },
     { "type": "text", "id": "heading", "label": "Überschrift", "default": "Stell dir deinen Mix zusammen" },
     { "type": "richtext", "id": "text", "label": "Text" },
-    { "type": "number", "id": "base_cents", "label": "Einzelpreis in Cent", "default": 290 },
+    { "type": "number", "id": "base_cents", "label": "Einzelpreis in Cent", "default": 350 },
     { "type": "number", "id": "highlight", "label": "Hervorgehobene Stufe (Stück)", "default": 10 },
     { "type": "product", "id": "mystery", "label": "Mystery-Pack" }
   ],

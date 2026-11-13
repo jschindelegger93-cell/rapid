@@ -30,7 +30,7 @@
       "settings": {
         "eyebrow": "Rapid Wien Sticker & Aufkleber",
         "heading": "Hütteldorf klebt überall.",
-        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln 2,90 €, im selbst gemischten Mix bis −20 %.</p>",
+        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln 3,50 €, im selbst gemischten Mix bis −20 %.</p>",
         "btn1_label": "Alle Sticker ansehen →",
         "btn1_url": "shopify://collections/alle-sticker",
         "product_1": "wien-west-huetteldorf-sticker",
@@ -48,7 +48,7 @@
           "type": "usp",
           "settings": {
             "title": "Mindestbestellwert 10 €",
-            "text": "z. B. 4 Sticker"
+            "text": "z. B. 3 Sticker"
           }
         },
         "b1": {
@@ -244,7 +244,7 @@
       "type": "rich-text",
       "settings": {
         "heading": "Rapid Sticker kaufen – direkt aus Wien West",
-        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 2,90 €. Stell dir deinen eigenen <a href=\"/pages/mix\">Mix</a> zusammen: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
+        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 3,50 €. Stell dir deinen eigenen <a href=\"/pages/mix\">Mix</a> zusammen: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
         "no_top": true
       }
     },
@@ -316,7 +316,7 @@
         "eyebrow": "Dein Mix",
         "heading": "Stell dir deinen Mix zusammen",
         "text": "<p>Du suchst die Motive aus, der Rabatt kommt automatisch: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Ab 20 € Versand gratis.</p>",
-        "base_cents": 290,
+        "base_cents": 350,
         "highlight": 10,
         "mystery": "mystery-pack-15er"
       }
