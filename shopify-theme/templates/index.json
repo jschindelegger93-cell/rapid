@@ -212,7 +212,7 @@
           "type": "step",
           "settings": {
             "title": "Bezahlen",
-            "text": "Sicher mit Karte, Apple Pay, PayPal, EPS oder Klarna.",
+            "text": "Sicher mit Karte, Apple Pay, PayPal oder eps.",
             "time": "1 Minute"
           }
         },
