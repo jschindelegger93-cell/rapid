@@ -55,7 +55,7 @@
           "type": "usp",
           "settings": {
             "title": "Gratis ab 20 €",
-            "text": "sonst 3,50 € Versand (AT)"
+            "text": "sonst 2,50 € Versand (AT)"
           }
         },
         "b2": {
@@ -262,14 +262,14 @@
           "type": "qa",
           "settings": {
             "q": "Wie lange halten die Sticker draußen?",
-            "a": "<p>Wir drucken auf Vinyl mit matter Schutzlaminierung. Die Sticker sind wasserfest und UV-beständig. [PLATZHALTER: Angabe der Druckerei]</p>"
+            "a": "<p>Wir drucken auf Vinyl mit matter Schutzlaminierung. Die Sticker sind wasserfest und UV-beständig.</p>"
           }
         },
         "b2": {
           "type": "qa",
           "settings": {
             "q": "Was kostet der Versand?",
-            "a": "<p>Österreich 3,50 €, Deutschland 4,90 € – ab 20 € gratis. Der Mindestbestellwert liegt bei 10 €.</p>"
+            "a": "<p>Österreich 2,50 €, Deutschland 3,50 € – jeweils gratis ab 20 €. EU und Schweiz 5,00 €. Der Mindestbestellwert liegt bei 10 €.</p>"
           }
         },
         "b3": {
