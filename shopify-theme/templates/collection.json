@@ -3,12 +3,49 @@
     "main": {
       "type": "main-collection"
     },
+    "mood": {
+      "type": "mood-strip",
+      "blocks": {
+        "m0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-karlskirche.jpg",
+            "caption": "Karlsplatz"
+          }
+        },
+        "m1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/anti-viola-sticker-prater-hauptallee.jpg",
+            "caption": "Prater Hauptallee"
+          }
+        },
+        "m2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-schoenbrunn-gloriette.jpg",
+            "caption": "Schönbrunn"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2"
+      ],
+      "settings": {
+        "eyebrow": "Unterwegs in Wien",
+        "heading": "So sehen sie draußen aus",
+        "cols": 3
+      }
+    },
     "nl": {
       "type": "newsletter"
     }
   },
   "order": [
     "main",
+    "mood",
     "nl"
   ]
 }

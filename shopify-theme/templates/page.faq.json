@@ -1,10 +1,47 @@
 {
   "sections": {
+    "mood": {
+      "type": "mood-strip",
+      "blocks": {
+        "m0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-naschmarkt.jpg",
+            "caption": "Naschmarkt"
+          }
+        },
+        "m1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/anti-viola-sticker-donaukanal.jpg",
+            "caption": "Donaukanal"
+          }
+        },
+        "m2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-donauinsel.jpg",
+            "caption": "Donauinsel"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2"
+      ],
+      "settings": {
+        "cols": 3,
+        "narrow": true,
+        "show_captions": false
+      }
+    },
     "main": {
       "type": "main-page-faq"
     }
   },
   "order": [
+    "mood",
     "main"
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page"
+    },
+    "mood": {
+      "type": "mood-strip",
+      "blocks": {
+        "m0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-christkindlmarkt.jpg",
+            "caption": "Christkindlmarkt am Rathaus"
+          }
+        },
+        "m1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/anti-viola-sticker-bahnhof-huetteldorf.jpg",
+            "caption": "Bahnhof Hütteldorf"
+          }
+        },
+        "m2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-donauinsel.jpg",
+            "caption": "Donauinsel"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2"
+      ],
+      "settings": {
+        "cols": 3,
+        "narrow": true,
+        "show_captions": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mood"
+  ]
+}

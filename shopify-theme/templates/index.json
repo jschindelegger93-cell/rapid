@@ -320,11 +320,73 @@
         "highlight": 10,
         "mystery": "mystery-pack-15er"
       }
+    },
+    "mood": {
+      "type": "mood-strip",
+      "blocks": {
+        "m0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-wuerstelstand.jpg",
+            "caption": "Am Würstelstand"
+          }
+        },
+        "m1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-christkindlmarkt.jpg",
+            "caption": "Christkindlmarkt am Rathaus"
+          }
+        },
+        "m2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/anti-viola-sticker-bahnhof-huetteldorf.jpg",
+            "caption": "Bahnhof Hütteldorf"
+          }
+        },
+        "m3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-heuriger.jpg",
+            "caption": "Beim Heurigen"
+          }
+        },
+        "m4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-prater-riesenrad.jpg",
+            "caption": "Prater"
+          }
+        },
+        "m5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/anti-viola-sticker-stephansplatz.jpg",
+            "caption": "Stephansplatz"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "settings": {
+        "eyebrow": "Unterwegs in Wien",
+        "heading": "Wien West klebt überall",
+        "text": "Vom Würstelstand bis zum Christkindlmarkt: unsere Sticker dort, wo Grün-Weiß zuhause ist.",
+        "cols": 3
+      }
     }
   },
   "order": [
     "hero",
     "usp",
+    "mood",
     "best",
     "mix",
     "kultur",

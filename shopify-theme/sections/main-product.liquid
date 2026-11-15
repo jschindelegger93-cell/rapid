@@ -28,13 +28,25 @@
   {% render 'breadcrumbs', crumbs: crumbs %}
   <div class="pdp">
     <div>
-      <div class="stage">
-        {%- if product.featured_image -%}
-          {{ product.featured_image | image_url: width: 1000 | image_tag: widths: '400,600,800,1000', sizes: '(max-width: 860px) 90vw, 560px', loading: 'eager', fetchpriority: 'high', alt: product.featured_image.alt | default: product.title }}
-        {%- endif -%}
+      <div class="stage" data-stage>
+        {%- for img in product.images -%}
+          {%- if forloop.first -%}
+            {{ img | image_url: width: 1000 | image_tag: widths: '400,600,800,1000', sizes: '(max-width: 860px) 90vw, 560px', loading: 'eager', fetchpriority: 'high', alt: img.alt | default: product.title }}
+          {%- else -%}
+            <img class="is-photo" hidden data-zoom="{{ img | image_url: width: 1600 }}" src="{{ img | image_url: width: 1000 }}" srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 1000 }} 1000w" sizes="(max-width: 860px) 90vw, 560px" width="{{ img.width }}" height="{{ img.height }}" loading="lazy" alt="{{ img.alt | default: product.title | escape }}">
+          {%- endif -%}
+        {%- endfor -%}
       </div>
       {%- if product.images.size > 1 -%}
-      <div class="pdp-thumbs">{%- for img in product.images offset: 1 -%}{{ img | image_url: width: 160 | image_tag: loading: 'lazy', alt: img.alt | default: product.title }}{%- endfor -%}</div>
+      <div class="pdp-thumbs" role="group" aria-label="Produktbilder">
+        {%- for img in product.images -%}
+          <button type="button" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Bild {{ forloop.index }} anzeigen"{% if forloop.first %} class="is-sticker"{% endif %}>{{ img | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}</button>
+        {%- endfor -%}
+      </div>
+      <script>
+      (function(){var s=document.querySelector('[data-stage]');if(!s)return;var imgs=s.querySelectorAll('img');var ts=document.querySelectorAll('.pdp-thumbs button');
+      ts.forEach(function(t,k){t.addEventListener('click',function(){imgs.forEach(function(m,i){m.hidden=i!==k});ts.forEach(function(b,i){b.setAttribute('aria-current',i===k?'true':'false')});s.classList.toggle('is-photo',k>0)})})})();
+      </script>
       {%- endif -%}
     </div>
     <div class="info">

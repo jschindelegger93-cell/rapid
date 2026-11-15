@@ -1,6 +1,51 @@
 {
   "sections": {
-    "main": { "type": "mix-builder", "settings": { "collection": "einzelsticker", "mystery": "mystery-pack-15er" } }
+    "main": {
+      "type": "mix-builder",
+      "settings": {
+        "collection": "einzelsticker",
+        "mystery": "mystery-pack-15er"
+      }
+    },
+    "mood": {
+      "type": "mood-strip",
+      "blocks": {
+        "m0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-heuriger.jpg",
+            "caption": "Beim Heurigen"
+          }
+        },
+        "m1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/anti-viola-sticker-donaukanal.jpg",
+            "caption": "Donaukanal"
+          }
+        },
+        "m2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-wuerstelstand.jpg",
+            "caption": "Am Würstelstand"
+          }
+        }
+      },
+      "block_order": [
+        "m0",
+        "m1",
+        "m2"
+      ],
+      "settings": {
+        "eyebrow": "Dein Mix unterwegs",
+        "heading": "Ein Mix, viele Plätze",
+        "cols": 3
+      }
+    }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "mood"
+  ]
 }

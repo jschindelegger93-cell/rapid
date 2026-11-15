@@ -122,3 +122,12 @@
   }));
   W.refreshCart = refresh; W.openDrawer = openDrawer; W.toast = toast; W.track = track;
 })();
+
+/* Lightbox für Fotos mit data-zoom */
+document.addEventListener('click', function (e) {
+  var box = e.target.closest('.lightbox'); if (box) { box.remove(); return; }
+  var t = e.target.closest('[data-zoom]'); if (!t) return;
+  var o = document.createElement('div'); o.className = 'lightbox'; o.setAttribute('role', 'dialog'); o.setAttribute('aria-label', 'Bild vergrößert');
+  var i = document.createElement('img'); i.src = t.getAttribute('data-zoom'); i.alt = t.alt || ''; o.appendChild(i); document.body.appendChild(o);
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { var b = document.querySelector('.lightbox'); if (b) b.remove(); } });
