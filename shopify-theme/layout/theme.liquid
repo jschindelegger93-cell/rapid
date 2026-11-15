@@ -6,7 +6,8 @@
   <meta name="theme-color" content="#111111">
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-  {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">{%- endif -%}
+  {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">{%- else -%}<link rel="icon" type="image/png" sizes="64x64" href="{{ 'favicon.png' | asset_url }}">{%- endif -%}
+  <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | asset_url }}">
   {%- render 'meta-tags' -%}
   <link rel="preload" href="{{ 'anton.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ 'inter.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
