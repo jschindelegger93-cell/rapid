@@ -10,15 +10,46 @@
       <input id="nl-email" type="email" name="contact[email]" required autocomplete="email" placeholder="deine@email.at">
       <button class="btn btn--g" type="submit">10 % sichern</button>
     {%- endform -%}
+    <p class="form-msg" id="nl-done" hidden style="color:#fff;width:100%;font-weight:600">Fast geschafft: Bestätige kurz deine E-Mail-Adresse. Dein 10-%-Code kommt gleich danach.</p>
     <small>Mit der Anmeldung stimmst du dem Erhalt unseres Newsletters zu. Abmeldung jederzeit möglich. <a href="/pages/datenschutz" style="color:#ccc">Datenschutz</a></small>
   </div>
 </section>
+<script>
+  (function () {
+    var form = document.getElementById('nl-form');
+    if (!form || !window.fetch) return;
+    var sent = false;
+    form.addEventListener('submit', function (e) {
+      if (sent) return;
+      var input = form.querySelector('input[type="email"]');
+      if (!input || !input.value) return;
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id={{ section.settings.klaviyo_id }}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
+        body: JSON.stringify({ data: { type: 'subscription', attributes: { custom_source: 'Shop-Formular', profile: { data: { type: 'profile', attributes: { email: input.value } } } }, relationships: { list: { data: { type: 'list', id: '{{ section.settings.klaviyo_list }}' } } } } })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('klaviyo ' + r.status);
+        form.hidden = true;
+        document.getElementById('nl-done').hidden = false;
+      }).catch(function () {
+        sent = true;
+        if (btn) btn.disabled = false;
+        form.submit();
+      });
+    });
+  })();
+</script>
 {% schema %}
 {
   "name": "Newsletter",
   "settings": [
     { "type": "text", "id": "heading", "label": "Überschrift", "default": "10 % auf deine erste Bestellung" },
-    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Neue Motive, Drops vor dem Derby und dein Willkommens-Code.</p>" }
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Neue Motive, Drops vor dem Derby und dein Willkommens-Code.</p>" },
+    { "type": "text", "id": "klaviyo_id", "label": "Klaviyo: öffentliche Konto-ID", "default": "XmmBRV" },
+    { "type": "text", "id": "klaviyo_list", "label": "Klaviyo: Listen-ID", "default": "UJDaTw" }
   ],
   "presets": [{ "name": "Newsletter" }]
 }
