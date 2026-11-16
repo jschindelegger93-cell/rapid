@@ -17,7 +17,7 @@
     {%- endif -%}
   </div>
   <h3><a href="{{ product.url }}">{{ product.title | remove: ' Sticker' }}</a></h3>
-  <p class="meta">{% if is_pack %}{{ stueck }} Stück · {{ v.price | divided_by: stueck | money }} / Stk.{% else %}9 × 6 cm · wetterfest{% endif %}</p>
+  <p class="meta">{% if is_pack %}{{ stueck }} Stück · {{ v.price | divided_by: stueck | money }} / Stk.{% else %}9 × 6 cm · Premium-Vinyl{% endif %}</p>
   <div class="row">
     {%- render 'price', product: product -%}
     {%- if v.available -%}

@@ -18,7 +18,7 @@
         "b2": {
           "type": "fact",
           "settings": {
-            "text": "Wetterfestes Vinyl, matt laminiert"
+            "text": "Dickes Premium-Vinyl, jahrelang wetterfest"
           }
         },
         "b3": {
@@ -29,9 +29,9 @@
         }
       },
       "block_order": [
+        "b2",
         "b0",
         "b1",
-        "b2",
         "b3"
       ]
     },

@@ -12,7 +12,7 @@
         "b1": {
           "type": "trust",
           "settings": {
-            "text": "Wetterfestes Vinyl, UV-beständig"
+            "text": "Dickes Premium-Vinyl, jahrelang wetterfest"
           }
         },
         "b2": {
@@ -30,15 +30,18 @@
       "settings": {
         "eyebrow": "Rapid Wien Sticker & Aufkleber",
         "heading": "Hütteldorf klebt überall.",
-        "text": "<p>Von Fans aus dem Westen für Fans überall: 30 wetterfeste Sticker für Laternenmast, Bahnhofsklo, Spind und Laptop. Einzeln 3,50 €, im selbst gemischten Mix bis −20 %.</p>",
+        "highlight": "überall",
+        "highlight_color": "#ff9a3c",
+        "text": "<p>Direkt aus dem Westen Wiens.<strong> Premium-Sticker aus dickem Vinyl, gebaut für Regen, Frost und Sonne, jahrelang.</strong> Für Laternenmast, Spind, Laptop und jede Auswärtsfahrt.&nbsp;</p>",
         "btn1_label": "Alle Sticker ansehen →",
         "btn1_url": "shopify://collections/alle-sticker",
+        "pack": "",
+        "btn2_label": "Mix zusammenstellen",
+        "btn2_url": "/pages/mix",
         "product_1": "wien-west-huetteldorf-sticker",
         "product_2": "anti-viola-sticker",
         "product_3": "acab-sticker",
-        "product_4": "forza-rapid-block-sticker",
-        "btn2_label": "Mix zusammenstellen",
-        "btn2_url": "/pages/mix"
+        "product_4": "forza-rapid-block-sticker"
       }
     },
     "usp": {
@@ -47,8 +50,8 @@
         "b0": {
           "type": "usp",
           "settings": {
-            "title": "Mindestbestellwert 10 €",
-            "text": "z. B. 3 Sticker"
+            "title": "Premium-Qualität",
+            "text": "dickes Vinyl, jahrelang wetterfest"
           }
         },
         "b1": {
@@ -68,8 +71,8 @@
         "b3": {
           "type": "usp",
           "settings": {
-            "title": "Im Kuvert",
-            "text": "knickfrei mit Karton"
+            "title": "Mindestbestellwert 10 €",
+            "text": "z. B. 3 Sticker"
           }
         }
       },
@@ -78,7 +81,47 @@
         "b1",
         "b2",
         "b3"
-      ]
+      ],
+      "settings": {}
+    },
+    "mood": {
+      "type": "mood-strip",
+      "blocks": {
+        "m5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-steffl-sticker-kahlenberg_7ad44460-8906-41a1-bea4-6a70bbfd3a46.jpg",
+            "caption": "Stephansplatz"
+          }
+        },
+        "m2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/anti-viola-sticker-bahnhof-huetteldorf.jpg",
+            "caption": "Bahnhof Hütteldorf"
+          }
+        },
+        "m4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-prater-riesenrad.jpg",
+            "caption": "Prater"
+          }
+        }
+      },
+      "block_order": [
+        "m5",
+        "m2",
+        "m4"
+      ],
+      "settings": {
+        "eyebrow": "Unterwegs in Wien",
+        "heading": "Wien West klebt überall",
+        "text": "Vom Prater bis zum Kahlenberg: Rapid ist überall!",
+        "cols": 3,
+        "show_captions": true,
+        "narrow": false
+      }
     },
     "best": {
       "type": "featured-collection",
@@ -89,6 +132,17 @@
         "limit": 8,
         "only_singles": true,
         "link_label": "Alle Sticker →"
+      }
+    },
+    "mix": {
+      "type": "mix-teaser",
+      "settings": {
+        "eyebrow": "Dein Mix",
+        "heading": "Stell dir deinen Mix zusammen",
+        "text": "<p>Du suchst die Motive aus, der Rabatt kommt automatisch: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Ab 20 € Versand gratis.</p>",
+        "base_cents": 350,
+        "highlight": 10,
+        "mystery": "mystery-pack-15er"
       }
     },
     "kultur": {
@@ -111,8 +165,8 @@
         "b2": {
           "type": "wert",
           "settings": {
-            "title": "Auswärts dabei",
-            "text": "Wetterfest, damit der Sticker am Auswärtsbahnhof auch nach dem Winter noch hängt."
+            "title": "Gebaut für Jahre",
+            "text": "Dickes Premium-Vinyl, gebaut für Regen, Frost und Sonne. Der Sticker hängt am Auswärtsbahnhof auch nach Jahren noch."
           }
         },
         "b3": {
@@ -195,7 +249,11 @@
         "b3",
         "b4",
         "b5"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Kategorien",
+        "heading": "Wo soll's kleben?"
+      }
     },
     "steps": {
       "type": "steps",
@@ -228,7 +286,7 @@
           "type": "step",
           "settings": {
             "title": "Kleben",
-            "text": "Fläche sauber machen, draufkleben, glatt streichen.",
+            "text": "Fläche sauber machen, draufkleben, glatt streichen. Hält jahrelang.",
             "time": "ab 1–2 Werktagen"
           }
         }
@@ -238,13 +296,17 @@
         "b1",
         "b2",
         "b3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "So läuft's",
+        "heading": "Bestellt, verschickt, geklebt"
+      }
     },
     "seo": {
       "type": "rich-text",
       "settings": {
         "heading": "Rapid Sticker kaufen – direkt aus Wien West",
-        "text": "<p>Bei Wien West Sticker findest du 30 Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, auf wetterfestem Vinyl.</p><p>Einzelsticker kosten 3,50 €. Stell dir deinen eigenen <a href=\"/pages/mix\">Mix</a> zusammen: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
+        "text": "<p>Bei Wien West Sticker findest du 30 Premium-Fan-Sticker im echten Kurven-Look: Strick-Schal-Optik, Block-Buchstaben auf Streifen, Schablone und Sprühlack. Von <a href=\"/collections/anti-viola-sticker\">Anti Viola</a> über <a href=\"/collections/forza-rapid-sticker\">Forza Rapid</a> bis <a href=\"/collections/wien-west-huetteldorf-sticker\">Wien West Hütteldorf</a> – alle Motive im gleichen Format von 9 × 6 cm, gedruckt auf dickem Premium-Vinyl, gebaut für Regen, Frost und Sonne, jahrelang.</p><p>Einzelsticker kosten 3,50 €. Stell dir deinen eigenen <a href=\"/pages/mix\">Mix</a> zusammen: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Wir verschicken aus Wien innerhalb von 48 Stunden, ab 20 € gratis.</p>",
         "no_top": true
       }
     },
@@ -262,7 +324,7 @@
           "type": "qa",
           "settings": {
             "q": "Wie lange halten die Sticker draußen?",
-            "a": "<p>Wir drucken auf Vinyl mit matter Schutzlaminierung. Die Sticker sind wasserfest und UV-beständig.</p>"
+            "a": "<p>Jahrelang. Wir drucken auf dickes Premium-Vinyl mit matter Schutzlaminierung – gebaut für Regen, Frost und Sonne: wasserfest, frostfest und UV-beständig.</p>"
           }
         },
         "b2": {
@@ -295,91 +357,28 @@
         "b4"
       ],
       "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Kurz gefragt",
         "link": "shopify://pages/faq"
       }
     },
     "nl": {
-      "type": "newsletter"
+      "type": "newsletter",
+      "settings": {
+        "heading": "10 % auf deine erste Bestellung",
+        "text": "<p>Neue Motive, Drops vor dem Derby und dein Willkommens-Code.</p>",
+        "klaviyo_id": "XmmBRV",
+        "klaviyo_list": "UJDaTw"
+      }
     },
     "final": {
       "type": "final-cta",
       "settings": {
         "heading": "Der nächste Spieltag kommt bestimmt.",
         "text": "<p>10 Motive deiner Wahl, −10 %, Versand gratis – rechtzeitig vor der nächsten Auswärtsfahrt.</p>",
-        "button": "10er Mix zusammenstellen",
-        "url": "/pages/mix?n=10"
-      }
-    },
-    "mix": {
-      "type": "mix-teaser",
-      "settings": {
-        "eyebrow": "Dein Mix",
-        "heading": "Stell dir deinen Mix zusammen",
-        "text": "<p>Du suchst die Motive aus, der Rabatt kommt automatisch: ab 5 Stück −5 %, ab 10 −10 %, ab 15 −12 %, ab 25 −15 %, ab 50 −20 %. Ab 20 € Versand gratis.</p>",
-        "base_cents": 350,
-        "highlight": 10,
-        "mystery": "mystery-pack-15er"
-      }
-    },
-    "mood": {
-      "type": "mood-strip",
-      "blocks": {
-        "m0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-wuerstelstand.jpg",
-            "caption": "Am Würstelstand"
-          }
-        },
-        "m1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-christkindlmarkt.jpg",
-            "caption": "Christkindlmarkt am Rathaus"
-          }
-        },
-        "m2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/anti-viola-sticker-bahnhof-huetteldorf.jpg",
-            "caption": "Bahnhof Hütteldorf"
-          }
-        },
-        "m3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-heuriger.jpg",
-            "caption": "Beim Heurigen"
-          }
-        },
-        "m4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-prater-riesenrad.jpg",
-            "caption": "Prater"
-          }
-        },
-        "m5": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/anti-viola-sticker-stephansplatz.jpg",
-            "caption": "Stephansplatz"
-          }
-        }
-      },
-      "block_order": [
-        "m0",
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5"
-      ],
-      "settings": {
-        "eyebrow": "Unterwegs in Wien",
-        "heading": "Wien West klebt überall",
-        "text": "Vom Würstelstand bis zum Christkindlmarkt: unsere Sticker dort, wo Grün-Weiß zuhause ist.",
-        "cols": 3
+        "product": "",
+        "url": "/pages/mix?n=10",
+        "button": "10er Mix zusammenstellen"
       }
     }
   },

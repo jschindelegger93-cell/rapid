@@ -54,6 +54,7 @@
       <h1>{{ product.title }}</h1>
       <p class="p">{{ v.price | money }}{% if v.compare_at_price > v.price %}<s>{{ v.compare_at_price | money }}</s>{% endif %}</p>
       <p class="vat">inkl. MwSt., zzgl. <a href="/pages/versand-zahlung">Versand</a> · {% if is_pack %}{{ stueck }} Stück · {{ v.price | divided_by: stueck | money }} pro Sticker{% else %}ca. 9 × 6 cm{% endif %}</p>
+      <div class="quality" style="display:flex;gap:12px;align-items:flex-start;background:#eef6f1;border:1px solid #00753d;border-radius:10px;padding:12px 14px;margin:14px 0 6px"><span aria-hidden="true" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#00753d;color:#fff;font-weight:800">✓</span><span style="font-size:15px;line-height:1.4"><b>Premium-Qualität:</b> Premium-Sticker aus dickem Vinyl, gebaut für Regen, Frost und Sonne, jahrelang. Matt laminiert, wasserfest, frostfest und UV-beständig.</span></div>
       {%- unless is_pack -%}<p class="hint"><b>Mix-Rabatt</b> – Motive frei kombinieren: {% render 'mix-tiers' %}. <a href="{{ settings.mix_url | default: '/pages/mix' }}">Mix zusammenstellen →</a></p>{%- endunless -%}
       {%- form 'product', product, data-add-form: 'true', class: 'buy-form' -%}
         <input type="hidden" name="id" value="{{ v.id }}">
@@ -72,7 +73,8 @@
       <div class="txt rte">{{ product.description }}</div>
       <table class="spec">
         <tr><th>Format</th><td>{% if is_pack %}{{ stueck }} × ca. 9 × 6 cm{% else %}ca. 9 × 6 cm{% endif %}</td></tr>
-        <tr><th>Material</th><td>Vinyl, matt laminiert, wetterfest</td></tr>
+        <tr><th>Material</th><td>Dickes Premium-Vinyl, matt laminiert</td></tr>
+        <tr><th>Haltbarkeit</th><td>Jahrelang draußen: wasserfest, frostfest, UV-beständig</td></tr>
         {%- if cat != blank -%}<tr><th>Kategorie</th><td><a href="{{ cat.url }}">{{ cat.title }}</a></td></tr>{%- endif -%}
         {%- if v.sku != blank -%}<tr><th>Artikelnummer</th><td>{{ v.sku }}</td></tr>{%- endif -%}
       </table>
