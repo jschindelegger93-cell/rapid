@@ -8,6 +8,7 @@
   --line: #dcd8cc;
   --muted: #5b5a55;
   --w: #ffffff;
+  --o: #ff9a3c;
   --r: 16px;
   --shadow: 0 10px 30px -12px rgb(0 0 0 / 0.25);
   --head: 'Anton', Impact, 'Arial Narrow', sans-serif;
@@ -26,6 +27,11 @@ body {
 }
 img, svg { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
+/* iOS Safari: keine System-Blau-Farbe auf Buttons/Feldern/Datenerkennung */
+button, input, select, textarea { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+button { -webkit-appearance: none; appearance: none; }
+input[type="checkbox"], input[type="radio"], input[type="range"], progress { accent-color: var(--g); }
+a[x-apple-data-detectors] { color: inherit !important; text-decoration: inherit; }
 h1, h2, h3 { font-family: var(--head); font-weight: 400; line-height: 1.02; letter-spacing: 0.01em; text-transform: uppercase; text-wrap: balance; margin: 0 0 0.4em; }
 h1 { font-size: clamp(44px, 8vw, 104px); }
 h2 { font-size: clamp(34px, 5vw, 60px); }
@@ -179,7 +185,7 @@ details p { padding-bottom: 16px; color: var(--muted); }
 /* ---- Startseite ---- */
 .hero { padding: clamp(40px, 7vw, 90px) 0 clamp(40px, 6vw, 70px); background: radial-gradient(circle at 85% 20%, #dff0e5 0, transparent 50%); }
 .hero-in { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
-mark { background: linear-gradient(transparent 55%, #ff9a3c 55%); color: inherit; padding: 0 .05em; }
+mark { background: linear-gradient(transparent 55%, var(--o) 55%); color: inherit; padding: 0 .05em; }
 .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 22px; }
 .trust { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-weight: 600; font-size: 15px; }
 .trust li::before { content: '✓'; display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--g); color: #fff; font-size: 12px; margin-right: 10px; }
@@ -306,7 +312,7 @@ mark { background: linear-gradient(transparent 55%, #ff9a3c 55%); color: inherit
 .mix { padding-bottom: 140px; }
 .mix-tiers { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 24px; }
 .mix-tier { display: grid; gap: 2px; text-align: left; min-height: 56px; padding: 8px 16px; border-radius: 14px; border: 1.5px solid var(--line); background: var(--w); font: inherit; cursor: pointer; }
-.mix-tier b { font-family: var(--head); font-weight: 400; font-size: 18px; text-transform: uppercase; letter-spacing: .02em; }
+.mix-tier b { color: var(--o); font-family: var(--head); font-weight: 400; font-size: 18px; text-transform: uppercase; letter-spacing: .02em; }
 .mix-tier span { color: var(--g); font-weight: 700; font-size: 14px; }
 .mix-tier.on, .mix-tier:hover { border-color: var(--g); background: var(--g-l); }
 .mix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
