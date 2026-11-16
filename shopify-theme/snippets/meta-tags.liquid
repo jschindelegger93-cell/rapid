@@ -5,7 +5,7 @@
   endif
   assign og_title = seo_title | default: shop.name
   assign og_type = 'website'
-  assign og_desc = page_description | default: settings.default_description | default: shop.description | default: 'Rapid-Fan-Sticker aus Wien West: Anti Viola, Forza Rapid, Wien West Hütteldorf & mehr. 30 wetterfeste Motive einzeln 3,50 €, im Mix bis −20 %, gratis Versand ab 20 €.'
+  assign og_desc = page_description | default: settings.default_description | default: shop.description | default: 'Rapid-Fan-Sticker aus Wien West: Anti Viola, Forza Rapid, Wien West Hütteldorf & mehr. Premium-Sticker aus dickem Vinyl, einzeln 3,50 €, im Mix bis −20 %, gratis Versand ab 20 €.'
   if request.page_type == 'product'
     assign og_type = 'product'
   endif
