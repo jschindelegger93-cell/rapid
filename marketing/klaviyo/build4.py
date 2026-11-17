@@ -18,7 +18,7 @@ top2=top+[('weststadion-sticker','Weststadion','3,50 €','weststadion.png'),('w
 # Kampagne 1 Fanklub
 a=head('Servus Fanklub!','Absolute Premium-Sticker für euren Klub. Forza Rapid!')
 a+=img(H1,'Premium-Sticker für euren Fanklub',S+'/collections/all')+band()
-a+=punch('Servus Fanklub!','Pickerl für Block, Bus und Stammbeisl. Von Fans aus Hütteldorf, für euch.')
+a+=punch('Servus Fanklub!','Sticker für Block, Bus und Stammbeisl. Von Fans aus Hütteldorf, für euch.')
 a+=premium()
 a+=grid(top)+btn('Motive aussuchen',S+'/collections/all')
 a+=text('Je mehr, desto billiger',['Für den ganzen Klub mitbestellen zahlt sich aus:'])
