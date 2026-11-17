@@ -33,14 +33,35 @@
         "b0",
         "b1",
         "b3"
-      ]
+      ],
+      "settings": {}
     },
     "related": {
-      "type": "related-products"
+      "type": "related-products",
+      "settings": {
+        "heading": "Passt dazu"
+      }
+    },
+    "extra": {
+      "type": "product-extra",
+      "settings": {}
+    },
+    "best": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Bestseller",
+        "heading": "Auch beliebt bei Rapid-Fans",
+        "collection": "bestseller",
+        "limit": 4,
+        "only_singles": true,
+        "link_label": "Alle Rapid Sticker →"
+      }
     }
   },
   "order": [
     "main",
-    "related"
+    "related",
+    "extra",
+    "best"
   ]
 }

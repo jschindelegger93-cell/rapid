@@ -1,0 +1,148 @@
+{%- liquid
+  assign t = product.title | remove: ' Sticker' | remove: ' Schal-Sticker'
+  if product.title contains 'Schal-Sticker'
+    assign t = product.title | remove: ' Schal-Sticker' | append: ' (Schal)'
+  endif
+  assign imgs = product.metafields.custom.lifestyle_images.value
+  assign story = product.metafields.custom.story.value
+  assign is_mystery = false
+  if product.handle contains 'mystery'
+    assign is_mystery = true
+  endif
+  assign mystery = all_products['mystery-pack-15er']
+  assign base = 350
+-%}
+<style>
+  .px-sec{padding:56px 0 8px}
+  .px-sec h2{margin:0 0 14px}
+  .px-life{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:18px 0 0}
+  .px-life figure{margin:0;border-radius:var(--r,14px);overflow:hidden;background:#111;position:relative}
+  .px-life img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .px-life figcaption{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px}
+  .px-life.one{grid-template-columns:1fr}
+  .px-life.one img{aspect-ratio:16/8}
+  .px-cols{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+  .px-box{background:var(--paper,#f4f2ec);border-radius:var(--r,14px);padding:22px}
+  .px-box h3{margin:0 0 10px;font-size:20px}
+  .px-box ul{margin:0;padding:0;list-style:none}
+  .px-box li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08);display:flex;justify-content:space-between;gap:10px}
+  .px-box li:last-child{border:0}
+  .px-box b.g{color:#00753d}
+  .px-ticks{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .px-ticks li{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:12px 14px;font-size:15px}
+  .px-ticks li b{display:block;color:#00753d;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+  .px-up{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  .px-card{display:flex;gap:14px;align-items:center;background:#111;color:#fff;border-radius:var(--r,14px);padding:16px;text-decoration:none}
+  .px-card img{width:84px;height:84px;object-fit:contain;flex:0 0 84px;background:#fff;border-radius:10px}
+  .px-card .k{font-size:12px;letter-spacing:2px;color:#ff9a3c;font-weight:800;text-transform:uppercase}
+  .px-card .h{font-size:18px;font-weight:800;margin:2px 0}
+  .px-card .s{font-size:14px;color:#ccc}
+  .px-faq details{border-bottom:1px solid rgba(0,0,0,.1);padding:14px 0}
+  .px-faq summary{font-weight:700;cursor:pointer;list-style:none}
+  .px-faq summary::-webkit-details-marker{display:none}
+  .px-faq summary::after{content:'+';float:right;font-weight:400}
+  .px-faq details[open] summary::after{content:'–'}
+  .px-faq p{margin:10px 0 0;color:var(--muted,#555)}
+  @media(max-width:800px){.px-cols,.px-up{grid-template-columns:1fr}.px-ticks{grid-template-columns:1fr}}
+</style>
+
+{%- if imgs != blank -%}
+<section class="px-sec">
+  <div class="wrap">
+    <span class="eyebrow">Im Einsatz</span>
+    <h2>{{ t }} in freier Wildbahn</h2>
+    <div class="px-life{% if imgs.size == 1 %} one{% endif %}">
+      {%- for im in imgs limit: 3 -%}
+        <figure>
+          <img src="{{ im | image_url: width: 1400 }}" alt="{{ im.alt | escape }}" loading="lazy" width="1400" height="{{ 1400 | divided_by: im.aspect_ratio | round }}">
+          {%- if im.alt != blank -%}<figcaption>{{ im.alt }}</figcaption>{%- endif -%}
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+<section class="px-sec">
+  <div class="wrap px-cols">
+    <div class="prose rte">
+      <span class="eyebrow">Rapid Sticker</span>
+      <h2>{{ t }}: Rapid Sticker in absoluter Premium-Qualität</h2>
+      {%- if story != blank -%}{{ story }}{%- endif -%}
+      {%- if is_mystery -%}
+        <p>Das Mystery-Pack ist der schnellste Weg zu einer ganzen Ladung Rapid Sticker: 15 zufällige Motive, darunter auch Sondermotive, die es einzeln nicht gibt. Perfekt zum Aufteilen in der Gruppe oder als Geschenk für grün-weiße Freunde.</p>
+      {%- else -%}
+        <p>Der {{ t }} Rapid Sticker ist ein Premium-Sticker aus dickem Vinyl, gebaut für Regen, Frost und Sonne, jahrelang. Die matte Schutzlaminierung macht ihn wasserfest, frostfest und UV-beständig. So bleibt das Grün-Weiß kräftig, egal ob am Laternenmast, am Auswärtsbahnhof oder auf dem Laptop.</p>
+        <p>Mit 9 × 6 cm hat jeder Rapid Sticker bei uns das gleiche Format. Dein {{ t }} passt also perfekt in jeden Mix und neben alle anderen Motive. Einzeln kostet er 3,50 €, im eigenen Mix wird jeder Rapid Sticker günstiger.</p>
+      {%- endif -%}
+      <p>Wien West Sticker ist ein Projekt von Fans aus Hütteldorf. Wir drucken Rapid Sticker, die wir selbst kleben würden, und verschicken sie aus Wien innerhalb von 48 Stunden, knickfrei im Kuvert mit Karton.</p>
+      <ul class="px-ticks">
+        <li><b>Premium-Vinyl</b>Dick, matt laminiert, gestochen scharf</li>
+        <li><b>Jahrelang draußen</b>Wasserfest, frostfest, UV-beständig</li>
+        <li><b>Versand aus Wien</b>In 48 h unterwegs, ab 20 € gratis</li>
+        <li><b>Von Fans</b>Kein Kommerz-Kitsch, nur Kurvencode</li>
+      </ul>
+    </div>
+    <aside>
+      <div class="px-box">
+        <h3>Mix-Rabatt: Rapid Sticker günstiger</h3>
+        <ul>
+          {%- assign tiers = settings.mix_tiers | default: '5:5,10:10,15:12,25:15,50:20' | split: ',' -%}
+          {%- for tr in tiers -%}{%- assign p = tr | split: ':' -%}
+            {%- assign n = p[0] | plus: 0 -%}{%- assign pc = p[1] | plus: 0 -%}{%- assign keep = 100 | minus: pc -%}
+            <li><span>ab {{ n }} Stück</span><span><b class="g">−{{ pc }} %</b> · {{ base | times: keep | divided_by: 100.0 | round | money }}/Stück</span></li>
+          {%- endfor -%}
+        </ul>
+        <p style="margin:12px 0 0;font-size:14px;color:#555">Motive frei mischen, Rabatt zieht automatisch im Warenkorb.</p>
+        <a class="btn btn--g" style="margin-top:14px;width:100%;justify-content:center" href="/pages/mix?n=10">10er Mix zusammenstellen →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="px-sec">
+  <div class="wrap">
+    <span class="eyebrow">Mehr Grün-Weiß</span>
+    <h2>Mach mehr draus</h2>
+    <div class="px-up">
+      <a class="px-card" href="/pages/mix?n=10">
+        <img src="{{ product.featured_image | image_url: width: 200 }}" alt="{{ product.title | escape }}" loading="lazy" width="84" height="84">
+        <span><span class="k">Spar-Tipp</span><span class="h">{{ t }} im 10er Mix</span><span class="s">10 Motive deiner Wahl, −10 %, Versand gratis</span></span>
+      </a>
+      {%- if mystery != blank and mystery.id != product.id -%}
+      <a class="px-card" href="{{ mystery.url }}">
+        <img src="{{ mystery.featured_image | image_url: width: 200 }}" alt="{{ mystery.title | escape }}" loading="lazy" width="84" height="84">
+        <span><span class="k">Überraschung</span><span class="h">{{ mystery.title }}</span><span class="s">15 zufällige Rapid Sticker um {{ mystery.price | money }}, Versand gratis</span></span>
+      </a>
+      {%- else -%}
+      <a class="px-card" href="/collections/alle-sticker">
+        <span><span class="k">Alle Motive</span><span class="h">Selbst aussuchen</span><span class="s">Alle Rapid Sticker einzeln ab 3,50 €</span></span>
+      </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<section class="px-sec">
+  <div class="wrap prose px-faq">
+    <span class="eyebrow">FAQ</span>
+    <h2>Fragen zum {{ t }} Rapid Sticker</h2>
+    <details><summary>Wie lange hält der {{ t }} Sticker draußen?</summary><p>Jahrelang. Er ist aus dickem Premium-Vinyl mit matter Schutzlaminierung, wasserfest, frostfest und UV-beständig.</p></details>
+    <details><summary>Wie groß ist der Sticker?</summary><p>Ca. 9 × 6 cm. Alle Rapid Sticker bei uns haben das gleiche Format, damit sie perfekt zusammenpassen.</p></details>
+    <details><summary>Wo kann ich Rapid Sticker kleben?</summary><p>Auf glatten, sauberen Flächen: Laptop, Trinkflasche, Spind, Koffer, Helm, Gitarrenkoffer oder Auto. Fläche kurz abwischen, draufkleben, glatt streichen. Bitte nur dort kleben, wo es erlaubt ist.</p></details>
+    <details><summary>Was kostet der Versand?</summary><p>Österreich 2,50 €, Deutschland 3,50 €, jeweils gratis ab 20 €. EU und Schweiz 5,00 €. Mindestbestellwert 10 €.</p></details>
+    <details><summary>Ist das ein offizielles Vereinsprodukt?</summary><p>Nein. Wien West Sticker ist ein unabhängiges Projekt von Rapid-Fans, mit eigenen Designs ohne Vereinswappen.</p></details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":{{ 'Wie lange hält der ' | append: t | append: ' Sticker draußen?' | json }},"acceptedAnswer":{"@type":"Answer","text":"Jahrelang. Er ist aus dickem Premium-Vinyl mit matter Schutzlaminierung, wasserfest, frostfest und UV-beständig."}},
+{"@type":"Question","name":"Wie groß ist der Sticker?","acceptedAnswer":{"@type":"Answer","text":"Ca. 9 × 6 cm. Alle Rapid Sticker bei Wien West Sticker haben das gleiche Format."}},
+{"@type":"Question","name":"Was kostet der Versand?","acceptedAnswer":{"@type":"Answer","text":"Österreich 2,50 €, Deutschland 3,50 €, jeweils gratis ab 20 €. EU und Schweiz 5,00 €."}}
+]}
+</script>
+
+{% schema %}
+{ "name": "Produkt: Mehr Inhalt", "settings": [] }
+{% endschema %}
