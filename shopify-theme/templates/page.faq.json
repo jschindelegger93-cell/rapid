@@ -6,22 +6,22 @@
         "m0": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-naschmarkt.jpg",
-            "caption": "Naschmarkt"
+            "image": "shopify://shop_images/wien-west-steffl-sticker-kahlenberg.jpg",
+            "caption": "Kahlenberg"
           }
         },
         "m1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/anti-viola-sticker-donaukanal.jpg",
-            "caption": "Donaukanal"
+            "image": "shopify://shop_images/derbysieger-sticker-bim-haltestelle.jpg",
+            "caption": "Bim-Haltestelle"
           }
         },
         "m2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-donauinsel.jpg",
-            "caption": "Donauinsel"
+            "image": "shopify://shop_images/acab-sticker-skateboard-donaukanal.jpg",
+            "caption": "Donaukanal"
           }
         }
       },

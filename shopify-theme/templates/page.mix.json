@@ -13,22 +13,22 @@
         "m0": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-heuriger.jpg",
-            "caption": "Beim Heurigen"
+            "image": "shopify://shop_images/anti-violett-sticker-kaffeehaus.jpg",
+            "caption": "Im Kaffeehaus"
           }
         },
         "m1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/anti-viola-sticker-donaukanal.jpg",
-            "caption": "Donaukanal"
+            "image": "shopify://shop_images/forza-rapid-spray-sticker-unterfuehrung.jpg",
+            "caption": "In der Unterführung"
           }
         },
         "m2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-wuerstelstand.jpg",
-            "caption": "Am Würstelstand"
+            "image": "shopify://shop_images/anti-viola-sticker-stephansplatz.jpg",
+            "caption": "Am Stephansplatz"
           }
         }
       },

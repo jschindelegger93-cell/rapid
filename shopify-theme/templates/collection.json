@@ -9,22 +9,22 @@
         "m0": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-karlskirche.jpg",
-            "caption": "Karlsplatz"
+            "image": "shopify://shop_images/derbysieger-sticker-bim-haltestelle.jpg",
+            "caption": "Bim-Haltestelle"
           }
         },
         "m1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/anti-viola-sticker-prater-hauptallee.jpg",
-            "caption": "Prater Hauptallee"
+            "image": "shopify://shop_images/anti-viola-sticker-stephansplatz.jpg",
+            "caption": "Stephansplatz"
           }
         },
         "m2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-schoenbrunn-gloriette.jpg",
-            "caption": "Schönbrunn"
+            "image": "shopify://shop_images/forza-rapid-spray-sticker-unterfuehrung.jpg",
+            "caption": "U-Bahn-Unterführung"
           }
         }
       },

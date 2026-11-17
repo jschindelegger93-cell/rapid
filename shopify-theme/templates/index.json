@@ -87,32 +87,32 @@
     "mood": {
       "type": "mood-strip",
       "blocks": {
-        "m5": {
+        "m0": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/wien-west-steffl-sticker-kahlenberg_7ad44460-8906-41a1-bea4-6a70bbfd3a46.jpg",
-            "caption": "Stephansplatz"
+            "caption": "Kahlenberg"
+          }
+        },
+        "m1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/rapid-wien-fan-szene-sticker-huetteldorf.jpg",
+            "caption": "Hütteldorf"
           }
         },
         "m2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/anti-viola-sticker-bahnhof-huetteldorf.jpg",
-            "caption": "Bahnhof Hütteldorf"
-          }
-        },
-        "m4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-prater-riesenrad.jpg",
-            "caption": "Prater"
+            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-christkindlmarkt.jpg",
+            "caption": "Rathausplatz"
           }
         }
       },
       "block_order": [
-        "m5",
-        "m2",
-        "m4"
+        "m0",
+        "m1",
+        "m2"
       ],
       "settings": {
         "eyebrow": "Unterwegs in Wien",

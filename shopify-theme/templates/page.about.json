@@ -16,15 +16,15 @@
         "m1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/anti-viola-sticker-bahnhof-huetteldorf.jpg",
-            "caption": "Bahnhof Hütteldorf"
+            "image": "shopify://shop_images/rapid-wien-fan-szene-sticker-huetteldorf.jpg",
+            "caption": "Hütteldorf"
           }
         },
         "m2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/wien-west-huetteldorf-sticker-donauinsel.jpg",
-            "caption": "Donauinsel"
+            "image": "shopify://shop_images/anti-violett-sticker-kaffeehaus.jpg",
+            "caption": "Kaffeehaus"
           }
         }
       },
