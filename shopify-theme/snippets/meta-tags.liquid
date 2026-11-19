@@ -13,6 +13,9 @@
     assign og_img = page_image | image_url: width: 1200
   elsif settings.og_image != blank
     assign og_img = settings.og_image | image_url: width: 1200
+  else
+    assign og_img = 'og-default.jpg' | asset_url
+    assign og_default = true
   endif
   assign title_suffix = ''
   unless seo_title contains shop.name
@@ -33,6 +36,8 @@
 {%- if og_img -%}
 <meta property="og:image" content="https:{{ og_img }}">
 <meta property="og:image:secure_url" content="https:{{ og_img }}">
+{%- if og_default -%}<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Rapid Sticker aus Wien West">{%- endif -%}
+<meta name="twitter:image" content="https:{{ og_img }}">
 {%- endif -%}
 {%- if request.page_type == 'product' -%}
 <meta property="product:price:amount" content="{{ product.price | money_without_currency | replace: ',', '.' | strip }}">

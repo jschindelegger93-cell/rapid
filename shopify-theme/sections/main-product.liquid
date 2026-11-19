@@ -40,7 +40,7 @@
       {%- if product.images.size > 1 -%}
       <div class="pdp-thumbs" role="group" aria-label="Produktbilder">
         {%- for img in product.images -%}
-          <button type="button" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Bild {{ forloop.index }} anzeigen"{% if forloop.first %} class="is-sticker"{% endif %}>{{ img | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}</button>
+          <button type="button" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Bild {{ forloop.index }} anzeigen"{% if forloop.first %} class="is-sticker"{% endif %}>{{ img | image_url: width: 200 | image_tag: loading: 'lazy', alt: product.title }}</button>
         {%- endfor -%}
       </div>
       <script>

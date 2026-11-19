@@ -27,9 +27,9 @@
         {%- if p != blank and p.featured_image -%}
           {%- assign cls = 'p' | append: forloop.index0 -%}
           {%- if forloop.first -%}
-            {{ p.featured_image | image_url: width: 600 | image_tag: class: cls, widths: '300,450,600', sizes: '(max-width: 860px) 50vw, 280px', loading: 'eager', fetchpriority: 'high', alt: '' }}
+            {{ p.featured_image | image_url: width: 600 | image_tag: class: cls, widths: '300,450,600', sizes: '(max-width: 860px) 50vw, 280px', loading: 'eager', fetchpriority: 'high', alt: p.title }}
           {%- else -%}
-            {{ p.featured_image | image_url: width: 600 | image_tag: class: cls, widths: '300,450,600', sizes: '(max-width: 860px) 50vw, 280px', loading: 'eager', alt: '' }}
+            {{ p.featured_image | image_url: width: 600 | image_tag: class: cls, widths: '300,450,600', sizes: '(max-width: 860px) 50vw, 280px', loading: 'eager', alt: p.title }}
           {%- endif -%}
         {%- endif -%}
       {%- endfor -%}

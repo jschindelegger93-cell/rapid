@@ -6,7 +6,8 @@
   "@id": "{{ shop.url }}/#organization",
   "name": {{ shop.name | json }},
   "url": {{ shop.url | json }},
-  {%- if settings.logo != blank %}"logo": {{ settings.logo | image_url: width: 512 | prepend: 'https:' | json }},{% endif %}
+  "logo": {{ 'favicon-192.png' | asset_url | prepend: 'https:' | json }},
+  "image": {{ 'og-default.jpg' | asset_url | prepend: 'https:' | json }},
   "email": {{ settings.contact_email | json }},
   "description": "Unabhängiger Fan-Shop für Grün-Weiß Sticker aus Wien West.",
   "areaServed": ["AT","DE","CH","EU"],
