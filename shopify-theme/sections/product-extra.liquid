@@ -98,12 +98,12 @@
     <div class="px-up">
       <a class="px-card" href="/pages/mix?n=10">
         <img src="{{ product.featured_image | image_url: width: 200 }}" alt="{{ product.title | escape }}" loading="lazy" width="84" height="84">
-        <span><span class="k">Spar-Tipp</span><span class="h">{{ t }} im 10er Mix</span><span class="s">10 Sticker deiner Wahl, −10 %, Versand gratis</span></span>
+        <span><span class="k">Spar-Tipp</span><span class="h">{{ t }} im 10er Mix</span><span class="s">10 Sticker deiner Wahl, −10 %, Versand gratis in AT &amp; DE</span></span>
       </a>
       {%- if mystery != blank and mystery.id != product.id -%}
       <a class="px-card" href="{{ mystery.url }}">
         <img src="{{ mystery.featured_image | image_url: width: 200 }}" alt="{{ mystery.title | escape }}" loading="lazy" width="84" height="84">
-        <span><span class="k">Überraschung</span><span class="h">{{ mystery.title }}</span><span class="s">15 zufällige Rapid Sticker um {{ mystery.price | money }}, Versand gratis</span></span>
+        <span><span class="k">Überraschung</span><span class="h">{{ mystery.title }}</span><span class="s">15 zufällige Rapid Sticker um {{ mystery.price | money }}, Versand gratis in AT &amp; DE</span></span>
       </a>
       {%- else -%}
       <a class="px-card" href="/collections/alle-sticker">
@@ -130,7 +130,7 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":{{ 'Wie lang hält der ' | append: t | append: ' Sticker draußen?' | json }},"acceptedAnswer":{"@type":"Answer","text":"Jahrelang. Dickes Vinyl mit matter Laminierung, wasserfest, frostfest und UV-beständig."}},
 {"@type":"Question","name":"Wie groß ist der Sticker?","acceptedAnswer":{"@type":"Answer","text":"9 × 6 cm. Alle Rapid Sticker bei Wien West Sticker haben dasselbe Format."}},
-{"@type":"Question","name":"Was kostet der Versand?","acceptedAnswer":{"@type":"Answer","text":"Österreich 2,50 €, Deutschland 3,50 €, ab 20 € gratis. EU und Schweiz 5,00 €."}}
+{"@type":"Question","name":"Was kostet der Versand?","acceptedAnswer":{"@type":"Answer","text":"Österreich 2,50 €, Deutschland 3,50 €, ab 20 € gratis. EU und Schweiz 5,00 €. Mindestbestellwert 10 €."}}
 ]}
 </script>
 
