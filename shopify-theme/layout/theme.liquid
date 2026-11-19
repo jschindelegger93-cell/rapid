@@ -7,7 +7,11 @@
   <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-  {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">{%- else -%}<link rel="icon" type="image/png" sizes="64x64" href="{{ 'favicon.png' | asset_url }}">{%- endif -%}
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ 'favicon-192.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ 'favicon-96.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ 'favicon-48.png' | asset_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
+  <link rel="shortcut icon" href="{{ 'favicon-48.png' | asset_url }}">
   <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | asset_url }}">
   {%- render 'meta-tags' -%}
   <link rel="preload" href="{{ 'anton.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
